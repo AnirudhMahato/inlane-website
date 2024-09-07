@@ -1,0 +1,60 @@
+.hero {
+  /* display: flex;
+    justify-content: space-between; */
+    align-items: center;
+    color: black;
+    padding: 36px 0px 36px 0px;
+  }
+  
+  .container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px 20px;
+  }
+  
+  .heroContent {
+    max-width: 50%;
+  }
+  
+  .heroContent h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+  
+  .heroContent p {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+  
+  .primaryButton {
+    background-color: #ff6600;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+  }
+  
+  .heroImage img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column;
+    }
+  
+    .heroContent {
+      max-width: 100%;
+      text-align: center;
+    }
+  
+    .heroImage {
+      text-align: center;
+      width: 100%;
+      height: auto;
+    }
+  }
+  

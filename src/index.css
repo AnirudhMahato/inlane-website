@@ -1,0 +1,63 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins',
+
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #555;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+body {
+  background-image: url('/Background.svg');
+  background-color: #FFFEEB;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  font-family: 'Bricolage Grotesque'
+
+}
+
+@font-face {
+  font-family: "glancyr";
+  src: url('/src/assets/ttf/glancyr-glancyr-regular-400.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "glancyr";
+  src: url('/src/assets/ttf/glancyr-glancyr-bold-700.ttf');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "glancyr";
+  src: url('/src/assets/ttf/glancyr-glancyr-medium-500.ttf');
+  font-weight: medium;
+  font-style: normal;
+}
+
+
+.link {
+  text-decoration: none;
+}

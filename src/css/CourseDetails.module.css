@@ -1,0 +1,155 @@
+.courseHeader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+}
+
+.courseHeader h2 {
+  font-size: 36px;
+}
+
+.courseHeader h4 {
+  font-size: 28px;
+}
+
+.courseHeader p {
+  font-size: 22px;
+}
+
+
+
+@media (max-width: 600px) {
+  .courseHeader {
+    padding: 20px;
+    text-align: center;
+  }
+
+  .courseHeader p,
+  .courseHeader h1,
+  .courseHeader h2,
+  .courseHeader h3,
+  .courseHeader h4,
+  .courseHeader h5,
+  .courseHeader h6 {
+    margin-bottom: 6px;
+    /* Adjust the value as needed */
+  }
+
+  .courseHeader h2 {
+    font-size: 28px;
+  }
+
+  .courseHeader h4 {
+    font-size: 22px;
+  }
+
+  .courseHeader p {
+    font-size: 18px;
+  }
+}
+
+.courseDetails {
+  background-image: url('/TestimonialBG.svg');
+  background-color: #00CE84;
+  padding: 40px 20px;
+  /* display: flex; */
+  justify-content: center;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-content: space-around;
+  align-items: flex-start;
+}
+
+.courseOverview,
+.courseInfo {
+  flex: 1;
+  min-width: 300px;
+  margin: 20px;
+}
+
+.courseOverview h2,
+.courseInfo h2 {
+  font-size: 28px;
+  margin-bottom: 15px;
+}
+
+.courseOverview p {
+  font-size: 16px;
+}
+
+.courseInfo ul {
+  list-style: none;
+  padding: 0;
+}
+
+.courseInfo li {
+  margin-bottom: 10px;
+}
+
+.accordion {
+  border: none;
+  color: #333;
+  cursor: pointer;
+  padding: 18px 0px 18px 0px;
+  width: 100%;
+  text-align: left;
+  outline: none;
+  transition: 0.4s;
+}
+
+.accordionDetails ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.accordionDetails li {
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  margin-bottom: 16px
+}
+
+.buttonContainer button {
+  background-color: #ffc229;
+  margin: 0 10px;
+  /* Optional: Additional margin if needed */
+}
+
+.clickedButton {
+  background-color: #00c281 !important;
+  /* Highlight color */
+  color: #ffffff !important;
+  /* Text color for better contrast */
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.5) !important;
+  /* Shadow effect */
+}
+
+.beginnerCourseSecondDiv {
+  display: flex;
+  justify-content: center;
+  /* Center horizontally */
+  align-items: center;
+  /* Center vertically */
+  flex-direction: column;
+  /* Stack children vertically */
+  text-align: center;
+  /* Center text inside the div */
+}
