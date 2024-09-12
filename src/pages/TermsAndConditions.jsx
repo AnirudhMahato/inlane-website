@@ -45,9 +45,10 @@ const TermsAndConditions = () => {
         applicable Services. Supplemental terms are in addition to, and shall be
         deemed a part of, the Terms for the purposes of the applicable Services.
         Your acceptance of the User Terms shall be deemed to include your
-        acceptance of the privacy policy available at <a href="/privacy-policy">link</a> . By accepting these
-        User Terms, You also allow InLane to send you promotional emails and SMS
-        alerts from time to time.
+        acceptance of the privacy policy available at{" "}
+        <a href="/privacy-policy">link</a> . By accepting these User Terms, You
+        also allow InLane to send you promotional emails and SMS alerts from
+        time to time.
         <br></br>
         <br></br>IT IS HEREBY EXPRESSLY CLARIFIED THAT THESE USER TERMS WILL NOT
         APPLY TO CORPORATE ENTITIES WHO ARE GOVERNED BY THE INLANE CORPORATE
@@ -157,52 +158,53 @@ const TermsAndConditions = () => {
         <br></br>
         3.1 You understand and acknowledge that You can register on the Site
         only after complying with the requirements of this Clause 3 and by
-        entering Your Registration Data. 3.2 You shall ensure that the
+        entering Your Registration Data.<br></br> 3.2 You shall ensure that the
         Registration Data provided by You is accurate, complete, valid, true and
         is updated from time to time. We shall bear no liability for false,
-        incomplete, old or incorrect Registration Data provided by You. 3.3 You
-        are solely responsible for maintaining the confidentiality of Your
-        Registration Data and will be liable for all activities and transactions
-        that occur through Your Account, whether initiated by You or any third
-        party. Your Account cannot be transferred, assigned or sold to a third
-        party. We shall not be liable for any loss that You may incur as a
-        result of someone else using Your password or Account, either with or
-        without Your knowledge. 3.4 We reserve the right to suspend or terminate
-        Your Account with immediate effect and for an indefinite period, if We
-        have a reason to believe that the Registration Data or any other data
-        provided by You is incorrect or false, or that the security of Your
-        Account has been compromised in any way, or for any other reason We may
-        find just or equitable. 3.5 Except for the Registration Data or any
-        other data submitted by You during the use of any other service offered
-        through Site (“Permitted Information”), InLane does not want You to, and
-        You should not, send any confidential or proprietary information to
-        InLane on the Site or otherwise, unless otherwise is required by
-        Applicable Laws. In accepting these User Terms, You agree that any
-        information or materials that You or individuals acting on Your behalf
-        provide to InLane other than the Permitted Information will not be
-        considered confidential or proprietary. 3.6 It is Your responsibility to
-        check to ensure that You download the correct application for Your
-        device. We are not liable if You do not have a compatible mobile device
-        or if You download the wrong version of the Application for Your mobile
-        device. We reserve the right to terminate the Service, and the use of
-        the Application should You be using the Service or Application with an
-        incompatible or unauthorized device. 3.7 You agree to comply with all
-        applicable laws when using the Services, and you may only use the
-        Services for lawful purposes (e.g., no transport of unlawful or
-        hazardous materials). You will not, in your use of the Services, cause
-        nuisance, annoyance, inconvenience, or property damage, whether to the
-        Third-Party Provider or any other party. In certain instances, you may
-        be asked to provide proof of identity to access or use the Services, and
-        you agree that you may be denied access to or use of the Services if you
-        refuse to provide proof of identity. The proof of identity will
-        encompass, but is not limited to, ensuring that the Driving Instructor
-        verifies the Learner's identity by matching their photograph on our
-        platform with the individual arriving for the lesson. 3.8 We allow You
-        to open only one Account in association with the Registration Data
-        provided by You. In case of any unauthorized use of Your Account please
-        immediately reach Us at (Contact). 3.9 In case, You are unable to access
-        Your Account, please inform Us at (Contact) and make a written request
-        for blocking Your Account. We will not be liable for any unauthorised
+        incomplete, old or incorrect Registration Data provided by You.<br></br>{" "}
+        3.3 You are solely responsible for maintaining the confidentiality of
+        Your Registration Data and will be liable for all activities and
+        transactions that occur through Your Account, whether initiated by You
+        or any third party. Your Account cannot be transferred, assigned or sold
+        to a third party. We shall not be liable for any loss that You may incur
+        as a result of someone else using Your password or Account, either with
+        or without Your knowledge.<br></br> 3.4 We reserve the right to suspend
+        or terminate Your Account with immediate effect and for an indefinite
+        period, if We have a reason to believe that the Registration Data or any
+        other data provided by You is incorrect or false, or that the security
+        of Your Account has been compromised in any way, or for any other reason
+        We may find just or equitable.<br></br> 3.5 Except for the Registration
+        Data or any other data submitted by You during the use of any other
+        service offered through Site (“Permitted Information”), InLane does not
+        want You to, and You should not, send any confidential or proprietary
+        information to InLane on the Site or otherwise, unless otherwise is
+        required by Applicable Laws. In accepting these User Terms, You agree
+        that any information or materials that You or individuals acting on Your
+        behalf provide to InLane other than the Permitted Information will not
+        be considered confidential or proprietary.<br></br> 3.6 It is Your
+        responsibility to check to ensure that You download the correct
+        application for Your device. We are not liable if You do not have a
+        compatible mobile device or if You download the wrong version of the
+        Application for Your mobile device. We reserve the right to terminate
+        the Service, and the use of the Application should You be using the
+        Service or Application with an incompatible or unauthorized device.
+        <br></br> 3.7 You agree to comply with all applicable laws when using
+        the Services, and you may only use the Services for lawful purposes
+        (e.g., no transport of unlawful or hazardous materials). You will not,
+        in your use of the Services, cause nuisance, annoyance, inconvenience,
+        or property damage, whether to the Third-Party Provider or any other
+        party. In certain instances, you may be asked to provide proof of
+        identity to access or use the Services, and you agree that you may be
+        denied access to or use of the Services if you refuse to provide proof
+        of identity. The proof of identity will encompass, but is not limited
+        to, ensuring that the Driving Instructor verifies the Learner's identity
+        by matching their photograph on our platform with the individual
+        arriving for the lesson.<br></br> 3.8 We allow You to open only one
+        Account in association with the Registration Data provided by You. In
+        case of any unauthorized use of Your Account please immediately reach Us
+        at (Contact).<br></br> 3.9 In case, You are unable to access Your
+        Account, please inform Us at (Contact) and make a written request for
+        blocking Your Account. We will not be liable for any unauthorised
         transactions made through Your Account prior to the expiry of 72
         (seventy-two) hours after You have made a request in writing for
         blocking Your Account and shall not have any liability in case of Force
@@ -213,80 +215,82 @@ const TermsAndConditions = () => {
         The Services constitute a technology platform that enables users of
         INLANE’s mobile applications or websites provided as part of the
         Services (each, an “Application”) to act as an online platform
-        connecting driving instructors with learners as service. 4.1. The
-        Services allows You to send a request through InLane to a Driving
+        connecting driving instructors with learners as service.<br></br> 4.1.
+        The Services allows You to send a request through InLane to a Driving
         Instructor registered as an instructor on the InLane network. If the
         Driving Instructor accepts a request based on their availability, InLane
         notifies You and provides information regarding the Driving Instructor-
         including Driving Instructor name, Vehicle license number, telephone
         contact details of the Driving Instructor and such other details as
-        InLane may determine. 4.2. InLane shall procure reasonable efforts to
-        bring You into contact with a driving instructor, subject to the
-        availability of Driving Instructor in or around Your location at the
-        moment of Your request for such services. 4.3. By using the Application
-        or the Service, You further agree that: (i) You will only use the
-        Service or download the Application for Your sole, personal use and will
-        not resell or assign it to a third party; (ii) You will not use an
-        account that is subject to any rights of a person other than You without
-        appropriate authorization; (iii) You will not use the Service or Site
-        for unlawful purposes; (iv) You will not try to harm the Service, Site
-        or our network in any way whatsoever; (v) You will provide InLane with
-        such information and documents which InLane may reasonably request; (vi)
-        You will only use an authorized network to avail the Service; (vii) You
-        are aware that when requesting Services, whether by message, via Site or
-        Application of InLane, standard messaging charges, data charges, voice
-        charges, as applicable, of the Your and Our phone network service
+        InLane may determine.<br></br> 4.2. InLane shall procure reasonable
+        efforts to bring You into contact with a driving instructor, subject to
+        the availability of Driving Instructor in or around Your location at the
+        moment of Your request for such services.<br></br> 4.3. By using the
+        Application or the Service, You further agree that: (i) You will only
+        use the Service or download the Application for Your sole, personal use
+        and will not resell or assign it to a third party; (ii) You will not use
+        an account that is subject to any rights of a person other than You
+        without appropriate authorization; (iii) You will not use the Service or
+        Site for unlawful purposes; (iv) You will not try to harm the Service,
+        Site or our network in any way whatsoever; (v) You will provide InLane
+        with such information and documents which InLane may reasonably request;
+        (vi) You will only use an authorized network to avail the Service; (vii)
+        You are aware that when requesting Services, whether by message, via
+        Site or Application of InLane, standard messaging charges, data charges,
+        voice charges, as applicable, of the Your and Our phone network service
         providers, will apply; (viii) You will comply with all Applicable Law
         from Your country of domicile and residence and the country, state
         and/or city in which You are present while using the Site or Service;
         and (ix) You are aware of and shall comply with the Information
         Technology Act, 2000 and the rules, regulations and guidelines notified
-        thereunder. 4.4. InLane reserves the right to immediately terminate the
-        Service and the use of the Application in the event of non-compliance
-        with any of the above requirements. Further, InLane will store the
-        information provided by You or record your calls for contacting You for
-        all Service-related matters. You shall promptly inform InLane on any
-        change in the information provided by You. 4.5. InLane or an authorized
-        representative of InLane, shall provide information regarding services,
-        discounts and promotions provided by InLane or a TPSP to You on the
-        InLane App or by way of an SMS or email to Your registered mobile
-        number/registered email ID. You also have the option to discontinue
-        receiving such information at any point of time. To discontinue
-        receiving such information, You may at any point of time visit the
-        specific link provided in the Site to discontinue the same. 4.6. You
-        agree to grant InLane a non-exclusive, worldwide, perpetual,
+        thereunder.<br></br> 4.4. InLane reserves the right to immediately
+        terminate the Service and the use of the Application in the event of
+        non-compliance with any of the above requirements. Further, InLane will
+        store the information provided by You or record your calls for
+        contacting You for all Service-related matters. You shall promptly
+        inform InLane on any change in the information provided by You.<br></br>{" "}
+        4.5. InLane or an authorized representative of InLane, shall provide
+        information regarding services, discounts and promotions provided by
+        InLane or a TPSP to You on the InLane App or by way of an SMS or email
+        to Your registered mobile number/registered email ID. You also have the
+        option to discontinue receiving such information at any point of time.
+        To discontinue receiving such information, You may at any point of time
+        visit the specific link provided in the Site to discontinue the same.
+        <br></br>
+        4.6. You agree to grant InLane a non-exclusive, worldwide, perpetual,
         irrevocable, royalty free, sub-licensable (through multiple tiers) right
         to exercise the copyright, publicity, database rights or any other
         rights You have in your information, in any media now known or not
         currently known, with respect to Your information. YOU AGREE AND PERMIT
         INLANE TO SHARE YOUR INFORMATION AND/OR PERMITTED INFORMATION, WITH
-        THIRD PARTIES. 4.7. You agree and permit InLane to share any information
-        provided by You with third parties in order to facilitate provision of
-        certain value-added services offered by such third parties to You and/or
-        to provide certain value-added services to You by InLane. You hereby
-        expressly consent to receive communications from InLane/ third parties
-        offering value-added services to You through Your registered phone
-        number and/or e-mail id and/or the Site. You agree that You will not
-        hold InLane responsible for any such communications received from third
-        parties, nor will any such communication amount to spam, unsolicited
-        communication or a violation of Your registration on the national do not
-        call registry. 4.8. InLane will be entitled to enter into any tie-up in
-        terms of joint-venture or otherwise with any other institution engaged
-        in the business of providing services analogous and/or similar to those
-        herein contained. In such case, depending upon the modality and the
-        mechanism as may be devised, You will be provided with the services by
-        InLane jointly and/or severally with the party/ies in joint venture. You
-        hereby give Your irrevocable consent and permission to such a tie-up. In
-        the event of such a tie-up, the terms and conditions herein contained
-        will, mutatis mutandis, become applicable in respect of such tie-up
-        arrangement also. 4.9. In the event of breakdown of the Vehicle, which
-        is beyond repair, before completion of the Lesson, InLane on a best
-        effort basis and at its sole discretion may arrange for a Substitute
-        Vehicle for completion of Your Lesson to Your destination. However, the
-        arrangement of Substitute Vehicle shall be subject to its availability.
-        4.10. You acknowledge and agree that Substitute Vehicle may not be
-        necessarily of the same type as the original Vehicle booked by You from
-        the Site. 4.11. InLane bears no responsibility and liability for delays
+        THIRD PARTIES.<br></br> 4.7. You agree and permit InLane to share any
+        information provided by You with third parties in order to facilitate
+        provision of certain value-added services offered by such third parties
+        to You and/or to provide certain value-added services to You by InLane.
+        You hereby expressly consent to receive communications from InLane/
+        third parties offering value-added services to You through Your
+        registered phone number and/or e-mail id and/or the Site. You agree that
+        You will not hold InLane responsible for any such communications
+        received from third parties, nor will any such communication amount to
+        spam, unsolicited communication or a violation of Your registration on
+        the national do not call registry.<br></br> 4.8. InLane will be entitled
+        to enter into any tie-up in terms of joint-venture or otherwise with any
+        other institution engaged in the business of providing services
+        analogous and/or similar to those herein contained. In such case,
+        depending upon the modality and the mechanism as may be devised, You
+        will be provided with the services by InLane jointly and/or severally
+        with the party/ies in joint venture. You hereby give Your irrevocable
+        consent and permission to such a tie-up. In the event of such a tie-up,
+        the terms and conditions herein contained will, mutatis mutandis, become
+        applicable in respect of such tie-up arrangement also.<br></br> 4.9. In
+        the event of breakdown of the Vehicle, which is beyond repair, before
+        completion of the Lesson, InLane on a best effort basis and at its sole
+        discretion may arrange for a Substitute Vehicle for completion of Your
+        Lesson to Your destination. However, the arrangement of Substitute
+        Vehicle shall be subject to its availability.<br></br> 4.10. You
+        acknowledge and agree that Substitute Vehicle may not be necessarily of
+        the same type as the original Vehicle booked by You from the Site.
+        <br></br> 4.11. InLane bears no responsibility and liability for delays
         and losses suffered by You or caused to You as a consequence of the
         breakdown of the Vehicle or the Substitute Vehicle.
         <br></br>
@@ -300,22 +304,23 @@ const TermsAndConditions = () => {
         the booking is confirmed, You shall check the booking details including
         but not limited to pick up time and pick up place, and if there is
         incorrect detail, the same needs to be informed to us immediately by
-        calling our call center. 5.2. Upon confirmation of booking, a One Time
-        Pin (OTP) shall be provided on the Application which shall be further
-        shared by the Customer with the Driving Instructor. In the event that
-        the Customer does not provide OTP to the Driving Instructor, Driving
-        Instructor shall not be responsible for not starting on the services.
-        5.3. You shall bear the consequences and damages for any delay that may
-        be caused to You due to Your failure to check the confirmation message
-        via the application, SMS or email or failure to inform InLane of the
-        incorrect details immediately. 5.4. All Lessons provided under this
-        agreement are exclusively for the use of the registered Learner. Under
-        no circumstances may a registered Learner transfer their lessons to
-        another individual or existing Learner. Each Lesson is non-transferable
-        and may only be utilized by the person for whom it was originally
-        registered. Any attempt to transfer lessons or associated benefits to
-        another party will be considered a breach of this agreement and may
-        result in the forfeiture of the lessons and any associated credits.
+        calling our call center.<br></br> 5.2. Upon confirmation of booking, a
+        One Time Pin (OTP) shall be provided on the Application which shall be
+        further shared by the Customer with the Driving Instructor. In the event
+        that the Customer does not provide OTP to the Driving Instructor,
+        Driving Instructor shall not be responsible for not starting on the
+        services.<br></br> 5.3. You shall bear the consequences and damages for
+        any delay that may be caused to You due to Your failure to check the
+        confirmation message via the application, SMS or email or failure to
+        inform InLane of the incorrect details immediately.<br></br> 5.4. All
+        Lessons provided under this agreement are exclusively for the use of the
+        registered Learner. Under no circumstances may a registered Learner
+        transfer their lessons to another individual or existing Learner. Each
+        Lesson is non-transferable and may only be utilized by the person for
+        whom it was originally registered. Any attempt to transfer lessons or
+        associated benefits to another party will be considered a breach of this
+        agreement and may result in the forfeiture of the lessons and any
+        associated credits.
         <br></br>
         <br></br>
         6. PAYMENT
@@ -346,14 +351,15 @@ const TermsAndConditions = () => {
         you are entitled to give a suitable rating for the service and Lesson.
         You agree to be fair, accurate and non-disparaging while leaving
         comment, feedback, testimonials or reviews on or about the Lessons or
-        Services. 8.2. Reporting of any issue needs to be within 07 (seven) days
-        of the happening of the issue, failing which, such issue will not be
-        addressed. 8.3. Any issue reported on channels other than the above may
-        be addressed by InLane only on a best-effort basis. InLane takes no
-        liability for inability to get back on other channels. 8.4. InLane shall
-        endeavour to respond to Your issues within 2 (two) working days of Your
-        reporting the same and endeavour to resolve it at the earliest possible.
-        It is hereby clarified that issues are resolved on a severity basis.
+        Services.<br></br> 8.2. Reporting of any issue needs to be within 07
+        (seven) days of the happening of the issue, failing which, such issue
+        will not be addressed.<br></br> 8.3. Any issue reported on channels
+        other than the above may be addressed by InLane only on a best-effort
+        basis. InLane takes no liability for inability to get back on other
+        channels.<br></br> 8.4. InLane shall endeavour to respond to Your issues
+        within 2 (two) working days of Your reporting the same and endeavour to
+        resolve it at the earliest possible. It is hereby clarified that issues
+        are resolved on a severity basis.
         <br></br>
         <br></br>
         9. FORCE MAJEURE
@@ -387,48 +393,49 @@ const TermsAndConditions = () => {
         advice. InLane will reasonably keep the Site, and its contents correct
         and up to date but does not guarantee that (the contents of) the Site is
         free of errors, defects, malware and viruses or that the Site is
-        correct, up to date and accurate. 11.2. InLane shall not be liable for
-        You missing trains/flights/events or delays etc. as the Service is
-        dependent on many factors not in InLane’s control. You must book Your
-        Lesson after taking into account the check-in time, traffic and weather
-        conditions, political rallies, natural calamities, traffic barricades,
-        car breakdowns and other unexpected delays. 11.3. In the event, there is
-        a delay by the Vehicle in reaching the pickup location beyond 30
-        (thirty) minutes of the pickup time, InLane shall offer a reschedule and
-        the following Lessons will be moved forward. 11.4. InLane shall not be
-        liable for any damages resulting from the use of or inability to use the
-        Site, including damages caused by wrong usage of the Site, error in
-        customer support channels, network issues, malware, viruses or any
-        incorrectness or incompleteness of the Information on the Platform.
-        11.5. You shall take full responsibility of Your items and luggage. In
-        case of lost items inside the Vehicle during the journey, InLane will
-        try to locate the items on a “best-effort” basis but is not responsible
-        for the same in case of loss or damage to the same. If You leave any
-        goods in the Vehicle or have any complaint in respect of the Services or
-        the use of the Vehicle, You have to inform InLane of the same in writing
-        within 24 (twenty-four) hours of using the Vehicle or the Services of
-        InLane. 11.6. InLane shall not be responsible for any loss of
-        communication / information of status update and benefits. All this
-        information will be sent on mobile number and/or email ID registered
-        with InLane. InLane will not be responsible for appropriateness of
-        mobile or email or any other communication medium. You shall be
-        responsible for immediately reporting the errors, if any, occurred in
-        the information sent to You regarding booking confirmation. 11.7. IN NO
-        EVENT SHALL INLANE BE LIABLE FOR ANY DIRECT, INDIRECT, PUNITIVE,
-        INCIDENTAL, SPECIAL OR CONSEQUENTIAL DAMAGES OR FOR ANY DAMAGES
-        WHATSOEVER, WHETHER BASED ON CONTRACT, TORT, NEGLIGENCE, STRICT
-        LIABILITY OR OTHERWISE, EVEN IF INLANE HAS BEEN ADVISED OF THE
-        POSSIBILITY THEREOF. 11.8. IN ADDITION, AND WITHOUT LIMITING THE
-        FOREGOING, TO THE FULLEST EXTENT PERMITTED BY APPLICABLE LAW, IN NO
-        EVENT WILL INLANE’s AGGREGATE LIABILITY ARISING OUT OF OR IN CONNECTION
-        WITH THESE USER TERMS OR THE SERVICES RENDERED HEREUNDER, WHETHER IN
-        CONTRACT, TORT (INCLUDING NEGLIGENCE, PRODUCT LIABILITY, OR OTHER
-        THEORY), WARRANTY, OR OTHERWISE, EXCEED THE AMOUNT OF Rs. 1000/- (Rupees
-        One Thousand only). 11.9. If Applicable Law does not permit the
-        exclusion of certain warranties or the limitation or exclusion of
-        liability, the scope and duration of such warranty exclusions and the
-        extent of the liability of InLane shall be the minimum permitted under
-        Applicable Law.
+        correct, up to date and accurate.<br></br> 11.2. InLane shall not be
+        liable for You missing trains/flights/events or delays etc. as the
+        Service is dependent on many factors not in InLane’s control. You must
+        book Your Lesson after taking into account the check-in time, traffic
+        and weather conditions, political rallies, natural calamities, traffic
+        barricades, car breakdowns and other unexpected delays.<br></br> 11.3.
+        In the event, there is a delay by the Vehicle in reaching the pickup
+        location beyond 30 (thirty) minutes of the pickup time, InLane shall
+        offer a reschedule and the following Lessons will be moved forward.
+        <br></br>
+        11.4. InLane shall not be liable for any damages resulting from the use
+        of or inability to use the Site, including damages caused by wrong usage
+        of the Site, error in customer support channels, network issues,
+        malware, viruses or any incorrectness or incompleteness of the
+        Information on the Platform.<br></br> 11.5. You shall take full
+        responsibility of Your items and luggage. In case of lost items inside
+        the Vehicle during the journey, InLane will try to locate the items on a
+        “best-effort” basis but is not responsible for the same in case of loss
+        or damage to the same. If You leave any goods in the Vehicle or have any
+        complaint in respect of the Services or the use of the Vehicle, You have
+        to inform InLane of the same in writing within 24 (twenty-four) hours of
+        using the Vehicle or the Services of InLane.<br></br> 11.6. InLane shall
+        not be responsible for any loss of communication / information of status
+        update and benefits. All this information will be sent on mobile number
+        and/or email ID registered with InLane. InLane will not be responsible
+        for appropriateness of mobile or email or any other communication
+        medium. You shall be responsible for immediately reporting the errors,
+        if any, occurred in the information sent to You regarding booking
+        confirmation.<br></br> 11.7. IN NO EVENT SHALL INLANE BE LIABLE FOR ANY
+        DIRECT, INDIRECT, PUNITIVE, INCIDENTAL, SPECIAL OR CONSEQUENTIAL DAMAGES
+        OR FOR ANY DAMAGES WHATSOEVER, WHETHER BASED ON CONTRACT, TORT,
+        NEGLIGENCE, STRICT LIABILITY OR OTHERWISE, EVEN IF INLANE HAS BEEN
+        ADVISED OF THE POSSIBILITY THEREOF.<br></br> 11.8. IN ADDITION, AND
+        WITHOUT LIMITING THE FOREGOING, TO THE FULLEST EXTENT PERMITTED BY
+        APPLICABLE LAW, IN NO EVENT WILL INLANE’s AGGREGATE LIABILITY ARISING
+        OUT OF OR IN CONNECTION WITH THESE USER TERMS OR THE SERVICES RENDERED
+        HEREUNDER, WHETHER IN CONTRACT, TORT (INCLUDING NEGLIGENCE, PRODUCT
+        LIABILITY, OR OTHER THEORY), WARRANTY, OR OTHERWISE, EXCEED THE AMOUNT
+        OF Rs. 1000/- (Rupees One Thousand only).<br></br> 11.9. If Applicable
+        Law does not permit the exclusion of certain warranties or the
+        limitation or exclusion of liability, the scope and duration of such
+        warranty exclusions and the extent of the liability of InLane shall be
+        the minimum permitted under Applicable Law.
         <br></br>
         <br></br>
         12. APPLICATION LICENSE <br></br>12.1. Subject to Your compliance with
@@ -436,44 +443,45 @@ const TermsAndConditions = () => {
         non-transferable and non-sub-licensable license to download and install
         a copy of the Application on a single mobile device that You own or
         control and to run such copy of the Application solely for Your own
-        personal use and to use the Site. 12.2. You shall not (i) license,
-        sublicense, sell, resell, transfer, assign, distribute or otherwise
-        commercially exploit or make available to any third party the Service or
-        Site in any way; (ii) modify or make derivative works based upon the
-        Service or Application; (iii) create Internet “links” to the Service or
-        “frame” or “mirror” any Site on any other server or wireless or
-        Internet-based device; (iv) reverse engineer or access the Site in order
-        to (a) design or build a competitive product or service, (b) design or
-        build a product using similar ideas, features, functions or graphics of
-        the Service or Site, or (c) copy, reproduce, record, or make available
-        to the public any ideas, features, functions or graphics of the Service
-        or Site, or (v) launch an automated program or script, including, but
-        not limited to, web spiders, web crawlers, web robots, web scrapers,
-        macro scripts, AI tools/agents, API abusers, DDoS tools, web ants, web
-        indexers, bots, viruses or worms, or any program which may make multiple
-        server requests per second, or unduly burdens or hinders the operation
-        and/or performance of the Service or Site. 12.3. You shall not: (i) send
-        spam or otherwise duplicative or unsolicited messages in violation of
-        applicable laws; (ii) send or store infringing, obscene, threatening,
-        libelous, or otherwise unlawful or tortious material, including material
-        harmful to children or violative of third party privacy rights; (iii)
-        send or store material containing but not limited to software viruses,
-        worms, Trojan horses or other harmful computer code, files, scripts,
-        agents or programs; (iv) interfere with or disrupt the integrity or
-        performance of the Site, the Application or Service or the data
-        contained therein; or (v) attempt to gain unauthorized access to the
-        Site, the Application or Service or its related systems or networks.
-        12.4. InLane will have the right to investigate and prosecute violations
-        of any of the above to the fullest extent of the law. InLane may involve
-        and cooperate with law enforcement authorities in prosecuting users who
-        violate these User Terms. You acknowledge that InLane has no obligation
-        to monitor Your access to or use of the Site, Service or Posted Content,
-        but has the right to do so for the purpose of operating the Site and
-        Service, to ensure Your compliance with these User Terms, or to comply
-        with Applicable Law or the order or requirement of a court,
-        administrative agency or other Governmental body. InLane reserves the
-        right, at any time and without prior notice, to remove or disable access
-        to any content that InLane, at its sole discretion, considers to be in
+        personal use and to use the Site.<br></br> 12.2. You shall not (i)
+        license, sublicense, sell, resell, transfer, assign, distribute or
+        otherwise commercially exploit or make available to any third party the
+        Service or Site in any way; (ii) modify or make derivative works based
+        upon the Service or Application; (iii) create Internet “links” to the
+        Service or “frame” or “mirror” any Site on any other server or wireless
+        or Internet-based device; (iv) reverse engineer or access the Site in
+        order to (a) design or build a competitive product or service, (b)
+        design or build a product using similar ideas, features, functions or
+        graphics of the Service or Site, or (c) copy, reproduce, record, or make
+        available to the public any ideas, features, functions or graphics of
+        the Service or Site, or (v) launch an automated program or script,
+        including, but not limited to, web spiders, web crawlers, web robots,
+        web scrapers, macro scripts, AI tools/agents, API abusers, DDoS tools,
+        web ants, web indexers, bots, viruses or worms, or any program which may
+        make multiple server requests per second, or unduly burdens or hinders
+        the operation and/or performance of the Service or Site.<br></br> 12.3.
+        You shall not: (i) send spam or otherwise duplicative or unsolicited
+        messages in violation of applicable laws; (ii) send or store infringing,
+        obscene, threatening, libelous, or otherwise unlawful or tortious
+        material, including material harmful to children or violative of third
+        party privacy rights; (iii) send or store material containing but not
+        limited to software viruses, worms, Trojan horses or other harmful
+        computer code, files, scripts, agents or programs; (iv) interfere with
+        or disrupt the integrity or performance of the Site, the Application or
+        Service or the data contained therein; or (v) attempt to gain
+        unauthorized access to the Site, the Application or Service or its
+        related systems or networks.<br></br> 12.4. InLane will have the right
+        to investigate and prosecute violations of any of the above to the
+        fullest extent of the law. InLane may involve and cooperate with law
+        enforcement authorities in prosecuting users who violate these User
+        Terms. You acknowledge that InLane has no obligation to monitor Your
+        access to or use of the Site, Service or Posted Content, but has the
+        right to do so for the purpose of operating the Site and Service, to
+        ensure Your compliance with these User Terms, or to comply with
+        Applicable Law or the order or requirement of a court, administrative
+        agency or other Governmental body. InLane reserves the right, at any
+        time and without prior notice, to remove or disable access to any
+        content that InLane, at its sole discretion, considers to be in
         violation of these User Terms or otherwise harmful to the Site, the
         Service or Application.<br></br>
         <br></br> 13. INTELLECTUAL PROPERTY OWNERSHIP <br></br> 13.1. InLane
@@ -488,32 +496,36 @@ const TermsAndConditions = () => {
         may appear on this Site/ Application and all rights therein are reserved
         to the registered owners of those trademarks. For use of any third
         party's intellectual property, You need to get permission directly from
-        the owner of the intellectual property for any use. 13.2. These User
-        Terms do not constitute a sale and do not convey to You any rights of
-        ownership in or related to the Site, the Application or the Service, or
-        any intellectual property rights owned by InLane. You shall be solely
+        the owner of the intellectual property for any use.<br></br> 13.2. These
+        User Terms do not constitute a sale and do not convey to You any rights
+        of ownership in or related to the Site, the Application or the Service,
+        or any intellectual property rights owned by InLane. You shall be solely
         responsible for any violations of any laws and for any infringements of
         any intellectual property rights caused by use of the Services or the
-        Site/ Application. 13.3. You may use information on the Site purposely
-        made available by InLane for downloading from the Site, provided that
-        You: (i) do not remove any proprietary notice language in all copies of
-        such documents and make no modifications to the information; (ii) use
-        such information only for Your personal, non-commercial informational
-        purpose and do not copy or post such information on any networked
-        computer or broadcast it in any media; or (iii) do not make any
-        additional representations or warranties relating to such information.
+        Site/ Application.<br></br> 13.3. You may use information on the Site
+        purposely made available by InLane for downloading from the Site,
+        provided that You: (i) do not remove any proprietary notice language in
+        all copies of such documents and make no modifications to the
+        information; (ii) use such information only for Your personal,
+        non-commercial informational purpose and do not copy or post such
+        information on any networked computer or broadcast it in any media; or
+        (iii) do not make any additional representations or warranties relating
+        to such information.
         <br></br>
         <br></br>
         14. RESCHEDULE AND NO-SHOW POLICY <br></br> 14.1. Rescheduling Fees: If
         a learner requests to reschedule a driving lesson within 72 hours of the
-        scheduled lesson time, a rescheduling fee will be charged as per the{" "}
+        scheduled lesson time, a rescheduling fee will be charged as per the
         <a href="/rescheduling-policy">Reschedule Policy</a>. This fee covers
-        administrative costs and compensates for the short notice. 14.2. No-Show
+        administrative costs and compensates for the short notice. Please refer
+        to the Reschedule Policy for more information.<br></br> 14.2. No-Show
         Fees: If a learner fails to attend a scheduled lesson and requests to
         reschedule, a nominal fee will be applied as per the{" "}
         <a href="/rescheduling-policy">Reschedule Policy</a>. This fee is in
         addition to any rescheduling fees and compensates for the missed
-        appointment and associated inconvenience. <br></br>
+        appointment and associated inconvenience. Please refer to the Reschedule
+        Policy for more information.
+        <br></br>
         <br></br>15. LINKS <br></br> 15.1. If permitted by InLane, You may
         establish a hypertext link to the Site, provided that the link does not
         state or imply any sponsorship or endorsement of Your site by Us. You
@@ -527,20 +539,21 @@ const TermsAndConditions = () => {
         <br></br> 16. TERM AND TERMINATION OF LICENSE AGREEMENT <br></br> 16.1.
         Unless terminated explicitly, the agreement between InLane and You is
         perpetual in nture upon downloading the Application and for each Service
-        booked through the Site. 16.2. You are entitled to terminate the
-        agreement at all times by deletion of Your Account, thus disabling the
-        use by You of the Site. You can close Your Account at any time by
-        following the instructions on the Site. 16.3. InLane is entitled to
-        terminate the agreement at all times and with immediate effect (by
-        disabling Your use of the Site and the Service) if You: (a) violate or
-        breach any term of these User Terms, or (b) in the opinion of InLane,
-        misuse the Application or the Service. InLane is not obliged to give
-        notice of the termination of the agreement in advance. After termination
-        InLane will give notice thereof in accordance with these User Terms.
-        16.4. Termination of this agreement will not prejudice accrued rights of
-        either InLane or You. 16.5. All provisions which are intended to survive
-        the termination, shall survive the expiry/termination of these User
-        Terms in accordance with their terms. <br></br>
+        booked through the Site.<br></br> 16.2. You are entitled to terminate
+        the agreement at all times by deletion of Your Account, thus disabling
+        the use by You of the Site. You can close Your Account at any time by
+        following the instructions on the Site.<br></br> 16.3. InLane is
+        entitled to terminate the agreement at all times and with immediate
+        effect (by disabling Your use of the Site and the Service) if You: (a)
+        violate or breach any term of these User Terms, or (b) in the opinion of
+        InLane, misuse the Application or the Service. InLane is not obliged to
+        give notice of the termination of the agreement in advance. After
+        termination InLane will give notice thereof in accordance with these
+        User Terms.<br></br> 16.4. Termination of this agreement will not
+        prejudice accrued rights of either InLane or You.<br></br> 16.5. All
+        provisions which are intended to survive the termination, shall survive
+        the expiry/termination of these User Terms in accordance with their
+        terms. <br></br>
         <br></br>17. CONFLICT <br></br> 17.1. In the event of any contradiction
         or inconsistency between this User Terms and any other agreement
         executed between You and InLane, the terms of the User Terms shall
@@ -551,15 +564,15 @@ const TermsAndConditions = () => {
         InLane reserves the right, at its sole discretion, to modify or replace,
         in part or full, any of these User Terms, or change, suspend, block,
         discontinue or restrict your use to any or all features of the Service
-        or Application at any time. 18.2. InLane shall not be required to notify
-        You of any changes made to these User Terms. The revised User Terms
-        shall be made available on the Site. You are requested to regularly
-        visit the Site to view the most current User Terms. You can determine
-        when InLane last modified the User Terms by referring to the “Last
-        Updated” at the top of the page. It shall be Your responsibility to
-        check these User Terms periodically for changes. InLane may require You
-        to provide Your consent to the updated User Terms in a specified manner
-        prior to any further use of the Site and the Services. If no such
+        or Application at any time.<br></br> 18.2. InLane shall not be required
+        to notify You of any changes made to these User Terms. The revised User
+        Terms shall be made available on the Site. You are requested to
+        regularly visit the Site to view the most current User Terms. You can
+        determine when InLane last modified the User Terms by referring to the
+        “Last Updated” at the top of the page. It shall be Your responsibility
+        to check these User Terms periodically for changes. InLane may require
+        You to provide Your consent to the updated User Terms in a specified
+        manner prior to any further use of the Site and the Services. If no such
         separate consent is sought, Your continued use of the Site, following
         the changes to the User Terms, will constitute Your acceptance of those
         changes. Your use of the Site and the Services is subject to the most
@@ -569,11 +582,11 @@ const TermsAndConditions = () => {
         a general notice on the Service or Application, or by electronic mail to
         Your registered email address or a message on Your registered mobile
         number, or by written communication sent by regular mail to Your address
-        on record in InLane’s account information. 19.2. In case any query or
-        complaint is unresolved or if you did not receive a satisfactory
-        response from the 24*7 support, you can escalate the matter to our
-        Grievance Oﬃce by sharing the details of the complaint ticket created:
-        Details of the Grievance Office (+91 97484 39881)<br></br>
+        on record in InLane’s account information.<br></br> 19.2. In case any
+        query or complaint is unresolved or if you did not receive a
+        satisfactory response from the 24*7 support, you can escalate the matter
+        to our Grievance Oﬃce by sharing the details of the complaint ticket
+        created: Details of the Grievance Office (+91 97484 39881)<br></br>
         <br></br> 20. ASSIGNMENT<br></br> 20.1. You shall not assign Your rights
         under these User Terms without prior written approval of InLane. InLane
         can assign its rights under the User Terms to any affiliate.<br></br>
