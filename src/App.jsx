@@ -15,11 +15,13 @@ import Footer from "./components/Footer";
 import CoursesPage from "./pages/Courses";
 // import ContactUs from "./pages/ContactUs";
 import AboutUs from "./pages/AboutUs";
-import PrivacyPolicy from "./pages/PrivacyPolicy";
+// import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsAndConditions from "./pages/TermsAndConditions";
 import Disclaimer from "./pages/Disclaimer";
 import PaymentPolicy from "./pages/PaymentPolicy";
 import ReschedulePolicy from "./pages/ReschedulePolicy";
+import Blog from "./blog/Blog";
+import BlogPage from "./blog/BlogPage";
 
 const Layout = () => {
   return (
@@ -55,10 +57,10 @@ const router = createBrowserRouter([
         path: "/terms-and-conditions",
         element: <TermsAndConditions />,
       },
-      {
-        path: "/privacy-policy",
-        element: <PrivacyPolicy />,
-      },
+      // {
+      //   path: "/privacy-policy",
+      //   element: <PrivacyPolicy />,
+      // },
       {
         path: "/disclaimer",
         element: <Disclaimer />,
@@ -70,6 +72,14 @@ const router = createBrowserRouter([
       {
         path: "/rescheduling-policy",
         element: <ReschedulePolicy/>,
+      },
+      {
+        path: "/blog",
+        element: <Blog/>,
+      },
+      {
+        path: "/blog/:id",
+        element: <BlogPage/>,
       },
     ],
   },

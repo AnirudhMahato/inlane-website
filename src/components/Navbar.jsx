@@ -82,6 +82,18 @@ const Navbar = () => {
               }
             />
           </ListItem>
+          <ListItem button component={Link} to="/blog" onClick={handleClose}>
+            <ListItemText
+              primary={
+                <Typography
+                  variant="h5"
+                  sx={{ fontFamily: "Bricolage Grotesque" }}
+                >
+                  Blogs
+                </Typography>
+              }
+            />
+          </ListItem>
           {/* <ListItem button>
             <ListItemText primary={
               <Typography variant="h5" sx={{ fontFamily: 'Bricolage Grotesque' }}>
