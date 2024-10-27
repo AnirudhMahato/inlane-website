@@ -30,14 +30,26 @@
   background: #555;
 }
 
-body {
+.bg-logoYellow {
   background-image: url('/Background.svg');
   background-color: #FFFEEB;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   font-family: 'Bricolage Grotesque'
+}
 
+.bg-logoWhite {
+  background-image: url('/Grey BG Pattern.svg');
+  background-color: #FFF;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  font-family: 'Bricolage Grotesque'
+}
+
+.font-blog {
+  font-family: 'Bricolage Grotesque'
 }
 
 @font-face {

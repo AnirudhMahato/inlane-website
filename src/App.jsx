@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 import "./App.css";
 import Homepage from "./pages/Homepage";
 import {
@@ -11,11 +9,12 @@ import {
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Navbar from "./components/Navbar";
+import Navbar2 from "./components/Navbar2";
 import Footer from "./components/Footer";
 import CoursesPage from "./pages/Courses";
 // import ContactUs from "./pages/ContactUs";
 import AboutUs from "./pages/AboutUs";
-import PrivacyPolicy from "./pages/PrivacyPolicy";
+// import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsAndConditions from "./pages/TermsAndConditions";
 import Disclaimer from "./pages/Disclaimer";
 import PaymentPolicy from "./pages/PaymentPolicy";
@@ -25,14 +24,49 @@ import BlogPage from "./blog/BlogPage";
 
 const Layout = () => {
   return (
-    <>
+    <div className="bg-logoYellow">
       <Navbar />
       <Outlet />
       <Footer />
-    </>
+    </div>
   );
 };
+
+const Layout2 = () => {
+  return (
+    <div className="bg-logoWhite">
+      <Navbar2 />
+      <Outlet />
+      <Footer />
+    </div>
+  );
+};
+
+const Layout3 = () => {
+  return (
+    <div className="">
+      <Navbar2 />
+      <BlogPage />
+      <Footer />
+    </div>
+  );
+};
+
 const router = createBrowserRouter([
+  {
+    path: "/blog",
+    element: <Layout2 />,
+    children: [
+      {
+        path: "/blog",
+        element: <Blog />,
+      },
+    ],
+  },
+  {
+    path: "/blog/:id",
+    element: <Layout3 />,
+  },
   {
     path: "/",
     element: <Layout />,
@@ -45,10 +79,6 @@ const router = createBrowserRouter([
         path: "/courses",
         element: <CoursesPage />,
       },
-      // {
-      //   path: "/contact-us",
-      //   element: <ContactUs />,
-      // },
       {
         path: "/about-us",
         element: <AboutUs />,
@@ -57,29 +87,21 @@ const router = createBrowserRouter([
         path: "/terms-and-conditions",
         element: <TermsAndConditions />,
       },
-      {
-        path: "/privacy-policy",
-        element: <PrivacyPolicy />,
-      },
+      // {
+      //   path: "/privacy-policy",
+      //   element: <PrivacyPolicy />,
+      // },
       {
         path: "/disclaimer",
         element: <Disclaimer />,
       },
       {
         path: "/payment-policy",
-        element: <PaymentPolicy/>,
+        element: <PaymentPolicy />,
       },
       {
         path: "/rescheduling-policy",
-        element: <ReschedulePolicy/>,
-      },
-      {
-        path: "/blog",
-        element: <Blog/>,
-      },
-      {
-        path: "/blog/:id",
-        element: <BlogPage/>,
+        element: <ReschedulePolicy />,
       },
     ],
   },

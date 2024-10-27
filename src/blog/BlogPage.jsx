@@ -114,13 +114,13 @@ const RichTextContent = ({ node, isActive, links }) => {
           className="flex items-center mb-6 subtitle"
           id={`heading-${children[0]}`}
         >
-          <div className="w-16 h-16 flex-shrink-0">
+          {/* <div className="w-16 h-16 flex-shrink-0">
             <img
               src={isActive ? "/GreenLight.svg" : "/RedLight.png"}
               alt="Section indicator"
               className="w-full h-full object-contain"
             />
-          </div>
+          </div> */}
           <h1 className="text-4xl font-semibold ml-4">{children}</h1>
         </div>
       ),
@@ -129,28 +129,76 @@ const RichTextContent = ({ node, isActive, links }) => {
           className="flex items-center mb-6 subtitle"
           id={`heading-${children[0]}`}
         >
-          <div className="w-16 h-16 flex-shrink-0">
+          {/* <div className="w-16 h-16 flex-shrink-0">
             <img
               src={isActive ? "/GreenLight.svg" : "/RedLight.png"}
               alt="Section indicator"
               className="w-full h-full object-contain mt-2"
             />
-          </div>
-          <h2 className="text-2xl font-semibold ml-1.5">{children}</h2>
+          </div> */}
+          <h2 className="text-3xl font-semibold">{children}</h2>
         </div>
       ),
-      [BLOCKS.PARAGRAPH]: (node, children) => (
-        <p className="text-lg mb-4">{children}</p>
+      [BLOCKS.HEADING_3]: (node, children) => (
+        <div
+          className="flex items-center mb-6 subtitle"
+          id={`heading-${children[0]}`}
+        >
+          <h2 className="text-2xl font-semibold">{children}</h2>
+        </div>
       ),
+      [BLOCKS.HEADING_4]: (node, children) => (
+        <div
+          className="flex items-center mb-6 subtitle"
+          id={`heading-${children[0]}`}
+        >
+          <h2 className="text-xl font-semibold">{children}</h2>
+        </div>
+      ),
+      [BLOCKS.HEADING_5]: (node, children) => (
+        <div
+          className="flex items-center mb-6 subtitle"
+          id={`heading-${children[0]}`}
+        >
+          <h2 className="text-xl font-semibold">{children}</h2>
+        </div>
+      ),
+      [BLOCKS.HEADING_6]: (node, children) => (
+        <div
+          className="flex items-center mb-6 subtitle"
+          id={`heading-${children[0]}`}
+        >
+          <h2 className="text-xl font-semibold">{children}</h2>
+        </div>
+      ),
+      [BLOCKS.PARAGRAPH]: (node, children) => {
+        // Get the parent node type
+        const parentNodeType = node?.parent?.nodeType;
+
+        // If parent is a list-item, use mb-2, otherwise use mb-4
+        const marginClass = parentNodeType === "list-item" ? "mb-2" : "mb-4";
+
+        return <p className={`text-lg ${marginClass}`}>{children}</p>;
+      },
       [BLOCKS.UL_LIST]: (node, children) => (
-        <ul className="list-disc pl-6 mb-4 text-lg space-y-2">{children}</ul>
+        <ul className="list-disc pl-6 mb-4 text-lg">{children}</ul>
       ),
       [BLOCKS.OL_LIST]: (node, children) => (
-        <ol className="list-decimal pl-6 mb-4 text-lg space-y-2">{children}</ol>
+        <ol className="list-decimal pl-6 mb-4 text-lg">{children}</ol>
       ),
-      [BLOCKS.LIST_ITEM]: (node, children) => (
-        <li className="pl-2">{children}</li>
-      ),
+      [BLOCKS.LIST_ITEM]: (node, children) => {
+        // Modify the children to adjust paragraph margins
+        const modifiedChildren = React.Children.map(children, (child) => {
+          if (React.isValidElement(child) && child.type === "p") {
+            return React.cloneElement(child, {
+              className: "text-lg mb-0.5",
+            });
+          }
+          return child;
+        });
+
+        return <li className="pl-2">{modifiedChildren}</li>;
+      },
       [BLOCKS.QUOTE]: (node, children) => (
         <blockquote className="border-l-4 border-gray-300 pl-4 my-4 italic">
           {children}
@@ -324,9 +372,9 @@ export default function BlogPost() {
   const { fields } = post;
 
   return (
-    <div className="min-h-screen bg-transparent flex flex-col justify-center items-center mb-24">
+    <div className="min-h-screen bg-transparent flex flex-col justify-center items-center mb-24 font-blog">
       {/* Banner Image */}
-      <div className="flex justify-center items-center md:mb-8 mb-2 max-w-6xl m-4">
+      <div className="flex justify-center items-center md:mt-16 mt-14 md:mb-8 mb-2 max-w-6xl mx-4">
         <div className="h-64 md:h-96">
           {fields.image?.fields?.file?.url ? (
             <img
@@ -358,7 +406,33 @@ export default function BlogPost() {
           {/* Main Content */}
           <div className="flex-1">
             {/* Title */}
-            <h1 className="text-4xl font-bold mb-4">{fields.title}</h1>
+            {/* <h1 className="text-4xl font-bold mb-4">{fields.title}</h1> */}
+            <div className="relative w-full py-12">
+              <div className="relative z-10 container mx-auto px-4">
+                <h1 className="text-4xl md:text-4xl sm:text-3xl xs:text-2xl font-bold mb-4 relative inline-block">
+                  {/* Background image container with responsive width */}
+                  <span
+                    className="absolute overflow-hidden"
+                    style={{
+                      height: "1.4em",
+                      width: "clamp(300px, 80vw, 800px)", // Responsive width
+                      left: "clamp(-10px, -2vw, -20px)", // Responsive left position
+                      top: "-4px",
+                    }}
+                  >
+                    <div className="absolute inset-0 transform -rotate-50">
+                      <img
+                        src="/LaneLine.png"
+                        alt="Background"
+                        className="h-full w-auto object-cover"
+                      />
+                    </div>
+                  </span>
+                  {/* Text content */}
+                  <span className="relative">{fields.title}</span>
+                </h1>
+              </div>
+            </div>
 
             {/* Summary */}
             {/* <div className="text-lg mb-8">

@@ -7,6 +7,9 @@ export default {
         "w-16": 16,
         "h-9": 9,
       },
+      screens: {
+        "xs": "420px",
+      },
     },
   },
   plugins: [require("@tailwindcss/aspect-ratio")],

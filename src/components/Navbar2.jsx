@@ -72,7 +72,7 @@ const Navbar2 = () => {
           <img
             src="./LANE_LOGO.svg"
             alt="Website Logo"
-            style={{ maxWidth: "18%", height: "auto" }}
+            style={{ maxWidth: isMobile ? "25%" : "18%", height: "auto" }}
           />
         </Box>
         <List>
@@ -188,7 +188,7 @@ const Navbar2 = () => {
       <AppBar position="static" elevation={0}>
         <Toolbar
           sx={{
-            backgroundColor: "#FAF9E6",
+            backgroundColor: "#Ffff",
             boxShadow: "none",
             padding: theme.spacing(2),
             justifyContent: "space-between",
