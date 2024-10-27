@@ -321,7 +321,7 @@ const Blog = () => {
             </div>
           ) : (
             <div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 lg:gap-4 gap-3 mb-8 font-blog">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 lg:gap-12 gap-12 mb-8 font-blog">
                 {posts.map((post) => (
                   <div
                     key={post.id}
@@ -346,7 +346,7 @@ const Blog = () => {
                       )}
                     </div>
                     <div className="p-4">
-                      <h2 className="text-xl font-semibold mb-2 hover:text-white transition-colors mt-2">
+                      <h2 className="text-xl font-semibold mb-2 hover:text-white transition-colors mt-4">
                         {post.title}
                       </h2>
                       <p className="text-gray-800 mb-4 line-clamp-2">
@@ -376,7 +376,7 @@ const Blog = () => {
         </div>
 
         {posts.length > 0 && (
-          <div className="flex justify-center items-center space-x-4">
+          <div className="flex justify-center items-center space-x-4 mb-32">
             <button
               className="p-2 rounded-full bg-gray-200 hover:bg-gray-300 transition-colors disabled:opacity-50"
               onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
@@ -384,7 +384,7 @@ const Blog = () => {
             >
               <ChevronLeftIcon size={24} />
             </button>
-            <span className="text-lg font-medium">
+            <span className="text-xl font-medium">
               Page {currentPage} of {totalPages}
             </span>
             <button

@@ -121,12 +121,12 @@ const RichTextContent = ({ node, isActive, links }) => {
               className="w-full h-full object-contain"
             />
           </div> */}
-          <h1 className="text-4xl font-semibold ml-4">{children}</h1>
+          <h1 className="text-5xl font-semibold ml-4">{children}</h1>
         </div>
       ),
       [BLOCKS.HEADING_2]: (node, children) => (
         <div
-          className="flex items-center mb-6 subtitle"
+          className="flex items-center mb-6 mt-14 subtitle"
           id={`heading-${children[0]}`}
         >
           {/* <div className="w-16 h-16 flex-shrink-0">
@@ -136,23 +136,23 @@ const RichTextContent = ({ node, isActive, links }) => {
               className="w-full h-full object-contain mt-2"
             />
           </div> */}
-          <h2 className="text-3xl font-semibold">{children}</h2>
+          <h2 className="text-4xl font-semibold">{children}</h2>
         </div>
       ),
       [BLOCKS.HEADING_3]: (node, children) => (
         <div
-          className="flex items-center mb-6 subtitle"
+          className="flex items-center mb-4 mt-12 subtitle"
           id={`heading-${children[0]}`}
         >
-          <h2 className="text-2xl font-semibold">{children}</h2>
+          <h2 className="text-3xl font-semibold">{children}</h2>
         </div>
       ),
       [BLOCKS.HEADING_4]: (node, children) => (
         <div
-          className="flex items-center mb-6 subtitle"
+          className="flex items-center mb-2 subtitle"
           id={`heading-${children[0]}`}
         >
-          <h2 className="text-xl font-semibold">{children}</h2>
+          <h2 className="text-2xl font-semibold">{children}</h2>
         </div>
       ),
       [BLOCKS.HEADING_5]: (node, children) => (
@@ -406,33 +406,7 @@ export default function BlogPost() {
           {/* Main Content */}
           <div className="flex-1">
             {/* Title */}
-            {/* <h1 className="text-4xl font-bold mb-4">{fields.title}</h1> */}
-            <div className="relative w-full py-12">
-              <div className="relative z-10 container mx-auto px-4">
-                <h1 className="text-4xl md:text-4xl sm:text-3xl xs:text-2xl font-bold mb-4 relative inline-block">
-                  {/* Background image container with responsive width */}
-                  <span
-                    className="absolute overflow-hidden"
-                    style={{
-                      height: "1.4em",
-                      width: "clamp(300px, 80vw, 800px)", // Responsive width
-                      left: "clamp(-10px, -2vw, -20px)", // Responsive left position
-                      top: "-4px",
-                    }}
-                  >
-                    <div className="absolute inset-0 transform -rotate-50">
-                      <img
-                        src="/LaneLine.png"
-                        alt="Background"
-                        className="h-full w-auto object-cover"
-                      />
-                    </div>
-                  </span>
-                  {/* Text content */}
-                  <span className="relative">{fields.title}</span>
-                </h1>
-              </div>
-            </div>
+            <h1 className="text-4xl font-bold mb-4">{fields.title}</h1>
 
             {/* Summary */}
             {/* <div className="text-lg mb-8">
