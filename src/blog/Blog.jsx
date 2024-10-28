@@ -272,7 +272,7 @@ const Blog = () => {
           <input
             type="text"
             placeholder="Search"
-            className="w-full pl-12 pr-4 py-2 border placeholder:text-2xl border-gray-300 bg-[#D1B3FF] opacity-50 rounded-full focus:outline-none focus:ring-2 focus:ring-[#D1B3FF] placeholder:font-blog placeholder:font-semibold h-[60px] placeholder:pl-6 placeholder:text-black"
+            className="w-full pl-16 pr-4 sm:py-2 border placeholder:text-2xl border-gray-300 bg-[#D1B3FF] opacity-50 rounded-full focus:outline-none focus:ring-2 focus:ring-[#D1B3FF] placeholder:font-blog placeholder:font-semibold h-[60px] placeholder:pl-6 placeholder:text-black text-xl"
             value={searchQuery}
             onChange={handleSearch}
           />
@@ -282,12 +282,12 @@ const Blog = () => {
           />
         </div>
 
-        <div className="flex flex-wrap gap-2 mb-12 justify-center items-center mt-8">
-          <div className="max-w-3xl flex flex-wrap gap-4 justify-center">
+        <div className="flex flex-wrap gap-2 mb-10 sm:mb-12 justify-center items-center mt-4 sm:mt-8">
+          <div className="max-w-3xl flex flex-wrap sm:gap-4 justify-center">
             {categories.map((category) => (
               <button
                 key={category}
-                className={`px-4 py-3 rounded-full font-blog sm:text-2xl text-md font-medium transition-colors border m-1 ${
+                className={`px-4 sm:py-3 py-1.5 rounded-full font-blog sm:text-2xl text-md font-medium transition-colors border m-1 ${
                   categoryBorderColors[category]
                 } ${
                   selectedCategory === category

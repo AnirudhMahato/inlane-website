@@ -274,7 +274,7 @@ const Navbar2 = () => {
         sx={{
           position: "relative",
           width: "100%",
-          height: "px",
+          height: isMobile ? "15px" : "auto",
           overflow: "hidden",
           marginTop: "-3px",
         }}
@@ -284,9 +284,11 @@ const Navbar2 = () => {
           src="/NavbarRoad.svg"
           alt="wave"
           sx={{
-            width: "100%",
-            height: "100%",
+            width: isMobile ? "600px" : "100%",
+            height: isMobile ? "15px" : "100%",
             display: "block",
+            margin: isMobile ? "0 auto" : "0",
+            objectFit: "cover",
           }}
         />
       </Box>
