@@ -165,7 +165,7 @@ const CourseDetails = () => {
                             </Typography>
                         </Box>
                         <h4 style={{ fontSize: "22px" }}>(Duration: 10 hours)</h4>
-                        <p>Price: Rs. 10,000/-</p>
+                        <p>Price: Rs. 9,500/- (with Drivers License)</p>
                     </div>
                     <div className={styles.accordion}>
                         {beginnerCourseAccordions.map((accordion, index) => (
@@ -232,20 +232,7 @@ const CourseDetails = () => {
                     </div>
                 </div>
 
-                <Typography
-                    variant="body1"
-                    sx={{
-                        margin: { xs: "20px", sm: "30px", md: "40px" },
-                        fontSize: { xs: "14px", sm: "16px", md: "18px" },
-                        fontFamily: "Bricolage Grotesque",
-                        color: "#000000",
-                    }}
-                >
-                    Value-Added Service(s):
-                    <ul>
-                        <li>We offer a vehicle for the Driver's License test day at an additional cost.</li>
-                    </ul>
-                </Typography>
+                {/* Removed the Value-Added Service section */}
             </div>
             <div className={styles.beginnerCourseSecondDiv}>
                 <Button
