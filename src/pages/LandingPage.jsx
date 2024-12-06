@@ -53,7 +53,72 @@ const LandingPage = () => {
 
   return (
     <Box>
-      <Box
+      <Box>
+        <Box className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-24">
+          <div className="text-center relative">
+            <h1 className="relative text-4xl sm:text-5xl md:text-6xl font-bold text-[#3C4856] font-['Bricolage_Grotesque'] mb-8">
+              {/* Turn arrow in top left */}
+              <div className="absolute top-4 left-4 md:top-[-1rem] md:left-[19rem]">
+                <img
+                  src="/svg/turn_arrow.svg"
+                  alt="Turn arrow"
+                  className="w-8 h-8 md:w-2/3 md:h-2/3"
+                />
+              </div>
+              {/* P icon in top right */}
+              <div className="absolute top-4 right-4 md:top-[1rem] md:right-[17rem]">
+                <img
+                  src="/svg/P.svg"
+                  alt="P icon"
+                  className="w-8 h-8 md:w-2/3 md:h-2/3"
+                />
+              </div>
+              Let's Start Your
+              <br />
+              Driving Journey!
+            </h1>
+
+            <div className="flex flex-row items-center justify-center gap-6 mt-18">
+              <Button
+                variant="contained"
+                // component={Link}
+                // to="/https://forms.gle/Up128jny4nRz5DH59"
+                component="a"
+                href="https://forms.gle/Up128jny4nRz5DH59"
+                startIcon={<Rocket color={IconStyle} />}
+                sx={{
+                  backgroundColor: "#00CE84",
+                  color: "white",
+                  fontWeight: "bold",
+                  fontFamily: "Bricolage Grotesque",
+                  textDecoration: "none",
+                  textTransform: "none",
+                  "&:hover": {
+                    backgroundColor: "#00CE84",
+                  },
+                  border: "2px solid white",
+                  borderRadius: "50px",
+                  padding: {
+                    sm: "10px 20px",
+                    md: "6px 68px",
+                  },
+                  fontSize: { xs: "0.8rem", sm: "1rem", md: "24px" },
+                  whiteSpace: "nowrap",
+                  boxShadow: "2px 4px 4px rgba(0, 0, 0, 0.35)",
+                }}
+              >
+                Sign Up
+              </Button>
+              <img
+                src="/svg/down_arrow.svg"
+                alt="down arrow"
+                className="w-8 h-8 md:w-auto md:h-auto"
+              />
+            </div>
+          </div>
+        </Box>
+      </Box>
+      {/* <Box
         sx={{
           display: "flex",
           flexDirection: "column",
@@ -181,7 +246,7 @@ const LandingPage = () => {
             </Box>
           </Box>
         )}
-      </Box>
+      </Box> */}
 
       {/* second section of the hero page  */}
 
