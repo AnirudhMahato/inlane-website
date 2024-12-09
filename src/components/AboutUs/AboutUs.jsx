@@ -106,7 +106,7 @@ const AboutUs = () => {
                   </p>
                 </div>
 
-                <div className="bg-red-500 p-2 h-[400px] rounded-xl w-[30%]">
+                <div className="bg-[#B28FFF] p-2 h-[400px] rounded-xl w-[30%]">
                   {/* <img src="/svg/Clouds.svg" alt="cloud" className="w-8 h-8" /> */}
                 </div>
               </div>
@@ -162,9 +162,6 @@ const AboutUs = () => {
                     />
                   </div>
                 </div>
-
-            
-
                 <div className="text-center mt-8">
                   <button className="bg-[#00D1A3] text-white px-8 py-2 rounded-full font-medium hover:bg-emerald-500 transition-colors">
                     Join Us
