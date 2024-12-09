@@ -134,13 +134,14 @@ const Footer = () => {
       fontWeight: "bold",
       fontSize: { xs: "24px", sm: "28px", md: "32px" },
       color: "#000000",
+      marginRight: { xs: "0px", sm: "0px", md: "30px" },
       fontFamily: "Bricolage Grotesque",
     },
     footerLinks: {
       textDecoration: "none",
       color: "#000000",
       fontWeight: "500",
-      fontSize: { xs: "18px", sm: "22px", md: "26px" },
+      fontSize: { xs: "18px", sm: "22px", md: "20px" },
       fontFamily: "Bricolage Grotesque",
       mb: 1,
       flexBasis: isMobile ? "45%" : "auto",
@@ -153,7 +154,7 @@ const Footer = () => {
       mt: "20px",
       mb: "10px",
       padding: "5px",
-      fontSize: { xs: "36px", sm: "42px", md: "48px" },
+      fontSize: { xs: "36px", sm: "42px", md: "38px" },
       transition: "transform 0.3s ease-in-out",
       "&:hover": { transform: "scale(1.1)" },
     },
@@ -174,14 +175,16 @@ const Footer = () => {
           <Box sx={styles.footerSmallScreenContainer}>
             {/* LANE LOGO  */}
             <Box mb={4}>
-              <Box>
+              <Box
+              sx={{
+                width: "100%",
+                maxWidth: isMobile ? "187px" : "173px",
+                height: "auto",
+              }}
+              >
                 <img
                   src="/Lane_Footer_Logo.svg"
-                  style={{
-                    // width: "100%",
-                    maxWidth: isMobile ? "187px" : "287px",
-                    height: "auto",
-                  }}
+                 
                   alt="Logo"
                 />
               </Box>
@@ -308,13 +311,13 @@ const Footer = () => {
         </Box>
       ) : (
         <Box sx={styles.footerSecondContainer}>
-          <Box flex={2} mb={4}>
+          <Box flex={2} mb={4} mt={6}>
             <Box>
               <img
                 src="/Lane_Footer_Logo.svg"
                 style={{
                   // width: "100%",
-                  maxWidth: isMobile ? "187px" : "287px",
+                  maxWidth: isMobile ? "187px" : "173px",
                   height: "auto",
                 }}
                 alt="Logo"
@@ -347,7 +350,7 @@ const Footer = () => {
             </Box>
           </Box>
           {/* Information section */}
-          <Box flex={1} mb={4}>
+          <Box flex={1} mb={4} mt={6}>
             <Box sx={styles.footerHeadingImage}>
               <Typography variant="h4" sx={styles.footerHeading}>
                 Information
@@ -369,7 +372,7 @@ const Footer = () => {
             </Box>
           </Box>
           {/* Quick links section */}
-          <Box flex={1} mb={4}>
+          <Box flex={1} mb={4} mt={6}>
             <Box sx={styles.footerHeadingImage}>
               <Typography variant="h4" sx={styles.footerHeading}>
                 Quick Links
@@ -396,7 +399,7 @@ const Footer = () => {
             </Box>
           </Box>
           {/* Contact us section */}
-          <Box flex={1}>
+          <Box flex={1} mt={6}>
             <Box sx={styles.footerHeadingImage}>
               <Typography variant="h4" sx={styles.footerHeading}>
                 Contact Us
