@@ -9,7 +9,12 @@ export default {
       fontFamily: {
         'grotesque': ['Bricolage Grotesque', 'sans-serif'],
       },
+      aspectRatio: {
+        '1': '1',
+      },
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/aspect-ratio'),
+  ],
 }

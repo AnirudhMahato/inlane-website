@@ -3,29 +3,29 @@ import React from "react";
 const AboutUs = () => {
   const teamMembers = [
     {
-      name: "Aaksh Mishra",
-      role: "Our tech wizard keeping the engine running with his code!",
-      image: "/team/aakash.jpg",
+      name: "Asish Behara",
+      role: "Our tech wizard, keeping the engine running with his code! 🧙",
+      image: "/png/in_lane_team1.png",
     },
     {
-      name: "Jay Narendra Reddy",
-      role: "The guy proving that magic exists when you can see it!",
-      image: "/team/jay.jpg",
+      name: "Adi Koushik Reddy",
+      role: "The guy growing our reach faster than you can say \"viral\"! 📈",
+      image: "/png/in_lane_team2.png",
     },
     {
-      name: "Devansh Reddy",
-      role: "Master of the pit stop, making sure everything runs smooth! 🔧",
-      image: "/team/devansh.jpg",
+      name: "Diwakar Reddy",
+      role: "Master of the pit stop, making sure everything runs smoothly! 🔧✨",
+      image: "/png/in_lane_team3.png",
     },
     {
       name: "Srishti",
-      role: "The creative genius painting the track with all the design magic you see ✨",
-      image: "/team/srishti.jpg",
+      role: "The creative genius painting the track with all the design magic you see! 🎨✨",
+      image: "/png/in_lane_team4.png",
     },
     {
-      name: "Arpit, Chirag, Chinmay (Profam)",
-      role: "Our internal pit crew, making sure business runs at its fastest too! 😎",
-      image: "/team/operations.jpg",
+      name: "Arpit, Chirag, Chinmay (ProFam)",
+      role: "Our content pit crew, making social media cooler than the fastest lap! 📱😎",
+      image: "/png/in_lane_team5.png",
     },
   ];
 
@@ -112,36 +112,61 @@ const AboutUs = () => {
               </div>
               {/* Team Section */}
               <div className="bg-white rounded-3xl p-8 mb-12 w-full ">
-                <h2 className="text-3xl font-bold mb-8">
-                  And now, the <span className="text-purple-600">Pit Crew</span>{" "}
-                  that is making it all possible! 🏎️🔧
+                <h2 className="text-2xl font-bold mb-8">
+                  And now, the <span className="text-purple-600">Pit Crew</span> that is making it all possible! 👋🚗
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
                   {teamMembers.map((member, index) => (
-                    <div key={index} className="bg-purple-50 rounded-2xl p-4">
-                      <img
-                        src={member.image}
-                        alt={member.name}
-                        className="w-full h-48 object-cover rounded-xl mb-4"
-                      />
-                      <h3 className="font-bold text-lg mb-2">{member.name}</h3>
-                      <p className="text-gray-600 text-sm">{member.role}</p>
+                    <div key={index} className="rounded-2xl overflow-hidden" style={{ background: '#F8F6FF' }}>
+                      <div className="aspect-w-1 aspect-h-1 w-full">
+                        <img
+                          src={member.image}
+                          alt={member.name}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                      <div className="p-4">
+                        <h3 className="font-bold text-lg mb-1">{member.name}</h3>
+                        <p className="text-gray-700 text-sm leading-snug">{member.role}</p>
+                      </div>
                     </div>
                   ))}
+                  {/* PS Message as 6th card */}
+                  <div className="rounded-[24px] p-6" 
+                       style={{ 
+                         background: '#F3EBFF',
+                         position: 'relative',
+                       }}>
+                    <div className="flex flex-col gap-2">
+                      <p className="text-[#1A1A1A] text-[15px] leading-[1.4] text-left">
+                        P.S. Big thanks to Shubham and Shashank,<br/>
+                        the awesome friends of Lane who keep everything<br/>
+                        running smoothly! 🔧✨
+                      </p>
+                      <p className="text-[#1A1A1A] text-[15px] text-left">
+                        We couldn't do it without you!
+                      </p>
+                    </div>
+                    {/* Chat bubble tail */}
+                    <div 
+                      style={{
+                        position: 'absolute',
+                        bottom: '-20px',
+                        right: '24px',
+                        width: '20px',
+                        height: '20px',
+                        background: '#F3EBFF',
+                        clipPath: 'polygon(0 0, 100% 0, 100% 100%)',
+                        transform: 'rotate(-45deg)',
+                      }}
+                    />
+                  </div>
                 </div>
 
-                <div className="text-center bg-purple-50 rounded-2xl p-6">
-                  <p className="text-gray-600 mb-2">
-                    P.S. Big thanks to Rakshith and Shouvik, the awesome friends
-                    at Workbench who made everything running possible!
-                  </p>
-                  <p className="text-gray-600">
-                    We couldn't do it without you! 💜
-                  </p>
-                </div>
+            
 
                 <div className="text-center mt-8">
-                  <button className="bg-emerald-400 text-white px-8 py-3 rounded-full font-bold hover:bg-emerald-500 transition-colors">
+                  <button className="bg-[#00D1A3] text-white px-8 py-2 rounded-full font-medium hover:bg-emerald-500 transition-colors">
                     Join Us
                   </button>
                 </div>
