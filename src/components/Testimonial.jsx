@@ -136,8 +136,8 @@ const Testimonial = () => {
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
   const isMediumScreen = useMediaQuery(theme.breakpoints.between("sm", "md"));
   const smallIconStyle = { color: "#000000", width: 24, height: 24 };
-  const mediumIconStyle = { color: "#000000", width: 34, height: 34 };
-  const largeIconStyle = { color: "#000000", width: 44, height: 44 };
+  const mediumIconStyle = { color: "#000000", width: 34, height: 24 };
+  const largeIconStyle = { color: "#000000", width: 44, height: 24 };
   const [openModal, setOpenModal] = useState(false);
   const [activeVideo, setActiveVideo] = useState("");
   const IconStyle = isSmallScreen
@@ -226,15 +226,15 @@ const Testimonial = () => {
         fontWeight={700}
         fontFamily={"Bricolage Grotesque"}
       >
-        Not Convinced Yet?
+        Let’s Bridge the Gap Between you and
       </Typography>
-      <Typography
+      {/* <Typography
         fontSize={{ xs: "16px", sm: "32px", md: "48px" }}
         color={"#000000"}
         fontFamily={"Bricolage Grotesque"}
       >
         Check out these awesome reviews from our
-      </Typography>
+      </Typography> */}
       <Box
         sx={{
           display: "inline-block",
@@ -256,7 +256,7 @@ const Testimonial = () => {
           fontFamily={"Bricolage Grotesque"}
           // boxShadow={"6px 8px 4px rgba(0, 0, 0, 0.35)"}
         >
-          Happy Learners!
+          The Wheel
         </Typography>
       </Box>
       <Box
@@ -330,7 +330,7 @@ const Testimonial = () => {
           ))}
         </Slider>
       </Box>
-      <Box
+      {/* <Box
         mb={4}
         sx={{
           fontSize: { xs: "16px", sm: "16px", md: "24px" },
@@ -346,7 +346,7 @@ const Testimonial = () => {
         >
           View Google Reviews
         </LinkMui>
-      </Box>
+      </Box> */}
       {/* //NOTE: MODAL IS STARED FROM here*/}
       <Modal
         open={openModal}
@@ -391,29 +391,29 @@ const Testimonial = () => {
           ></iframe>
         </Box>
       </Modal>
-      <Box mb={2}>
+      {/* <Box mb={2}>
         {[1, 2, 3, 4, 5].map((star) => (
           <StarIcon
             key={star}
             sx={{ color: "#ffeb3b", fontSize: { xs: 24, sm: 42, md: 48 } }}
           />
         ))}
-      </Box>
+      </Box> */}
       <Button
         variant="contained"
         component={Link}
         // to={"https://forms.gle/pjjmUjoQvN7XsgC87"}
         // component="a"
         href="https://forms.gle/pjjmUjoQvN7XsgC87"
-        size="large"
-        startIcon={<Rocket color={IconStyle} />}
+        size="small"
+        startIcon={<Rocket color={IconStyle} className='m-0 p-0'/>}
         sx={{
           backgroundColor: "#D9FF7A",
           color: "#000000",
           fontFamily: "Bricolage Grotesque",
-          fontSize: { xs: "16px", sm: "30px", md: "36px" },
+          fontSize: { xs: "16px", sm: "30px", md: "28px" },
           textDecoration: "none",
-          width: { xs: "80%", sm: "80%", md: 610.72 },
+          width: { xs: "80%", sm: "80%", md: 280.72 },
           textTransform: "none",
           fontWeight: "bold",
           "&:hover": {
@@ -421,12 +421,12 @@ const Testimonial = () => {
           },
           border: "4px solid white",
           borderRadius: "50px",
-          padding: { xs: "4px 4px", sm: "10px 20px", md: "12px 24px" },
+          // padding: { xs: "4px 4px", sm: "10px 20px", md: "12px 12px" },
           marginBottom: { xs: "64px", sm: "96px", md: "128px" },
           boxShadow: "6px 8px 4px rgba(0, 0, 0, 0.35)",
         }}
       >
-        Start Your Journey Now!
+        Start Now!
       </Button>
     </Box>
   );
