@@ -158,7 +158,7 @@ const Testimonial = () => {
         sx={{ 
           // maxWidth: "1200px", 
           margin: "0 auto", 
-          marginBottom: "128px",
+          marginBottom: { xs: "64px", sm: "96px", md: "128px" },
           px: 2 
         }}
       >
