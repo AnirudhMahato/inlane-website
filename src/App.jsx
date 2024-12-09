@@ -13,7 +13,7 @@ import Navbar2 from "./components/Navbar2";
 import Footer from "./components/Footer";
 import CoursesPage from "./pages/Courses";
 // import ContactUs from "./pages/ContactUs";
-import AboutUs from "./pages/AboutUs";
+import AboutUs from "./components/AboutUs/AboutUs";
 // import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsAndConditions from "./pages/TermsAndConditions";
 import Disclaimer from "./pages/Disclaimer";
