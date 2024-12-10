@@ -95,8 +95,8 @@ const Footer = () => {
   ];
   const infoLinks = [
     {
-      text: "Home",
-      href: "#",
+      text: "About us",
+      href: "about-us",
     },
     {
       text: "Courses",

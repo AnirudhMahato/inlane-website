@@ -54,6 +54,10 @@ const Layout3 = () => {
 
 const router = createBrowserRouter([
   {
+    path: "/about-us",
+    element: <AboutUs />,
+  },
+  {
     path: "/blog",
     element: <Layout2 />,
     children: [
@@ -79,10 +83,7 @@ const router = createBrowserRouter([
         path: "/courses",
         element: <CoursesPage />,
       },
-      {
-        path: "/about-us",
-        element: <AboutUs />,
-      },
+     
       {
         path: "/terms-and-conditions",
         element: <TermsAndConditions />,
