@@ -1,16 +1,10 @@
 /** @type {import('tailwindcss').Config} */
-export default {
-  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+module.exports = {
+  content: [
+    "./src/**/*.{js,jsx,ts,tsx}",
+  ],
   theme: {
-    extend: {
-      aspectRatio: {
-        "w-16": 16,
-        "h-9": 9,
-      },
-      screens: {
-        "xs": "420px",
-      },
-    },
+    extend: {},
   },
-  plugins: [require("@tailwindcss/aspect-ratio")],
-};
+  plugins: [],
+}
