@@ -13,7 +13,7 @@ import Navbar2 from "./components/Navbar2";
 import Footer from "./components/Footer";
 import CoursesPage from "./pages/Courses";
 // import ContactUs from "./pages/ContactUs";
-import AboutUs from "./pages/AboutUs";
+import AboutUs from "./components/AboutUs/AboutUs";
 // import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsAndConditions from "./pages/TermsAndConditions";
 import Disclaimer from "./pages/Disclaimer";
@@ -54,6 +54,10 @@ const Layout3 = () => {
 
 const router = createBrowserRouter([
   {
+    path: "/about-us",
+    element: <AboutUs />,
+  },
+  {
     path: "/blog",
     element: <Layout2 />,
     children: [
@@ -79,10 +83,7 @@ const router = createBrowserRouter([
         path: "/courses",
         element: <CoursesPage />,
       },
-      {
-        path: "/about-us",
-        element: <AboutUs />,
-      },
+     
       {
         path: "/terms-and-conditions",
         element: <TermsAndConditions />,

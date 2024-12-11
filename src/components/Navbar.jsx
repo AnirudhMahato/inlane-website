@@ -24,7 +24,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import CloseIcon from "@mui/icons-material/Close";
 
-const Navbar2 = () => {
+const Navbar2 = ({ backgroundColor  = "#FAF9E6", logo = "./LANE_LOGO.svg", burgerMenu = "/PurpleHamburger.png" }) => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -68,9 +68,10 @@ const Navbar2 = () => {
           alignItems="center"
           margin="20px"
           mt={6}
+          
         >
           <img
-            src="./LANE_LOGO.svg"
+            src={logo}
             alt="Website Logo"
             style={{ maxWidth: "18%", height: "auto" }}
           />
@@ -188,7 +189,7 @@ const Navbar2 = () => {
       <AppBar position="static" elevation={0}>
         <Toolbar
           sx={{
-            backgroundColor: "#FAF9E6",
+            backgroundColor: backgroundColor,
             boxShadow: "none",
             padding: theme.spacing(2),
             justifyContent: "space-between",
@@ -217,7 +218,7 @@ const Navbar2 = () => {
               }}
             >
               <img
-                src="/LANE_LOGO.svg"
+                src={logo}
                 alt="Lane logo"
                 width={isMobile ? 50 : 60}
                 style={{ marginRight: theme.spacing(1) }}
@@ -239,7 +240,7 @@ const Navbar2 = () => {
               }}
             >
               <img
-                src="/PurpleHamburger.png"
+                src={burgerMenu}
                 alt="menu icon"
                 width={isMobile ? 35 : 40}
                 height={isMobile ? 25 : 25}
