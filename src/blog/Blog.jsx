@@ -20,7 +20,7 @@ const Blog = () => {
   const [contentTypes, setContentTypes] = useState([]);
   const [totalItems, setTotalItems] = useState(0);
 
-  const content = "By Your Side, Every Ride 🚗";
+  const content = "By Your Side, Every Ride 🚗 Every Ride 🚗 By Your Side,";
 
   const categories = [
     "All",
@@ -211,11 +211,14 @@ const Blog = () => {
 
   return (
     <>
-      <div className="w-full overflow-hidden mt-28 mb-24">
+      <div className="w-full overflow-hidden  flex justify-center items-center w-full  mt-28 mb-24">
         <div className="inline-flex whitespace-nowrap font-semibold">
           {/* Primary scrolling container */}
-          <div className="animate-scroll flex sm:gap-16 gap-10">
-            <span className="text-7xl md:text-7xl lg:text-8xl xl:text-9xl font-semibold text-[#00CE84]">
+          <div className=" flex sm:gap-16 px-2 m-auto">
+            <p className="flex m-auto w-full justify-center items-center 
+             text-4xl md:text-7xl font-semibold text-[#00CE84]"
+            >By Your Side, Every Ride 🚗 <br /> Every Ride 🚗 By Your Side</p>
+            {/* <span className="text-7xl md:text-7xl lg:text-8xl xl:text-9xl font-semibold text-[#00CE84]">
               {content}
             </span>
             <span className="text-7xl md:text-7xl lg:text-8xl xl:text-9xl font-semibold text-[#00CE84]">
@@ -235,7 +238,7 @@ const Blog = () => {
             </span>
             <span className="text-7xl md:text-7xl lg:text-8xl xl:text-9xl font-semibold text-[#00CE84]">
               {content}
-            </span>
+            </span> */}
           </div>
         </div>
         <style>{`
