@@ -165,7 +165,7 @@ const CourseDetails = () => {
                             </Typography>
                         </Box>
                         <h4 style={{ fontSize: "22px" }}>(Duration: 10 hours)</h4>
-                        <p>Price: Rs. 9,500/- (with Drivers License)</p>
+                        {/* Price: Rs. 9,500/- (with Drivers License) */}
                     </div>
                     <div className={styles.accordion}>
                         {beginnerCourseAccordions.map((accordion, index) => (
