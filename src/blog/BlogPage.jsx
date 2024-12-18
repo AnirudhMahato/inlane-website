@@ -331,6 +331,53 @@ export default function BlogPost() {
     }
   }, [slug, location.state]);
 
+  useEffect(() => {
+    if (!post) return;
+
+    const observerCallback = (entries) => {
+      entries.forEach((entry) => {
+        const elementRect = entry.target.getBoundingClientRect();
+        const viewportHeight = window.innerHeight;
+        const elementMiddle = elementRect.top + elementRect.height / 2;
+
+        setActiveSubtitles((prev) => ({
+          ...prev,
+          [entry.target.id]: elementMiddle < viewportHeight / 2,
+        }));
+      });
+    };
+
+    const observer = new IntersectionObserver(observerCallback, {
+      root: null,
+      rootMargin: "-50% 0px",
+      threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0],
+    });
+
+    const scrollHandler = () => {
+      document.querySelectorAll(".subtitle").forEach((subtitle) => {
+        const rect = subtitle.getBoundingClientRect();
+        const elementMiddle = rect.top + rect.height / 2;
+        const viewportMiddle = window.innerHeight / 2;
+
+        setActiveSubtitles((prev) => ({
+          ...prev,
+          [subtitle.id]: elementMiddle < viewportMiddle,
+        }));
+      });
+    };
+
+    document.querySelectorAll(".subtitle").forEach((subtitle) => {
+      observer.observe(subtitle);
+    });
+
+    window.addEventListener("scroll", scrollHandler, { passive: true });
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("scroll", scrollHandler);
+    };
+  }, [post]);
+
   // Rest of the component remains the same as in the previous implementation
   // (Keep the existing useEffect for active subtitles, and the entire render method)
   
