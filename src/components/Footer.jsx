@@ -65,13 +65,13 @@ const Footer = () => {
   const contactInfo = [
     {
       Icon: PhoneIcon,
-      text: "Call ",
+      text: "+91 9748439881",
       href: "tel:+919748439881",
     },
     {
       Icon: EmailIcon,
-      text: "Email ",
-      href: "mailto:discover.laneschool@inlane.in",
+      text: "info@inlane.in ",
+      href: "mailto:info@inlane.in",
     },
     {
       Icon: WhatsAppIcon,
@@ -102,14 +102,14 @@ const Footer = () => {
       text: "Courses",
       href: "/courses",
     },
-    // {
-    //   text: "FAQs",
-    //   href: "#",
-    // },
-    // {
-    //   text: "Lane Journal",
-    //   href: "#",
-    // },
+    {
+      text: "FAQs",
+      href: "/blog",
+    },
+    {
+      text: "Lane Journal",
+      href: "#",
+    },
   ];
   // CUSTOM STYLES
   const styles = {

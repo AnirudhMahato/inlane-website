@@ -1,8 +1,18 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
 import { createClient } from "contentful";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { BLOCKS, INLINES, MARKS } from "@contentful/rich-text-types";
+
+// Utility function to generate a URL-friendly slug
+const generateSlug = (title) => {
+  return title
+    .toLowerCase()
+    .replace(/[^\w\s-]/g, '') // Remove non-word chars (except spaces and hyphens)
+    .replace(/\s+/g, '-')     // Replace spaces with hyphens
+    .replace(/-+/g, '-')      // Replace multiple hyphens with single hyphen
+    .trim();                  // Trim leading/trailing hyphens
+};
 
 const contentfulClient = createClient({
   space: "m7qe3du2pj2h",
@@ -267,7 +277,8 @@ const RichTextContent = ({ node, isActive, links }) => {
 };
 
 export default function BlogPost() {
-  const { id } = useParams();
+  const { slug } = useParams();
+  const location = useLocation();
   const [post, setPost] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -277,11 +288,36 @@ export default function BlogPost() {
     const fetchBlogPost = async () => {
       try {
         setLoading(true);
-        const response = await contentfulClient.getEntry(id, {
+        
+        // First, try to use the ID passed in location state
+        let postId = location.state?.id;
+
+        // If no ID in state, fetch the post by searching for the matching slug
+        if (!postId) {
+          // Fetch all blog posts and find the one with a matching slug
+          const response = await contentfulClient.getEntries({
+            content_type: 'blog',
+            'fields.title[match]': location.state?.title || '',
+          });
+
+          // Find the post where the generated slug matches the URL slug
+          const matchingPost = response.items.find(
+            item => generateSlug(item.fields.title) === slug
+          );
+
+          if (!matchingPost) {
+            throw new Error('Blog post not found');
+          }
+
+          postId = matchingPost.sys.id;
+        }
+
+        // Fetch the specific entry
+        const entry = await contentfulClient.getEntry(postId, {
           include: 10, // Include linked entries and assets
         });
-        setPost(response);
-        console.log("contentful",response);
+
+        setPost(entry);
       } catch (err) {
         console.error("Error fetching blog post:", err);
         setError("Failed to load blog post. Please try again later.");
@@ -290,10 +326,10 @@ export default function BlogPost() {
       }
     };
 
-    if (id) {
+    if (slug) {
       fetchBlogPost();
     }
-  }, [id]);
+  }, [slug, location.state]);
 
   useEffect(() => {
     if (!post) return;
@@ -341,6 +377,7 @@ export default function BlogPost() {
       window.removeEventListener("scroll", scrollHandler);
     };
   }, [post]);
+
 
   if (loading) {
     return (
