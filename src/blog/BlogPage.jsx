@@ -378,11 +378,6 @@ export default function BlogPost() {
     };
   }, [post]);
 
-  // Rest of the component remains the same as in the previous implementation
-  // (Keep the existing useEffect for active subtitles, and the entire render method)
-  
-  // The render method and other parts remain exactly the same as in the previous BlogPost component
-  // Just ensure that any references to `:id` in routing are changed to `:slug`
 
   if (loading) {
     return (
