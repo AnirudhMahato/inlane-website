@@ -3,6 +3,16 @@ import { SearchIcon, ChevronLeftIcon, ChevronRightIcon } from "lucide-react";
 import { createClient } from "contentful";
 import { useNavigate } from "react-router-dom";
 
+// Utility function to generate a URL-friendly slug
+const generateSlug = (title) => {
+  return title
+    .toLowerCase()
+    .replace(/[^\w\s-]/g, '') // Remove non-word chars (except spaces and hyphens)
+    .replace(/\s+/g, '-')     // Replace spaces with hyphens
+    .replace(/-+/g, '-')      // Replace multiple hyphens with single hyphen
+    .trim();                  // Trim leading/trailing hyphens
+};
+
 // Create client instance outside component to prevent re-creation
 const contentfulClient = createClient({
   space: "m7qe3du2pj2h",
@@ -68,8 +78,15 @@ const Blog = () => {
 
   // Handler for blog post click
   const handleBlogClick = useCallback(
-    (postId) => {
-      navigate(`/blog/${postId}`);
+    (post) => {
+      // Generate a slug from the post title
+      const slug = generateSlug(post.title);
+      navigate(`/blog/${slug}`, { 
+        state: { 
+          id: post.id,  // Pass the actual Contentful ID in state
+          title: post.title 
+        } 
+      });
     },
     [navigate]
   );
@@ -135,7 +152,6 @@ const Blog = () => {
         if (!isActive) return;
 
         const transformedPosts = response.items.map((item) => {
-          console.log("Item", item);
           return {
             id: item.sys.id,
             title: item.fields.title || "Untitled",
@@ -331,7 +347,7 @@ const Blog = () => {
                     className={`rounded-3xl shadow-md overflow-hidden hover:shadow-lg transition-shadow max-w-[556px] cursor-pointer ${getCardBackground(
                       post.categories
                     )}`}
-                    onClick={() => handleBlogClick(post.id)}
+                    onClick={() => handleBlogClick(post)}
                   >
                     <div className="h-48">
                       {post.image ? (
