@@ -24,11 +24,58 @@ const NewCoursePage = () => {
     return movement;
   };
 
-  const beginnerCourseHours = Array.from({ length: 10 }, (_, i) => ({
-    hour: i + 1,
-    title: "Get to know your car",
-    details: "Additional information about this hour will be shown here",
-  }));
+  const beginnerCourseHours = [
+    {
+      hour: 1,
+      title: "Introduction to Vehicle Controls",
+      details: "Get familiar with car controls, adjusting seats and mirrors, basic safety checks, and understanding dashboard indicators.",
+    },
+    {
+      hour: 2,
+      title: "Starting & Basic Vehicle Control",
+      details: "Learn proper starting procedure, clutch control, moving off safely, and basic steering techniques in empty areas.",
+    },
+    {
+      hour: 3,
+      title: "Gear Changes & Speed Control",
+      details: "Master smooth gear transitions, understanding gear selection, speed control, and basic braking techniques.",
+    },
+    {
+      hour: 4,
+      title: "Turning & Steering Techniques",
+      details: "Practice different turning methods, three-point turns, steering control, and position on road.",
+    },
+    {
+      hour: 5,
+      title: "Basic Maneuvers",
+      details: "Introduction to reverse parking, parallel parking basics, and turning in tight spaces.",
+    },
+    {
+      hour: 6,
+      title: "Traffic Rules & Road Signs",
+      details: "Understanding traffic signals, road signs, right of way rules, and basic traffic regulations.",
+    },
+    {
+      hour: 7,
+      title: "Residential Area Driving",
+      details: "Practice driving in quiet residential areas, dealing with pedestrians, and speed management.",
+    },
+    {
+      hour: 8,
+      title: "Light Traffic Navigation",
+      details: "Experience driving in light traffic conditions, lane discipline, and basic intersection handling.",
+    },
+    {
+      hour: 9,
+      title: "Advanced Maneuvers",
+      details: "Advanced parking techniques, emergency stops, and handling different road conditions.",
+    },
+    {
+      hour: 10,
+      title: "Final Assessment & Mock Test",
+      details: "Complete driving assessment, mock driving test, and final preparation for license test.",
+    },
+  ];
 
   const miniCourses = [
     {
@@ -144,80 +191,86 @@ const NewCoursePage = () => {
       </div> */}
 
         {/* Beginner Course Section */}
-        <div className="max-w-3xl mx-auto mb-12 bg-[#e5ff9f] rounded-[2rem] p-8">
+        <div className="max-w-5xl mx-auto mb-12 mt-60 bg-[#e5ff9f] rounded-[2rem] p-8">
           <div className="flex items-center gap-3 mb-6">
             <img src="/target-icon.svg" alt="target" className="w-8 h-8" />
             <h2 className="text-3xl font-bold">Beginner Course</h2>
           </div>
 
-          <div className="space-y-3">
-            {beginnerCourseHours.map((hour, index) => (
-              <div key={index} className="relative">
-                <button
-                  onClick={() =>
-                    setExpandedHour(expandedHour === index ? null : index)
-                  }
-                  className="w-full flex items-center justify-between bg-white/50 rounded-full px-6 py-3 hover:bg-white/60 transition-colors"
-                >
-                  <div className="flex items-center gap-4">
-                    <span className="font-semibold">Hour {hour.hour}</span>
-                    <span className="text-gray-700">{hour.title}</span>
-                  </div>
-                  <svg
-                    className={`w-5 h-5 transition-transform ${
-                      expandedHour === index ? "rotate-180" : ""
-                    }`}
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
+          <div className="flex">
+            {/* Left side - Course hours - 80% width */}
+            <div className="w-[70%] space-y-2 pr-8">
+              {beginnerCourseHours.map((hour, index) => (
+                <div key={index} className="relative">
+                  <button
+                    onClick={() => setExpandedHour(expandedHour === index ? null : index)}
+                    className="w-full flex items-center justify-between bg-white/50 rounded-full px-6 py-2 hover:bg-white/60 transition-colors"
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M19 9l-7 7-7-7"
-                    />
-                  </svg>
-                </button>
-                {expandedHour === index && (
-                  <div className="bg-white/30 mt-2 p-4 rounded-2xl">
-                    {hour.details}
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
+                    <div className="flex items-center gap-4">
+                      <span className="font-semibold min-w-[4.5rem]">Hour {hour.hour}</span>
+                      <span className="text-gray-700 border-l border-gray-400 pl-4">
+                        {hour.title}
+                      </span>
+                    </div>
+                    <svg
+                      className={`w-5 h-5 transition-transform ${
+                        expandedHour === index ? "rotate-180" : ""
+                      }`}
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M19 9l-7 7-7-7"
+                      />
+                    </svg>
+                  </button>
 
-          <div className="mt-6 flex flex-col gap-4">
-            <div className="flex items-center gap-3">
-              <img
-                src="/hourglass-icon.svg"
-                alt="duration"
-                className="w-6 h-6"
-              />
-              <span className="text-lg">Duration: 10 hours</span>
+                  {expandedHour === index && (
+                    <div className="mt-2 ml-[4.5rem] pl-8 pr-4 py-3 bg-white/30 rounded-lg">
+                      <p className="text-gray-700">{hour.details}</p>
+                    </div>
+                  )}
+                </div>
+              ))}
             </div>
-            <div className="flex items-center gap-3">
-              <img src="/rupee-icon.svg" alt="price" className="w-6 h-6" />
-              <span className="text-lg">Price: ₹10000</span>
-            </div>
-            <div className="flex items-center gap-3">
-              <img
-                src="/value-added-icon.svg"
-                alt="value"
-                className="w-6 h-6"
-              />
-              <div>
-                <span className="text-lg font-semibold">Value Added</span>
-                <p className="text-sm">
-                  We offer a vehicle for the Driver's License test day at an
-                  additional cost.
-                </p>
+
+            {/* Right side - Course details - 20% width */}
+            <div className="w-[30%] space-y-6">
+              <div className="flex items-center gap-3">
+                <img src="/hourglass-icon.svg" alt="duration" className="w-6 h-6" />
+                <div>
+                  <span className="text-lg font-semibold">Duration:</span>
+                  <p>10 hours</p>
+                </div>
               </div>
+
+              <div className="flex items-center gap-3">
+                <img src="/rupee-icon.svg" alt="price" className="w-6 h-6" />
+                <div>
+                  <span className="text-lg font-semibold">Price:</span>
+                  <p>₹10000</p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-3">
+                <img src="/value-added-icon.svg" alt="value" className="w-6 h-6 mt-1" />
+                <div>
+                  <span className="text-lg font-semibold block">Value Added</span>
+                  <p className="text-sm">
+                    We offer a vehicle for the Driver's License test day at an additional cost.
+                  </p>
+                </div>
+              </div>
+
+              <button className="w-full bg-green-400 text-white px-8 py-3 rounded-full font-semibold hover:bg-green-500 transition-colors flex items-center justify-center gap-2">
+                <img src="/rocket-icon.svg" alt="rocket" className="w-5 h-5" />
+                Sign Up
+              </button>
             </div>
-            <button className="self-end bg-green-500 text-white px-8 py-3 rounded-full font-semibold hover:bg-green-600 transition-colors">
-              Sign Up
-            </button>
           </div>
         </div>
 
