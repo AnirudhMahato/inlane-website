@@ -3,7 +3,13 @@ import { Button } from "@mui/material";
 import { Rocket } from "lucide-react";
 
 const MiniCourseNew = () => {
-  const [expandedStates, setExpandedStates] = useState({});
+  // Initialize all courses as expanded
+  const [expandedStates, setExpandedStates] = useState({
+    0: true,
+    1: true,
+    2: true,
+    3: true
+  });
 
   const toggleExpand = (index) => {
     setExpandedStates(prev => ({
@@ -64,12 +70,12 @@ const MiniCourseNew = () => {
   ];
 
   return (
-    <div className="max-w-6xl mx-auto mb-12 px-4">
+    <div className="max-w-6xl mx-auto mb-12  p-12 pt-16">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {miniCourses.map((course, index) => (
           <div
             key={index}
-            className={`${course.bgColor} rounded-[2rem] p-8 relative min-h-[250px] w-full`}
+            className={`${course.bgColor} rounded-[2rem] p-8 relative min-h-[300px] w-full`}
           >
             <h3 className="text-2xl font-bold mb-4">{course.title}</h3>
 
@@ -96,7 +102,9 @@ const MiniCourseNew = () => {
                 </svg>
               </button>
 
-              {expandedStates[index] && (
+              <div className={`transition-all duration-300 ${
+                expandedStates[index] ? 'opacity-100 max-h-[500px]' : 'opacity-0 max-h-0'
+              } overflow-hidden`}>
                 <ul className="space-y-2 pl-4">
                   {course.points.map((point, idx) => (
                     <li key={idx} className="text-sm">
@@ -104,7 +112,7 @@ const MiniCourseNew = () => {
                     </li>
                   ))}
                 </ul>
-              )}
+              </div>
             </div>
 
             <div className="flex items-center gap-6 absolute bottom-8">
