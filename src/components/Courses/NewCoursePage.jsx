@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import Footer from "../Footer";
 import FAQ from "./FAQ";
 import Navbar from "../Navbar";
+import { Button } from "@mui/material";
+import { Rocket } from "lucide-react";
 
 const NewCoursePage = () => {
   const [expandedHour, setExpandedHour] = useState(null);
@@ -123,7 +125,7 @@ const NewCoursePage = () => {
         logo="./svg/Logo_white.svg"
         burgerMenu="./svg/burger_menu_white.svg"
       />
-      <div className="min-h-screen bg-green-400">
+      <div className="min-h-screen bg-green-400 font-['glancyr']">
         {/* Cars Row and Animation Container */}
         <div className="relative h-[500px]">
           {/* Static cars row */}
@@ -191,14 +193,14 @@ const NewCoursePage = () => {
       </div> */}
 
         {/* Beginner Course Section */}
-        <div className="max-w-5xl mx-auto mb-12 mt-60 bg-[#e5ff9f] rounded-[2rem] p-8">
+        <div className="max-w-5xl mx-auto mb-12 mt-60 bg-[#D9FF7A] rounded-[2rem] p-8 shadow-sm">
           <div className="flex items-center gap-3 mb-6">
-            <img src="/target-icon.svg" alt="target" className="w-8 h-8" />
-            <h2 className="text-3xl font-bold">Beginner Course</h2>
+            <img src="/course/arrow.svg" alt="target" className="" />
+            <h2 className="text-3xl font-medium font-['glancyr']">Beginner Course</h2>
           </div>
 
           <div className="flex">
-            {/* Left side - Course hours - 80% width */}
+            {/* Left side - Course hours - 70% width */}
             <div className="w-[70%] space-y-2 pr-8">
               {beginnerCourseHours.map((hour, index) => (
                 <div key={index} className="relative">
@@ -207,8 +209,8 @@ const NewCoursePage = () => {
                     className="w-full flex items-center justify-between bg-white/50 rounded-full px-6 py-2 hover:bg-white/60 transition-colors"
                   >
                     <div className="flex items-center gap-4">
-                      <span className="font-semibold min-w-[4.5rem]">Hour {hour.hour}</span>
-                      <span className="text-gray-700 border-l border-gray-400 pl-4">
+                      <span className="font-semibold min-w-[4.5rem] font-['glancyr']">Hour {hour.hour}</span>
+                      <span className="text-gray-700 border-l border-gray-400 pl-4 font-['glancyr']">
                         {hour.title}
                       </span>
                     </div>
@@ -231,52 +233,85 @@ const NewCoursePage = () => {
 
                   {expandedHour === index && (
                     <div className="mt-2 ml-[4.5rem] pl-8 pr-4 py-3 bg-white/30 rounded-lg">
-                      <p className="text-gray-700">{hour.details}</p>
+                      <p className="text-gray-700 font-['glancyr']">{hour.details}</p>
                     </div>
                   )}
                 </div>
               ))}
             </div>
 
-            {/* Right side - Course details - 20% width */}
+            {/* Right side - Course details - 30% width */}
             <div className="w-[30%] space-y-6">
               <div className="flex items-center gap-3">
-                <img src="/hourglass-icon.svg" alt="duration" className="w-6 h-6" />
+                <img src="/course/timer.svg" alt="duration" className="" />
                 <div>
-                  <span className="text-lg font-semibold">Duration:</span>
-                  <p>10 hours</p>
+                  <span className="text-lg font-semibold font-['glancyr']">Duration:</span>
+                  <p className="font-['glancyr']">10 hours</p>
                 </div>
               </div>
 
               <div className="flex items-center gap-3">
-                <img src="/rupee-icon.svg" alt="price" className="w-6 h-6" />
+                <img src="/course/coin.svg" alt="price" className="" />
                 <div>
-                  <span className="text-lg font-semibold">Price:</span>
-                  <p>₹10000</p>
+                  <span className="text-lg font-semibold font-['glancyr']">Price:</span>
+                  <p className="font-['glancyr']">₹10000</p>
                 </div>
               </div>
 
               <div className="flex items-start gap-3">
-                <img src="/value-added-icon.svg" alt="value" className="w-6 h-6 mt-1" />
+                <img src="/course/calculator.svg" alt="value" className="" />
                 <div>
-                  <span className="text-lg font-semibold block">Value Added</span>
-                  <p className="text-sm">
+                  <span className="text-lg font-semibold block font-['glancyr']">Value Added</span>
+                  <p className="text-sm font-['glancyr']">
                     We offer a vehicle for the Driver's License test day at an additional cost.
                   </p>
                 </div>
               </div>
 
-              <button className="w-full bg-green-400 text-white px-8 py-3 rounded-full font-semibold hover:bg-green-500 transition-colors flex items-center justify-center gap-2">
-                <img src="/rocket-icon.svg" alt="rocket" className="w-5 h-5" />
+              <div className="flex flex-row items-center justify-center gap-6 mt-18">
+              <Button
+                variant="contained"
+                // component={Link}
+                // to="/https://forms.gle/Up128jny4nRz5DH59"
+                component="a"
+                href="https://forms.gle/Up128jny4nRz5DH59"
+                startIcon={<Rocket color="white" />}
+                sx={{
+                  backgroundColor: "#00CE84",
+                  color: "white",
+                  fontWeight: "bold",
+                  fontFamily: "Bricolage Grotesque",
+                  textDecoration: "none",
+                  textTransform: "none",
+                  "&:hover": {
+                    backgroundColor: "#00CE84",
+                  },
+                  border: "2px solid white",
+                  borderRadius: "50px",
+                  padding: {
+                    sm: "10px 20px",
+                    md: "6px 68px",
+                  },
+                  fontSize: { xs: "0.8rem", sm: "1rem", md: "24px" },
+                  whiteSpace: "nowrap",
+                  boxShadow: "2px 4px 4px rgba(0, 0, 0, 0.35)",
+                }}
+              >
                 Sign Up
-              </button>
+              </Button>
+              {/* <img
+                src="/svg/down_arrow.svg"
+                alt="down arrow"
+                className="w-8 h-8 md:w-auto md:h-auto"
+              /> */}
+            </div>
             </div>
           </div>
         </div>
 
         {/* Mini Courses Section */}
         <div className="max-w-3xl mx-auto mb-12">
-          <h2 className="inline-block bg-yellow-300 px-6 py-2 rounded-full text-2xl font-bold mb-8">
+          <h2 className="inline-block bg-yellow-300 px-6 py-2 rounded-full text-2xl font-bold mb-8 font-['glancyr']">
             Mini Courses
           </h2>
 
