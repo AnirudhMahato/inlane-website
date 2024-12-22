@@ -19,7 +19,7 @@ const NewCoursePage = () => {
 
   const calculateCarPosition = () => {
     const maxScroll = 300;
-    const maxMove = 250;
+    const maxMove = 200;
     const movement = Math.min((scrollPosition / maxScroll) * maxMove, maxMove);
     return movement;
   };
@@ -88,10 +88,10 @@ const NewCoursePage = () => {
                     key={i}
                     src="/svg/course_car.svg"
                     alt="car"
-                    // className="w-16"
+                    className="w-16 md:w-auto"
                   />
                 ) : (
-                  <div key={i} className="w-16" />
+                  <div key={i} className="w-16 md:w-auto" />
                 )
               )}
             </div>
@@ -104,7 +104,7 @@ const NewCoursePage = () => {
               <img
                 src="/svg/course_car_yellow.svg"
                 alt="car"
-                // className="w-16"
+                className="w-16 md:w-auto"
                 style={{
                   transform: `translateY(${calculateCarPosition()}px)`,
                   transition: "transform 0.1s ease-out",
@@ -115,16 +115,16 @@ const NewCoursePage = () => {
 
           {/* Let's Get You Driving image */}
           <div
-            className="absolute w-full"
+            className="absolute w-full top-[200px] md:top-[400px]"
             style={{
-              top: "400px",
+              // top: "400px",
               zIndex: 10,
             }}
           >
             <img
               src="/course/letgetyoudriving.svg"
               alt="car"
-              className="mx-auto"
+              className="mx-auto w-1/2 md:w-auto "
             />
           </div>
         </div>
