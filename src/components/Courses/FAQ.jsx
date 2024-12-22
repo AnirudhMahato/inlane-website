@@ -36,6 +36,9 @@ const FAQ = () => {
   };
 
   return (
+
+    <div className='bg-green-400 w-full p-12'>
+
     <div className="bg-white rounded-[32px] p-8 max-w-[1200px] mx-auto">
       <h2 className="text-[32px] font-bold mb-6">FAQs</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -69,6 +72,7 @@ const FAQ = () => {
           </div>
         ))}
       </div>
+    </div>
     </div>
   );
 };

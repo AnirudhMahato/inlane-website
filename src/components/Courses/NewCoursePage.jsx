@@ -4,10 +4,10 @@ import FAQ from "./FAQ";
 import Navbar from "../Navbar";
 import { Button } from "@mui/material";
 import { Rocket } from "lucide-react";
+import MiniCourseNew from "./MiniCourseNew";
 
 const NewCoursePage = () => {
   const [expandedHour, setExpandedHour] = useState(null);
-  const [expandedCourse, setExpandedCourse] = useState(null);
   const [scrollPosition, setScrollPosition] = useState(0);
 
   useEffect(() => {
@@ -79,44 +79,7 @@ const NewCoursePage = () => {
     },
   ];
 
-  const miniCourses = [
-    {
-      title: "City Driving",
-      points: [
-        "Bumper to bumper traffic",
-        "Navigating flyovers, intersections and roundabouts",
-        "Maintaining and changing lanes",
-        "Evening driving",
-      ],
-      duration: "4 hours",
-      price: "₹4000",
-      bgColor: "bg-purple-200",
-    },
-    {
-      title: "Highway Driving",
-      points: [
-        "Highway entry/exit with maintaining speed limit",
-        "Pitstops for tire pressure and gas check",
-        "Maneuver - Changing lanes and U-turns",
-        "Pass other cars safely",
-      ],
-      duration: "2 hours",
-      price: "₹2000",
-      bgColor: "bg-amber-300",
-    },
-    {
-      title: "Parking",
-      points: [
-        "Entry/exit parking spots",
-        "Parallel parking",
-        "Perpendicular parking",
-        "On-road parking",
-      ],
-      duration: "2 hours",
-      price: "₹2000",
-      bgColor: "bg-sky-200",
-    },
-  ];
+ 
 
   return (
     <>
@@ -125,7 +88,7 @@ const NewCoursePage = () => {
         logo="./svg/Logo_white.svg"
         burgerMenu="./svg/burger_menu_white.svg"
       />
-      <div className="min-h-screen bg-green-400 font-['glancyr']">
+      <div className="min-h-screen bg-green-400 font-['glancyr'] p-12">
         {/* Cars Row and Animation Container */}
         <div className="relative h-[500px]">
           {/* Static cars row */}
@@ -310,95 +273,10 @@ const NewCoursePage = () => {
         </div>
 
         {/* Mini Courses Section */}
-        <div className="max-w-3xl mx-auto mb-12">
-          <h2 className="inline-block bg-yellow-300 px-6 py-2 rounded-full text-2xl font-bold mb-8 font-['glancyr']">
-            Mini Courses
-          </h2>
 
-          <div className="grid grid-cols-3 gap-6">
-            {miniCourses.map((course, index) => (
-              <div
-                key={index}
-                className={`${course.bgColor} rounded-[2rem] p-6`}
-              >
-                <div className="flex items-center gap-3 mb-4">
-                  <img
-                    src="/target-icon.svg"
-                    alt="target"
-                    className="w-6 h-6"
-                  />
-                  <h3 className="text-xl font-bold">{course.title}</h3>
-                </div>
-
-                <div className="mb-4">
-                  <button
-                    onClick={() =>
-                      setExpandedCourse(expandedCourse === index ? null : index)
-                    }
-                    className="flex items-center gap-2 bg-white/50 rounded-full px-4 py-2 hover:bg-white/60 transition-colors"
-                  >
-                    <span>What will we ace together?</span>
-                    <svg
-                      className={`w-4 h-4 transition-transform ${
-                        expandedCourse === index ? "rotate-180" : ""
-                      }`}
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M19 9l-7 7-7-7"
-                      />
-                    </svg>
-                  </button>
-
-                  {expandedCourse === index && (
-                    <ul className="mt-3 space-y-2 pl-4">
-                      {course.points.map((point, idx) => (
-                        <li key={idx} className="text-sm">
-                          {point}
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                </div>
-
-                <div className="flex justify-between items-center mt-auto">
-                  <div className="flex items-center gap-4">
-                    <div className="flex items-center gap-2">
-                      <img
-                        src="/hourglass-icon.svg"
-                        alt="duration"
-                        className="w-5 h-5"
-                      />
-                      <span>Duration: {course.duration}</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <img
-                        src="/rupee-icon.svg"
-                        alt="price"
-                        className="w-5 h-5"
-                      />
-                      <span>Price: {course.price}</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div className="flex justify-center pb-12">
-          <button className="bg-green-500 text-white px-12 py-3 rounded-lg flex items-center gap-2">
-            Sign Up
-          </button>
-        </div>
-
-        <FAQ />
       </div>
+      <MiniCourseNew/>
+        <FAQ />
       <Footer />
     </>
   );
