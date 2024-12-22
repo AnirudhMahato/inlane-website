@@ -14,7 +14,7 @@ import Footer from "./components/Footer";
 import CoursesPage from "./pages/Courses";
 // import ContactUs from "./pages/ContactUs";
 import AboutUs from "./components/AboutUs/AboutUs";
-// import PrivacyPolicy from "./pages/PrivacyPolicy";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsAndConditions from "./pages/TermsAndConditions";
 import Disclaimer from "./pages/Disclaimer";
 import PaymentPolicy from "./pages/PaymentPolicy";
@@ -93,10 +93,10 @@ const router = createBrowserRouter([
         path: "/terms-and-conditions",
         element: <TermsAndConditions />,
       },
-      // {
-      //   path: "/privacy-policy",
-      //   element: <PrivacyPolicy />,
-      // },
+      {
+        path: "/privacy-policy",
+        element: <PrivacyPolicy />,
+      },
       {
         path: "/disclaimer",
         element: <Disclaimer />,
