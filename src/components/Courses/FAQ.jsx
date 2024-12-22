@@ -36,43 +36,49 @@ const FAQ = () => {
   };
 
   return (
+    <div className='bg-green-400 w-full py-16'>
+      <div className="max-w-5xl mx-auto bg-white rounded-[2rem] p-8 shadow-lg">
+        <div className="flex items-center gap-3 mb-6">
+          <img src="/course/arrow.svg" alt="arrow" />
+          <h2 className="text-3xl font-medium font-['glancyr']">FAQs</h2>
+        </div>
 
-    <div className='bg-green-400 w-full p-12'>
-
-    <div className="bg-white rounded-[32px] p-8 max-w-[1200px] mx-auto">
-      <h2 className="text-[32px] font-bold mb-6">FAQs</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        {faqData.map((faq, index) => (
-          <div
-            key={index}
-            className={`border rounded-full transition-all duration-300 ease-in-out
-              ${activeIndex === index ? 'rounded-[24px]' : 'rounded-full'}`}
-          >
-            <div 
-              className="p-4 cursor-pointer"
-              onClick={() => toggleAccordion(index)}
-            >
-              <div className="flex items-center justify-between">
-                <span className="font-medium">{faq.question}</span>
-                <IoIosArrowDown
-                  className={`transform transition-transform duration-300 ${
-                    activeIndex === index ? 'rotate-180' : ''
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {faqData.map((faq, index) => (
+            <div key={index} className="relative">
+              <button
+                onClick={() => toggleAccordion(index)}
+                className="w-full flex items-center justify-between bg-gray-50 rounded-full px-6 py-3 hover:bg-gray-100 transition-colors"
+              >
+                <span className="font-medium text-gray-800 font-['glancyr']">
+                  {faq.question}
+                </span>
+                <svg
+                  className={`w-5 h-5 transition-transform text-gray-500 ${
+                    activeIndex === index ? "rotate-180" : ""
                   }`}
-                />
-              </div>
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </button>
+
+              {activeIndex === index && (
+                <div className="mt-2 px-6 py-3 bg-gray-50 rounded-lg">
+                  <p className="text-gray-700 font-['glancyr']">{faq.answer}</p>
+                </div>
+              )}
             </div>
-            <div 
-              className={`overflow-hidden transition-all duration-300 ease-in-out
-                ${activeIndex === index ? 'max-h-40 opacity-100' : 'max-h-0 opacity-0'}`}
-            >
-              <div className="px-4 pb-4 text-gray-600">
-                {faq.answer}
-              </div>
-            </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
-    </div>
     </div>
   );
 };
