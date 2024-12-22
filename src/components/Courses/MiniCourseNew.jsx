@@ -29,7 +29,7 @@ const MiniCourseNew = () => {
       ],
       duration: "4 hours",
       price: "₹4000",
-      bgColor: "bg-purple-200",
+      bgColor: "bg-[#D1B3FF]",
     },
     {
       title: "Highway Driving",
@@ -41,7 +41,7 @@ const MiniCourseNew = () => {
       ],
       duration: "2 hours",
       price: "₹2000",
-      bgColor: "bg-amber-300",
+      bgColor: "bg-[#FFC229]",
     },
     {
       title: "Parking",
@@ -53,7 +53,7 @@ const MiniCourseNew = () => {
       ],
       duration: "2 hours",
       price: "₹2000",
-      bgColor: "bg-sky-200",
+      bgColor:"bg-[#6BECFF]",
     },
     {
       title: "Night Driving",
@@ -77,7 +77,11 @@ const MiniCourseNew = () => {
             key={index}
             className={`${course.bgColor} rounded-[2rem] p-8 relative min-h-[300px] w-full`}
           >
-            <h3 className="text-2xl font-bold mb-4">{course.title}</h3>
+               <div className="flex items-center gap-3 mb-6">
+          <img src="/course/arrow.svg" alt="arrow" />
+          <h2 className="text-3xl font-medium font-['glancyr']">{course.title}</h2>
+        </div>
+            {/* <h3 className="text-2xl font-bold mb-4">{course.title}</h3> */}
 
             <div className="mb-6">
               <button
