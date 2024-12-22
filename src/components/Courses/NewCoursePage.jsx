@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import Navbar2 from '../Navbar2';
 import Footer from '../Footer';
 import FAQ from './FAQ';
+import Navbar from '../Navbar';
 
 const NewCoursePage = () => {
   const [expandedHour, setExpandedHour] = useState(null);
@@ -53,8 +53,10 @@ const NewCoursePage = () => {
   ];
 
   return (
+    <>
+    
+      <Navbar backgroundColor='#4ADE80' logo='./svg/Logo_white.svg' burgerMenu='./svg/burger_menu_white.svg' />
     <div className="min-h-screen bg-green-400">
-      {/* <Navbar2 /> */}
       
       {/* Cars Row */}
       <div className="flex justify-center gap-2 py-6">
@@ -69,14 +71,19 @@ const NewCoursePage = () => {
       </div>
 
       {/* Main Title */}
-      <div className="text-center mb-8">
+      {/* <div className="text-center mb-8">
         <h1 className="inline-block bg-yellow-300 px-4 py-2 text-2xl font-bold">
           Let's Get
         </h1>
         <h1 className="inline-block bg-yellow-300 px-4 py-2 text-2xl font-bold ml-1">
           You Driving!
         </h1>
+      </div> */}
+
+      <div className="flex justify-center">
+        <img src="/course/letgetyoudriving.svg" alt="car" className="" />
       </div>
+
 
       {/* Beginner Course Section */}
       <div className="max-w-3xl mx-auto mb-12 bg-[#e5ff9f] rounded-[2rem] p-8">
@@ -200,8 +207,10 @@ const NewCoursePage = () => {
 
       <FAQ />
 
-      {/* <Footer /> */}
     </div>
+      <Footer />
+
+    </>
   );
 }
 
