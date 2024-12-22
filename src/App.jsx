@@ -21,6 +21,7 @@ import PaymentPolicy from "./pages/PaymentPolicy";
 import ReschedulePolicy from "./pages/ReschedulePolicy";
 import Blog from "./blog/Blog";
 import BlogPage from "./blog/BlogPage";
+import NewCoursePage from "./components/Courses/NewCoursePage";
 
 const Layout = () => {
   return (
@@ -81,8 +82,12 @@ const router = createBrowserRouter([
       },
       {
         path: "/courses",
-        element: <CoursesPage />,
+        element: <NewCoursePage />,
       },
+      // {
+      //   path: "/courses",
+      //   element: <CoursesPage />,
+      // },
      
       {
         path: "/terms-and-conditions",
