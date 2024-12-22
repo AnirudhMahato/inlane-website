@@ -1,11 +1,18 @@
-import { Button } from '@mui/material';
-import { Rocket } from 'lucide-react';
-import React, { useState } from 'react'
+import React, { useState } from "react";
+import { Button } from "@mui/material";
+import { Rocket } from "lucide-react";
 
-const MiniCourseNew = () => { 
-    const [expandedCourse, setExpandedCourse] = useState(null);
+const MiniCourseNew = () => {
+  const [expandedStates, setExpandedStates] = useState({});
 
-    const miniCourses = [
+  const toggleExpand = (index) => {
+    setExpandedStates(prev => ({
+      ...prev,
+      [index]: !prev[index]
+    }));
+  };
+
+  const miniCourses = [
     {
       title: "City Driving",
       points: [
@@ -42,104 +49,113 @@ const MiniCourseNew = () => {
       price: "₹2000",
       bgColor: "bg-sky-200",
     },
+    {
+      title: "Night Driving",
+      points: [
+        "Handling low visibility conditions",
+        "Using high/low beam appropriately",
+        "Night safety protocols",
+        "Emergency night procedures",
+      ],
+      duration: "3 hours",
+      price: "₹3000",
+      bgColor: "bg-indigo-200",
+    },
   ];
 
   return (
-    <div className="max-w-5xl mx-auto mb-12 px-4 bg-white mt-12">
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-      {miniCourses.map((course, index) => (
-        <div
-          key={index}
-          className={`${course.bgColor} rounded-[2rem] p-6 relative`}
-        >
-            <div className='flex flex-row items-center justify-start gap-2'>
-                <img src="/course/arrow.svg" className='w-12 h-12' alt="" />
-                <h3 className="text-xl font-bold mb-0"> {course.title}</h3>
-            </div>
+    <div className="max-w-6xl mx-auto mb-12 px-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {miniCourses.map((course, index) => (
+          <div
+            key={index}
+            className={`${course.bgColor} rounded-[2rem] p-8 relative min-h-[250px] w-full`}
+          >
+            <h3 className="text-2xl font-bold mb-4">{course.title}</h3>
 
-          <div className="mb-6">
-            <button
-              onClick={() =>
-                setExpandedCourse(expandedCourse === index ? null : index)
-              }
-              className="flex items-center gap-2 font-medium mb-3"
-            >
-              <span>What will we ace together?</span>
-              <svg
-                className={`w-4 h-4 transition-transform ${
-                  expandedCourse === index ? "rotate-180" : ""
-                }`}
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
+            <div className="mb-6">
+              <button
+                onClick={() => toggleExpand(index)}
+                className="flex items-center gap-2 font-medium mb-3 hover:text-gray-700"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M19 9l-7 7-7-7"
+                <span>What will we ace together?</span>
+                <svg
+                  className={`w-4 h-4 transition-transform ${
+                    expandedStates[index] ? "rotate-180" : ""
+                  }`}
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </button>
+
+              {expandedStates[index] && (
+                <ul className="space-y-2 pl-4">
+                  {course.points.map((point, idx) => (
+                    <li key={idx} className="text-sm">
+                      • {point}
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+
+            <div className="flex items-center gap-6 absolute bottom-8">
+              <div className="flex items-center gap-2">
+                <img
+                  src="/course/timer.svg"
+                  alt="duration"
+                  className="w-5 h-5"
                 />
-              </svg>
-            </button>
-
-            <ul className="space-y-1">
-              {course.points.map((point, idx) => (
-                <li key={idx} className="text-sm">
-                  • {point}
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="flex items-center gap-4 absolute bottom-6">
-            <div className="flex items-center gap-2">
-              <img
-                src="/course/timer.svg"
-                alt="duration"
-                className="w-5 h-5"
-              />
-              <span className="text-sm">Duration: {course.duration}</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <img
-                src="/course/coin.svg"
-                alt="price"
-                className="w-5 h-5"
-              />
-              <span className="text-sm">Price: {course.price}</span>
+                <span className="text-sm">Duration: {course.duration}</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <img
+                  src="/course/coin.svg"
+                  alt="price"
+                  className="w-5 h-5"
+                />
+                <span className="text-sm">Price: {course.price}</span>
+              </div>
             </div>
           </div>
-        </div>
-      ))}
-    </div>
+        ))}
+      </div>
 
-    {/* Central Sign Up Button */}
-    <div className="flex justify-center mt-8">
-      <Button
-        variant="contained"
-        component="a"
-        href="https://forms.gle/Up128jny4nRz5DH59"
-        startIcon={<Rocket />}
-        sx={{
-          backgroundColor: "#00CE84",
-          color: "white",
-          fontWeight: "bold",
-          fontFamily: "Bricolage Grotesque",
-          textTransform: "none",
-          border: "2px solid white",
-          borderRadius: "50px",
-          padding: "10px 40px",
-          fontSize: "1.125rem",
-          "&:hover": {
+      {/* Central Sign Up Button */}
+      <div className="flex justify-center mt-12">
+        <Button
+          variant="contained"
+          component="a"
+          href="https://forms.gle/Up128jny4nRz5DH59"
+          startIcon={<Rocket />}
+          sx={{
             backgroundColor: "#00CE84",
-          },
-        }}
-      >
-        Sign Up
-      </Button>
+            color: "white",
+            fontWeight: "bold",
+            fontFamily: "Bricolage Grotesque",
+            textTransform: "none",
+            border: "2px solid white",
+            borderRadius: "50px",
+            padding: "10px 40px",
+            fontSize: "1.125rem",
+            "&:hover": {
+              backgroundColor: "#00CE84",
+            },
+          }}
+        >
+          Sign Up
+        </Button>
+      </div>
     </div>
-  </div>
-  )
-}
+  );
+};
 
-export default MiniCourseNew
+export default MiniCourseNew;
