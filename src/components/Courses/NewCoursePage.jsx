@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Footer from '../Footer';
 import FAQ from './FAQ';
 import Navbar from '../Navbar';
@@ -6,6 +6,23 @@ import Navbar from '../Navbar';
 const NewCoursePage = () => {
   const [expandedHour, setExpandedHour] = useState(null);
   const [expandedCourse, setExpandedCourse] = useState(null);
+  const [scrollPosition, setScrollPosition] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollPosition(window.scrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const calculateCarPosition = () => {
+    const maxScroll = 300;
+    const maxMove = 150;
+    const movement = Math.min((scrollPosition / maxScroll) * maxMove, maxMove);
+    return movement;
+  };
 
   const beginnerCourseHours = Array.from({ length: 10 }, (_, i) => ({
     hour: i + 1,
@@ -58,16 +75,45 @@ const NewCoursePage = () => {
       <Navbar backgroundColor='#4ADE80' logo='./svg/Logo_white.svg' burgerMenu='./svg/burger_menu_white.svg' />
     <div className="min-h-screen bg-green-400">
       
-      {/* Cars Row */}
-      <div className="flex justify-center gap-2 py-6">
-        {Array.from({ length: 7 }, (_, i) => (
+      {/* Cars Row and Animation Container */}
+      <div className="relative h-[400px]">
+        {/* Static cars row */}
+        <div className="relative w-full pt-6">
+          <div className="flex justify-center gap-2">
+            {Array.from({ length: 7 }, (_, i) => (
+              i !== 3 && (
+                <img 
+                  key={i}
+                  src="/svg/course_car.svg"
+                  alt="car"
+                  className="opacity-"
+                />
+              )
+            ))}
+          </div>
+          
+          {/* Animated yellow car */}
+          <div className="absolute top-6 left-1/2 transform -translate-x-1/2">
+            <img 
+              src="/svg/course_car_yellow.svg"
+              alt="car"
+              style={{
+                transform: `translateY(${calculateCarPosition()}px)`,
+                transition: 'transform 0.1s ease-out',
+                zIndex: 10,
+              }}
+            />
+          </div>
+        </div>
+
+        {/* Let's Get You Driving image */}
+        <div className="absolute bottom-0 w-full">
           <img 
-            key={i} 
-            src={i === 3 ? "/svg/course_car_yellow.svg" : "/svg/course_car.svg"} 
+            src="/course/letgetyoudriving.svg" 
             alt="car" 
-            // className="w-16 h-16"
+            className="relative z-0 mx-auto" 
           />
-        ))}
+        </div>
       </div>
 
       {/* Main Title */}
@@ -80,9 +126,9 @@ const NewCoursePage = () => {
         </h1>
       </div> */}
 
-      <div className="flex justify-center">
+      {/* <div className="flex justify-center">
         <img src="/course/letgetyoudriving.svg" alt="car" className="" />
-      </div>
+      </div> */}
 
 
       {/* Beginner Course Section */}
