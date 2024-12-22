@@ -14,13 +14,14 @@ import Footer from "./components/Footer";
 import CoursesPage from "./pages/Courses";
 // import ContactUs from "./pages/ContactUs";
 import AboutUs from "./components/AboutUs/AboutUs";
-// import PrivacyPolicy from "./pages/PrivacyPolicy";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsAndConditions from "./pages/TermsAndConditions";
 import Disclaimer from "./pages/Disclaimer";
 import PaymentPolicy from "./pages/PaymentPolicy";
 import ReschedulePolicy from "./pages/ReschedulePolicy";
 import Blog from "./blog/Blog";
 import BlogPage from "./blog/BlogPage";
+import NewCoursePage from "./components/Courses/NewCoursePage";
 
 const Layout = () => {
   return (
@@ -81,17 +82,21 @@ const router = createBrowserRouter([
       },
       {
         path: "/courses",
-        element: <CoursesPage />,
+        element: <NewCoursePage />,
       },
+      // {
+      //   path: "/courses",
+      //   element: <CoursesPage />,
+      // },
      
       {
         path: "/terms-and-conditions",
         element: <TermsAndConditions />,
       },
-      // {
-      //   path: "/privacy-policy",
-      //   element: <PrivacyPolicy />,
-      // },
+      {
+        path: "/privacy-policy",
+        element: <PrivacyPolicy />,
+      },
       {
         path: "/disclaimer",
         element: <Disclaimer />,
