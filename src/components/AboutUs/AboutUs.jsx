@@ -97,7 +97,7 @@ const AboutUs = () => {
                     className="w-10 md:w-14 h-auto"
                   />
                 </div>
-                <h2 className="text-3xl md:text-5xl font-bold text-start flex justify-start items-center w-full">
+                <h2 className="text-3xl md:text-5xl font-medium text-start flex justify-start items-center w-full font-grotesque">
                   We at LANE
                 </h2>
               </div>
@@ -117,11 +117,11 @@ const AboutUs = () => {
             </div>
 
             {/* Founder Section */}
-            <div className="bg-[#D1B3FF] rounded-t-3xl p-4 md:p-8 w-full">
+            <div className="bg-[#D1B3FF] rounded-t-3xl p-4  md:p-8 md:pt-20 w-full">
               <div className="flex flex-col items-center gap-3 mb-4">
                 <div className="flex flex-col md:flex-row justify-around items-start mb-12 w-full md:w-2/3">
                   <div className="w-full md:w-[60%] px-4 md:px-0">
-                    <h2 className="text-3xl md:text-5xl font-semibold mb-1">
+                    <h2 className="text-3xl md:text-5xl font-medium mb-1">
                       Meet Samiksha!
                     </h2>
                     <h3 className="text-xl mb-4 font-semibold">The FOUNDER</h3>
@@ -174,15 +174,15 @@ const AboutUs = () => {
                     ))}
                     {/* PS Message as 6th card */}
                     <div
-                      className="rounded-[24px] p-4 md:p-6"
+                      className="rounded-[24px] p-4 md:p-6 h-1/2"
                       style={{
-                        background: "#F3EBFF",
+                        background: "#D1B3FF",
                         position: "relative",
                       }}
                     >
                       <div className="flex flex-col gap-2">
                         <p className="text-[#1A1A1A] text-[15px] leading-[1.4] text-left">
-                          P.S. Big thanks to Shubham and Shashank,
+                         <span className="font-bold"> P.S.</span> Big thanks to Shubham and Shashank,
                           <br />
                           the awesome friends of Lane who keep everything
                           <br />
@@ -200,9 +200,9 @@ const AboutUs = () => {
                           right: "24px",
                           width: "20px",
                           height: "20px",
-                          background: "#F3EBFF",
+                          background: "#D1B3FF",
                           clipPath: "polygon(0 0, 100% 0, 100% 100%)",
-                          transform: "rotate(-45deg)",
+                          transform: "rotate(0deg)",
                         }}
                       />
                     </div>

@@ -54,8 +54,8 @@ const LandingPage = () => {
   return (
     <Box>
       <Box>
-        <Box className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-24">
-          <div className="text-center relative">
+        <Box className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 ">
+          <div className="text-center relative ">
             <h1 className="relative text-4xl sm:text-5xl md:text-6xl font-bold text-[#3C4856] font-['Bricolage_Grotesque'] mb-8">
               {/* Turn arrow in top left */}
               <div className="absolute top-4 left-4 md:top-[-1rem] md:left-[19rem]">
