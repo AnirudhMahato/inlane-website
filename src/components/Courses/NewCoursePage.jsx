@@ -29,54 +29,103 @@ const NewCoursePage = () => {
   const beginnerCourseHours = [
     {
       hour: 1,
-      title: "Introduction to Vehicle Controls",
-      details: "Get familiar with car controls, adjusting seats and mirrors, basic safety checks, and understanding dashboard indicators.",
+      title: "Get to know your car",
+      sections: [
+        "Get to know: Your car controls, the dashboard and the gearbox.",
+        "Learn how to prepare before starting the car",
+        "Start, Drive forward, and Stop the car"
+      ]
     },
     {
       hour: 2,
       title: "Starting & Basic Vehicle Control",
-      details: "Learn proper starting procedure, clutch control, moving off safely, and basic steering techniques in empty areas.",
+      sections: [
+        "Learn proper starting procedure",
+        "Practice clutch control and coordination",
+        "Moving off safely in quiet areas",
+        "Basic steering techniques in empty spaces"
+      ]
     },
     {
       hour: 3,
       title: "Gear Changes & Speed Control",
-      details: "Master smooth gear transitions, understanding gear selection, speed control, and basic braking techniques.",
+      sections: [
+        "Master smooth gear transitions up and down",
+        "Understanding when to change gears",
+        "Speed control techniques",
+        "Basic braking and stopping practice"
+      ]
     },
     {
       hour: 4,
       title: "Turning & Steering Techniques",
-      details: "Practice different turning methods, three-point turns, steering control, and position on road.",
+      sections: [
+        "Different turning methods and approaches",
+        "Three-point turns in various situations",
+        "Steering control during turns",
+        "Proper positioning on the road"
+      ]
     },
     {
       hour: 5,
       title: "Basic Maneuvers",
-      details: "Introduction to reverse parking, parallel parking basics, and turning in tight spaces.",
+      sections: [
+        "Introduction to reverse parking",
+        "Parallel parking fundamentals",
+        "Turning in tight spaces",
+        "Spatial awareness exercises"
+      ]
     },
     {
       hour: 6,
       title: "Traffic Rules & Road Signs",
-      details: "Understanding traffic signals, road signs, right of way rules, and basic traffic regulations.",
+      sections: [
+        "Understanding traffic signals and lights",
+        "Learning common road signs and markings",
+        "Right of way rules and regulations",
+        "Basic traffic laws and guidelines"
+      ]
     },
     {
       hour: 7,
       title: "Residential Area Driving",
-      details: "Practice driving in quiet residential areas, dealing with pedestrians, and speed management.",
+      sections: [
+        "Navigating quiet residential streets",
+        "Dealing with pedestrians and crossings",
+        "Speed management in residential zones",
+        "Handling parked vehicles and obstacles"
+      ]
     },
     {
       hour: 8,
       title: "Light Traffic Navigation",
-      details: "Experience driving in light traffic conditions, lane discipline, and basic intersection handling.",
+      sections: [
+        "Driving in light traffic conditions",
+        "Proper lane discipline and changing",
+        "Basic intersection handling",
+        "Following and maintaining safe distances"
+      ]
     },
     {
       hour: 9,
       title: "Advanced Maneuvers",
-      details: "Advanced parking techniques, emergency stops, and handling different road conditions.",
+      sections: [
+        "Advanced parking techniques",
+        "Emergency stops and procedures",
+        "Handling different road conditions",
+        "Complex traffic situations"
+      ]
     },
     {
       hour: 10,
       title: "Final Assessment & Mock Test",
-      details: "Complete driving assessment, mock driving test, and final preparation for license test.",
-    },
+      sections: [
+        "Complete driving assessment review",
+        "Mock driving test practice",
+        "Common test mistakes to avoid",
+        "Final preparation and tips for license test"
+      ]
+    }
   ];
 
  
@@ -172,8 +221,8 @@ const NewCoursePage = () => {
                     className="w-full flex items-center justify-between bg-white/50 rounded-full px-6 py-2 hover:bg-white/60 transition-colors"
                   >
                     <div className="flex items-center gap-4">
-                      <span className="font-semibold min-w-[4.5rem] font-['glancyr']">Hour {hour.hour}</span>
-                      <span className="text-gray-700 border-l border-gray-400 pl-4 font-['glancyr']">
+                      <span className="font-semibold min-w-[4.5rem]">Hour {hour.hour}</span>
+                      <span className="text-gray-700 border-l border-gray-400 pl-4">
                         {hour.title}
                       </span>
                     </div>
@@ -196,7 +245,16 @@ const NewCoursePage = () => {
 
                   {expandedHour === index && (
                     <div className="mt-2 ml-[4.5rem] pl-8 pr-4 py-3 bg-white/30 rounded-lg">
-                      <p className="text-gray-700 font-['glancyr']">{hour.details}</p>
+                      <div className="space-y-2">
+                        {hour.sections.map((section, sectionIndex) => (
+                          <div 
+                            key={sectionIndex}
+                            className="text-gray-700 border-b last:border-b-0 border-gray-200 pb-2"
+                          >
+                            {section}
+                          </div>
+                        ))}
+                      </div>
                     </div>
                   )}
                 </div>
