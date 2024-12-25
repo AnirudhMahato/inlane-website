@@ -171,7 +171,7 @@ const AboutUs = () => {
                   <div className="text-center mt-8">
                     <a 
                     target="_blank"
-                    href="https://docs.google.com/forms/d/e/1FAIpQLSdRBJkX1Z2n0HFZAmHeiYOMOKIQSRJL7sXuY_iSZB59haCDcA/viewform"
+                    href="https://forms.gle/ffBN85PKWp7vQKzu6"
                     className="bg-[#01cb82] text-white px-4 md:px-6 py-2 rounded-full font-medium hover:bg-[#00b574]
                      transition-colors inline-flex items-center justify-center border-[3px] border-white shadow-lg" >
                       <img
