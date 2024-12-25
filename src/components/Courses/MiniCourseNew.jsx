@@ -86,9 +86,9 @@ const MiniCourseNew = () => {
             <div className="mb-6">
               <button
                 onClick={() => toggleExpand(index)}
-                className="flex items-center gap-2 font-medium mb-3 hover:text-gray-700"
+                className="flex items-center gap-2 font-medium mb-3 hover:text-gray-700 rounded-full border-2 border-black/20 px-4 py-2"
               >
-                <span>What will we ace together?</span>
+                <span className="font-bold">What will we ace together?</span>
                 <svg
                   className={`w-4 h-4 transition-transform ${
                     expandedStates[index] ? "rotate-180" : ""
@@ -109,9 +109,9 @@ const MiniCourseNew = () => {
               <div className={`transition-all duration-300 ${
                 expandedStates[index] ? 'opacity-100 max-h-[500px]' : 'opacity-0 max-h-0'
               } overflow-hidden`}>
-                <ul className="space-y-2 pl-4">
+                <ul className="space-y-2 pl-4 ">
                   {course.points.map((point, idx) => (
-                    <li key={idx} className="text-sm">
+                    <li key={idx} className="text-md font-semibold">
                       • {point}
                     </li>
                   ))}
@@ -119,22 +119,22 @@ const MiniCourseNew = () => {
               </div>
             </div>
 
-            <div className="flex items-center gap-6 absolute bottom-8">
+            <div className="flex items-center gap-6  ">
               <div className="flex items-center gap-2">
                 <img
                   src="/course/timer.svg"
                   alt="duration"
-                  className="w-5 h-5"
+                 className="w-12 h-12"
                 />
-                <span className="text-sm">Duration: {course.duration}</span>
+                <span className="text-sm">Duration: <br /> <span className="font-bold">{course.duration}</span></span>
               </div>
               <div className="flex items-center gap-2">
                 <img
                   src="/course/coin.svg"
                   alt="price"
-                  className="w-5 h-5"
+                  className="w-12 h-12"
                 />
-                <span className="text-sm">Price: {course.price}</span>
+                <span className="text-sm">Price: <br /> <span className="font-bold">{course.price}</span></span>
               </div>
             </div>
           </div>
