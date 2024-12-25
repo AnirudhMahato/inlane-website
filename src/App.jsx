@@ -59,6 +59,10 @@ const router = createBrowserRouter([
     element: <AboutUs />,
   },
   {
+    path: "/courses",
+    element: <NewCoursePage />,
+  },
+  {
     path: "/blog",
     element: <Layout2 />,
     children: [
@@ -80,10 +84,7 @@ const router = createBrowserRouter([
         path: "/",
         element: <Homepage />,
       },
-      {
-        path: "/courses",
-        element: <NewCoursePage />,
-      },
+     
       // {
       //   path: "/courses",
       //   element: <CoursesPage />,
