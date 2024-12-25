@@ -1,36 +1,12 @@
 import React from "react";
 import Navbar2 from "../Navbar";
 import Footer from "../Footer";
+import aboutUsData from "../../data/aboutUs";
 
 const AboutUs = () => {
-  const teamMembers = [
-    {
-      name: "Asish Behara",
-      role: "Our tech wizard, keeping the engine running with his code! 🧙",
-      image: "/png/in_lane_team1.png",
-    },
-    {
-      name: "Adi Koushik Reddy",
-      role: 'The guy growing our reach faster than you can say "viral"! 📈',
-      image: "/png/in_lane_team2.png",
-    },
-    {
-      name: "Diwakar Reddy",
-      role: "Master of the pit stop, making sure everything runs smoothly! 🔧✨",
-      image: "/png/in_lane_team3.png",
-    },
-    {
-      name: "Srishti",
-      role: "The creative genius painting the track with all the design magic you see! 🎨✨",
-      image: "/png/in_lane_team4.png",
-    },
-    {
-      name: "Arpit, Chirag, Chinmay (ProFam)",
-      role: "Our content pit crew, making social media cooler than the fastest lap! 📱😎",
-      image: "/png/in_lane_team5.png",
-    },
-  ];
-
+  const teamMembers = aboutUsData.map((item) => item.title === "Team" ? item.members : []).flat();
+  const weAtLane = aboutUsData.find((item) => item.title === "We at LANE");
+  const founder = aboutUsData.find((item) => item.title === "Our Founder");
   return (
     <>
       <Navbar2
@@ -97,47 +73,32 @@ const AboutUs = () => {
                     className="w-10 md:w-14 h-auto"
                   />
                 </div>
-                <h2 className="text-3xl md:text-5xl font-bold text-start flex justify-start items-center w-full">
+                <h2 className="text-3xl md:text-5xl font-medium text-start flex justify-start items-center w-full font-grotesque">
                   We at LANE
                 </h2>
               </div>
               <p className="text-lg mb-4">
-                Believe driving should be fun, not stressful 🚗 It's not rocket
-                science, and trust us—it's way easier when you're taught the
-                right way. We're on a mission to turn learners into confident,
-                responsible drivers who actually enjoy being behind the wheel!
-                😊
+                {weAtLane.description1}
               </p>
               <p className="text-lg">
-                Plus, we're working on some seriously cool tech that tracks your
-                driving style while you learn! Think of it as your driving buddy
-                that entertains you, helps you level up and avoid accidents.
-                ⚡🚗
+                {weAtLane.description2}
               </p>
             </div>
 
             {/* Founder Section */}
-            <div className="bg-[#D1B3FF] rounded-t-3xl p-4 md:p-8 w-full">
+            <div className="bg-[#D1B3FF] rounded-t-3xl p-4  md:p-8 md:pt-20 w-full">
               <div className="flex flex-col items-center gap-3 mb-4">
                 <div className="flex flex-col md:flex-row justify-around items-start mb-12 w-full md:w-2/3">
                   <div className="w-full md:w-[60%] px-4 md:px-0">
-                    <h2 className="text-3xl md:text-5xl font-semibold mb-1">
+                    <h2 className="text-3xl md:text-5xl font-medium mb-1">
                       Meet Samiksha!
                     </h2>
                     <h3 className="text-xl mb-4 font-semibold">The FOUNDER</h3>
                     <p className="text-lg mb-4">
-                      Who's totally obsessed with her car (seriously, it's her
-                      happy place! 🚗), she believes driving schools have been
-                      stuck in the past for far too long 😴... It's time for a
-                      mission to change the game!
+                    {founder.description1}
                     </p>
                     <p className="text-lg">
-                      She wants you to make smart, informed decisions about
-                      anything automotive 🚗... Whether it's learning to drive,
-                      buying your first car, or just being a better driver! She
-                      gets that you don't want the boring experience your
-                      parents had. It's time for something fresh, fun and so
-                      much cooler! ✨
+                    {founder.description2}
                     </p>
                   </div>
 
@@ -174,15 +135,15 @@ const AboutUs = () => {
                     ))}
                     {/* PS Message as 6th card */}
                     <div
-                      className="rounded-[24px] p-4 md:p-6"
+                      className="rounded-[24px] p-4 md:p-6 h-1/2"
                       style={{
-                        background: "#F3EBFF",
+                        background: "#D1B3FF",
                         position: "relative",
                       }}
                     >
                       <div className="flex flex-col gap-2">
                         <p className="text-[#1A1A1A] text-[15px] leading-[1.4] text-left">
-                          P.S. Big thanks to Shubham and Shashank,
+                         <span className="font-bold"> P.S.</span> Big thanks to Shubham and Shashank,
                           <br />
                           the awesome friends of Lane who keep everything
                           <br />
@@ -200,9 +161,9 @@ const AboutUs = () => {
                           right: "24px",
                           width: "20px",
                           height: "20px",
-                          background: "#F3EBFF",
+                          background: "#D1B3FF",
                           clipPath: "polygon(0 0, 100% 0, 100% 100%)",
-                          transform: "rotate(-45deg)",
+                          transform: "rotate(0deg)",
                         }}
                       />
                     </div>
