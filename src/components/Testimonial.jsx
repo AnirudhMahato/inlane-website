@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Box,
   Typography,
@@ -45,6 +45,20 @@ const Testimonial = () => {
     : isMediumScreen
     ? mediumIconStyle
     : largeIconStyle;
+  const [isSticky, setIsSticky] = useState(true);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const wheelElement = document.getElementById('wheel-text');
+      if (wheelElement) {
+        const wheelPosition = wheelElement.getBoundingClientRect().top;
+        setIsSticky(wheelPosition > 0);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const testimonials = [
     {
@@ -112,12 +126,12 @@ const Testimonial = () => {
       <Typography
         variant="h3"
         sx={{
-          position: 'sticky',
+          position: isSticky ? 'sticky' : 'relative',
           top: 0,
           zIndex: 10,
           background: 'linear-gradient(180deg, rgba(0, 206, 132, 0.9) 0%, rgba(0, 206, 132, 0) 100%)',
           backdropFilter: 'blur(8px)',
-          WebkitBackdropFilter: 'blur(8px)', // for Safari
+          WebkitBackdropFilter: 'blur(8px)',
           paddingY: 2,
           fontSize: { xs: "18px", sm: "40px", md: "48px" },
           color: "#000000",
@@ -144,12 +158,12 @@ const Testimonial = () => {
         }}
       >
         <Typography
+          id="wheel-text"
           variant="h5"
           fontWeight="bold"
           fontSize={{ xs: "20px", sm: "38px", md: "40px" }}
           color={"#000000"}
           fontFamily={"Bricolage Grotesque"}
-          
         >
           The Wheel
         </Typography>
