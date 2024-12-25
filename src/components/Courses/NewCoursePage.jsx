@@ -218,11 +218,12 @@ const NewCoursePage = () => {
                 <div key={index} className="relative">
                   <button
                     onClick={() => setExpandedHour(expandedHour === index ? null : index)}
-                    className="w-full flex items-center justify-between bg-white/50 rounded-full px-6 py-2 hover:bg-white/60 transition-colors"
+                    className="w-full flex items-center justify-between bg-white/50 rounded-lg px-6 py-3 hover:bg-white/60 transition-colors"
                   >
-                    <div className="flex items-center gap-4">
-                      <span className="font-semibold min-w-[4.5rem]">Hour {hour.hour}</span>
-                      <span className="text-gray-700 border-l border-gray-400 pl-4">
+                    <div className="flex items-center gap-2">
+                      <span className="font-semibold">Hour {hour.hour}</span>
+                      <span className="mx-2">|</span>
+                      <span className="text-gray-700">
                         {hour.title}
                       </span>
                     </div>
@@ -244,17 +245,15 @@ const NewCoursePage = () => {
                   </button>
 
                   {expandedHour === index && (
-                    <div className="mt-2 ml-[4.5rem] pl-8 pr-4 py-3 bg-white/30 rounded-lg">
-                      <div className="space-y-2">
-                        {hour.sections.map((section, sectionIndex) => (
-                          <div 
-                            key={sectionIndex}
-                            className="text-gray-700 border-b last:border-b-0 border-gray-200 pb-2"
-                          >
-                            {section}
-                          </div>
-                        ))}
-                      </div>
+                    <div className="mt-1 bg-white/30 rounded-lg overflow-hidden">
+                      {hour.sections.map((section, sectionIndex) => (
+                        <div 
+                          key={sectionIndex}
+                          className="px-6 py-3 text-gray-700 border-b border-gray-200/50 last:border-b-0"
+                        >
+                          {section}
+                        </div>
+                      ))}
                     </div>
                   )}
                 </div>
