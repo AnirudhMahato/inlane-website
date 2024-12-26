@@ -131,8 +131,7 @@ const Testimonial = () => {
           color={"#000000"}
           fontFamily={"Bricolage Grotesque"}
         >
-          The Wheel
-        </Typography>
+          ZERO Road Fatalities        </Typography>
       </Box>
       <Box 
         sx={{ 

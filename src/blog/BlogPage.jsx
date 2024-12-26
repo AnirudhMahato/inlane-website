@@ -3,6 +3,7 @@ import { useParams, useLocation } from "react-router-dom";
 import { createClient } from "contentful";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { BLOCKS, INLINES, MARKS } from "@contentful/rich-text-types";
+import MyButton from "../ui/button/MyButton";
 
 // Utility function to generate a URL-friendly slug
 const generateSlug = (title) => {
@@ -497,6 +498,12 @@ export default function BlogPost() {
                   RTO Queries❓
                 </span>
               )}
+
+              
+            </div>
+            {/* Signup Btn */}
+            <div className="flex justify-center mt-12">
+              <MyButton />
             </div>
           </div>
 
@@ -508,6 +515,7 @@ export default function BlogPost() {
               </div>
             </div>
           </div>
+          
         </div>
       </div>
     </div>
