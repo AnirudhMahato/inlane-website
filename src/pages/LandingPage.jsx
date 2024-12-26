@@ -55,15 +55,24 @@ const LandingPage = () => {
   return (
     <>
       <Helmet>
-        <title>In Lane Driving School - Learn to Drive with Confidence</title>
+        <title>InLane - Modern Driving School in Bangalore | Learn Safe Driving</title>
         <meta 
           name="description" 
-          content="Join In Lane Driving School to become a confident and safe driver. Professional driving lessons focused on road safety and zero fatalities. Start your driving journey today with experienced instructors."
+          content="InLane is Bangalore's innovative driving school focused on creating confident drivers. Professional instructors, structured courses, and comprehensive road safety education. Start your driving journey today!"
         />
         <meta 
           name="keywords" 
-          content="driving school, driving lessons, learn to drive, driver education, road safety, driving instructor, driving training, beginner driver, zero road fatalities, confident driving"
+          content="driving school bangalore, car driving classes, learn driving bangalore, best driving school, driving lessons near me, driving instructor bangalore, automatic car training, driving school registration"
         />
+        {/* Essential meta tags */}
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://inlane.in" />
+        
+        {/* Open Graph Tags */}
+        <meta property="og:title" content="InLane - Modern Driving School in Bangalore" />
+        <meta property="og:description" content="Start your journey to becoming a confident driver with InLane. Professional driving lessons, structured courses, and comprehensive road safety education in Bangalore." />
+        <meta property="og:url" content="https://inlane.in" />
+        <meta property="og:type" content="website" />
       </Helmet>
 
       <Box>
