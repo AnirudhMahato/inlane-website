@@ -29,54 +29,103 @@ const NewCoursePage = () => {
   const beginnerCourseHours = [
     {
       hour: 1,
-      title: "Introduction to Vehicle Controls",
-      details: "Get familiar with car controls, adjusting seats and mirrors, basic safety checks, and understanding dashboard indicators.",
+      title: "Get to know your car",
+      sections: [
+        "Get to know: Your car controls, the dashboard and the gearbox.",
+        "Learn how to prepare before starting the car",
+        "Start, Drive forward, and Stop the car"
+      ]
     },
     {
       hour: 2,
       title: "Starting & Basic Vehicle Control",
-      details: "Learn proper starting procedure, clutch control, moving off safely, and basic steering techniques in empty areas.",
+      sections: [
+        "Learn proper starting procedure",
+        "Practice clutch control and coordination",
+        "Moving off safely in quiet areas",
+        "Basic steering techniques in empty spaces"
+      ]
     },
     {
       hour: 3,
       title: "Gear Changes & Speed Control",
-      details: "Master smooth gear transitions, understanding gear selection, speed control, and basic braking techniques.",
+      sections: [
+        "Master smooth gear transitions up and down",
+        "Understanding when to change gears",
+        "Speed control techniques",
+        "Basic braking and stopping practice"
+      ]
     },
     {
       hour: 4,
       title: "Turning & Steering Techniques",
-      details: "Practice different turning methods, three-point turns, steering control, and position on road.",
+      sections: [
+        "Different turning methods and approaches",
+        "Three-point turns in various situations",
+        "Steering control during turns",
+        "Proper positioning on the road"
+      ]
     },
     {
       hour: 5,
       title: "Basic Maneuvers",
-      details: "Introduction to reverse parking, parallel parking basics, and turning in tight spaces.",
+      sections: [
+        "Introduction to reverse parking",
+        "Parallel parking fundamentals",
+        "Turning in tight spaces",
+        "Spatial awareness exercises"
+      ]
     },
     {
       hour: 6,
       title: "Traffic Rules & Road Signs",
-      details: "Understanding traffic signals, road signs, right of way rules, and basic traffic regulations.",
+      sections: [
+        "Understanding traffic signals and lights",
+        "Learning common road signs and markings",
+        "Right of way rules and regulations",
+        "Basic traffic laws and guidelines"
+      ]
     },
     {
       hour: 7,
       title: "Residential Area Driving",
-      details: "Practice driving in quiet residential areas, dealing with pedestrians, and speed management.",
+      sections: [
+        "Navigating quiet residential streets",
+        "Dealing with pedestrians and crossings",
+        "Speed management in residential zones",
+        "Handling parked vehicles and obstacles"
+      ]
     },
     {
       hour: 8,
       title: "Light Traffic Navigation",
-      details: "Experience driving in light traffic conditions, lane discipline, and basic intersection handling.",
+      sections: [
+        "Driving in light traffic conditions",
+        "Proper lane discipline and changing",
+        "Basic intersection handling",
+        "Following and maintaining safe distances"
+      ]
     },
     {
       hour: 9,
       title: "Advanced Maneuvers",
-      details: "Advanced parking techniques, emergency stops, and handling different road conditions.",
+      sections: [
+        "Advanced parking techniques",
+        "Emergency stops and procedures",
+        "Handling different road conditions",
+        "Complex traffic situations"
+      ]
     },
     {
       hour: 10,
       title: "Final Assessment & Mock Test",
-      details: "Complete driving assessment, mock driving test, and final preparation for license test.",
-    },
+      sections: [
+        "Complete driving assessment review",
+        "Mock driving test practice",
+        "Common test mistakes to avoid",
+        "Final preparation and tips for license test"
+      ]
+    }
   ];
 
  
@@ -90,20 +139,36 @@ const NewCoursePage = () => {
       />
       <div className="min-h-screen bg-green-400 font-['glancyr'] p-12">
         {/* Cars Row and Animation Container */}
-        <div className="relative h-[500px]">
+        <div className="relative h-[300px] md:h-[500px]">
           {/* Static cars row */}
           <div className="relative w-full pt-12">
-            <div className="flex justify-center items-center gap-4">
+            {/* Mobile view cars (3 cars) */}
+            <div className="flex justify-center items-center gap-4 md:hidden">
+              <img
+                src="/svg/course_car.svg"
+                alt="car"
+                className="w-16"
+              />
+              <div className="w-16 min-w-[128px]" /> {/* Space for yellow car */}
+              <img
+                src="/svg/course_car.svg"
+                alt="car"
+                className="w-16"
+              />
+            </div>
+
+            {/* Desktop view cars (7 cars) */}
+            <div className="hidden md:flex justify-center items-center gap-4">
               {Array.from({ length: 7 }, (_, i) =>
                 i !== 3 ? (
                   <img
                     key={i}
                     src="/svg/course_car.svg"
                     alt="car"
-                    className="w-16 md:w-auto"
+                    className="w-auto"
                   />
                 ) : (
-                  <div key={i} className="w-16 md:w-auto" />
+                  <div key={i} className="w-auto min-w-[128px]" />
                 )
               )}
             </div>
@@ -156,24 +221,25 @@ const NewCoursePage = () => {
       </div> */}
 
         {/* Beginner Course Section */}
-        <div className="max-w-5xl mx-auto mb-12 mt-60 bg-[#D9FF7A] rounded-[2rem] p-8 shadow-sm">
+        <div className="max-w-5xl mx-auto mb-12 md:mt-60 bg-[#D9FF7A] rounded-[2rem] p-4 md:p-8 shadow-sm">
           <div className="flex items-center gap-3 mb-6">
-            <img src="/course/arrow.svg" alt="target" className="" />
-            <h2 className="text-3xl font-medium font-['glancyr']">Beginner Course</h2>
+            <img src="/course/arrow.svg" alt="target" className="w-6 md:w-auto" />
+            <h2 className="text-2xl md:text-3xl font-medium font-['glancyr']">Beginner Course</h2>
           </div>
 
-          <div className="flex">
-            {/* Left side - Course hours - 70% width */}
-            <div className="w-[70%] space-y-2 pr-8">
+          <div className="flex flex-col md:flex-row">
+            {/* Left side - Course hours - full width on mobile, 70% on desktop */}
+            <div className="w-full md:w-[70%] space-y-2 md:pr-8 mb-8 md:mb-0">
               {beginnerCourseHours.map((hour, index) => (
                 <div key={index} className="relative">
                   <button
                     onClick={() => setExpandedHour(expandedHour === index ? null : index)}
-                    className="w-full flex items-center justify-between bg-white/50 rounded-full px-6 py-2 hover:bg-white/60 transition-colors"
+                    className={`w-full flex items-center justify-between bg-white/50  hover:bg-white/60 transition-colors rounded-full border-2 border-black/20 px-4 py-2 ${expandedHour === index ? "bg-[#F7FFE4]" : ""}`}
                   >
-                    <div className="flex items-center gap-4">
-                      <span className="font-semibold min-w-[4.5rem] font-['glancyr']">Hour {hour.hour}</span>
-                      <span className="text-gray-700 border-l border-gray-400 pl-4 font-['glancyr']">
+                    <div className="flex items-center gap-2 ">
+                      <span className="font-light">Hour {hour.hour}</span>
+                      <span className="mx-2">|</span>
+                      <span className="text-gray-700">
                         {hour.title}
                       </span>
                     </div>
@@ -195,16 +261,23 @@ const NewCoursePage = () => {
                   </button>
 
                   {expandedHour === index && (
-                    <div className="mt-2 ml-[4.5rem] pl-8 pr-4 py-3 bg-white/30 rounded-lg">
-                      <p className="text-gray-700 font-['glancyr']">{hour.details}</p>
+                    <div className="mt-1 bg-white/30 rounded-lg overflow-hidden  ">
+                      {hour.sections.map((section, sectionIndex) => (
+                        <div 
+                          key={sectionIndex}
+                          className="px-6 py-3 text-gray-700 font-light border-b border-gray-200/50  last:border-b-0 bg-[#F7FFE4]"
+                        >
+                          {section}
+                        </div>
+                      ))}
                     </div>
                   )}
                 </div>
               ))}
             </div>
 
-            {/* Right side - Course details - 30% width */}
-            <div className="w-[30%] space-y-6">
+            {/* Right side - Course details - full width on mobile, 30% on desktop */}
+            <div className="w-full md:w-[30%] space-y-6">
               <div className="flex items-center gap-3">
                 <img src="/course/timer.svg" alt="duration" className="" />
                 <div>
@@ -231,43 +304,39 @@ const NewCoursePage = () => {
                 </div>
               </div>
 
-              <div className="flex flex-row items-center justify-center gap-6 mt-18">
-              <Button
-                variant="contained"
-                // component={Link}
-                // to="/https://forms.gle/Up128jny4nRz5DH59"
-                component="a"
-                href="https://forms.gle/Up128jny4nRz5DH59"
-                startIcon={<Rocket color="white" />}
-                sx={{
-                  backgroundColor: "#00CE84",
-                  color: "white",
-                  fontWeight: "bold",
-                  fontFamily: "Bricolage Grotesque",
-                  textDecoration: "none",
-                  textTransform: "none",
-                  "&:hover": {
+              <div className="flex flex-row items-center justify-center gap-4 mt-8">
+                <Button
+                  variant="contained"
+                  component="a"
+                  href="https://forms.gle/Up128jny4nRz5DH59"
+                  startIcon={<Rocket color="white" />}
+                  sx={{
                     backgroundColor: "#00CE84",
-                  },
-                  border: "2px solid white",
-                  borderRadius: "50px",
-                  padding: {
-                    sm: "10px 20px",
-                    md: "6px 68px",
-                  },
-                  fontSize: { xs: "0.8rem", sm: "1rem", md: "24px" },
-                  whiteSpace: "nowrap",
-                  boxShadow: "2px 4px 4px rgba(0, 0, 0, 0.35)",
-                }}
-              >
-                Sign Up
-              </Button>
-              {/* <img
-                src="/svg/down_arrow.svg"
-                alt="down arrow"
-                className="w-8 h-8 md:w-auto md:h-auto"
-              /> */}
-            </div>
+                    color: "white",
+                    fontWeight: "bold",
+                    fontFamily: "Bricolage Grotesque",
+                    textDecoration: "none",
+                    textTransform: "none",
+                    "&:hover": {
+                      backgroundColor: "#00CE84",
+                    },
+                    border: "2px solid white",
+                    borderRadius: "50px",
+                    padding: {
+                      xs: "8px 24px",
+                      sm: "10px 20px",
+                      md: "6px 68px",
+                    },
+                    fontSize: { 
+                      xs: "1rem",
+                      sm: "1.125rem", 
+                      md: "1.5rem" 
+                    },
+                  }}
+                >
+                  Sign Up
+                </Button>
+              </div>
             </div>
           </div>
         </div>
@@ -276,6 +345,7 @@ const NewCoursePage = () => {
 
       </div>
       <MiniCourseNew/>
+      
         <FAQ />
       <Footer />
     </>

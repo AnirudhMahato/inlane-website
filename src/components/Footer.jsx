@@ -104,7 +104,7 @@ const Footer = () => {
     },
     {
       text: "FAQs",
-      href: "/blog",
+      href: "/courses#faq",
     },
     {
       text: "Lane Journal",

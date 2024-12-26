@@ -41,6 +41,7 @@ const Testimonial = () => {
   const largeIconStyle = { color: "#000000", width: 44, height: 24 };
   const [openModal, setOpenModal] = useState(false);
   const [activeVideo, setActiveVideo] = useState("");
+  const [isSticky, setIsSticky] = useState(false);
   const IconStyle = isSmallScreen
     ? smallIconStyle
     : isMediumScreen
@@ -48,6 +49,25 @@ const Testimonial = () => {
     : largeIconStyle;
 
  const testimonials = testimonialsData;
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const offset = window.scrollY;
+      const wheelElement = document.getElementById('wheel-text');
+      
+      if (wheelElement) {
+        const wheelPosition = wheelElement.getBoundingClientRect().top;
+        // Make sticky false when wheel text is at or above the top of viewport
+        setIsSticky(offset > 100 && wheelPosition > 0);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   const handleOpenModal = (videoUrl) => {
     setActiveVideo(videoUrl);
@@ -111,8 +131,7 @@ const Testimonial = () => {
           color={"#000000"}
           fontFamily={"Bricolage Grotesque"}
         >
-          The Wheel
-        </Typography>
+          ZERO Road Fatalities        </Typography>
       </Box>
       <Box 
         sx={{ 
