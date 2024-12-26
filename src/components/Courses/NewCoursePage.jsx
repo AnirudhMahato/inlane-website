@@ -139,20 +139,36 @@ const NewCoursePage = () => {
       />
       <div className="min-h-screen bg-green-400 font-['glancyr'] p-12">
         {/* Cars Row and Animation Container */}
-        <div className="relative h-[500px]">
+        <div className="relative h-[300px] md:h-[500px]">
           {/* Static cars row */}
           <div className="relative w-full pt-12">
-            <div className="flex justify-center items-center gap-4">
+            {/* Mobile view cars (3 cars) */}
+            <div className="flex justify-center items-center gap-4 md:hidden">
+              <img
+                src="/svg/course_car.svg"
+                alt="car"
+                className="w-16"
+              />
+              <div className="w-16 min-w-[128px]" /> {/* Space for yellow car */}
+              <img
+                src="/svg/course_car.svg"
+                alt="car"
+                className="w-16"
+              />
+            </div>
+
+            {/* Desktop view cars (7 cars) */}
+            <div className="hidden md:flex justify-center items-center gap-4">
               {Array.from({ length: 7 }, (_, i) =>
                 i !== 3 ? (
                   <img
                     key={i}
                     src="/svg/course_car.svg"
                     alt="car"
-                    className="w-16 md:w-auto"
+                    className="w-auto"
                   />
                 ) : (
-                  <div key={i} className="w-16 md:w-auto min-w-[128px]" />
+                  <div key={i} className="w-auto min-w-[128px]" />
                 )
               )}
             </div>
@@ -205,7 +221,7 @@ const NewCoursePage = () => {
       </div> */}
 
         {/* Beginner Course Section */}
-        <div className="max-w-5xl mx-auto mb-12 mt-60 bg-[#D9FF7A] rounded-[2rem] p-4 md:p-8 shadow-sm">
+        <div className="max-w-5xl mx-auto mb-12 md:mt-60 bg-[#D9FF7A] rounded-[2rem] p-4 md:p-8 shadow-sm">
           <div className="flex items-center gap-3 mb-6">
             <img src="/course/arrow.svg" alt="target" className="w-6 md:w-auto" />
             <h2 className="text-2xl md:text-3xl font-medium font-['glancyr']">Beginner Course</h2>
