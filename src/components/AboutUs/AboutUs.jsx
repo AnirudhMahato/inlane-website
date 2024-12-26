@@ -116,12 +116,14 @@ const AboutUs = () => {
                   <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mb-8">
                     {teamMembers.map((member, index) => (
                       <div key={index} className="rounded-2xl overflow-hidden shadow-md">
-                        <div className="aspect-w-1 aspect-h-1 w-full">
-                          <img
-                            src={member.image}
-                            alt={member.name}
-                            className="w-full h-full object-cover"
-                          />
+                        <div className="bg-[#D1B3FF] p-3 rounded-2xl">
+                          <div className="aspect-w-1 aspect-h-1 w-full rounded-xl overflow-hidden">
+                            <img
+                              src={member.image}
+                              alt={member.name}
+                              className="w-full h-full object-cover"
+                            />
+                          </div>
                         </div>
                         <div className="p-4">
                           <h3 className="font-bold text-lg mb-1">
