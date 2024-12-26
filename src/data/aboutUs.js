@@ -14,30 +14,35 @@ const aboutUsData = [
     title: "Team",
     members: [
         {
-            name: "Asish Behara",
-            role: "Our tech wizard, keeping the engine running with his code! 🧙",
-            image: "/png/in_lane_team1.png",
-          },
-          {
-            name: "Adi Koushik Reddy",
-            role: 'The guy growing our reach faster than you can say "viral"! 📈',
-            image: "/png/in_lane_team2.png",
-          },
-          {
-            name: "Diwakar Reddy",
-            role: "Master of the pit stop, making sure everything runs smoothly! 🔧✨",
+            name: "Diwakar",
+            role: "Master of the pit stop, making sure everything runs smoothly! 🧑‍💼💥",
             image: "/png/in_lane_team3.png",
-          },
-          {
-            name: "Srishti",
-            role: "The creative genius painting the track with all the design magic you see! 🎨✨",
+        },
+        {
+            name: "Adi Koushik Reddy",
+            role: 'The guy growing our reach faster than you can say "viral"! 📈📈',
+            image: "/png/in_lane_team2.png",
+        },
+        {
+            name: "Abhinav",
+            role: "The spark behind our newly formed community! ⚡️💫",
+            image: "/png/in_lane_team1.png",
+        },
+        {
+            name: "Sankar Mundhra",
+            role: "",
             image: "/png/in_lane_team4.png",
-          },
-          {
-            name: "Arpit, Chirag, Chinmay (ProFam)",
-            role: "Our content pit crew, making social media cooler than the fastest lap! 📱😎",
+        },
+        {
+            name: "Srishti",
+            role: "The creative genius painting the track with all the design magic you see! 🎨💡",
             image: "/png/in_lane_team5.png",
-          },
+        },
+        {
+            name: "Profam",
+            role: "Our content pit crew, making social media cooler than the fastest lap! 📱😎",
+            image: "/png/in_lane_team6.png",
+        },
     ],
   },
 ];
