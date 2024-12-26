@@ -19,6 +19,7 @@ import { Link } from "react-router-dom";
 import Testimonial from "../components/Testimonial";
 import Rocket from "../components/SVGs/Rocket";
 import HomeHeroSection_Sm from "../components/SVGs/Home_Hero_Section";
+import { Helmet } from 'react-helmet-async';
 
 const LandingPage = () => {
   const theme = useTheme();
@@ -52,7 +53,19 @@ const LandingPage = () => {
   }, [scrollYProgress, controls]);
 
   return (
-    <Box>
+    <>
+      <Helmet>
+        <title>In Lane Driving School - Learn to Drive with Confidence</title>
+        <meta 
+          name="description" 
+          content="Join In Lane Driving School to become a confident and safe driver. Professional driving lessons focused on road safety and zero fatalities. Start your driving journey today with experienced instructors."
+        />
+        <meta 
+          name="keywords" 
+          content="driving school, driving lessons, learn to drive, driver education, road safety, driving instructor, driving training, beginner driver, zero road fatalities, confident driving"
+        />
+      </Helmet>
+
       <Box>
         <Box className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 ">
           <div className="text-center relative ">
@@ -389,7 +402,7 @@ const LandingPage = () => {
         </Box>
       </Box>
       <Testimonial />
-    </Box>
+    </>
   );
 };
 
