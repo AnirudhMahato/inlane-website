@@ -205,15 +205,15 @@ const NewCoursePage = () => {
       </div> */}
 
         {/* Beginner Course Section */}
-        <div className="max-w-5xl mx-auto mb-12 mt-60 bg-[#D9FF7A] rounded-[2rem] p-8 shadow-sm">
+        <div className="max-w-5xl mx-auto mb-12 mt-60 bg-[#D9FF7A] rounded-[2rem] p-4 md:p-8 shadow-sm">
           <div className="flex items-center gap-3 mb-6">
-            <img src="/course/arrow.svg" alt="target" className="" />
-            <h2 className="text-3xl font-medium font-['glancyr']">Beginner Course</h2>
+            <img src="/course/arrow.svg" alt="target" className="w-6 md:w-auto" />
+            <h2 className="text-2xl md:text-3xl font-medium font-['glancyr']">Beginner Course</h2>
           </div>
 
-          <div className="flex">
-            {/* Left side - Course hours - 70% width */}
-            <div className="w-[70%] space-y-2 pr-8">
+          <div className="flex flex-col md:flex-row">
+            {/* Left side - Course hours - full width on mobile, 70% on desktop */}
+            <div className="w-full md:w-[70%] space-y-2 md:pr-8 mb-8 md:mb-0">
               {beginnerCourseHours.map((hour, index) => (
                 <div key={index} className="relative">
                   <button
@@ -260,8 +260,8 @@ const NewCoursePage = () => {
               ))}
             </div>
 
-            {/* Right side - Course details - 30% width */}
-            <div className="w-[30%] space-y-6">
+            {/* Right side - Course details - full width on mobile, 30% on desktop */}
+            <div className="w-full md:w-[30%] space-y-6">
               <div className="flex items-center gap-3">
                 <img src="/course/timer.svg" alt="duration" className="" />
                 <div>
@@ -288,43 +288,39 @@ const NewCoursePage = () => {
                 </div>
               </div>
 
-              <div className="flex flex-row items-center justify-center gap-6 mt-18">
-              <Button
-                variant="contained"
-                // component={Link}
-                // to="/https://forms.gle/Up128jny4nRz5DH59"
-                component="a"
-                href="https://forms.gle/Up128jny4nRz5DH59"
-                startIcon={<Rocket color="white" />}
-                sx={{
-                  backgroundColor: "#00CE84",
-                  color: "white",
-                  fontWeight: "bold",
-                  fontFamily: "Bricolage Grotesque",
-                  textDecoration: "none",
-                  textTransform: "none",
-                  "&:hover": {
+              <div className="flex flex-row items-center justify-center gap-4 mt-8">
+                <Button
+                  variant="contained"
+                  component="a"
+                  href="https://forms.gle/Up128jny4nRz5DH59"
+                  startIcon={<Rocket color="white" />}
+                  sx={{
                     backgroundColor: "#00CE84",
-                  },
-                  border: "2px solid white",
-                  borderRadius: "50px",
-                  padding: {
-                    sm: "10px 20px",
-                    md: "6px 68px",
-                  },
-                  fontSize: { xs: "0.8rem", sm: "1rem", md: "24px" },
-                  whiteSpace: "nowrap",
-                  boxShadow: "2px 4px 4px rgba(0, 0, 0, 0.35)",
-                }}
-              >
-                Sign Up
-              </Button>
-              {/* <img
-                src="/svg/down_arrow.svg"
-                alt="down arrow"
-                className="w-8 h-8 md:w-auto md:h-auto"
-              /> */}
-            </div>
+                    color: "white",
+                    fontWeight: "bold",
+                    fontFamily: "Bricolage Grotesque",
+                    textDecoration: "none",
+                    textTransform: "none",
+                    "&:hover": {
+                      backgroundColor: "#00CE84",
+                    },
+                    border: "2px solid white",
+                    borderRadius: "50px",
+                    padding: {
+                      xs: "8px 24px",
+                      sm: "10px 20px",
+                      md: "6px 68px",
+                    },
+                    fontSize: { 
+                      xs: "1rem",
+                      sm: "1.125rem", 
+                      md: "1.5rem" 
+                    },
+                  }}
+                >
+                  Sign Up
+                </Button>
+              </div>
             </div>
           </div>
         </div>
