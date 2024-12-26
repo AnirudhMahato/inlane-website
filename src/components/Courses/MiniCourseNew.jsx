@@ -65,7 +65,7 @@ const MiniCourseNew = () => {
       ],
       duration: "3 hours",
       price: "₹3000",
-      bgColor: "bg-indigo-200",
+      bgColor: "bg-[#FF99F5]",
     },
   ];
 

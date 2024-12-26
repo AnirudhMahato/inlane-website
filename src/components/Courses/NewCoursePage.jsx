@@ -333,6 +333,7 @@ const NewCoursePage = () => {
 
       </div>
       <MiniCourseNew/>
+      
         <FAQ />
       <Footer />
     </>

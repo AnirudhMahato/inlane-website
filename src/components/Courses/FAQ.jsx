@@ -84,7 +84,7 @@ const FAQ = () => {
   };
 
   return (
-    <div className='bg-green-400 w-full py-16'>
+    <div id="faq" className='bg-green-400 w-full py-16'>
       <div className="max-w-5xl mx-auto bg-white rounded-[2rem] p-8 shadow-lg">
         <div className="flex items-center gap-3 mb-6">
           <img src="/course/arrow.svg" alt="arrow" />
