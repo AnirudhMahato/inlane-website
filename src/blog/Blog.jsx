@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback } from "react";
 import { SearchIcon, ChevronLeftIcon, ChevronRightIcon } from "lucide-react";
 import { createClient } from "contentful";
 import { useNavigate } from "react-router-dom";
+import { Helmet } from 'react-helmet-async';
 
 // Utility function to generate a URL-friendly slug
 const generateSlug = (title) => {
@@ -227,6 +228,27 @@ const Blog = () => {
 
   return (
     <>
+      <Helmet>
+        <title>InLane Blog - Driving Tips, Road Safety & Car Knowledge | InLane.in</title>
+        <meta 
+          name="description" 
+          content="Explore InLane's blog for expert driving tips, road safety guides, RTO information, and driving updates. Learn from India's modern driving experts about safe and confident driving."
+        />
+        <meta 
+          name="keywords" 
+          content="driving tips, road safety blog, RTO guidelines, driving lessons blog, car knowledge, driving school blog, traffic rules india, driving tips bangalore"
+        />
+        {/* Essential meta tags */}
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://inlane.in/blog" />
+        
+        {/* Open Graph Tags */}
+        <meta property="og:title" content="InLane Blog - Driving Tips & Road Safety Guides" />
+        <meta property="og:description" content="Expert driving tips, road safety guides, and car knowledge from India's modern driving school. Stay updated with the latest in driving education." />
+        <meta property="og:url" content="https://inlane.in/blog" />
+        <meta property="og:type" content="blog" />
+      </Helmet>
+
       <div className="w-full overflow-hidden flex justify-center items-center w-full mt-28 mb-24">
         <div className="inline-flex whitespace-nowrap">
           {/* Primary scrolling container */}

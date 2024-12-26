@@ -22,6 +22,7 @@ import ReschedulePolicy from "./pages/ReschedulePolicy";
 import Blog from "./blog/Blog";
 import BlogPage from "./blog/BlogPage";
 import NewCoursePage from "./components/Courses/NewCoursePage";
+import { HelmetProvider } from 'react-helmet-async';
 
 const Layout = () => {
   return (
@@ -123,9 +124,9 @@ const router = createBrowserRouter([
 ]);
 function App() {
   return (
-    <>
+    <HelmetProvider>
       <RouterProvider router={router} />
-    </>
+    </HelmetProvider>
   );
 }
 

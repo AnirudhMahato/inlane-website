@@ -19,6 +19,7 @@ import { Link } from "react-router-dom";
 import Testimonial from "../components/Testimonial";
 import Rocket from "../components/SVGs/Rocket";
 import HomeHeroSection_Sm from "../components/SVGs/Home_Hero_Section";
+import { Helmet } from 'react-helmet-async';
 
 const LandingPage = () => {
   const theme = useTheme();
@@ -52,7 +53,28 @@ const LandingPage = () => {
   }, [scrollYProgress, controls]);
 
   return (
-    <Box>
+    <>
+      <Helmet>
+        <title>InLane - Modern Driving School in Bangalore | Learn Safe Driving</title>
+        <meta 
+          name="description" 
+          content="InLane is Bangalore's innovative driving school focused on creating confident drivers. Professional instructors, structured courses, and comprehensive road safety education. Start your driving journey today!"
+        />
+        <meta 
+          name="keywords" 
+          content="driving school bangalore, car driving classes, learn driving bangalore, best driving school, driving lessons near me, driving instructor bangalore, automatic car training, driving school registration"
+        />
+        {/* Essential meta tags */}
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://inlane.in" />
+        
+        {/* Open Graph Tags */}
+        <meta property="og:title" content="InLane - Modern Driving School in Bangalore" />
+        <meta property="og:description" content="Start your journey to becoming a confident driver with InLane. Professional driving lessons, structured courses, and comprehensive road safety education in Bangalore." />
+        <meta property="og:url" content="https://inlane.in" />
+        <meta property="og:type" content="website" />
+      </Helmet>
+
       <Box>
         <Box className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 ">
           <div className="text-center relative ">
@@ -389,7 +411,7 @@ const LandingPage = () => {
         </Box>
       </Box>
       <Testimonial />
-    </Box>
+    </>
   );
 };
 

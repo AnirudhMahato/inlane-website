@@ -5,6 +5,7 @@ import Navbar from "../Navbar";
 import { Button } from "@mui/material";
 import { Rocket } from "lucide-react";
 import MiniCourseNew from "./MiniCourseNew";
+import { Helmet } from 'react-helmet-async';
 
 const NewCoursePage = () => {
   const [expandedHour, setExpandedHour] = useState(null);
@@ -132,6 +133,27 @@ const NewCoursePage = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Driving Courses - Learn to Drive with InLane | Beginner to Advanced</title>
+        <meta 
+          name="description" 
+          content="Join InLane's comprehensive driving courses. 10-hour beginner course, specialized training modules, and expert instruction. Learn driving with confidence in Bangalore."
+        />
+        <meta 
+          name="keywords" 
+          content="driving course bangalore, learn car driving, beginner driving course, driving lessons near me, driving school courses, car driving training, driving classes bangalore, best driving school"
+        />
+        {/* Essential meta tags */}
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://inlane.in/courses" />
+        
+        {/* Open Graph Tags */}
+        <meta property="og:title" content="Professional Driving Courses by InLane - From Basics to Mastery" />
+        <meta property="og:description" content="Expert-led driving courses with structured learning modules. 10-hour beginner course, hands-on training, and comprehensive road safety education." />
+        <meta property="og:url" content="https://inlane.in/courses" />
+        <meta property="og:type" content="website" />
+      </Helmet>
+
       <Navbar
         backgroundColor="#4ADE80"
         logo="./svg/Logo_white.svg"
