@@ -152,7 +152,7 @@ const NewCoursePage = () => {
                     className="w-16 md:w-auto"
                   />
                 ) : (
-                  <div key={i} className="w-16 md:w-auto" />
+                  <div key={i} className="w-16 md:w-auto min-w-[128px]" />
                 )
               )}
             </div>
