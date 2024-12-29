@@ -120,8 +120,16 @@ const AboutUs = () => {
                     </p>
                   </div>
 
-                  <div className="bg-[#B28FFF] p-2 h-[300px] md:h-[400px] rounded-t-xl w-full md:w-[30%] mt-6 md:mt-0">
-                    {/* <img src="/svg/Clouds.svg" alt="cloud" className="w-8 h-8" /> */}
+                  <div className="rounded-2xl overflow-hidden shadow-md w-full md:w-[30%] mt-6 md:mt-0">
+                    <div className="bg-[#B28FFF] p-3 rounded-2xl">
+                      <div className="aspect-w-1 aspect-h-1 w-full rounded-xl overflow-hidden">
+                        <img 
+                          src={founder.image} 
+                          alt="Founder"
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                    </div>
                   </div>
                 </div>
                 {/* Team Section */}
