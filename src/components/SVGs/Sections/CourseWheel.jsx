@@ -8,17 +8,22 @@ const CourseWheel = () => {
   const [wheelRotation, setWheelRotation] = useState(0);
 
   const handleClick = (value, from) => {
-    if(from === 'arrow' && value === 1){
+    if(from === 'arrowback' && value === 1){
+      value = value - 1
+    }
+    if(from === 'arrowforw' && value === 1){
       value = value + 1
     }
     console.log("cur step", currentStep)
     console.log(value);
     if(value > 4  ){
       // value = 0
+      value = value - 1
       return
     }
     if( value < 0 ){
       // value = 4
+      value = value + 1
       return
     }
     setCurrentStepNumber(value)
@@ -28,12 +33,14 @@ const CourseWheel = () => {
      
     } else if (value === 1) {
       setCurrentStep("Card2");
-    } else if (value === 2) {
+    }
+    
+    else if (value === 3) {
       setWheelRotation(90);
       setCurrentStep("City_driving");
     }
     
-    else if (value === 3) {
+    else if (value === 2) {
       setWheelRotation(180);
       setCurrentStep("Parking");
     }
@@ -4400,11 +4407,11 @@ const CourseWheel = () => {
           )}
 
           <motion.g >
-            {console.log("currentStep", currentStep)}
+            {/* {console.log("currentStep", currentStep)} */}
             {currentStep != null && currentStep != "Card2" && (
               <>
               
-                <g id="Right arrow button" onClick={()=> handleClick(currentStepNumber + 1, 'arrow')} style={{ cursor: 'pointer', pointerEvents: 'all' }}>
+                <g id="Right arrow button" onClick={()=> handleClick(currentStepNumber + 1, 'arrowforw')} style={{ cursor: 'pointer', pointerEvents: 'all' }}>
                   <g id="Vector_574" >
                     <path
                       d="M730.651 2163.04C752.768 2163.04 770.698 2145.04 770.698 2122.85C770.698 2100.65 752.768 2082.66 730.651 2082.66C708.533 2082.66 690.604 2100.65 690.604 2122.85C690.604 2145.04 708.533 2163.04 730.651 2163.04Z"
@@ -4424,7 +4431,7 @@ const CourseWheel = () => {
                   />
                 </g>
 
-                <g id="Left arrow button" onClick={()=> handleClick(currentStepNumber - 1, 'arrow')} style={{ cursor: 'pointer', pointerEvents: 'all' }} >
+                <g id="Left arrow button" onClick={()=> handleClick(currentStepNumber - 1, 'arrowback')} style={{ cursor: 'pointer', pointerEvents: 'all' }} >
                   <g id="Vector_576">
                     <path
                       d="M217.047 2163.04C239.164 2163.04 257.094 2145.04 257.094 2122.85C257.094 2100.65 239.164 2082.66 217.047 2082.66C194.93 2082.66 177 2100.65 177 2122.85C177 2145.04 194.93 2163.04 217.047 2163.04Z"
