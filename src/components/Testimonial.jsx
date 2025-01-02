@@ -13,7 +13,6 @@ import {
 } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import StarIcon from "@mui/icons-material/Star";
-import { Link } from "react-router-dom";
 import Rocket from "./SVGs/Rocket";
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 import styled from "styled-components";
@@ -131,7 +130,7 @@ const Testimonial = () => {
           color={"#000000"}
           fontFamily={"Bricolage Grotesque"}
         >
-          ZERO Road Fatalities        </Typography>
+          The Wheel        </Typography>
       </Box>
       <Box 
         sx={{ 
@@ -232,8 +231,10 @@ const Testimonial = () => {
 
       <Button
         variant="contained"
-        component={Link}
+        component="a"
         href="https://forms.gle/pjjmUjoQvN7XsgC87"
+        target="_blank"
+        rel="noopener noreferrer"
         size="small"
         startIcon={<Rocket color={IconStyle} className='m-0 p-0'/>}
         sx={{
