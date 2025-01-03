@@ -8,7 +8,7 @@ const aboutUsData = [
     title: "Our Founder",
     description1: "Who's totally obsessed with her car (seriously, it's her happy place! 🚗), she believes driving schools have been stuck in the past for far too long 😴... It's time for a mission to change the game!",
     description2: "She wants you to make smart, informed decisions about anything automotive 🚗... Whether it's learning to drive, buying your first car, or just being a better driver! She gets that you don't want the boring experience your parents had. It's time for something fresh, fun and so much cooler! ✨",
-    image: "/founder/founder.jpg",
+    image: "/team/Samiksha_Agarwal.jpg",
   },
   {
     title: "Team",
@@ -36,7 +36,7 @@ const aboutUsData = [
         {
             name: "Sankar Mundhra",
             role: "Our tech wizard, keeping the engine running with his code! 🧑‍💻✨",
-            // image: "/png/in_lane_team4.png",
+            image: "/team/Sanskar_Mundhra.jpg",
         },
         {
             name: "Srishti",
