@@ -341,7 +341,8 @@ const LandingPage = () => {
             <Typography
               variant="h3"
               fontWeight="bold"
-              fontSize={{ xs: "24px", sm: "30px", md: "48px", lg: "61px" }}
+              // fontSize={{ xs: "24px", sm: "30px", md: "48px", lg: "61px" }}
+              className=""
               fontFamily="Bricolage Grotesque"
               color="#000000"
               marginBottom={{ xs: "18px", sm: "30px", md: "40px" }}
@@ -372,7 +373,7 @@ const LandingPage = () => {
               <Typography
                 variant="h5"
                 fontWeight="bold"
-                fontSize={{ xs: "18px", sm: "30px", md: "32px", lg: "66px" }}
+                fontSize={{ xs: "18px", sm: "30px", md: "25px", lg: "2rem" }}
                 fontFamily="Bricolage Grotesque"
                 color="#000000"
               >
@@ -382,6 +383,7 @@ const LandingPage = () => {
             <Button
               variant="contained"
               component={Link}
+              target="_blank"
               to="https://forms.gle/Up128jny4nRz5DH59"
               size="large"
               startIcon={<Rocket color={IconStyle} />}
