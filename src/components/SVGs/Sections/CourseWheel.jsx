@@ -18,13 +18,11 @@ const CourseWheel = () => {
     console.log(value);
     if(value > 4  ){
       // value = 0
-      value = value - 1
-      return
+      value = 0
     }
     if( value < 0 ){
       // value = 4
-      value = value + 1
-      return
+      value = 4
     }
     setCurrentStepNumber(value)
     if (value === 0) {
