@@ -72,7 +72,7 @@ const AboutUs = () => {
                 className="bg-[#00ce84] text-white text-3xl md:text-6xl font-bold py-2 md:py-3 px-4 md:px-8 rounded-xl inline-block shadow-lg w-fit"
                 style={{ transform: "rotate(-1deg)" }}
               >
-                of drivers 🚀
+                of drivers <img src="/svg/rocket.png" alt="rocket" className="inline w-8 md:w-12 h-8 md:h-12" />
               </div>
             </div>
           </div>
