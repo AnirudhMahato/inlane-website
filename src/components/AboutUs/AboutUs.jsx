@@ -175,16 +175,16 @@ const AboutUs = () => {
                     ))}
                     {/* PS Message as 6th card */}
                     <div
-                      className="rounded-[24px] p-4 md:p-6 "
+                      className="rounded-[24px] p-4 md:p-6"
                       style={{
                         background: "#D1B3FF",
                         position: "relative",
-                        height: "84%",
+                        aspectRatio: "1/1",
                       }}
                     >
                       <div className="flex flex-col gap-2">
                         <p className="text-[#1A1A1A] text-[15px] leading-[1.4] text-left">
-                         <span className="font-bold"> P.S.</span> Big thanks to Shubham, Dheeraj and Shashank,
+                          <span className="font-bold">P.S.</span> Big thanks to Shubham, Dheeraj and Shashank,
                           <br />
                           the awesome friends of Lane who keep everything
                           <br />
