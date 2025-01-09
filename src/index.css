@@ -50,6 +50,15 @@
   font-family: 'Bricolage Grotesque'
 }
 
+.bg-logoPurple {
+  background-image: url('/Grey BG Pattern.svg');
+  background-color: #D1B3FF;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  font-family: 'Bricolage Grotesque'
+}
+
 .font-blog {
   font-family: 'Bricolage Grotesque'
 }

@@ -32,7 +32,7 @@ const AboutUs = () => {
         logo="/svg/Logo_white.svg"
         burgerMenu={"/svg/burger_menu_white.svg"}
       />
-      <div className="min-h-screen bg-[#D1B3FF] font-grotesque font-normal">
+      <div className="min-h-screen bg-[#D1B3FF] font-grotesque font-normal bg-logoPurple">
         {/* Hero Section - Updated with clouds */}
         <div className="relative h-[70vh] flex items-center justify-center px-4">
           {/* Clouds background */}
@@ -79,7 +79,7 @@ const AboutUs = () => {
         </div>
 
         {/* Content Container */}
-        <div className="w-full">
+        <div className="w-full font-grotesque ">
           <div className="bg-white rounded-t-3xl pt-8 shadow-lg w-full">
             {/* LANE Introduction */}
             <div className="mb-12 w-full md:w-1/2 px-4 md:px-0 m-auto flex flex-col items-center justify-around my-12">
@@ -104,7 +104,7 @@ const AboutUs = () => {
             </div>
 
             {/* Founder Section */}
-            <div className="bg-[#D1B3FF] rounded-t-3xl p-4  md:p-8 md:pt-20 w-full">
+            <div className="bg-[#D1B3FF] rounded-t-3xl p-4  md:p-8 md:pt-20 w-full bg-logoPurple">
               <div className="flex flex-col items-center gap-3 mb-4">
                 <div className="flex flex-col md:flex-row justify-around items-start mb-12 w-full md:w-2/3">
                   <div className="w-full md:w-[60%] px-4 md:px-0">
