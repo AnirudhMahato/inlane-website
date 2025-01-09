@@ -15,37 +15,37 @@ const aboutUsData = [
     members: [
         {
             name: "Diwakar Reddy (Operations Analyst)",
-            role: "Master of the pit stop, making sure everything runs smoothly! 🧑‍💼💥",
+            // role: "Master of the pit stop, making sure everything runs smoothly! 🧑‍💼💥",
             image: "/team/Diwakar_Reddy.jpg",
         },
         {
             name: "Adi Koushik Reddy (Founders Office Intern)",
-            role: 'The guy growing our reach faster than you can say "viral"! 📈📈',
+            // role: 'The guy growing our reach faster than you can say "viral"! 📈📈',
             image: "/team/Adi_Koushik_Reddy.jpg",
         },
         {
             name: "Abhinav (Founders Office Intern)",
-            role: "The spark behind our newly formed community! ⚡️💫",
+            // role: "The spark behind our newly formed community! ⚡️💫",
             image: "/team/Abhinav.jpg",
         },
         {
             name: "Obuli Dharsanth (Founders Office Intern)",
-            role: "Our YouTube wizard 🎩✨—turning views into vibes and leads into loyal fans!",
+            // role: "Our YouTube wizard 🎩✨—turning views into vibes and leads into loyal fans!",
             image: "/team/Obuli_Dharsanth.jpg",
         },
         {
             name: "Sankar Mundhra",
-            role: "Our tech wizard, keeping the engine running with his code! 🧑‍💻✨",
+            // role: "Our tech wizard, keeping the engine running with his code! 🧑‍💻✨",
             image: "/team/Sanskar_Mundhra.jpg",
         },
         {
             name: "Srishti",
-            role: "The creative genius painting the track with all the design magic you see! 🎨💡",
+            // role: "The creative genius painting the track with all the design magic you see! 🎨💡",
             image: "/team/Srishti_Agarwal.jpg",
         },
         {
             name: "Profam",
-            role: "Our content pit crew, making social media cooler than the fastest lap! 📱😎",
+            // role: "Our content pit crew, making social media cooler than the fastest lap! 📱😎",
             image: "/team/Arpit, Chirag, Chinmay (Profam).jpg",
         },
     ],
