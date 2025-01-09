@@ -179,6 +179,7 @@ const AboutUs = () => {
                       style={{
                         background: "#D1B3FF",
                         position: "relative",
+                        height: "84%",
                       }}
                     >
                       <div className="flex flex-col gap-2">
