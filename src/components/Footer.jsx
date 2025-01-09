@@ -197,18 +197,18 @@ const Footer = () => {
       // right: '-100px',
       // width: { xs: '30px', sm: '30px', md: '60px' },
       // height: { xs: '30px', sm: '30px', md: '60px' },
-      animation: isVisible ? 'carMove 4s linear forwards' : 'none',
+      animation: isVisible ? 'carMove 4s linear infinite' : 'none',
       transform: 'scaleX(-1)',
     },
   };
 
   const keyframes = `
     @keyframes carMove {
-      from {
+      0% {
         transform: translateX(0);
       }
-      to {
-        transform: translateX(${isMobile ? 'calc(-85vw - 100px)' : 'calc(-95vw - 100px)'});
+      100% {
+        transform: translateX(${isMobile ? 'calc(-100vw - 100px)' : 'calc(-110vw - 100px)'});
       }
     }
   `;
@@ -218,12 +218,15 @@ const Footer = () => {
       <style>{keyframes}</style>
       <Box id="animated-footer" sx={{ ...styles.footerContainer, position: 'relative' }}>
         {isVisible && (
-          <img 
-            src="/svg/car.png" 
-            alt="Moving car"
-            className="w-[30px] h-[30px] md:w-[60px] md:h-[60px] top-[-25px] right-[-100px] md:top-[-50px] md:right-[-100px]"
-            style={styles.carAnimation}
-          />
+          <>
+            <img 
+              src="/svg/car.png" 
+              alt="Moving car"
+              className="w-[30px] h-[30px] md:w-[60px] md:h-[60px] top-[-25px] right-[-100px] md:top-[-50px] md:right-[-100px]"
+              style={{ ...styles.carAnimation, animationDelay: '0s' }}
+            />
+            
+          </>
         )}
         {isMobile ? (
           <Box>
