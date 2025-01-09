@@ -91,6 +91,21 @@ const Navbar2 = () => {
               }
             />
           </ListItem>
+          <ListItem button component={Link} to="/about-us" onClick={handleClose}>
+            <ListItemText
+              primary={
+                <Typography
+                  variant="h5"
+                  sx={{
+                    fontFamily: "Bricolage Grotesque",
+                    textAlign: "center",
+                  }}
+                >
+                  About Us
+                </Typography>
+              }
+            />
+          </ListItem>
           <ListItem button component={Link} to="/courses" onClick={handleClose}>
             <ListItemText
               primary={
@@ -117,21 +132,6 @@ const Navbar2 = () => {
                   }}
                 >
                   Lane Journal
-                </Typography>
-              }
-            />
-          </ListItem>
-          <ListItem button component={Link} to="/about-us" onClick={handleClose}>
-            <ListItemText
-              primary={
-                <Typography
-                  variant="h5"
-                  sx={{
-                    fontFamily: "Bricolage Grotesque",
-                    textAlign: "center",
-                  }}
-                >
-                  About Us
                 </Typography>
               }
             />
