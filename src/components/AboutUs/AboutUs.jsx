@@ -57,20 +57,31 @@ const AboutUs = () => {
           <div className="relative z-10 max-w-3xl px-4">
             <div className="space-y-6 flex flex-col items-center">
               <div
-                className="bg-[#00ce84] text-white text-3xl md:text-6xl font-bold py-2 md:py-3 px-4 md:px-8 rounded-xl inline-block shadow-lg w-fit"
-                style={{ transform: "rotate(-2deg)" }}
+                className="bg-[#00ce84] text-white text-3xl md:text-6xl font-bold py-2 md:py-3 px-4 md:px-8 inline-block shadow-lg w-fit"
+                style={{ 
+                  transform: "rotate(-2deg)",
+                  clipPath: "polygon(10% 0, 100% 0, 100% 100%, 10% 100%, 0 50%)",
+                  filter: "drop-shadow(0 4px 6px rgba(0, 0, 0, 0.25))"
+                }}
               >
                 EMPOWERING
               </div>
               <div
-                className="bg-[#00ce84] text-white text-3xl md:text-6xl font-bold py-2 md:py-3 px-4 md:px-8 rounded-xl inline-block shadow-lg w-fit"
-                style={{ transform: "rotate(1deg)" }}
+                className="bg-[#00ce84] text-white text-3xl md:text-6xl font-bold py-2 md:py-3 px-4 md:px-8 inline-block shadow-lg w-fit"
+                style={{ 
+                  transform: "rotate(1deg)",
+                  clipPath: "polygon(0 0, 90% 0, 100% 50%, 90% 100%, 0 100%)",
+                  filter: "drop-shadow(0 4px 6px rgba(0, 0, 0, 0.25))"
+                }}
               >
                 the Next Generation
               </div>
               <div
-                className="bg-[#00ce84] text-white text-3xl md:text-6xl font-bold py-2 md:py-3 px-4 md:px-8 rounded-xl inline-block shadow-lg w-fit"
-                style={{ transform: "rotate(-1deg)" }}
+                className="bg-[#00ce84] text-white text-3xl md:text-6xl font-bold py-2 md:py-3 px-4 md:px-8 inline-block shadow-lg w-fit"
+                style={{ 
+                  transform: "rotate(-1deg)",
+                  filter: "drop-shadow(0 4px 6px rgba(0, 0, 0, 0.25))"
+                }}
               >
                 of drivers <img src="/svg/rocket.png" alt="rocket" className="inline w-8 md:w-12 h-8 md:h-12" />
               </div>
