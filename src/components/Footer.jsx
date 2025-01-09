@@ -70,8 +70,8 @@ const Footer = () => {
     },
     {
       Icon: EmailIcon,
-      text: "info@inlane.in ",
-      href: "mailto:info@inlane.in",
+      text: "team@inlane.in",
+      href: "mailto:team@inlane.in",
     },
     {
       Icon: WhatsAppIcon,
@@ -287,17 +287,6 @@ const Footer = () => {
                   }}
                 >
                   {contactInfo.map(({ Icon, text, href }, index) => (
-                    // isMobile ? (
-                    //   <Tooltip title={text} key={index} sx={{ bgcolor: "red" }}>
-                    //     <IconButton
-                    //       component={Link}
-                    //       href={href}
-                    //       sx={{ color: "#00CE84", bgcolor: "lightGrey" }}
-                    //     >
-                    //       <Icon />
-                    //     </IconButton>
-                    //   </Tooltip>
-                    // ) : (
                     <Typography
                       key={index}
                       variant="body2"
@@ -307,6 +296,8 @@ const Footer = () => {
                       <Link
                         sx={{ textDecoration: "none", color: "#000000" }}
                         href={href}
+                        target={text === "WhatsApp " ? "_blank" : "_self"}
+                        rel={text === "WhatsApp " ? "noopener noreferrer" : ""}
                       >
                         {text}
                       </Link>
@@ -480,6 +471,8 @@ const Footer = () => {
                     <Link
                       sx={{ textDecoration: "none", color: "#000000" }}
                       href={href}
+                      target={text === "WhatsApp " ? "_blank" : "_self"}
+                      rel={text === "WhatsApp " ? "noopener noreferrer" : ""}
                     >
                       {text}
                     </Link>
