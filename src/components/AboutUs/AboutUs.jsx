@@ -117,9 +117,9 @@ const AboutUs = () => {
             {/* Founder Section */}
             <div className="bg-[#D1B3FF] rounded-t-3xl p-4  md:p-8 md:pt-20 w-full bg-logoPurple">
               <div className="flex flex-col items-center gap-3 mb-4">
-                <div className="flex flex-col md:flex-row justify-around items-start mb-12 w-full md:w-2/3">
-                  <div className="w-full md:w-[60%] px-4 md:px-0">
-                    <h2 className="text-3xl md:text-5xl font-medium mb-1">
+                <div className="flex flex-col md:flex-row justify-around items-start mb-12 w-full md:gap-12 md:w-[80%]">
+                  <div className="w-full  px-4 md:px-0">
+                    <h2 className="text-3xl md:text-[6.5rem] font-medium mb-8 mt-6">
                       Meet Samiksha!
                     </h2>
                     <h3 className="text-xl mb-4 font-semibold">The FOUNDER</h3>
@@ -131,7 +131,7 @@ const AboutUs = () => {
                     </p>
                   </div>
 
-                  <div className="rounded-2xl overflow-hidden shadow-md w-full md:w-[30%] mt-6 md:mt-0">
+                  <div className="rounded-2xl overflow-hidden shadow-md w-full md:w-[60%] mt-6 md:mt-0">
                     <div className="bg-[#B28FFF] p-3 rounded-2xl">
                       <div className="aspect-w-1 aspect-h-1 w-full rounded-xl overflow-hidden">
                         <img 
@@ -144,13 +144,13 @@ const AboutUs = () => {
                   </div>
                 </div>
                 {/* Team Section */}
-                <div className="bg-white rounded-3xl p-4 md:p-8 mb-12 w-full md:w-2/3">
+                <div className="bg-white rounded-3xl p-4 md:p-12 mb-12 w-full md:w-[80%]">
                   <h2 className="text-3xl md:text-5xl mb-8 m-auto w-full text-start">
                     And now, the{" "}
                     <span className=" font-bold">Pit Crew</span> that is
                     making it all possible! 👋🚗
                   </h2>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mb-8">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mb-8">
                     {teamMembers.map((member, index) => (
                       <div key={index} className="rounded-2xl overflow-hidden shadow-md">
                         <div className="bg-[#D1B3FF] p-3 rounded-2xl">

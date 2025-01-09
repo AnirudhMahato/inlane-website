@@ -31,7 +31,7 @@ const aboutUsData = [
         {
             name: "Obuli Dharsanth (Founders Office Intern)",
             role: "Our YouTube wizard 🎩✨—turning views into vibes and leads into loyal fans!",
-            // image: "/team/Abhinav.jpg",
+            image: "/team/Obuli_Dharsanth.jpg",
         },
         {
             name: "Sankar Mundhra",
