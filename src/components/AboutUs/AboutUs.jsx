@@ -119,8 +119,8 @@ const AboutUs = () => {
               <div className="flex flex-col items-center gap-3 mb-4">
                 <div className="flex flex-col md:flex-row justify-around items-start mb-12 w-full md:gap-12 md:w-[80%]">
                   <div className="w-full  px-4 md:px-0">
-                    <h2 className="text-3xl md:text-[6.5rem] font-medium mb-8 mt-6">
-                      Meet Samiksha!
+                    <h2 className="text-3xl sm:text-5xl md:text-7xl lg:text-[6.5rem] font-medium mb-8 mt-6 w-full leading-tight tracking-tight">
+                      Meet <br className="md:hidden" />Samiksha!
                     </h2>
                     <h3 className="text-xl mb-4 font-semibold">The FOUNDER</h3>
                     <p className="text-lg mb-4">
