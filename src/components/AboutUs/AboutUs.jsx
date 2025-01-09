@@ -153,7 +153,7 @@ const AboutUs = () => {
                   </h2>
                   <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mb-8">
                     {teamMembers.map((member, index) => (
-                      <div key={index} className="rounded-2xl overflow-hidden shadow-md">
+                      <div key={index} className="rounded-2xl overflow-hidden ">
                         <div className="bg-[#D1B3FF] p-3 rounded-2xl">
                           <div className="aspect-w-1 aspect-h-1 w-full rounded-xl overflow-hidden">
                             <img
