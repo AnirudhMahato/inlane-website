@@ -346,21 +346,21 @@ const Blog = () => {
             </div>
           ) : (
             <div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 lg:gap-12 gap-12 mb-8 font-blog">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 lg:gap-12 gap-12 mb-8 font-blog max-w-7xl mx-auto px-8">
                 {posts.map((post) => (
                   <div
                     key={post.id}
-                    className={`rounded-3xl shadow-md overflow-hidden hover:shadow-lg transition-shadow max-w-[556px] cursor-pointer ${getCardBackground(
+                    className={`rounded-3xl shadow-md overflow-hidden hover:shadow-lg transition-shadow cursor-pointer ${getCardBackground(
                       post.categories
                     )}`}
                     onClick={() => handleBlogClick(post)}
                   >
-                    <div className="h-48">
+                    <div className="aspect-square">
                       {post.image ? (
                         <img
                           src={post.image}
                           alt={post.title}
-                          className="w-full h-56 object-cover p-4 rounded-3xl"
+                          className="w-full h-full object-cover p-4 rounded-3xl"
                         />
                       ) : (
                         <div className="w-full h-full flex items-center justify-center bg-gray-200">
