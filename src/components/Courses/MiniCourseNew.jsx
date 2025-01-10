@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Button } from "@mui/material";
-import { Rocket } from "lucide-react";
 
 const MiniCourseNew = () => {
   // Initialize all courses as expanded

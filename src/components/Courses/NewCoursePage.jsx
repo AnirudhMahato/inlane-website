@@ -39,92 +39,92 @@ const NewCoursePage = () => {
     },
     {
       hour: 2,
-      title: "Starting & Basic Vehicle Control",
+      title: "Master the art of balancing the three pedals",
       sections: [
-        "Learn proper starting procedure",
-        "Practice clutch control and coordination",
-        "Moving off safely in quiet areas",
-        "Basic steering techniques in empty spaces",
+        "Understanding clutch, brake, and accelerator",
+        "Practice pedal coordination",
+        "Smooth transitions between pedals",
+        "Basic control exercises",
       ],
     },
     {
       hour: 3,
-      title: "Gear Changes & Speed Control",
+      title: "The gearbox and steering control",
       sections: [
-        "Master smooth gear transitions up and down",
-        "Understanding when to change gears",
-        "Speed control techniques",
-        "Basic braking and stopping practice",
+        "Understanding gear patterns",
+        "When and how to change gears",
+        "Basic steering techniques",
+        "Coordination of gears with steering",
       ],
     },
     {
       hour: 4,
-      title: "Turning & Steering Techniques",
+      title: "Conquer parking with confidence!",
       sections: [
-        "Different turning methods and approaches",
-        "Three-point turns in various situations",
-        "Steering control during turns",
-        "Proper positioning on the road",
+        "Forward and reverse parking basics",
+        "Parallel parking techniques",
+        "Parking in tight spaces",
+        "Spatial awareness practice",
       ],
     },
     {
       hour: 5,
-      title: "Basic Maneuvers",
+      title: "Drive at consistent speed and hit the slopes",
       sections: [
-        "Introduction to reverse parking",
-        "Parallel parking fundamentals",
-        "Turning in tight spaces",
-        "Spatial awareness exercises",
+        "Speed control techniques",
+        "Uphill and downhill driving",
+        "Managing gear changes on slopes",
+        "Maintaining steady pace",
       ],
     },
     {
       hour: 6,
-      title: "Traffic Rules & Road Signs",
+      title: "Navigating the main road with ease!",
       sections: [
-        "Understanding traffic signals and lights",
-        "Learning common road signs and markings",
-        "Right of way rules and regulations",
-        "Basic traffic laws and guidelines",
+        "Main road driving basics",
+        "Traffic signal navigation",
+        "Lane discipline",
+        "Basic road rules and etiquette",
       ],
     },
     {
       hour: 7,
-      title: "Residential Area Driving",
+      title: "Conquer city driving with confidence!",
       sections: [
-        "Navigating quiet residential streets",
-        "Dealing with pedestrians and crossings",
-        "Speed management in residential zones",
-        "Handling parked vehicles and obstacles",
+        "Navigating busy streets",
+        "Handling intersections",
+        "City traffic management",
+        "Defensive driving basics",
       ],
     },
     {
       hour: 8,
-      title: "Light Traffic Navigation",
+      title: "You will start believing in your driving skills",
       sections: [
-        "Driving in light traffic conditions",
-        "Proper lane discipline and changing",
-        "Basic intersection handling",
-        "Following and maintaining safe distances",
+        "Building confidence in traffic",
+        "Advanced maneuvers",
+        "Independent driving practice",
+        "Handling various road situations",
       ],
     },
     {
       hour: 9,
-      title: "Advanced Maneuvers",
+      title: "Getting comfortable with the flyovers!",
       sections: [
-        "Advanced parking techniques",
-        "Emergency stops and procedures",
-        "Handling different road conditions",
-        "Complex traffic situations",
+        "Flyover entry and exit techniques",
+        "Merging with flyover traffic",
+        "Managing speed on flyovers",
+        "Safe lane changing on flyovers",
       ],
     },
     {
       hour: 10,
-      title: "Final Assessment & Mock Test",
+      title: "Final lap",
       sections: [
-        "Complete driving assessment review",
-        "Mock driving test practice",
-        "Common test mistakes to avoid",
-        "Final preparation and tips for license test",
+        "Comprehensive driving review",
+        "Final assessment",
+        "Test preparation tips",
+        "Confidence building exercises",
       ],
     },
   ];
@@ -263,14 +263,15 @@ const NewCoursePage = () => {
                     onClick={() =>
                       setExpandedHour(expandedHour === index ? null : index)
                     }
-                    className={`w-full flex items-center justify-between bg-white/50  hover:bg-white/60 transition-colors rounded-full border-2 border-black/20 px-4 py-2 ${
-                      expandedHour === index ? "bg-[#F7FFE4]" : ""
-                    }`}
+                    className={`w-full flex items-center justify-between   transition-colors rounded-full border-[1px] border-black px-4 py-2 
+                     
+                    `
+                  }
                   >
-                    <div className="flex items-center gap-2 font-bold ">
-                      <span className="font-light">Hour {hour.hour}</span>
+                    <div className="flex items-center gap-2  ">
+                      <span className=" font-semibold text-xl">Hour {hour.hour}</span>
                       <span className="mx-2">|</span>
-                      <span className="text-gray-700">{hour.title}</span>
+                      <span className=" font-semibold text-xl">{hour.title}</span>
                     </div>
                     <svg
                       className={`w-5 h-5 transition-transform ${
@@ -306,34 +307,34 @@ const NewCoursePage = () => {
             </div>
 
             {/* Right side - Course details - full width on mobile, 30% on desktop */}
-            <div className="w-full md:w-[30%] space-y-6">
+            <div className="w-full md:w-[30%] space-y-6 flex flex-col justify-around items-start">
               <div className="flex items-center gap-3">
                 <img src="/course/timer.svg" alt="duration" className="" />
-                <div>
-                  <span className="text-lg font-semibold font-['glancyr']">
+                <div className="flex flex-col items-start text-2xl">
+                  <span className=" text-2xl font-semibold ">
                     Duration:
                   </span>
-                  <p className="font-['glancyr']">10 hours</p>
+                  <p className="text-2xl font-semibold">10 hours</p>
                 </div>
               </div>
 
               <div className="flex items-center gap-3">
                 <img src="/course/coin.svg" alt="price" className="" />
                 <div>
-                  <span className="text-lg font-semibold font-['glancyr']">
+                  <span className="text-2xl font-semibold">
                     Price:
                   </span>
-                  <p className="font-['glancyr']">₹10000</p>
+                  <p className="text-2xl font-semibold">₹10000</p>
                 </div>
               </div>
 
               <div className="flex items-start gap-3">
                 <img src="/course/calculator.svg" alt="value" className="" />
                 <div>
-                  <span className="text-lg font-semibold block font-['glancyr']">
+                  <span className="text-2xl font-semibold ">
                     Value Added
                   </span>
-                  <p className="text-sm font-['glancyr']">
+                  <p className="text-lg ">
                     We offer a vehicle for the Driver's License test day at an
                     additional cost.
                   </p>
