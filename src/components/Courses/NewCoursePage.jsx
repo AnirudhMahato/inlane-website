@@ -260,18 +260,14 @@ const NewCoursePage = () => {
               {beginnerCourseHours.map((hour, index) => (
                 <div key={index} className="relative">
                   <button
-                    onClick={() =>
-                      setExpandedHour(expandedHour === index ? null : index)
-                    }
-                    className={`w-full flex items-center justify-between   transition-colors rounded-full border-[1px] border-black px-4 py-2 
-                     
-                    `
-                  }
+                    onClick={() => setExpandedHour(expandedHour === index ? null : index)}
+                    className={`w-full flex items-center justify-between bg-white/50 transition-colors rounded-[2rem] px-6 py-3 border border-black/10
+                      ${expandedHour === index ? 'rounded-b-none border-b-0' : ''}`}
                   >
-                    <div className="flex items-center gap-2  ">
-                      <span className=" font-semibold text-xl">Hour {hour.hour}</span>
-                      <span className="mx-2">|</span>
-                      <span className=" font-semibold text-xl">{hour.title}</span>
+                    <div className="flex items-center gap-4">
+                      <span className="font-semibold text-xl">Hour {hour.hour}</span>
+                      <span className="text-black/50">|</span>
+                      <span className="font-semibold text-xl">{hour.title}</span>
                     </div>
                     <svg
                       className={`w-5 h-5 transition-transform ${
@@ -291,11 +287,11 @@ const NewCoursePage = () => {
                   </button>
 
                   {expandedHour === index && (
-                    <div className="mt-1 bg-[#white/30] rounded-lg overflow-hidden  ">
+                    <div className="bg-white/50 rounded-b-[2rem] overflow-hidden border border-t-0 border-black/10">
                       {hour.sections.map((section, sectionIndex) => (
                         <div
                           key={sectionIndex}
-                          className="px-6 py-3 border-b border-black/50 last:border-b-0 font-semibold bg-[#FFFFFF]"
+                          className="px-6 py-3 text-lg font-medium border-b border-black/5 last:border-b-0"
                         >
                           {section}
                         </div>
