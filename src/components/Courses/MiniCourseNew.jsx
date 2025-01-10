@@ -145,6 +145,8 @@ const MiniCourseNew = () => {
           variant="contained"
           component="a"
           href="https://forms.gle/Up128jny4nRz5DH59"
+          target="_blank"
+          rel="noopener noreferrer"
           startIcon={<Rocket />}
           sx={{
             backgroundColor: "#00CE84",

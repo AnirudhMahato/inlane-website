@@ -5,7 +5,7 @@ import Navbar from "../Navbar";
 import { Button } from "@mui/material";
 import { Rocket } from "lucide-react";
 import MiniCourseNew from "./MiniCourseNew";
-import { Helmet } from 'react-helmet-async';
+import { Helmet } from "react-helmet-async";
 
 const NewCoursePage = () => {
   const [expandedHour, setExpandedHour] = useState(null);
@@ -34,8 +34,8 @@ const NewCoursePage = () => {
       sections: [
         "Get to know: Your car controls, the dashboard and the gearbox.",
         "Learn how to prepare before starting the car",
-        "Start, Drive forward, and Stop the car"
-      ]
+        "Start, Drive forward, and Stop the car",
+      ],
     },
     {
       hour: 2,
@@ -44,8 +44,8 @@ const NewCoursePage = () => {
         "Learn proper starting procedure",
         "Practice clutch control and coordination",
         "Moving off safely in quiet areas",
-        "Basic steering techniques in empty spaces"
-      ]
+        "Basic steering techniques in empty spaces",
+      ],
     },
     {
       hour: 3,
@@ -54,8 +54,8 @@ const NewCoursePage = () => {
         "Master smooth gear transitions up and down",
         "Understanding when to change gears",
         "Speed control techniques",
-        "Basic braking and stopping practice"
-      ]
+        "Basic braking and stopping practice",
+      ],
     },
     {
       hour: 4,
@@ -64,8 +64,8 @@ const NewCoursePage = () => {
         "Different turning methods and approaches",
         "Three-point turns in various situations",
         "Steering control during turns",
-        "Proper positioning on the road"
-      ]
+        "Proper positioning on the road",
+      ],
     },
     {
       hour: 5,
@@ -74,8 +74,8 @@ const NewCoursePage = () => {
         "Introduction to reverse parking",
         "Parallel parking fundamentals",
         "Turning in tight spaces",
-        "Spatial awareness exercises"
-      ]
+        "Spatial awareness exercises",
+      ],
     },
     {
       hour: 6,
@@ -84,8 +84,8 @@ const NewCoursePage = () => {
         "Understanding traffic signals and lights",
         "Learning common road signs and markings",
         "Right of way rules and regulations",
-        "Basic traffic laws and guidelines"
-      ]
+        "Basic traffic laws and guidelines",
+      ],
     },
     {
       hour: 7,
@@ -94,8 +94,8 @@ const NewCoursePage = () => {
         "Navigating quiet residential streets",
         "Dealing with pedestrians and crossings",
         "Speed management in residential zones",
-        "Handling parked vehicles and obstacles"
-      ]
+        "Handling parked vehicles and obstacles",
+      ],
     },
     {
       hour: 8,
@@ -104,8 +104,8 @@ const NewCoursePage = () => {
         "Driving in light traffic conditions",
         "Proper lane discipline and changing",
         "Basic intersection handling",
-        "Following and maintaining safe distances"
-      ]
+        "Following and maintaining safe distances",
+      ],
     },
     {
       hour: 9,
@@ -114,8 +114,8 @@ const NewCoursePage = () => {
         "Advanced parking techniques",
         "Emergency stops and procedures",
         "Handling different road conditions",
-        "Complex traffic situations"
-      ]
+        "Complex traffic situations",
+      ],
     },
     {
       hour: 10,
@@ -124,32 +124,38 @@ const NewCoursePage = () => {
         "Complete driving assessment review",
         "Mock driving test practice",
         "Common test mistakes to avoid",
-        "Final preparation and tips for license test"
-      ]
-    }
+        "Final preparation and tips for license test",
+      ],
+    },
   ];
-
- 
 
   return (
     <>
       <Helmet>
-        <title>Driving Courses - Learn to Drive with InLane | Beginner to Advanced</title>
-        <meta 
-          name="description" 
+        <title>
+          Driving Courses - Learn to Drive with InLane | Beginner to Advanced
+        </title>
+        <meta
+          name="description"
           content="Join InLane's comprehensive driving courses. 10-hour beginner course, specialized training modules, and expert instruction. Learn driving with confidence in Bangalore."
         />
-        <meta 
-          name="keywords" 
+        <meta
+          name="keywords"
           content="driving course bangalore, learn car driving, beginner driving course, driving lessons near me, driving school courses, car driving training, driving classes bangalore, best driving school"
         />
         {/* Essential meta tags */}
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://inlane.in/courses" />
-        
+
         {/* Open Graph Tags */}
-        <meta property="og:title" content="Professional Driving Courses by InLane - From Basics to Mastery" />
-        <meta property="og:description" content="Expert-led driving courses with structured learning modules. 10-hour beginner course, hands-on training, and comprehensive road safety education." />
+        <meta
+          property="og:title"
+          content="Professional Driving Courses by InLane - From Basics to Mastery"
+        />
+        <meta
+          property="og:description"
+          content="Expert-led driving courses with structured learning modules. 10-hour beginner course, hands-on training, and comprehensive road safety education."
+        />
         <meta property="og:url" content="https://inlane.in/courses" />
         <meta property="og:type" content="website" />
       </Helmet>
@@ -166,17 +172,10 @@ const NewCoursePage = () => {
           <div className="relative w-full pt-12">
             {/* Mobile view cars (3 cars) */}
             <div className="flex justify-center items-center gap-4 md:hidden">
-              <img
-                src="/svg/course_car.svg"
-                alt="car"
-                className="w-16"
-              />
-              <div className="w-16 min-w-[128px]" /> {/* Space for yellow car */}
-              <img
-                src="/svg/course_car.svg"
-                alt="car"
-                className="w-16"
-              />
+              <img src="/svg/course_car.svg" alt="car" className="w-16" />
+              <div className="w-16 min-w-[128px]" />{" "}
+              {/* Space for yellow car */}
+              <img src="/svg/course_car.svg" alt="car" className="w-16" />
             </div>
 
             {/* Desktop view cars (7 cars) */}
@@ -245,8 +244,14 @@ const NewCoursePage = () => {
         {/* Beginner Course Section */}
         <div className="max-w-5xl mx-auto mb-12 md:mt-60 bg-[#D9FF7A] rounded-[2rem] p-4 md:p-8 shadow-sm ">
           <div className="flex items-center gap-3 mb-6">
-            <img src="/course/arrow.svg" alt="target" className="w-6 md:w-auto" />
-            <h2 className="text-2xl md:text-3xl font-medium font-['glancyr']">Beginner Course</h2>
+            <img
+              src="/course/arrow.svg"
+              alt="target"
+              className="w-6 md:w-auto"
+            />
+            <h2 className="text-2xl md:text-3xl font-medium font-['glancyr']">
+              Beginner Course
+            </h2>
           </div>
 
           <div className="flex flex-col md:flex-row">
@@ -255,15 +260,17 @@ const NewCoursePage = () => {
               {beginnerCourseHours.map((hour, index) => (
                 <div key={index} className="relative">
                   <button
-                    onClick={() => setExpandedHour(expandedHour === index ? null : index)}
-                    className={`w-full flex items-center justify-between bg-white/50  hover:bg-white/60 transition-colors rounded-full border-2 border-black/20 px-4 py-2 ${expandedHour === index ? "bg-[#F7FFE4]" : ""}`}
+                    onClick={() =>
+                      setExpandedHour(expandedHour === index ? null : index)
+                    }
+                    className={`w-full flex items-center justify-between bg-white/50  hover:bg-white/60 transition-colors rounded-full border-2 border-black/20 px-4 py-2 ${
+                      expandedHour === index ? "bg-[#F7FFE4]" : ""
+                    }`}
                   >
                     <div className="flex items-center gap-2 ">
                       <span className="font-light">Hour {hour.hour}</span>
                       <span className="mx-2">|</span>
-                      <span className="text-gray-700">
-                        {hour.title}
-                      </span>
+                      <span className="text-gray-700">{hour.title}</span>
                     </div>
                     <svg
                       className={`w-5 h-5 transition-transform ${
@@ -285,7 +292,7 @@ const NewCoursePage = () => {
                   {expandedHour === index && (
                     <div className="mt-1 bg-white/30 rounded-lg overflow-hidden  ">
                       {hour.sections.map((section, sectionIndex) => (
-                        <div 
+                        <div
                           key={sectionIndex}
                           className="px-6 py-3 text-gray-700 font-light border-b border-gray-200/50  last:border-b-0 bg-[#F7FFE4]"
                         >
@@ -303,7 +310,9 @@ const NewCoursePage = () => {
               <div className="flex items-center gap-3">
                 <img src="/course/timer.svg" alt="duration" className="" />
                 <div>
-                  <span className="text-lg font-semibold font-['glancyr']">Duration:</span>
+                  <span className="text-lg font-semibold font-['glancyr']">
+                    Duration:
+                  </span>
                   <p className="font-['glancyr']">10 hours</p>
                 </div>
               </div>
@@ -311,7 +320,9 @@ const NewCoursePage = () => {
               <div className="flex items-center gap-3">
                 <img src="/course/coin.svg" alt="price" className="" />
                 <div>
-                  <span className="text-lg font-semibold font-['glancyr']">Price:</span>
+                  <span className="text-lg font-semibold font-['glancyr']">
+                    Price:
+                  </span>
                   <p className="font-['glancyr']">₹10000</p>
                 </div>
               </div>
@@ -319,9 +330,12 @@ const NewCoursePage = () => {
               <div className="flex items-start gap-3">
                 <img src="/course/calculator.svg" alt="value" className="" />
                 <div>
-                  <span className="text-lg font-semibold block font-['glancyr']">Value Added</span>
+                  <span className="text-lg font-semibold block font-['glancyr']">
+                    Value Added
+                  </span>
                   <p className="text-sm font-['glancyr']">
-                    We offer a vehicle for the Driver's License test day at an additional cost.
+                    We offer a vehicle for the Driver's License test day at an
+                    additional cost.
                   </p>
                 </div>
               </div>
@@ -331,6 +345,8 @@ const NewCoursePage = () => {
                   variant="contained"
                   component="a"
                   href="https://forms.gle/Up128jny4nRz5DH59"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   startIcon={<Rocket color="white" />}
                   sx={{
                     backgroundColor: "#00CE84",
@@ -349,10 +365,10 @@ const NewCoursePage = () => {
                       sm: "10px 20px",
                       md: "6px 68px",
                     },
-                    fontSize: { 
+                    fontSize: {
                       xs: "1rem",
-                      sm: "1.125rem", 
-                      md: "1.5rem" 
+                      sm: "1.125rem",
+                      md: "1.5rem",
                     },
                   }}
                 >
@@ -364,11 +380,10 @@ const NewCoursePage = () => {
         </div>
 
         {/* Mini Courses Section */}
-
       </div>
-      <MiniCourseNew/>
-      
-        <FAQ />
+      <MiniCourseNew />
+
+      <FAQ />
       <Footer />
     </>
   );
