@@ -70,7 +70,7 @@ const MiniCourseNew = () => {
 
   return (
     <div className="max-w-6xl mx-auto mb-12 p-4 md:p-12 pt-8 md:pt-16">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-3xl mx-auto">
         {miniCourses.map((course, index) => (
           <div
             key={index}
@@ -111,8 +111,8 @@ const MiniCourseNew = () => {
               } overflow-hidden`}>
                 <ul className="space-y- pl-4">
                   {course.points.map((point, idx) => (
-                    <li key={idx} className="text-lg font-semibold">
-                      • {point}
+                    <li key={idx} className="text-md font-normal list-disc ms-2">
+                      {point}
                     </li>
                   ))}
                 </ul>
