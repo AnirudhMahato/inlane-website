@@ -84,8 +84,8 @@ const FAQ = () => {
   };
 
   return (
-    <div id="faq" className='bg-green-400 w-full py-8 md:py-16'>
-      <div className="max-w-5xl mx-auto bg-white rounded-[1rem] md:rounded-[2rem] p-4 md:p-8 shadow-lg">
+    <div id="faq" className='bg-green-400 w-full py-8 md:py-16 bg-logoGreen'>
+      <div className="max-w-5xl mx-auto bg-white rounded-[1rem] md:rounded-[2rem] p-4 md:p-8 shadow-lg ">
         <div className="flex items-center gap-2 md:gap-3 mb-4 md:mb-6">
           <img src="/course/arrow.svg" alt="arrow" className="w-6 md:w-auto" />
           <h2 className="text-2xl md:text-3xl font-medium font-['glancyr']">FAQs</h2>

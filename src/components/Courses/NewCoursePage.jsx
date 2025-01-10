@@ -159,9 +159,9 @@ const NewCoursePage = () => {
         logo="./svg/Logo_white.svg"
         burgerMenu="./svg/burger_menu_white.svg"
       />
-      <div className="min-h-screen bg-green-400 font-['glancyr'] p-12">
+      <div className="min-h-screen bg-green-400 font-['glancyr'] p-12 bg-logoGreen">
         {/* Cars Row and Animation Container */}
-        <div className="relative h-[300px] md:h-[500px]">
+        <div className="relative h-[300px] md:h-[500px] ">
           {/* Static cars row */}
           <div className="relative w-full pt-12">
             {/* Mobile view cars (3 cars) */}
@@ -243,7 +243,7 @@ const NewCoursePage = () => {
       </div> */}
 
         {/* Beginner Course Section */}
-        <div className="max-w-5xl mx-auto mb-12 md:mt-60 bg-[#D9FF7A] rounded-[2rem] p-4 md:p-8 shadow-sm">
+        <div className="max-w-5xl mx-auto mb-12 md:mt-60 bg-[#D9FF7A] rounded-[2rem] p-4 md:p-8 shadow-sm ">
           <div className="flex items-center gap-3 mb-6">
             <img src="/course/arrow.svg" alt="target" className="w-6 md:w-auto" />
             <h2 className="text-2xl md:text-3xl font-medium font-['glancyr']">Beginner Course</h2>
