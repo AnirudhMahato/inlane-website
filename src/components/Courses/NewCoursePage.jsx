@@ -363,8 +363,9 @@ const NewCoursePage = () => {
                     padding: {
                       xs: "8px 24px",
                       sm: "10px 20px",
-                      md: "6px 68px",
+                      md: "1px 25px",
                     },
+                    fontFamily: "Bricolage Grotesque",
                     fontSize: {
                       xs: "1rem",
                       sm: "1.125rem",

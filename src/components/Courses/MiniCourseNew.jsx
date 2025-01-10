@@ -157,12 +157,15 @@ const MiniCourseNew = () => {
             borderRadius: "50px",
             padding: {
               xs: "8px 24px",
-              md: "10px 40px",
+              sm: "10px 20px",
+              md: "1px 25px",
             },
-            fontSize: {
-              xs: "1rem",
-              md: "1.125rem",
-            },
+            fontFamily: "Bricolage Grotesque",
+                    fontSize: {
+                      xs: "1rem",
+                      sm: "1.125rem",
+                      md: "1.5rem",
+                    },
             "&:hover": {
               backgroundColor: "#00CE84",
             },
