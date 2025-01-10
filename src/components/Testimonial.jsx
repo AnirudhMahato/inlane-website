@@ -65,6 +65,7 @@ const Testimonial = () => {
   const [openModal, setOpenModal] = useState(false);
   const [activeVideo, setActiveVideo] = useState("");
   const [isSticky, setIsSticky] = useState(false);
+  const [isWheelSticky, setIsWheelSticky] = useState(false);
   const IconStyle = isSmallScreen
     ? smallIconStyle
     : isMediumScreen
@@ -77,11 +78,15 @@ const Testimonial = () => {
     const handleScroll = () => {
       const offset = window.scrollY;
       const wheelElement = document.getElementById('wheel-text');
+      const bridgeElement = document.getElementById('bridge-text');
       
-      if (wheelElement) {
+      if (wheelElement && bridgeElement) {
         const wheelPosition = wheelElement.getBoundingClientRect().top;
-        // Make sticky false when wheel text is at or above the top of viewport
-        setIsSticky(offset > 100 && wheelPosition > 0);
+        
+        // Bridge text stays sticky
+        setIsSticky(offset > 100);
+        // Wheel text becomes sticky after scrolling more
+        setIsWheelSticky(offset > 200 && wheelPosition > 0);
       }
     };
 
@@ -118,6 +123,7 @@ const Testimonial = () => {
       }}
     >
       <Typography
+        id="bridge-text"
         variant="h3"
         sx={{
           position: isSticky ? 'sticky' : 'relative',
@@ -139,6 +145,12 @@ const Testimonial = () => {
       </Typography>
       <Box
         sx={{
+          position: isWheelSticky ? 'sticky' : 'relative',
+          top: isSticky ? '80px' : 0,
+          zIndex: 9,
+          background: isWheelSticky ? 'linear-gradient(180deg, rgba(0, 206, 132, 0.9) 0%, rgba(0, 206, 132, 0) 100%)' : 'transparent',
+          backdropFilter: isWheelSticky ? 'blur(8px)' : 'none',
+          WebkitBackdropFilter: isWheelSticky ? 'blur(8px)' : 'none',
           display: "inline-block",
           backgroundImage: "url('src/assets/images/Tag5.svg')",
           backgroundRepeat: "no-repeat",
@@ -159,7 +171,8 @@ const Testimonial = () => {
           color={"#000000"}
           fontFamily={"Bricolage Grotesque"}
         >
-          The Wheel        </Typography>
+          The Wheel
+        </Typography>
       </Box>
       <Box 
         sx={{ 
