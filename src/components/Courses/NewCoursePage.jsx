@@ -291,11 +291,11 @@ const NewCoursePage = () => {
                   </button>
 
                   {expandedHour === index && (
-                    <div className="mt-1 bg-white/30 rounded-lg overflow-hidden  ">
+                    <div className="mt-1 bg-[#white/30] rounded-lg overflow-hidden  ">
                       {hour.sections.map((section, sectionIndex) => (
                         <div
                           key={sectionIndex}
-                          className="px-6 py-3 text-gray-700 font-light border-b border-gray-200/50  last:border-b-0 bg-[#F7FFE4]"
+                          className="px-6 py-3 border-b border-black/50 last:border-b-0 font-semibold bg-[#FFFFFF]"
                         >
                           {section}
                         </div>
