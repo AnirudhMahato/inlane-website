@@ -267,7 +267,7 @@ const NewCoursePage = () => {
                       expandedHour === index ? "bg-[#F7FFE4]" : ""
                     }`}
                   >
-                    <div className="flex items-center gap-2 ">
+                    <div className="flex items-center gap-2 font-bold ">
                       <span className="font-light">Hour {hour.hour}</span>
                       <span className="mx-2">|</span>
                       <span className="text-gray-700">{hour.title}</span>
@@ -347,7 +347,7 @@ const NewCoursePage = () => {
                   href="https://forms.gle/Up128jny4nRz5DH59"
                   target="_blank"
                   rel="noopener noreferrer"
-                  startIcon={<Rocket color="white" />}
+                  startIcon={<img src="/course/rocket.svg" alt="rocket" className="w-6 h-6" />}
                   sx={{
                     backgroundColor: "#00CE84",
                     color: "white",

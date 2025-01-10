@@ -147,7 +147,7 @@ const MiniCourseNew = () => {
           href="https://forms.gle/Up128jny4nRz5DH59"
           target="_blank"
           rel="noopener noreferrer"
-          startIcon={<Rocket />}
+          startIcon={<img src="/course/rocket.svg" alt="rocket" className="w-6 h-6" />}
           sx={{
             backgroundColor: "#00CE84",
             color: "white",
