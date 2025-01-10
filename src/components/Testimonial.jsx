@@ -163,9 +163,9 @@ const Testimonial = () => {
           transform: `translateY(${wheelOffset}px)`,
           transition: 'transform 0.1s linear',
           zIndex: 9,
-          background: isWheelSticky ? 'linear-gradient(180deg, rgba(0, 206, 132, 0.9) 0%, rgba(0, 206, 132, 0) 100%)' : 'transparent',
-          backdropFilter: isWheelSticky ? 'blur(8px)' : 'none',
-          WebkitBackdropFilter: isWheelSticky ? 'blur(8px)' : 'none',
+          // background: isWheelSticky ? 'linear-gradient(180deg, rgba(0, 206, 132, 0.9) 0%, rgba(0, 206, 132, 0) 100%)' : 'transparent',
+          // backdropFilter: isWheelSticky ? 'blur(8px)' : 'none',
+          // WebkitBackdropFilter: isWheelSticky ? 'blur(8px)' : 'none',
           display: "inline-block",
           backgroundImage: "url('src/assets/images/Tag5.svg')",
           backgroundRepeat: "no-repeat",
@@ -176,6 +176,7 @@ const Testimonial = () => {
           mb: 6,
           mt: 4,
           padding: { xs: "3px", sm: "15px", md: "20px" },
+          marginBottom: { xs: "64px", sm: "96px", md: "128px" },
         }}
       >
         <Typography
