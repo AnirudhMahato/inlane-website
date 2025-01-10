@@ -261,7 +261,7 @@ const NewCoursePage = () => {
                 <div key={index} className="relative">
                   <button
                     onClick={() => setExpandedHour(expandedHour === index ? null : index)}
-                    className={`w-full flex items-center justify-between transition-colors rounded-[2rem] px-6 py-1 border border-black
+                    className={`w-full flex items-center justify-between transition-colors rounded-[1rem] px-6 py-1 border border-black
                       ${expandedHour === index 
                         ? 'bg-white rounded-b-none border-b-0' 
                         : 'bg-[#D9FF7A]'
@@ -290,7 +290,7 @@ const NewCoursePage = () => {
                   </button>
 
                   {expandedHour === index && (
-                    <div className="bg-white rounded-b-[2rem] overflow-hidden border border-t-0 border-black">
+                    <div className="bg-white rounded-b-[1rem] overflow-hidden border border-t-0 border-black">
                       {hour.sections.map((section, sectionIndex) => (
                         <div
                           key={sectionIndex}
