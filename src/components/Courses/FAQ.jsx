@@ -84,7 +84,7 @@ const FAQ = () => {
   };
 
   return (
-    <div id="faq" className='bg-green-400 w-full py-8 md:py-16 bg-logoGreen'>
+  <div id="faq" className=' w-full py-8 md:py-32 bg-logoGreen '>
       <div className="max-w-5xl mx-auto bg-white rounded-[1rem] md:rounded-[2rem] p-4 md:p-8 shadow-lg ">
         <div className="flex items-center gap-2 md:gap-3 mb-4 md:mb-6">
           <img src="/course/arrow.svg" alt="arrow" className="w-6 md:w-auto" />
@@ -96,9 +96,10 @@ const FAQ = () => {
             <div key={index} className="relative">
               <button
                 onClick={() => toggleAccordion(index)}
-                className="w-full flex items-center justify-between bg-gray-50 rounded-full px-4 md:px-6 py-2 md:py-3 hover:bg-gray-100 transition-colors"
+                title={faq.question}
+                className="w-full flex items-center justify-between border-[1px] border-black rounded-full px-4 md:px-6 py-2 md:py-3 hover:bg-gray-100 transition-colors"
               >
-                <span className="font-medium text-gray-800 font-['glancyr'] text-sm md:text-base text-left pr-2">
+                <span className="font-medium text-gray-800 font-['glancyr'] text-sm md:text-base text-left pr-2 line-clamp-1" >
                   {faq.question}
                 </span>
                 <svg

@@ -383,7 +383,6 @@ const NewCoursePage = () => {
         {/* Mini Courses Section */}
       </div>
       <MiniCourseNew />
-
       <FAQ />
       <Footer />
     </>
