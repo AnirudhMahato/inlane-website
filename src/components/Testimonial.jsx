@@ -66,6 +66,8 @@ const Testimonial = () => {
   const [activeVideo, setActiveVideo] = useState("");
   const [isSticky, setIsSticky] = useState(false);
   const [isWheelSticky, setIsWheelSticky] = useState(false);
+  const [bridgeOffset, setBridgeOffset] = useState(0);
+  const [wheelOffset, setWheelOffset] = useState(0);
   const IconStyle = isSmallScreen
     ? smallIconStyle
     : isMediumScreen
@@ -79,22 +81,30 @@ const Testimonial = () => {
       const offset = window.scrollY;
       const wheelElement = document.getElementById('wheel-text');
       const bridgeElement = document.getElementById('bridge-text');
+      const testimonialSection = document.getElementById('testimonial-section');
       
-      if (wheelElement && bridgeElement) {
+      if (wheelElement && bridgeElement && testimonialSection) {
         const wheelPosition = wheelElement.getBoundingClientRect().top;
+        const sectionBottom = testimonialSection.getBoundingClientRect().bottom;
         
-        // Bridge text stays sticky
-        setIsSticky(offset > 100);
-        // Wheel text becomes sticky after scrolling more
+        // Calculate scroll progress for each text
+        if (sectionBottom < window.innerHeight) {
+          const scrollProgress = (window.innerHeight - sectionBottom) / 2;
+          setBridgeOffset(-scrollProgress);
+          setWheelOffset(-scrollProgress);
+        } else {
+          setBridgeOffset(0);
+          setWheelOffset(0);
+        }
+
+        // Update sticky states
+        setIsSticky(offset > 100 && sectionBottom > 0);
         setIsWheelSticky(offset > 200 && wheelPosition > 0);
       }
     };
 
     window.addEventListener('scroll', handleScroll);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const handleOpenModal = (videoUrl) => {
@@ -113,6 +123,7 @@ const Testimonial = () => {
 
   return (
     <Box
+      id="testimonial-section"
       sx={{
         backgroundColor: "#00CE84",
         // padding: { xs: 2, sm: 3, md: 4 },
@@ -128,6 +139,8 @@ const Testimonial = () => {
         sx={{
           position: isSticky ? 'sticky' : 'relative',
           top: 0,
+          transform: `translateY(${bridgeOffset}px)`,
+          transition: 'transform 0.1s linear',
           zIndex: 10,
           background: 'linear-gradient(180deg, rgba(0, 206, 132, 0.9) 0%, rgba(0, 206, 132, 0) 100%)',
           backdropFilter: 'blur(8px)',
@@ -147,6 +160,8 @@ const Testimonial = () => {
         sx={{
           position: isWheelSticky ? 'sticky' : 'relative',
           top: isSticky ? '80px' : 0,
+          transform: `translateY(${wheelOffset}px)`,
+          transition: 'transform 0.1s linear',
           zIndex: 9,
           background: isWheelSticky ? 'linear-gradient(180deg, rgba(0, 206, 132, 0.9) 0%, rgba(0, 206, 132, 0) 100%)' : 'transparent',
           backdropFilter: isWheelSticky ? 'blur(8px)' : 'none',
