@@ -44,23 +44,25 @@ const Blog = () => {
   const categoryBorderColors = {
     "Everything Cars 🚗": "border-[#00CE84] bg-[#00CE84]/25",
     "RTO Queries❓": "border-[#D1B3FF] bg-[#D1B3FF]/25",
-    "Driver's Circle 😊🛞": "border-green-300 bg-green-300/25",
-    "Lane Updates 📧": "border-yellow-300 bg-yellow-300/25",
-    "Road trips🛣️": "border-orange-400 bg-orange-400/25",
-    All: "border-lime-400 bg-lime-400/25", // Default color for "All"
+    "Driver's Circle 😊🛞": "border-[#D9FF7A] bg-[#D9FF7A]/25",
+    "Lane Updates 📧": "border-[#00CE84] bg-[#00CE84]/25",
+    "Road trips🛣️": "border-[#D1B3FF] bg-[#D1B3FF]/25",
+    All: "border-[#D9FF7A] bg-[#D9FF7A]/25",
   };
 
   const BlogColors = {
     "Everything Cars 🚗": "bg-[#00CE84]",
     "RTO Queries❓": "bg-[#D1B3FF]",
     "Driver's Circle 😊🛞": "bg-[#D9FF7A]",
-    "Lane Updates 📧": "bg-yellow-300",
-    "Road trips🛣️": "bg-orange-400",
-    All: "bg-lime-400", // Default color for "All"
+    "Lane Updates 📧": "bg-[#00CE84]",
+    "Road trips🛣️": "bg-[#D1B3FF]",
+    All: "bg-[#D9FF7A]",
   };
 
   const postsPerPage = 6;
   const totalPages = Math.ceil(totalItems / postsPerPage);
+
+  const brandColors = ["#00CE84", "#D1B3FF", "#D9FF7A"];
 
   // Helper function to get categories for a post
   const getPostCategories = (fields) => {
@@ -187,10 +189,20 @@ const Blog = () => {
     };
   }, [currentPage, selectedCategory, searchQuery]);
 
-  const getCardBackground = (categories) => {
-    if (!categories || categories.length === 0)
-      return BlogColors["All"];
-    return BlogColors[categories[0]] || BlogColors["All"];
+  const getCardBackground = (categories, index) => {
+    // Get the row number and position
+    const rowIndex = Math.floor(index / 3);
+    const positionInRow = index % 3;
+    
+    // If it's the first item in a row, generate new random order for this row
+    if (positionInRow === 0) {
+      // Create a new shuffled array for this row
+      window[`row${rowIndex}Colors`] = [...brandColors]
+        .sort(() => Math.random() - 0.5);
+    }
+    
+    // Use the stored shuffled colors for this row
+    return `bg-[${window[`row${rowIndex}Colors`][positionInRow]}]`;
   };
 
   const handleCategoryChange = useCallback((category) => {
@@ -347,11 +359,12 @@ const Blog = () => {
           ) : (
             <div>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 lg:gap-12 gap-12 mb-8 font-blog max-w-7xl mx-auto px-8">
-                {posts.map((post) => (
+                {posts.map((post, index) => (
                   <div
                     key={post.id}
                     className={`rounded-3xl shadow-md overflow-hidden hover:shadow-lg transition-shadow cursor-pointer ${getCardBackground(
-                      post.categories
+                      post.categories,
+                      index
                     )}`}
                     onClick={() => handleBlogClick(post)}
                   >
