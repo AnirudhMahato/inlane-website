@@ -31,6 +31,30 @@ const BorderedStarIcon = styled('svg')`
   height: 16px;
 `;
 
+const ScrollContainer = styled.div`
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+`;
+
+const ScrollingRow = styled.div`
+  display: flex;
+  animation: ${props => props.direction === 'left' ? 
+    'scrollLeft 40s linear infinite' : 
+    'scrollRight 40s linear infinite'};
+  gap: 1rem;
+
+  @keyframes scrollLeft {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+  }
+
+  @keyframes scrollRight {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(0); }
+  }
+`;
+
 const Testimonial = () => {
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
@@ -78,14 +102,19 @@ const Testimonial = () => {
     setActiveVideo("");
   };
 
+  // Split testimonials into two rows
+  const firstRow = testimonials.slice(0, Math.ceil(testimonials.length / 2));
+  const secondRow = testimonials.slice(Math.ceil(testimonials.length / 2));
+
   return (
     <Box
       sx={{
         backgroundColor: "#00CE84",
-        padding: { xs: 2, sm: 3, md: 4 },
+        // padding: { xs: 2, sm: 3, md: 4 },
         textAlign: "center",
         backgroundImage: "url('/TestimonialBG.svg')",
         marginTop: { xs: "64px", sm: "96px", md: "128px" },
+        padding: { xs: 2, sm: 3, md: 4 },
       }}
     >
       <Typography
@@ -98,7 +127,7 @@ const Testimonial = () => {
           backdropFilter: 'blur(8px)',
           WebkitBackdropFilter: 'blur(8px)',
           paddingY: 2,
-          fontSize: { xs: "18px", sm: "40px", md: "48px" },
+          fontSize: { xs: "18px", sm: "40px", md: "40px" },
           color: "#000000",
           mt: { xs: 4, sm: 6, md: 8 },
           mb: 40,
@@ -111,7 +140,7 @@ const Testimonial = () => {
       <Box
         sx={{
           display: "inline-block",
-          backgroundImage: "url('/Tag5.svg')",
+          backgroundImage: "url('src/assets/images/Tag5.svg')",
           backgroundRepeat: "no-repeat",
           backgroundSize: "contain",
           backgroundPosition: "center",
@@ -140,51 +169,99 @@ const Testimonial = () => {
           px: 2 
         }}
       >
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
-          {testimonials.map((testimonial, index) => (
-            <div key={index} className="w-full">
-              <div 
-                className={`
+        <ScrollContainer>
+          <ScrollingRow direction="left">
+            {[...firstRow, ...firstRow].map((testimonial, index) => (
+              <div key={index} className="min-w-[300px]">
+                <div className={`
                   rounded-[32px] 
                   p-6 
                   h-[200px] 
                   border-[12px] 
                   border-white 
-                  ${index % 2 === 0 ? 'bg-[#D1B3FF]' : 'bg-[#D9FF7A]'}
+                  bg-[#D1B3FF]
                   flex 
                   flex-col
-                `}
-              >
-                <div className="space-y-3">
-                  <div className="flex justify-between items-center">
-                    <h3 className="text-xl font-bold font-['Bricolage_Grotesque']">
-                      {testimonial.name}
-                    </h3>
-                    <div className="flex gap-0.5">
-                      {[...Array(testimonial.rating)].map((_, i) => (
-                        <BorderedStarIcon
-                          key={i}
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
-                            stroke="black"
-                            strokeWidth="1"
-                            fill={index % 2 === 0 ? '#D9FF7A' : '#D1B3FF'}
-                          />
-                        </BorderedStarIcon>
-                      ))}
+                `}>
+                  <div className="space-y-3">
+                    <div className="flex justify-between items-center">
+                      <h3 className="text-xl font-bold font-['Bricolage_Grotesque']">
+                        {testimonial.name}
+                      </h3>
+                      <div className="flex gap-0.5">
+                        {[...Array(testimonial.rating)].map((_, i) => (
+                          <BorderedStarIcon
+                            key={i}
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
+                              stroke="black"
+                              strokeWidth="1"
+                              fill={index % 2 === 0 ? '#D9FF7A' : '#D1B3FF'}
+                            />
+                          </BorderedStarIcon>
+                        ))}
+                      </div>
                     </div>
-                  </div>
 
-                  <p className="text-black text-sm leading-relaxed font-['Bricolage_Grotesque'] line-clamp-4">
-                    {testimonial.comment}
-                  </p>
+                    <p className="text-black text-sm leading-relaxed font-['Bricolage_Grotesque'] line-clamp-4">
+                      {testimonial.comment}
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </ScrollingRow>
+        </ScrollContainer>
+
+        <Box sx={{ my: { xs: 3, sm: 4, md: 5 } }} />
+
+        <ScrollContainer>
+          <ScrollingRow direction="right">
+            {[...secondRow, ...secondRow].map((testimonial, index) => (
+              <div key={index} className="min-w-[300px]">
+                <div className={`
+                  rounded-[32px] 
+                  p-6 
+                  h-[200px] 
+                  border-[12px] 
+                  border-white 
+                  bg-[#D9FF7A]
+                  flex 
+                  flex-col
+                `}>
+                  <div className="space-y-3">
+                    <div className="flex justify-between items-center">
+                      <h3 className="text-xl font-bold font-['Bricolage_Grotesque']">
+                        {testimonial.name}
+                      </h3>
+                      <div className="flex gap-0.5">
+                        {[...Array(testimonial.rating)].map((_, i) => (
+                          <BorderedStarIcon
+                            key={i}
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
+                              stroke="black"
+                              strokeWidth="1"
+                              fill={index % 2 === 0 ? '#D9FF7A' : '#D1B3FF'}
+                            />
+                          </BorderedStarIcon>
+                        ))}
+                      </div>
+                    </div>
+
+                    <p className="text-black text-sm leading-relaxed font-['Bricolage_Grotesque'] line-clamp-4">
+                      {testimonial.comment}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </ScrollingRow>
+        </ScrollContainer>
       </Box>
       <Modal
         open={openModal}
@@ -242,8 +319,9 @@ const Testimonial = () => {
           color: "#000000",
           fontFamily: "Bricolage Grotesque",
           fontSize: { xs: "16px", sm: "30px", md: "28px" },
+
           textDecoration: "none",
-          width: { xs: "80%", sm: "80%", md: 280.72 },
+          // width: { xs: "80%", sm: "80%", md: 280.72 },
           textTransform: "none",
           fontWeight: "bold",
           "&:hover": {
@@ -251,6 +329,7 @@ const Testimonial = () => {
           },
           border: "4px solid white",
           borderRadius: "50px",
+          
           marginBottom: { xs: "64px", sm: "96px", md: "128px" },
           boxShadow: "6px 8px 4px rgba(0, 0, 0, 0.35)",
         }}
