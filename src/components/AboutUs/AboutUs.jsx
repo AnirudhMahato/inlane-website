@@ -42,7 +42,7 @@ const AboutUs = () => {
         logo="/svg/Logo_white.svg"
         burgerMenu={"/svg/burger_menu_white.svg"}
       />
-      <div className="min-h-screen bg-[#D1B3FF] font-grotesque font-normal bg-logoPurple">
+      <div className="min-h-screen bg-[#D1B3FF] font-grotesque font-normal bg-logoPurple ">
         {/* Hero Section - Updated with clouds */}
         <div className="relative h-[70vh] flex items-center justify-center px-4">
           {/* Clouds background */}
