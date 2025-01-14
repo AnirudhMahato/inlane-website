@@ -86,7 +86,7 @@ const MiniCourseNew = () => {
             <div className="mb-6">
               <button
                 onClick={() => toggleExpand(index)}
-                className="flex items-center gap-2 font-bold mb-4 hover:text-gray-700 rounded-full border-[1px] border-black/20 px-4 py- text-lg"
+                className="flex items-center gap-2 font-bold mb-4 rounded-full border-[1px] border-black/20 px-4 py- text-lg"
               >
                 <span>What will we ace together?</span>
                 <svg
