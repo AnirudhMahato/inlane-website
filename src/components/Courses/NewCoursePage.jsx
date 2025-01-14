@@ -22,7 +22,7 @@ const NewCoursePage = () => {
 
   const calculateCarPosition = () => {
     const maxScroll = 300;
-    const maxMove = 200;
+    const maxMove = window.innerWidth < 768 ? 100 : 200;
     const movement = Math.min((scrollPosition / maxScroll) * maxMove, maxMove);
     return movement;
   };
@@ -165,17 +165,16 @@ const NewCoursePage = () => {
         logo="./svg/Logo_white.svg"
         burgerMenu="./svg/burger_menu_white.svg"
       />
-      <div className="min-h-screen bg-green-400 font-['glancyr'] p-12 bg-logoGreen">
+      <div className="min-h-screen bg-green-400 font-['glancyr'] px-12 pb-12 bg-logoGreen">
         {/* Cars Row and Animation Container */}
         <div className="relative h-[300px] md:h-[500px] ">
           {/* Static cars row */}
           <div className="relative w-full pt-12">
             {/* Mobile view cars (3 cars) */}
-            <div className="flex justify-center items-center gap-4 md:hidden">
-              <img src="/svg/course_car.svg" alt="car" className="w-16" />
-              <div className="w-16 min-w-[128px]" />{" "}
-              {/* Space for yellow car */}
-              <img src="/svg/course_car.svg" alt="car" className="w-16" />
+            <div className="flex justify-center items-center gap-2 md:hidden">
+              <img src="/svg/course_car.svg" alt="car" className="w-24" />
+              <div className="w-24 min-w-[96px]" /> {/* Reduced space for yellow car */}
+              <img src="/svg/course_car.svg" alt="car" className="w-24" />
             </div>
 
             {/* Desktop view cars (7 cars) */}
@@ -194,7 +193,7 @@ const NewCoursePage = () => {
               )}
             </div>
 
-            {/* Animated yellow car */}
+            {/* Animated yellow car - updated size for mobile */}
             <div
               className="absolute top-12 left-1/2 transform -translate-x-1/2"
               style={{ zIndex: 20 }}
@@ -202,7 +201,7 @@ const NewCoursePage = () => {
               <img
                 src="/svg/course_car_yellow.svg"
                 alt="car"
-                className="w-16 md:w-auto"
+                className="w-24 md:w-auto"
                 style={{
                   transform: `translateY(${calculateCarPosition()}px)`,
                   transition: "transform 0.1s ease-out",
@@ -222,7 +221,7 @@ const NewCoursePage = () => {
             <img
               src="/course/letgetyoudriving.svg"
               alt="car"
-              className="mx-auto w-1/2 md:w-auto "
+              className="mx-auto w-2/3 md:w-auto "
             />
           </div>
         </div>
@@ -261,19 +260,21 @@ const NewCoursePage = () => {
                 <div key={index} className="relative">
                   <button
                     onClick={() => setExpandedHour(expandedHour === index ? null : index)}
-                    className={`w-full flex items-center justify-between transition-colors rounded-[1rem] px-6 py-1 border border-black
+                    className={`w-full flex items-center justify-between transition-colors rounded-[1rem] px-2 md:px-6 py-1 border border-black
                       ${expandedHour === index 
                         ? 'bg-white rounded-b-none border-b-0' 
                         : 'bg-[#D9FF7A]'
                       }`}
                   >
-                    <div className="flex items-center gap-4">
-                      <span className="font-semibold text-xl">Hour {hour.hour}</span>
-                      <span className="text-black/50">|</span>
-                      <span className="font-semibold text-xl">{hour.title}</span>
+                    <div className="flex items-center gap-1 md:gap-4 flex-1 min-w-0">
+                      <span className="font-semibold text-sm md:text-xl whitespace-nowrap text-start">Hour {hour.hour}</span>
+                      <span className="text-black/50 hidden md:inline">|</span>
+                      <span className={`font-semibold text-sm md:text-xl  text-start ${expandedHour === index ? 'whitespace-normal' : 'truncate'}`}>
+                        {hour.title}
+                      </span>
                     </div>
                     <svg
-                      className={`w-5 h-5 transition-transform ${
+                      className={`w-4 h-4 md:w-5 md:h-5 transition-transform flex-shrink-0 ml-1 md:ml-2 ${
                         expandedHour === index ? "rotate-180" : ""
                       }`}
                       fill="none"
@@ -294,7 +295,7 @@ const NewCoursePage = () => {
                       {hour.sections.map((section, sectionIndex) => (
                         <div
                           key={sectionIndex}
-                          className="px-6 py-2 text-lg font-medium border-b border-black/5 last:border-b-0"
+                          className="px-2 md:px-6 py-2 text-sm md:text-lg font-medium border-b border-black/5 last:border-b-0"
                         >
                           {section}
                         </div>
@@ -305,49 +306,42 @@ const NewCoursePage = () => {
               ))}
             </div>
 
-            {/* Right side - Course details - full width on mobile, 30% on desktop */}
-            <div className="w-full md:w-[30%] space-y-6 flex flex-col justify-around items-start">
+            {/* Right side - Course details */}
+            <div className="w-full md:w-[30%] space-y-4 md:space-y-6 p-2 md:p-0">
               <div className="flex items-center gap-3">
-                <img src="/course/timer.svg" alt="duration" className="" />
-                <div className="flex flex-col items-start text-2xl">
-                  <span className=" text-2xl font-semibold ">
-                    Duration:
-                  </span>
-                  <p className="text-2xl font-semibold">10 hours</p>
+                <img src="/course/timer.svg" alt="duration" className="w-8 md:w-auto" />
+                <div className="flex flex-col items-start text-xl md:text-2xl">
+                  <span className="font-semibold">Duration:</span>
+                  <p className="font-semibold">10 hours</p>
                 </div>
               </div>
 
               <div className="flex items-center gap-3">
-                <img src="/course/coin.svg" alt="price" className="" />
+                <img src="/course/coin.svg" alt="price" className="w-8 md:w-auto" />
                 <div>
-                  <span className="text-2xl font-semibold">
-                    Price:
-                  </span>
-                  <p className="text-2xl font-semibold">₹10000</p>
+                  <span className="text-xl md:text-2xl font-semibold">Price:</span>
+                  <p className="text-xl md:text-2xl font-semibold">₹10000</p>
                 </div>
               </div>
 
               <div className="flex items-start gap-3">
-                <img src="/course/calculator.svg" alt="value" className="" />
+                <img src="/course/calculator.svg" alt="value" className="w-8 md:w-auto" />
                 <div>
-                  <span className="text-2xl font-semibold ">
-                    Value Added
-                  </span>
-                  <p className="text-lg ">
-                    We offer a vehicle for the Driver's License test day at an
-                    additional cost.
+                  <span className="text-xl md:text-2xl font-semibold">Value Added</span>
+                  <p className="text-base md:text-lg">
+                    We offer a vehicle for the Driver's License test day at an additional cost.
                   </p>
                 </div>
               </div>
 
-              <div className="flex flex-row items-center justify-center gap-4 mt-8">
+              <div className="flex flex-row items-center justify-center w-full mt-6 md:mt-8">
                 <Button
                   variant="contained"
                   component="a"
                   href="https://forms.gle/Up128jny4nRz5DH59"
                   target="_blank"
                   rel="noopener noreferrer"
-                  startIcon={<img src="/course/rocket.svg" alt="rocket" className="w-6 h-6" />}
+                  startIcon={<img src="/course/rocket.svg" alt="rocket" className="w-5 md:w-6 h-5 md:h-6" />}
                   sx={{
                     backgroundColor: "#00CE84",
                     color: "white",
@@ -360,15 +354,16 @@ const NewCoursePage = () => {
                     },
                     border: "2px solid white",
                     borderRadius: "50px",
+                    width: {
+                      xs: "100%",
+                      md: "auto"
+                    },
                     padding: {
                       xs: "8px 24px",
-                      sm: "10px 20px",
-                      md: "1px 25px",
+                      md: "10px 25px",
                     },
-                    fontFamily: "Bricolage Grotesque",
                     fontSize: {
-                      xs: "1rem",
-                      sm: "1.125rem",
+                      xs: "1.125rem",
                       md: "1.5rem",
                     },
                   }}
