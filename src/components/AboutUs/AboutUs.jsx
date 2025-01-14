@@ -122,16 +122,15 @@ const AboutUs = () => {
                   We at LANE
                 </h2>
               </div>
-              <p className="text-md mb-4">{weAtLane.description1}</p>
-              <p className="text-md">{weAtLane.description2}</p>
+              <p className="text-md md:text-xl mb-4">{weAtLane.description1}</p>
+              <p className="text-md md:text-xl">{weAtLane.description2}</p>
             </div>
 
             {/* Founder Section */}
             <div className="bg-[#D1B3FF] rounded-t-3xl p-4 md:p-8 md:pt-20 w-full bg-logoPurple">
-              <div className="flex flex-col items-center gap-3 mb-4 ">
-                <div
-                  className="flex flex-col md:flex-row justify-around items-start mb-12 w-full md:gap-12 md:w-[80%]"
-                >
+              <div className="flex flex-col items-center gap-3 mb-4">
+                <div className="flex flex-col md:flex-row-reverse justify-around items-start mb-12 w-full md:gap-12 md:w-[80%]">
+                  {/* Founder image */}
                   <div className="rounded-2xl overflow-hidden shadow-md w-full md:w-[60%] mb-6 md:mb-0">
                     <div className="bg-[#B28FFF] p-3 rounded-2xl">
                       <div className="aspect-w-1 aspect-h-1 w-full rounded-xl overflow-hidden">
@@ -146,12 +145,12 @@ const AboutUs = () => {
                   </div>
 
                   <div className="w-full px-4 md:px-0">
-                    <h2 className="text-4xl sm:text-5xl md:text-7xl lg:text-[6.5rem] font-medium md:mb- md:mt-6 w-full leading-tight tracking-tight">
+                    <h2 className="text-4xl sm:text-5xl md:text-7xl lg:text-[6.5rem] font-medium mb- md:mt-6 w-full leading-tight tracking-tight">
                       Meet Samiksha!
                     </h2>
                     <h3 className="text-xl mb-4 font-semibold">The FOUNDER</h3>
-                    <p className="text-lg mb-4">{founder.description1}</p>
-                    <p className="text-lg">{founder.description2}</p>
+                    <p className="text-lg md:text-xl mb-4">{founder.description1}</p>
+                    <p className="text-lg md:text-xl">{founder.description2}</p>
                   </div>
                 </div>
                 {/* Team Section */}
