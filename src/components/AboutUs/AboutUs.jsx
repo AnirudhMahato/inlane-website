@@ -3,6 +3,7 @@ import Navbar2 from "../Navbar";
 import Footer from "../Footer";
 import aboutUsData from "../../data/aboutUs";
 import { Helmet } from "react-helmet-async";
+import pitCrewTag from "../../assets/images/PitCrew_Tag.svg";
 
 const AboutUs = () => {
   const teamMembers = aboutUsData
@@ -154,9 +155,19 @@ const AboutUs = () => {
                   </div>
                 </div>
                 {/* Team Section */}
+                   
                 <div className="bg-white rounded-3xl p-4 md:p-12 mb-12 w-full md:w-[80%]">
                   <h2 className="text-3xl md:text-5xl mb-8 m-auto w-full text-start">
-                    And now, the <span className=" font-bold">Pit Crew</span>{" "}
+                    And now, the{" "}
+                    <span className="font-bold relative inline-block">
+                      <img
+                        src={pitCrewTag}
+                        alt="crew"
+                        className="absolute inset-0 w-[200%] h-full z-10"
+                        style={{ left: '-10%' }}
+                      />
+                      <span className="relative z-20">Pit Crew</span>
+                    </span>{" "}
                     that is making it all possible! 👋🚗
                   </h2>
                   <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mb-8">
