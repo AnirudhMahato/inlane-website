@@ -35,6 +35,7 @@ const ScrollContainer = styled.div`
   overflow: hidden;
   position: relative;
   width: 100%;
+  padding: 0 16px;
 `;
 
 const ScrollingRow = styled.div`
@@ -43,6 +44,13 @@ const ScrollingRow = styled.div`
     'scrollLeft 40s linear infinite' : 
     'scrollRight 40s linear infinite'};
   gap: 1rem;
+  
+  @media (max-width: 600px) {
+    gap: 0.5rem;
+    animation: ${props => props.direction === 'left' ? 
+      'scrollLeft 8s linear infinite' : 
+      'scrollRight 8s linear infinite'};
+  }
 
   @keyframes scrollLeft {
     0% { transform: translateX(0); }
@@ -201,20 +209,23 @@ const Testimonial = () => {
         <ScrollContainer>
           <ScrollingRow direction="left">
             {[...firstRow, ...firstRow].map((testimonial, index) => (
-              <div key={index} className="min-w-[300px]">
+              <div key={index} className="min-w-[300px] sm:min-w-[300px] xs:min-w-[260px]">
                 <div className={`
                   rounded-[32px] 
                   p-6 
+                  xs:p-4
                   h-[200px] 
+                  xs:h-[180px]
                   border-[12px] 
+                  xs:border-[8px]
                   border-white 
                   bg-[#D1B3FF]
                   flex 
                   flex-col
                 `}>
-                  <div className="space-y-3">
+                  <div className="space-y-3 xs:space-y-2">
                     <div className="flex justify-between items-center">
-                      <h3 className="text-xl font-bold font-['Bricolage_Grotesque']">
+                      <h3 className="text-xl xs:text-lg font-bold font-['Bricolage_Grotesque']">
                         {testimonial.name}
                       </h3>
                       <div className="flex gap-0.5">
@@ -234,7 +245,7 @@ const Testimonial = () => {
                       </div>
                     </div>
 
-                    <p className="text-black text-sm leading-relaxed font-['Bricolage_Grotesque'] line-clamp-4">
+                    <p className="text-black text-sm xs:text-xs leading-relaxed font-['Bricolage_Grotesque'] line-clamp-4">
                       {testimonial.comment}
                     </p>
                   </div>
@@ -249,20 +260,23 @@ const Testimonial = () => {
         <ScrollContainer>
           <ScrollingRow direction="right">
             {[...secondRow, ...secondRow].map((testimonial, index) => (
-              <div key={index} className="min-w-[300px]">
+              <div key={index} className="min-w-[300px] sm:min-w-[300px] xs:min-w-[260px]">
                 <div className={`
                   rounded-[32px] 
                   p-6 
+                  xs:p-4
                   h-[200px] 
+                  xs:h-[180px]
                   border-[12px] 
+                  xs:border-[8px]
                   border-white 
                   bg-[#D9FF7A]
                   flex 
                   flex-col
                 `}>
-                  <div className="space-y-3">
+                  <div className="space-y-3 xs:space-y-2">
                     <div className="flex justify-between items-center">
-                      <h3 className="text-xl font-bold font-['Bricolage_Grotesque']">
+                      <h3 className="text-xl xs:text-lg font-bold font-['Bricolage_Grotesque']">
                         {testimonial.name}
                       </h3>
                       <div className="flex gap-0.5">
@@ -282,7 +296,7 @@ const Testimonial = () => {
                       </div>
                     </div>
 
-                    <p className="text-black text-sm leading-relaxed font-['Bricolage_Grotesque'] line-clamp-4">
+                    <p className="text-black text-sm xs:text-xs leading-relaxed font-['Bricolage_Grotesque'] line-clamp-4">
                       {testimonial.comment}
                     </p>
                   </div>
