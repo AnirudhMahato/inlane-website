@@ -71,7 +71,7 @@ const Navbar2 = ({ backgroundColor  = "#FAF9E6", logo = "./LANE_LOGO.svg", burge
           
         >
           <img
-            src={logo}
+            src='./LANE_LOGO.svg'
             alt="Website Logo"
             style={{ maxWidth: "18%", height: "auto" }}
           />
@@ -92,6 +92,25 @@ const Navbar2 = ({ backgroundColor  = "#FAF9E6", logo = "./LANE_LOGO.svg", burge
               }
             />
           </ListItem>
+
+          <ListItem button component={Link} to="/about-us" onClick={handleClose}>
+            <ListItemText
+              primary={
+                <Typography
+                  variant="h5"
+                  sx={{
+                    fontFamily: "Bricolage Grotesque",
+                    textAlign: "center",
+                  }}
+                >
+                  About Us
+                </Typography>
+              }
+            />
+          </ListItem>
+
+
+
           <ListItem button component={Link} to="/courses" onClick={handleClose}>
             <ListItemText
               primary={
@@ -122,22 +141,7 @@ const Navbar2 = ({ backgroundColor  = "#FAF9E6", logo = "./LANE_LOGO.svg", burge
               }
             />
           </ListItem>
-          <ListItem button component={Link} to="/about-us" onClick={handleClose}>
-            <ListItemText
-              primary={
-                <Typography
-                  variant="h5"
-                  sx={{
-                    fontFamily: "Bricolage Grotesque",
-                    textAlign: "center",
-                  }}
-                >
-                  About Us
-                </Typography>
-              }
-            />
-          </ListItem>
-
+          
           {/* Social Icons */}
           <Box
             sx={{
