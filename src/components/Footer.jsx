@@ -186,7 +186,7 @@ const Footer = () => {
       display: "flex",
       alignItems: "center",
       mb: 1,
-      fontWeight: "bold",
+      // fontWeight: "bold",
       fontSize: { xs: "18px", sm: "20px", md: "22px" },
       fontFamily: "Bricolage Grotesque",
       lineHeight: { xs: "32px", sm: "28px", md: "32px" },
