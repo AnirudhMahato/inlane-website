@@ -355,27 +355,17 @@ const LandingPage = () => {
               Help us create a world with
             </Typography>
             <Box
+              component="img"
+              src="/svg/zero.svg"
+              alt="Zero Road Fatalities"
               sx={{
-                backgroundImage: "url('/Tag5.svg')",
-                backgroundRepeat: "no-repeat",
-                backgroundSize: "contain",
-                backgroundPosition: "center",
-                width: { xs: "100%", sm: "90%", md: "80%", lg: 774.83 },
+                width: { xs: "80%", sm: "70%", md: "90%", lg: "90%" },
                 maxWidth: 774.83,
+                height: "auto",
                 marginBottom: { xs: "6px", sm: "30px", md: "40px" },
                 padding: { xs: "10px", sm: "11px", md: "20px" },
               }}
-            >
-              <Typography
-                variant="h5"
-                fontWeight="bold"
-                fontSize={{ xs: "18px", sm: "30px", md: "25px", lg: "2rem" }}
-                fontFamily="Bricolage Grotesque"
-                color="#000000"
-              >
-                ZERO Road Fatalities
-              </Typography>
-            </Box>
+            />
               <Button
                 variant="contained"
                 component={Link}
