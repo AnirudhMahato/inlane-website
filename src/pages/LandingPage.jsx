@@ -103,22 +103,20 @@ const LandingPage = () => {
             <div className="flex flex-row items-center justify-center gap-6 mt-18">
               <Button
                 variant="contained"
-                // component={Link}
-                // to="/https://forms.gle/Up128jny4nRz5DH59"
                 component="a"
                 href="https://forms.gle/Up128jny4nRz5DH59"
                 startIcon={<Rocket color={IconStyle} />}
                 sx={{
-                  backgroundColor: "#00CE84",
+                  background: "linear-gradient(90deg, #00CE84 0%, #00BC78 100%)",
                   color: "white",
                   fontWeight: "bold",
                   fontFamily: "Bricolage Grotesque",
                   textDecoration: "none",
                   textTransform: "none",
                   "&:hover": {
-                    backgroundColor: "#00CE84",
+                    background: "linear-gradient(90deg, #00CE84 0%, #00BC78 100%)",
                   },
-                  border: "2px solid white",
+                  border: "2px solid #FFFFFF",
                   borderRadius: "50px",
                   padding: {
                     sm: "10px 20px",
@@ -236,22 +234,20 @@ const LandingPage = () => {
               <Box>
                 <Button
                   variant="contained"
-                  // component={Link}
-                  // to="/https://forms.gle/Up128jny4nRz5DH59"
                   component="a"
                   href="https://forms.gle/Up128jny4nRz5DH59"
                   startIcon={<Rocket color={IconStyle} />}
                   sx={{
-                    backgroundColor: "#00CE84",
+                    background: "linear-gradient(90deg, #00CE84 0%, #00BC78 100%)",
                     color: "white",
                     fontWeight: "bold",
                     fontFamily: "Bricolage Grotesque",
                     textDecoration: "none",
                     textTransform: "none",
                     "&:hover": {
-                      backgroundColor: "#00CE84",
+                      background: "linear-gradient(90deg, #00CE84 0%, #00BC78 100%)",
                     },
-                    border: "2px solid white",
+                    border: "2px solid #FFFFFF",
                     borderRadius: "50px",
                     padding: {
                       sm: "10px 20px",
@@ -354,7 +350,7 @@ const LandingPage = () => {
               fontSize={{ xs: "16px", sm: "22px", md: "36px", lg: "48px" }}
               fontFamily="Bricolage Grotesque"
               color="#000000"
-              marginBottom={{ xs: "0px", sm: "20px", md: "30px" }}
+              // marginBottom={{ xs: "0px", sm: "20px", md: "30px" }}
             >
               Help us create a world with
             </Typography>
@@ -380,35 +376,35 @@ const LandingPage = () => {
                 ZERO Road Fatalities
               </Typography>
             </Box>
-            <Button
-              variant="contained"
-              component={Link}
-              target="_blank"
-              to="https://forms.gle/Up128jny4nRz5DH59"
-              size="large"
-              startIcon={<Rocket color={IconStyle} />}
-              sx={{
-                backgroundColor: "#00CE84",
-                color: "white",
-                "&:hover": {
-                  backgroundColor: "#00CE85",
-                },
-                border: "3px solid white",
-                borderRadius: "50px",
-                boxShadow: "2px 4px 4px rgba(0, 0, 0, 0.35)",
-                padding: { xs: "12px 24px", sm: "14px 32px", md: "16px 44px" },
-                width: { xs: "75%", sm: "70%", md: "60%", lg: 324.38 },
-                maxWidth: 324.38,
-                height: { xs: 38, sm: 60, md: 69.47 },
-                fontFamily: "Bricolage Grotesque",
-                fontSize: { xs: "16px", sm: "24px", md: "30px", lg: "36px" },
-                fontWeight: "bold",
-                textTransform: "none",
-                marginTop: { xs: "12px", sm: "30px", md: "40px" },
-              }}
-            >
-              Sign Up
-            </Button>
+              <Button
+                variant="contained"
+                component={Link}
+                target="_blank"
+                to="https://forms.gle/Up128jny4nRz5DH59"
+                size="large"
+                startIcon={<Rocket color={IconStyle} />}
+                sx={{
+                  background: "linear-gradient(90deg, #00CE84 0%, #00BC78 100%)",
+                  color: "white",
+                  "&:hover": {
+                    background: "linear-gradient(90deg, #00CE84 0%, #00BC78 100%)",
+                  },
+                  border: "3px solid #FFFFFF",
+                  borderRadius: "50px",
+                  boxShadow: "2px 4px 4px rgba(0, 0, 0, 0.35)",
+                  padding: { xs: "12px 24px", sm: "14px 32px", md: "16px 44px" },
+                  width: { xs: "75%", sm: "70%", md: "60%", lg: 324.38 },
+                  maxWidth: 324.38,
+                  height: { xs: 38, sm: 60, md: 69.47 },
+                  fontFamily: "Bricolage Grotesque",
+                  fontSize: { xs: "16px", sm: "24px", md: "30px", lg: "36px" },
+                  fontWeight: "bold",
+                  textTransform: "none",
+                  marginTop: { xs: "12px", sm: "30px", md: "40px" },
+                }}
+              >
+                Sign Up
+              </Button>
           </Box>
         </Box>
       </Box>
