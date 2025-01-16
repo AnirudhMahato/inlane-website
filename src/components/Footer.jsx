@@ -142,8 +142,10 @@ const Footer = () => {
       paddingTop: { xs: 3, sm: 4, md: 6 },
       backgroundImage: `url(${isMobile ? "/img.png" : "/Road1.png"})`,
       backgroundRepeat: "no-repeat",
-      height: isMobile ? "100%" : "470px",
-      backgroundSize: isMobile ? "" : "contain",
+      minHeight: isMobile ? "100%" : "470px",
+      backgroundSize: "100% 100%",
+      backgroundPosition: "center",
+      paddingBottom: { xs: 3, sm: 4, md: 6 },
     },
     footerHeadingImage: {
       display: "inline-block",
