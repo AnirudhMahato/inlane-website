@@ -165,7 +165,7 @@ const NewCoursePage = () => {
         logo="./svg/Logo_white.svg"
         burgerMenu="./svg/burger_menu_white.svg"
       />
-      <div className="min-h-screen bg-green-400 font-['glancyr'] px-12 pb-12 bg-logoGreen">
+      <div className="min-h-screen bg-green-400 font-['glancyr'] px- pb-12 bg-logoGreen">
         {/* Cars Row and Animation Container */}
         <div className="relative h-[300px] md:h-[500px] ">
           {/* Static cars row */}
@@ -241,7 +241,7 @@ const NewCoursePage = () => {
       </div> */}
 
         {/* Beginner Course Section */}
-        <div className="max-w-5xl mx-auto mb-12 md:mt-60 bg-[#D9FF7A] rounded-[2rem] p-4 md:p-8 shadow-sm ">
+        <div className="max-w-5xl mx-auto mb-12 md:mb-24 md:mt-60 bg-[#D9FF7A] rounded-[2rem] p-4 md:p-8 shadow-sm relative">
           <div className="flex items-center gap-3 mb-6">
             <img
               src="/course/arrow.svg"
@@ -350,9 +350,20 @@ const NewCoursePage = () => {
           </div>
         </div>
 
+        {/* Mini Course Tag - Positioned between sections */}
+        <div className="relative -mb-10 md:-mb-16 z-10">
+          <img 
+            src="course/minicoursetag.svg" 
+            alt="Mini Courses" 
+            className="mx-auto w-[300px] md:w-[600px]"
+          />
+        </div>
+
         {/* Mini Courses Section */}
+        <div className="pt-12 md:pt-24 bg-white">
+          <MiniCourseNew />
+        </div>
       </div>
-      <MiniCourseNew />
       <FAQ />
       <Footer />
     </>
