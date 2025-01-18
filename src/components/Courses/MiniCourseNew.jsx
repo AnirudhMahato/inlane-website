@@ -74,11 +74,11 @@ const MiniCourseNew = () => {
         {miniCourses.map((course, index) => (
           <div
             key={index}
-            className={`${course.bgColor} rounded-[2rem] p-6 md:p-8 relative w-full`}
+            className={`${course.bgColor} rounded-[2rem] p-6 md:p-8 relative w-full `}
           >
             <div className="flex items-center gap-3 mb-6">
-              <img src="/course/arrow.svg" alt="arrow" className="w-8 md:w-10" />
-              <h2 className="text-2xl md:text-3xl  font-['glancyr']">
+              <img src="/course/arrow.svg" alt="arrow" className="w-8 md:w-12" />
+              <h2 className="text-2xl md:text-3xl   font-['glancyr']">
                 {course.title}
               </h2>
             </div>
