@@ -229,19 +229,20 @@ const AboutUs = () => {
                       />
                     </div>
                   </div>
-                  <div className="text-center mt-8">
+                  <div className="text-center mt-8 ">
                     <a
-                      target="_blank"
-                      href="https://forms.gle/ffBN85PKWp7vQKzu6"
-                      className="bg-[#01cb82] text-white px-4 md:px-6 py-2 rounded-full font-medium hover:bg-[#00b574]
-                     transition-colors inline-flex items-center justify-center border-[3px] border-white shadow-lg"
+                     href="https://forms.gle/Up128jny4nRz5DH59"
+                     target="_blank"
+                     rel="noopener noreferrer"
+                     className="inline-flex items-center justify-center ms-3 w-full md:w-auto px-6  py-2  text-lg md:text-xl shadow-xl font-extrabold text-white font-['Bricolage Grotesque'] 
+                     rounded-full border-2 border-white bg-gradient-to-r from-[#00CE84] to-[#00BC78] hover:from-[#00CE84] hover:to-[#00CE84] transition-colors duration-200"
                     >
                       <img
                         src="/svg/puzzle_white.svg"
                         alt="puzzle icon"
-                        className="w-8 md:w-12 h-8 md:h-12 mb-2 mr-[-0.5rem]"
+                        className="w-8 md:w-12 h-8  mb-1 "
                       />
-                      <p className="text-base md:text-lg font-semibold ">
+                      <p className="text-base md:text-2xl font-bolder ">
                         Join Us
                       </p>
                     </a>
