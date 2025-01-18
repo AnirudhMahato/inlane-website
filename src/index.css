@@ -50,13 +50,29 @@
   font-family: 'Bricolage Grotesque'
 }
 
+
 .bg-logoPurple {
-  background-image: url('/Grey BG Pattern.svg');
+/* background-image: url('./assets/images/white_logo.png?w=400'); */
   background-color: #D1B3FF;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   font-family: 'Bricolage Grotesque'
+}
+
+.bg-logoPurple::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('./assets/images/white_logo.png?w=400');
+  background-size: contain;
+  background-position: center;
+  background-repeat: repeat;
+  opacity: 0.1;  /* Adjust this value between 0 and 1 to control opacity */
+  z-index: 0;
 }
 
 .bg-logoGreen {
