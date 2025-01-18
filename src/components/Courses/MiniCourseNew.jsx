@@ -156,7 +156,11 @@ const MiniCourseNew = () => {
                   rel="noopener noreferrer"
                   startIcon={<img src="/course/rocket.svg" alt="rocket" className="w-6 h-6" />}
                   sx={{
-                    backgroundColor: "#00CE84",
+                    background: "linear-gradient(90deg, #00CE84 0%, #00BC78 100%)",
+                    color: "white",
+                    "&:hover": {
+                      background: "linear-gradient(90deg, #00CE84 0%, #00BC78 100%)",
+                    },
                     color: "white",
                     fontWeight: "bold",
                     fontFamily: "Bricolage Grotesque",

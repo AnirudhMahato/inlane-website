@@ -119,7 +119,7 @@ const AboutUs = () => {
                     className="w-10 md:w-14 h-auto"
                   />
                 </div>
-                <h2 className="text-3xl md:text-5xl font-medium text-start flex justify-start items-center w-full font-grotesque">
+                <h2 className="text-3xl md:text-6xl font-medium text-start flex justify-start items-center w-full font-grotesque">
                   We at LANE
                 </h2>
               </div>
