@@ -262,7 +262,7 @@ const NewCoursePage = () => {
                     onClick={() => setExpandedHour(expandedHour === index ? null : index)}
                     className={`w-full flex items-center justify-between transition-colors rounded-[1rem] px-2 md:px-6 py-1 border border-black
                       ${expandedHour === index 
-                        ? 'bg-white rounded-b-none border-b-0' 
+                        ? 'bg-[#F7FFE4] rounded-b-none border-b-0' 
                         : 'bg-[#D9FF7A]'
                       }`}
                   >
@@ -291,7 +291,7 @@ const NewCoursePage = () => {
                   </button>
 
                   {expandedHour === index && (
-                    <div className="bg-white rounded-b-[1rem] overflow-hidden border border-t-0 border-black">
+                    <div className="bg-[#F7FFE4] rounded-b-[1rem] overflow-hidden border border-t-0 border-black">
                       {hour.sections.map((section, sectionIndex) => (
                         <div
                           key={sectionIndex}
@@ -328,49 +328,24 @@ const NewCoursePage = () => {
                 <img src="/course/calculator.svg" alt="value" className="w-8 md:w-auto" />
                 <div>
                   <span className="text-xl md:text-2xl font-semibold">Value Added</span>
-                  <p className="text-base md:text-lg">
-                    We offer a vehicle for the Driver's License test day at an additional cost.
+                  <p className="text-base md:text-md ">
+                    We offer a vehicle  <br />for the Driver's <br /> License test day  <br />at an additional cost.
                   </p>
                 </div>
               </div>
 
-              <div className="flex flex-row items-center justify-center w-full mt-6 md:mt-8">
-                <Button
-                  variant="contained"
-                  component="a"
+              {/* <div className="flex flex-row items-center justify-center w-full mt-6 md:mt-8"> */}
+                <a
                   href="https://forms.gle/Up128jny4nRz5DH59"
                   target="_blank"
                   rel="noopener noreferrer"
-                  startIcon={<img src="/course/rocket.svg" alt="rocket" className="w-5 md:w-6 h-5 md:h-6" />}
-                  sx={{
-                    backgroundColor: "#00CE84",
-                    color: "white",
-                    fontWeight: "bold",
-                    fontFamily: "Bricolage Grotesque",
-                    textDecoration: "none",
-                    textTransform: "none",
-                    "&:hover": {
-                      backgroundColor: "#00CE84",
-                    },
-                    border: "2px solid white",
-                    borderRadius: "50px",
-                    width: {
-                      xs: "100%",
-                      md: "auto"
-                    },
-                    padding: {
-                      xs: "8px 24px",
-                      md: "10px 25px",
-                    },
-                    fontSize: {
-                      xs: "1.125rem",
-                      md: "1.5rem",
-                    },
-                  }}
+                  className="inline-flex items-center justify-center ms-3 w-full md:w-auto px-6 md:px-8 py-2  text-lg md:text-xl shadow-xl font-extrabold text-white font-['Bricolage Grotesque'] 
+                  rounded-full border-2 border-white bg-gradient-to-r from-[#00CE84] to-[#00BC78] hover:from-[#00CE84] hover:to-[#00CE84] transition-colors duration-200"
                 >
+                  <img src="/course/rocket.svg" alt="rocket" className="w-5 md:w-5 h-5 md:h-5 mr-2" />
                   Sign Up
-                </Button>
-              </div>
+                </a>
+              {/* </div> */}
             </div>
           </div>
         </div>
