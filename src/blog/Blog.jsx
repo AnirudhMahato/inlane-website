@@ -383,8 +383,8 @@ const Blog = () => {
                         </div>
                       )}
                     </div>
-                    <div className="p-4">
-                      <h2 className="text-xl font-semibold mb-2 hover:text-white transition-colors mt-4">
+                    <div className="p-4 pt-0">
+                      <h2 className="text-xl font-semibold mb-2 hover:text-white transition-colors mt-">
                         {post.title}
                       </h2>
                       <p className="text-gray-800 mb-4 line-clamp-2">
