@@ -161,7 +161,7 @@ const NewCoursePage = () => {
       </Helmet>
 
       <Navbar
-        backgroundColor="#4ADE80"
+        backgroundColor="#00CE84"
         logo="./svg/Logo_white.svg"
         burgerMenu="./svg/burger_menu_white.svg"
       />
