@@ -132,7 +132,7 @@ const AboutUs = () => {
               <div className="flex flex-col items-center gap-3 mb-4">
                 <div className="flex flex-col md:flex-row-reverse justify-around items-start mb-12 w-full md:gap-12 md:w-[80%]">
                   {/* Founder image */}
-                  <div className="rounded-2xl overflow-hidden shadow-md w-full md:w-[60%] mb-6 md:mb-0">
+                  <div className="rounded-2xl overflow-hidden shadow-md w-full md:w-[40%] mb-6 md:mb-0">
                     <div className="bg-[#B28FFF] p-3 rounded-2xl">
                       <div className="aspect-w-1 aspect-h-1 w-full rounded-xl overflow-hidden">
                         <img
@@ -145,13 +145,13 @@ const AboutUs = () => {
                     </div>
                   </div>
 
-                  <div className="w-full px-4 md:px-0">
+                  <div className="w-full px-4 md:px-0 md:w-[60%]">
                     <h2 className="text-4xl sm:text-5xl md:text-7xl lg:text-[6.5rem] font-medium mb- md:mt-6 w-full leading-tight tracking-tight">
                       Meet Samiksha!
                     </h2>
                     <h3 className="text-xl mb-4 font-semibold">The FOUNDER</h3>
-                    <p className="text-lg md:text-xl mb-4">{founder.description1}</p>
-                    <p className="text-lg md:text-xl">{founder.description2}</p>
+                    <p className="text-lg md:text-xl mb-4 md:w-10/12">{founder.description1}</p>
+                    <p className="text-lg md:text-xl md:w-10/12">{founder.description2}</p>
                   </div>
                 </div>
                 {/* Team Section */}
