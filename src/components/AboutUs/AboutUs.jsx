@@ -132,7 +132,7 @@ const AboutUs = () => {
               <div className="flex flex-col items-center gap-3 mb-4">
                 <div className="flex flex-col md:flex-row-reverse justify-around items-start mb-12 w-full md:gap-12 md:w-[80%]">
                   {/* Founder image */}
-                  <div className="rounded-2xl overflow-hidden shadow-md w-full md:w-[40%] mb-6 md:mb-0">
+                  <div className="rounded-2xl overflow-hidden shadow-md w-full md:w-[40%] mb-6 md:mt-10 md:mb-0">
                     <div className="bg-[#B28FFF] p-3 rounded-2xl">
                       <div className="aspect-w-1 aspect-h-1 w-full rounded-xl overflow-hidden">
                         <img
@@ -145,26 +145,26 @@ const AboutUs = () => {
                     </div>
                   </div>
 
-                  <div className="w-full px-4 md:px-0 md:w-[60%]">
+                  <div className="w-full px-4 md:px-0 md:w-[70%] lg:w-[60%]">
                     <h2 className="text-4xl sm:text-5xl md:text-7xl lg:text-[6.5rem] font-medium mb- md:mt-6 w-full leading-tight tracking-tight">
                       Meet Samiksha!
                     </h2>
                     <h3 className="text-xl mb-4 font-semibold">The FOUNDER</h3>
-                    <p className="text-lg md:text-xl mb-4 md:w-10/12">{founder.description1}</p>
-                    <p className="text-lg md:text-xl md:w-10/12">{founder.description2}</p>
+                    <p className="text-lg md:text-xl ">{founder.description1}</p> <br />
+                    <p className="text-lg md:text-xl ">{founder.description2}</p>
                   </div>
                 </div>
                 {/* Team Section */}
                    
-                <div className="bg-white rounded-3xl p-4 md:p-12 mb-12 w-full md:w-[80%]">
-                  <h2 className="text-3xl md:text-5xl mb-8 m-auto w-full text-start">
+                <div className="bg-white rounded-3xl p-4 md:p-16 mb-12 w-full md:w-[80%]">
+                  <h2 className="text-3xl md:text-7xl mb-8 m-auto w-full text-start">
                     And now, the{" "}
                     <span className="font-bold relative inline-block">
                       <img
                         src={pitCrewTag}
                         alt="crew"
-                        className="absolute inset-0 w-[200%] h-full z-10"
-                        style={{ left: '-10%' }}
+                        className="absolute inset-0 w-full h-full z-10"
+                        // style={{ left: '-10%' }}
                       />
                       <span className="relative z-20">Pit Crew</span>
                     </span>{" "}
@@ -186,7 +186,7 @@ const AboutUs = () => {
                           <h3 className="font-bold text-lg mb-1">
                             {member.name}
                           </h3>
-                          <p className="text-gray-700 text-sm leading-snug">
+                          <p className="  text-sm leading-snug">
                             {member.role}
                           </p>
                         </div>
