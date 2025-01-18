@@ -360,7 +360,7 @@ const NewCoursePage = () => {
         </div>
 
         {/* Mini Courses Section */}
-        <div className="pt-12 md:pt-24 bg-white">
+        <div className="pt-12 md:pt-24 bg-white ">
           <MiniCourseNew />
         </div>
       </div>
