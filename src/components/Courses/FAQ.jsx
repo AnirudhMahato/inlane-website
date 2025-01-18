@@ -87,7 +87,7 @@ const FAQ = () => {
     <div id="faq" className='w-full py-8 md:py-32 bg-logoGreen'>
       <div className="max-w-5xl mx-auto bg-white rounded-[1rem] md:rounded-[2rem] p-4 md:p-8 shadow-lg">
         <div className="flex items-center gap-2 md:gap-3 mb-4 md:mb-6">
-          <img src="/course/arrow.svg" alt="arrow" className="w-6 md:w-auto" />
+          {/* <img src="/course/arrow.svg" alt="arrow" className="w-6 md:w-auto" /> */}
           <h2 className="text-2xl md:text-3xl font-medium font-['glancyr']">FAQs</h2>
         </div>
 
@@ -103,7 +103,7 @@ const FAQ = () => {
                     : 'bg-white rounded-[1rem]'
                   }`}
               >
-                <span className={`font-medium text-gray-800 font-['glancyr'] text-sm md:text-base text-left pr-2 ${activeIndex === index ? 'line-clamp-4' : 'line-clamp-1'}`}>
+                <span className={` text-gray-800 font-['glancyr'] text-sm md:text-base text-left pr-2 ${activeIndex === index ? 'line-clamp-4' : 'line-clamp-1'}`}>
                   {faq.question}
                 </span>
                 <svg
