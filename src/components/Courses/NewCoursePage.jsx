@@ -260,9 +260,9 @@ const NewCoursePage = () => {
                 <div key={index} className="relative">
                   <button
                     onClick={() => setExpandedHour(expandedHour === index ? null : index)}
-                    className={`w-full flex items-center justify-between transition-colors rounded-[1rem] px-2 md:px-6 py-1 border border-black
+                    className={`w-full flex items-center justify-between transition-colors rounded-[1rem] px-2 md:px-6 py-1 border border-black 
                       ${expandedHour === index 
-                        ? 'bg-[#F7FFE4] rounded-b-none border-b-0' 
+                        ? 'bg-[#F7FFE4] rounded-b-none border-b-0 ' 
                         : 'bg-[#D9FF7A]'
                       }`}
                   >
@@ -291,7 +291,7 @@ const NewCoursePage = () => {
                   </button>
 
                   {expandedHour === index && (
-                    <div className="bg-[#F7FFE4] rounded-b-[1rem] overflow-hidden border border-t-0 border-black">
+                    <div className="bg-[#F7FFE4] rounded-b-[1rem] overflow-hidden border  border-black border-t-black/5 ">
                       {hour.sections.map((section, sectionIndex) => (
                         <div
                           key={sectionIndex}
