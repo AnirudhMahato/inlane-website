@@ -11,7 +11,7 @@ const FAQ = () => {
   };
 
   return (
-    <div id="faq" className='w-full h-full md:py-32 bg-logoGreen shadow-lg drop-shadow-lg '>
+    <div id="faq" className='w-full h-full pt-0 pb-24 md:pt-0 md:pb-24 bg-logoGreen shadow-lg drop-shadow-lg  '>
       <div className="max-w-5xl 
       mx-4 
       md:mx-auto bg-white rounded-[1rem] md:rounded-[2rem] p-4 md:p-8 shadow-lg">
