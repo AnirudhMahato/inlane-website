@@ -248,9 +248,9 @@ const Testimonial = () => {
                           ))}
                         </div>
                       </div>
-                      <div className="flex items-center justify-center">
+                      {/* <div className="flex items-center justify-center">
                         <PlayCircleIcon sx={{ fontSize: 60, color: 'white' }} />
-                      </div>
+                      </div> */}
                     </div>
                   </div>
                 ) : (
@@ -267,7 +267,7 @@ const Testimonial = () => {
                     flex 
                     flex-col
                   `}>
-                    <div className="space-y-3 xs:space-y-2">
+                    <div className="space-y-3 xs:space-y-2 overflow-hidden">
                       <div className="flex justify-between items-center">
                         <h3 className="text-xl xs:text-lg font-bold font-['Bricolage_Grotesque']">
                           {testimonial.name}
@@ -288,8 +288,8 @@ const Testimonial = () => {
                           ))}
                         </div>
                       </div>
-
-                      <p className="text-black text-sm xs:text-xs leading-relaxed font-['Bricolage_Grotesque'] line-clamp-4">
+                        
+                      <p className="text-black text-lg  leading-relaxed font-['Bricolage_Grotesque'] line-clamp-auto overflow-auto">
                         {testimonial.comment}
                       </p>
                     </div>
@@ -308,7 +308,9 @@ const Testimonial = () => {
               <div key={index} className="min-w-[350px] sm:min-w-[400px] xs:min-w-[300px]">
                 {testimonial.videoLink ? (
                   <div 
-                    className="rounded-[32px] border-[12px] xs:border-[8px] border-white overflow-hidden cursor-pointer relative h-[300px] xs:h-[250px]"
+                    className="rounded-[32px] border-[12px] 
+                    xs:border-[8px] border-white overflow-hidden
+                     cursor-pointer relative h-[300px] xs:h-[250px]"
                     onClick={() => handleOpenModal(getEmbeddedDriveUrl(testimonial.videoLink))}
                   >
                     <iframe 
@@ -337,9 +339,9 @@ const Testimonial = () => {
                           ))}
                         </div>
                       </div>
-                      <div className="flex items-center justify-center">
+                      {/* <div className="flex items-center justify-center">
                         <PlayCircleIcon sx={{ fontSize: 60, color: 'white' }} />
-                      </div>
+                      </div> */}
                     </div>
                   </div>
                 ) : (
@@ -378,7 +380,7 @@ const Testimonial = () => {
                         </div>
                       </div>
 
-                      <p className="text-black text-sm xs:text-xs leading-relaxed font-['Bricolage_Grotesque'] line-clamp-4">
+                      <p className="text-black text-xl  leading-relaxed font-['Bricolage_Grotesque'] line-clamp-4">
                         {testimonial.comment}
                       </p>
                     </div>
