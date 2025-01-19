@@ -439,21 +439,18 @@ const Testimonial = () => {
         size="small"
         startIcon={<Rocket color={IconStyle} className='m-0 p-0'/>}
         sx={{
-          backgroundColor: "#D9FF7A",
+          background: "linear-gradient(90deg, #D9FF7A 0%, #C1EC55 100%)",
           color: "#000000",
           fontFamily: "Bricolage Grotesque",
           fontSize: { xs: "16px", sm: "30px", md: "28px" },
-
           textDecoration: "none",
-          // width: { xs: "80%", sm: "80%", md: 280.72 },
           textTransform: "none",
           fontWeight: "bold",
           "&:hover": {
-            backgroundColor: "#D9FF7A",
+            background: "linear-gradient(90deg, #D9FF7A 0%, #C1EC55 100%)",
           },
           border: "4px solid white",
           borderRadius: "50px",
-          
           marginBottom: { xs: "64px", sm: "96px", md: "128px" },
           boxShadow: "6px 8px 4px rgba(0, 0, 0, 0.35)",
         }}
