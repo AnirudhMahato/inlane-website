@@ -216,10 +216,10 @@ const Testimonial = () => {
         <ScrollContainer>
           <ScrollingRow direction="left">
             {[...firstRow, ...firstRow].map((testimonial, index) => (
-              <div key={index} className="min-w-[350px] sm:min-w-[400px] xs:min-w-[300px]">
+              <div key={index} className="min-w-[300px] sm:min-w-[350px] md:min-w-[400px]">
                 {testimonial.videoLink ? (
                   <div 
-                    className="rounded-[32px] border-[12px] xs:border-[8px] border-white overflow-hidden cursor-pointer relative h-[300px] xs:h-[250px]"
+                    className="rounded-[32px] border-[12px] xs:border-[8px] border-white overflow-hidden cursor-pointer relative h-[250px] xs:h-[200px] md:h-[300px]"
                     onClick={() => handleOpenModal(getEmbeddedDriveUrl(testimonial.videoLink))}
                   >
                     <iframe 
@@ -227,7 +227,7 @@ const Testimonial = () => {
                       className="w-full h-full"
                       frameBorder="0"
                     />
-                    <div className="absolute inset-0 bg-black/30 flex flex-col justify-between p-6 xs:p-4">
+                    <div className="absolute top-0 left-0 right-0 p-6 xs:p-4">
                       <div className="flex justify-between items-start">
                         <h3 className="text-xl xs:text-lg font-bold font-['Bricolage_Grotesque'] text-black">
                           {testimonial.name}
@@ -248,9 +248,6 @@ const Testimonial = () => {
                           ))}
                         </div>
                       </div>
-                      {/* <div className="flex items-center justify-center">
-                        <PlayCircleIcon sx={{ fontSize: 60, color: 'white' }} />
-                      </div> */}
                     </div>
                   </div>
                 ) : (
@@ -258,8 +255,9 @@ const Testimonial = () => {
                     rounded-[32px] 
                     p-6 
                     xs:p-4
-                    h-[300px] 
-                    xs:h-[250px]
+                    h-[250px] 
+                    xs:h-[200px] 
+                    md:h-[300px]
                     border-[12px] 
                     xs:border-[8px]
                     border-white 
@@ -289,7 +287,7 @@ const Testimonial = () => {
                         </div>
                       </div>
                         
-                      <p className="text-black text-lg  leading-relaxed font-['Bricolage_Grotesque'] line-clamp-auto overflow-auto">
+                      <p className="text-black md:text-lg   leading-relaxed font-['Bricolage_Grotesque'] line-clamp-auto overflow-auto">
                         {testimonial.comment}
                       </p>
                     </div>
@@ -305,12 +303,12 @@ const Testimonial = () => {
         <ScrollContainer>
           <ScrollingRow direction="right">
             {[...secondRow, ...secondRow].map((testimonial, index) => (
-              <div key={index} className="min-w-[350px] sm:min-w-[400px] xs:min-w-[300px]">
+              <div key={index} className="min-w-[300px] sm:min-w-[350px] md:min-w-[400px]">
                 {testimonial.videoLink ? (
                   <div 
                     className="rounded-[32px] border-[12px] 
                     xs:border-[8px] border-white overflow-hidden
-                     cursor-pointer relative h-[300px] xs:h-[250px]"
+                     cursor-pointer relative h-[250px] xs:h-[200px] md:h-[300px]"
                     onClick={() => handleOpenModal(getEmbeddedDriveUrl(testimonial.videoLink))}
                   >
                     <iframe 
@@ -318,7 +316,7 @@ const Testimonial = () => {
                       className="w-full h-full"
                       frameBorder="0"
                     />
-                    <div className="absolute inset-0 bg-black/30 flex flex-col justify-between p-6 xs:p-4">
+                    <div className="absolute top-0 left-0 right-0 p-6 xs:p-4 bg-white/80">
                       <div className="flex justify-between items-start">
                         <h3 className="text-xl xs:text-lg font-bold font-['Bricolage_Grotesque'] text-black">
                           {testimonial.name}
@@ -339,9 +337,6 @@ const Testimonial = () => {
                           ))}
                         </div>
                       </div>
-                      {/* <div className="flex items-center justify-center">
-                        <PlayCircleIcon sx={{ fontSize: 60, color: 'white' }} />
-                      </div> */}
                     </div>
                   </div>
                 ) : (
@@ -349,8 +344,9 @@ const Testimonial = () => {
                     rounded-[32px] 
                     p-6 
                     xs:p-4
-                    h-[300px] 
-                    xs:h-[250px]
+                    h-[250px] 
+                    xs:h-[200px] 
+                    md:h-[300px]
                     border-[12px] 
                     xs:border-[8px]
                     border-white 
@@ -380,7 +376,7 @@ const Testimonial = () => {
                         </div>
                       </div>
 
-                      <p className="text-black text-xl  leading-relaxed font-['Bricolage_Grotesque'] line-clamp-4">
+                      <p className="text-black md:text-xl  leading-relaxed font-['Bricolage_Grotesque'] line-clamp-4">
                         {testimonial.comment}
                       </p>
                     </div>
