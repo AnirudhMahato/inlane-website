@@ -13,14 +13,16 @@ import Navbar2 from "./components/Navbar2";
 import Footer from "./components/Footer";
 import CoursesPage from "./pages/Courses";
 // import ContactUs from "./pages/ContactUs";
-import AboutUs from "./pages/AboutUs";
-// import PrivacyPolicy from "./pages/PrivacyPolicy";
+import AboutUs from "./components/AboutUs/AboutUs";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsAndConditions from "./pages/TermsAndConditions";
 import Disclaimer from "./pages/Disclaimer";
 import PaymentPolicy from "./pages/PaymentPolicy";
 import ReschedulePolicy from "./pages/ReschedulePolicy";
 import Blog from "./blog/Blog";
 import BlogPage from "./blog/BlogPage";
+import NewCoursePage from "./components/Courses/NewCoursePage";
+import { HelmetProvider } from 'react-helmet-async';
 
 const Layout = () => {
   return (
@@ -54,6 +56,14 @@ const Layout3 = () => {
 
 const router = createBrowserRouter([
   {
+    path: "/about-us",
+    element: <AboutUs />,
+  },
+  {
+    path: "/courses",
+    element: <NewCoursePage />,
+  },
+  {
     path: "/blog",
     element: <Layout2 />,
     children: [
@@ -64,7 +74,7 @@ const router = createBrowserRouter([
     ],
   },
   {
-    path: "/blog/:id",
+    path: "/blog/:slug",
     element: <Layout3 />,
   },
   {
@@ -75,22 +85,20 @@ const router = createBrowserRouter([
         path: "/",
         element: <Homepage />,
       },
-      {
-        path: "/courses",
-        element: <CoursesPage />,
-      },
-      {
-        path: "/about-us",
-        element: <AboutUs />,
-      },
+     
+      // {
+      //   path: "/courses",
+      //   element: <CoursesPage />,
+      // },
+     
       {
         path: "/terms-and-conditions",
         element: <TermsAndConditions />,
       },
-      // {
-      //   path: "/privacy-policy",
-      //   element: <PrivacyPolicy />,
-      // },
+      {
+        path: "/privacy-policy",
+        element: <PrivacyPolicy />,
+      },
       {
         path: "/disclaimer",
         element: <Disclaimer />,
@@ -116,9 +124,9 @@ const router = createBrowserRouter([
 ]);
 function App() {
   return (
-    <>
+    <HelmetProvider>
       <RouterProvider router={router} />
-    </>
+    </HelmetProvider>
   );
 }
 
