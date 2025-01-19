@@ -229,7 +229,7 @@ const Testimonial = () => {
                     />
                     <div className="absolute inset-0 bg-black/30 flex flex-col justify-between p-6 xs:p-4">
                       <div className="flex justify-between items-start">
-                        <h3 className="text-xl xs:text-lg font-bold font-['Bricolage_Grotesque'] text-white">
+                        <h3 className="text-xl xs:text-lg font-bold font-['Bricolage_Grotesque'] text-black">
                           {testimonial.name}
                         </h3>
                         <div className="flex gap-0.5">
@@ -240,9 +240,9 @@ const Testimonial = () => {
                             >
                               <path
                                 d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
-                                stroke="white"
+                                stroke="black"
                                 strokeWidth="1"
-                                fill="transparent"
+                                fill="black"
                               />
                             </BorderedStarIcon>
                           ))}
@@ -282,7 +282,7 @@ const Testimonial = () => {
                                 d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
                                 stroke="black"
                                 strokeWidth="1"
-                                fill={index % 2 === 0 ? '#D9FF7A' : '#D1B3FF'}
+                                fill={index % 2 === 0 ? '#D1B3FF' : '#D9FF7A'}
                               />
                             </BorderedStarIcon>
                           ))}
@@ -318,7 +318,7 @@ const Testimonial = () => {
                     />
                     <div className="absolute inset-0 bg-black/30 flex flex-col justify-between p-6 xs:p-4">
                       <div className="flex justify-between items-start">
-                        <h3 className="text-xl xs:text-lg font-bold font-['Bricolage_Grotesque'] text-white">
+                        <h3 className="text-xl xs:text-lg font-bold font-['Bricolage_Grotesque'] text-black">
                           {testimonial.name}
                         </h3>
                         <div className="flex gap-0.5">
@@ -329,9 +329,9 @@ const Testimonial = () => {
                             >
                               <path
                                 d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
-                                stroke="white"
+                                stroke="black"
                                 strokeWidth="1"
-                                fill="transparent"
+                                fill="black"
                               />
                             </BorderedStarIcon>
                           ))}
@@ -371,7 +371,7 @@ const Testimonial = () => {
                                 d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
                                 stroke="black"
                                 strokeWidth="1"
-                                fill={index % 2 === 0 ? '#D9FF7A' : '#D1B3FF'}
+                                fill={index % 2 === 0 ? '#D1B3FF' : '#D9FF7A'}
                               />
                             </BorderedStarIcon>
                           ))}
