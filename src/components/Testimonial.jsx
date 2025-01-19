@@ -145,7 +145,7 @@ const Testimonial = () => {
         textAlign: "center",
         backgroundImage: "url('/TestimonialBG.svg')",
         marginTop: { xs: "64px", sm: "96px", md: "128px" },
-        padding: { xs: 2, sm: 3, md: 4 },
+        // padding: { xs: 2, sm: 3, md: 4 },
       }}
     >
       <Typography
