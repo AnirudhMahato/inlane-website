@@ -36,7 +36,7 @@ const ScrollContainer = styled.div`
   overflow: hidden;
   position: relative;
   width: 100%;
-  padding: 0 16px;
+  padding: 0;
 `;
 
 const ScrollingRow = styled.div`
@@ -205,7 +205,7 @@ const Testimonial = () => {
           opacity: 1,
           margin: "0 auto", 
           marginBottom: { xs: "64px", sm: "96px", md: "128px" },
-          px: 2,
+          padding: 0,
           position: 'relative',
           zIndex: 8
         }}
