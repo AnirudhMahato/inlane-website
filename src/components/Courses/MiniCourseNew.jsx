@@ -29,7 +29,7 @@ const MiniCourseNew = () => {
           >
             <div className="flex items-center gap-3 mb-6">
               <img src="/course/arrow.svg" alt="arrow" className="w-8 md:w-12" />
-              <h2 className="text-2xl md:text-3xl   font-['glancyr']">
+              <h2 className="text-2xl md:text-2xl   font-['glancyr']">
                 {course.title}
               </h2>
             </div>

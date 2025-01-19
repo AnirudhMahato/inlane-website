@@ -36,12 +36,11 @@ const miniCourses = [
       bgColor:"bg-[#6BECFF]",
     },
     {
-      title: "Night Driving",
+      title: "Driving on slopes",
       points: [
-        "Handling low visibility conditions",
-        "Using high/low beam appropriately",
-        "Night safety protocols",
-        "Emergency night procedures",
+        "Uphill and downhill driving",
+        "Speed control on slopes",
+        "Driving through bends"
       ],
       duration: "3 hours",
       price: "₹3000",

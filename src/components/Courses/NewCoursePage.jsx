@@ -171,7 +171,7 @@ const NewCoursePage = () => {
                       <span className="font-semibold text-sm md:text-xl whitespace-nowrap text-start"> 
                         <span className="md:hidden">Hr</span><span className="hidden md:inline">Hour</span> {hour.hour}</span>
                       <span className="text-black/50 hidden md:inline">|</span>
-                      <span className={`font-semibold text-sm md:text-xl  text-start ${expandedHour === index ? 'whitespace-normal' : 'truncate'}`}>
+                      <span className={`font-semibold text-sm md:text-lg  text-start ${expandedHour === index ? 'whitespace-normal' : 'truncate'}`}>
                         {hour.title}
                       </span>
                     </div>
@@ -218,7 +218,7 @@ const NewCoursePage = () => {
                 </div>
               </div>
 
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-3 hidden">
                 <img src="/course/coin.svg" alt="price" className="w-8 md:w-auto" />
                 <div>
                   <span className="text-xl md:text-2xl font-semibold">Price:</span>
