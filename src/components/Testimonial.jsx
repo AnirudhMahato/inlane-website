@@ -17,6 +17,7 @@ import Rocket from "./SVGs/Rocket";
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 import styled from "styled-components";
 import testimonialsData from "../data/testimonials";
+import PlayCircleIcon from '@mui/icons-material/PlayCircle';
 
 const TestimonialCard = styled(Box)`
   position: relative;
@@ -129,6 +130,12 @@ const Testimonial = () => {
   const firstRow = testimonials.slice(0, Math.ceil(testimonials.length / 2));
   const secondRow = testimonials.slice(Math.ceil(testimonials.length / 2));
 
+  // Helper function to get embedded Drive URL
+  const getEmbeddedDriveUrl = (driveUrl) => {
+    const fileId = driveUrl.split('/d/')[1].split('/')[0];
+    return `https://drive.google.com/file/d/${fileId}/preview`;
+  };
+
   return (
     <Box
       id="testimonial-section"
@@ -209,47 +216,85 @@ const Testimonial = () => {
         <ScrollContainer>
           <ScrollingRow direction="left">
             {[...firstRow, ...firstRow].map((testimonial, index) => (
-              <div key={index} className="min-w-[300px] sm:min-w-[300px] xs:min-w-[260px]">
-                <div className={`
-                  rounded-[32px] 
-                  p-6 
-                  xs:p-4
-                  h-[200px] 
-                  xs:h-[180px]
-                  border-[12px] 
-                  xs:border-[8px]
-                  border-white 
-                  bg-[#D1B3FF]
-                  flex 
-                  flex-col
-                `}>
-                  <div className="space-y-3 xs:space-y-2">
-                    <div className="flex justify-between items-center">
-                      <h3 className="text-xl xs:text-lg font-bold font-['Bricolage_Grotesque']">
-                        {testimonial.name}
-                      </h3>
-                      <div className="flex gap-0.5">
-                        {[...Array(testimonial.rating)].map((_, i) => (
-                          <BorderedStarIcon
-                            key={i}
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
-                              stroke="black"
-                              strokeWidth="1"
-                              fill={index % 2 === 0 ? '#D9FF7A' : '#D1B3FF'}
-                            />
-                          </BorderedStarIcon>
-                        ))}
+              <div key={index} className="min-w-[350px] sm:min-w-[400px] xs:min-w-[300px]">
+                {testimonial.videoLink ? (
+                  <div 
+                    className="rounded-[32px] border-[12px] xs:border-[8px] border-white overflow-hidden cursor-pointer relative h-[300px] xs:h-[250px]"
+                    onClick={() => handleOpenModal(getEmbeddedDriveUrl(testimonial.videoLink))}
+                  >
+                    <iframe 
+                      src={getEmbeddedDriveUrl(testimonial.videoLink)}
+                      className="w-full h-full"
+                      frameBorder="0"
+                    />
+                    <div className="absolute inset-0 bg-black/30 flex flex-col justify-between p-6 xs:p-4">
+                      <div className="flex justify-between items-start">
+                        <h3 className="text-xl xs:text-lg font-bold font-['Bricolage_Grotesque'] text-white">
+                          {testimonial.name}
+                        </h3>
+                        <div className="flex gap-0.5">
+                          {[...Array(testimonial.rating)].map((_, i) => (
+                            <BorderedStarIcon
+                              key={i}
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
+                                stroke="white"
+                                strokeWidth="1"
+                                fill="transparent"
+                              />
+                            </BorderedStarIcon>
+                          ))}
+                        </div>
+                      </div>
+                      <div className="flex items-center justify-center">
+                        <PlayCircleIcon sx={{ fontSize: 60, color: 'white' }} />
                       </div>
                     </div>
-
-                    <p className="text-black text-sm xs:text-xs leading-relaxed font-['Bricolage_Grotesque'] line-clamp-4">
-                      {testimonial.comment}
-                    </p>
                   </div>
-                </div>
+                ) : (
+                  <div className={`
+                    rounded-[32px] 
+                    p-6 
+                    xs:p-4
+                    h-[300px] 
+                    xs:h-[250px]
+                    border-[12px] 
+                    xs:border-[8px]
+                    border-white 
+                    bg-[${index % 2 === 0 ? '#D9FF7A' : '#D1B3FF'}]
+                    flex 
+                    flex-col
+                  `}>
+                    <div className="space-y-3 xs:space-y-2">
+                      <div className="flex justify-between items-center">
+                        <h3 className="text-xl xs:text-lg font-bold font-['Bricolage_Grotesque']">
+                          {testimonial.name}
+                        </h3>
+                        <div className="flex gap-0.5">
+                          {[...Array(testimonial.rating)].map((_, i) => (
+                            <BorderedStarIcon
+                              key={i}
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
+                                stroke="black"
+                                strokeWidth="1"
+                                fill={index % 2 === 0 ? '#D9FF7A' : '#D1B3FF'}
+                              />
+                            </BorderedStarIcon>
+                          ))}
+                        </div>
+                      </div>
+
+                      <p className="text-black text-sm xs:text-xs leading-relaxed font-['Bricolage_Grotesque'] line-clamp-4">
+                        {testimonial.comment}
+                      </p>
+                    </div>
+                  </div>
+                )}
               </div>
             ))}
           </ScrollingRow>
@@ -260,47 +305,85 @@ const Testimonial = () => {
         <ScrollContainer>
           <ScrollingRow direction="right">
             {[...secondRow, ...secondRow].map((testimonial, index) => (
-              <div key={index} className="min-w-[300px] sm:min-w-[300px] xs:min-w-[260px]">
-                <div className={`
-                  rounded-[32px] 
-                  p-6 
-                  xs:p-4
-                  h-[200px] 
-                  xs:h-[180px]
-                  border-[12px] 
-                  xs:border-[8px]
-                  border-white 
-                  bg-[#D9FF7A]
-                  flex 
-                  flex-col
-                `}>
-                  <div className="space-y-3 xs:space-y-2">
-                    <div className="flex justify-between items-center">
-                      <h3 className="text-xl xs:text-lg font-bold font-['Bricolage_Grotesque']">
-                        {testimonial.name}
-                      </h3>
-                      <div className="flex gap-0.5">
-                        {[...Array(testimonial.rating)].map((_, i) => (
-                          <BorderedStarIcon
-                            key={i}
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
-                              stroke="black"
-                              strokeWidth="1"
-                              fill={index % 2 === 0 ? '#D9FF7A' : '#D1B3FF'}
-                            />
-                          </BorderedStarIcon>
-                        ))}
+              <div key={index} className="min-w-[350px] sm:min-w-[400px] xs:min-w-[300px]">
+                {testimonial.videoLink ? (
+                  <div 
+                    className="rounded-[32px] border-[12px] xs:border-[8px] border-white overflow-hidden cursor-pointer relative h-[300px] xs:h-[250px]"
+                    onClick={() => handleOpenModal(getEmbeddedDriveUrl(testimonial.videoLink))}
+                  >
+                    <iframe 
+                      src={getEmbeddedDriveUrl(testimonial.videoLink)}
+                      className="w-full h-full"
+                      frameBorder="0"
+                    />
+                    <div className="absolute inset-0 bg-black/30 flex flex-col justify-between p-6 xs:p-4">
+                      <div className="flex justify-between items-start">
+                        <h3 className="text-xl xs:text-lg font-bold font-['Bricolage_Grotesque'] text-white">
+                          {testimonial.name}
+                        </h3>
+                        <div className="flex gap-0.5">
+                          {[...Array(testimonial.rating)].map((_, i) => (
+                            <BorderedStarIcon
+                              key={i}
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
+                                stroke="white"
+                                strokeWidth="1"
+                                fill="transparent"
+                              />
+                            </BorderedStarIcon>
+                          ))}
+                        </div>
+                      </div>
+                      <div className="flex items-center justify-center">
+                        <PlayCircleIcon sx={{ fontSize: 60, color: 'white' }} />
                       </div>
                     </div>
-
-                    <p className="text-black text-sm xs:text-xs leading-relaxed font-['Bricolage_Grotesque'] line-clamp-4">
-                      {testimonial.comment}
-                    </p>
                   </div>
-                </div>
+                ) : (
+                  <div className={`
+                    rounded-[32px] 
+                    p-6 
+                    xs:p-4
+                    h-[300px] 
+                    xs:h-[250px]
+                    border-[12px] 
+                    xs:border-[8px]
+                    border-white 
+                    bg-[${index % 2 === 0 ? '#D9FF7A' : '#D1B3FF'}]
+                    flex 
+                    flex-col
+                  `}>
+                    <div className="space-y-3 xs:space-y-2">
+                      <div className="flex justify-between items-center">
+                        <h3 className="text-xl xs:text-lg font-bold font-['Bricolage_Grotesque']">
+                          {testimonial.name}
+                        </h3>
+                        <div className="flex gap-0.5">
+                          {[...Array(testimonial.rating)].map((_, i) => (
+                            <BorderedStarIcon
+                              key={i}
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
+                                stroke="black"
+                                strokeWidth="1"
+                                fill={index % 2 === 0 ? '#D9FF7A' : '#D1B3FF'}
+                              />
+                            </BorderedStarIcon>
+                          ))}
+                        </div>
+                      </div>
+
+                      <p className="text-black text-sm xs:text-xs leading-relaxed font-['Bricolage_Grotesque'] line-clamp-4">
+                        {testimonial.comment}
+                      </p>
+                    </div>
+                  </div>
+                )}
               </div>
             ))}
           </ScrollingRow>
@@ -314,22 +397,23 @@ const Testimonial = () => {
       >
         <Box
           sx={{
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
-            width: "80%",
-            bgcolor: "background.paper",
+            position: 'absolute',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            width: '90%',
+            maxWidth: '1000px',
+            bgcolor: 'background.paper',
             boxShadow: 24,
             p: 4,
-            borderRadius: "16px",
-            position: "relative",
+            borderRadius: '16px',
           }}
         >
           <IconButton
             aria-label="close"
             onClick={handleCloseModal}
             sx={{
-              position: "absolute",
+              position: 'absolute',
               right: 8,
               top: 8,
               color: (theme) => theme.palette.grey[500],
@@ -339,13 +423,12 @@ const Testimonial = () => {
           </IconButton>
           <iframe
             src={activeVideo}
-            title="Video Player"
             width="100%"
-            height="500px"
-            frameBorder="0"
-            allowFullScreen
+            height="600"
             allow="autoplay"
-          ></iframe>
+            allowFullScreen
+            frameBorder="0"
+          />
         </Box>
       </Modal>
 

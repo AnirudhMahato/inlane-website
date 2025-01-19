@@ -3,7 +3,8 @@ const testimonialsData = [
     name: "Shivam Bhotika",
     rating: 5,
     comment: "Learning to drive at Lane was an amazing experience. The instructors were super patient, hands-on and super experienced. They encouraged me at every turn and that really boosted my morale.",
-    date: "2 months ago"
+    date: "2 months ago",
+    videoLink: "https://drive.google.com/file/d/1Srkjn9SRvEKCZz6sCb-CX5jN6600yntR/view?usp=drive_link"
   },
   {
     name: "Suraj Sharma",
@@ -49,4 +50,4 @@ const testimonialsData = [
   }
 ];
 
-  export default testimonialsData;
+export default testimonialsData;
