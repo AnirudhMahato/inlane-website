@@ -194,7 +194,7 @@ const AboutUs = () => {
                     ))}
                     {/* PS Message as 6th card */}
                     <div
-                      className="md:rounded-[24px] rounded-3xl p-4 md:p-6 md:h-[58%] w-full"
+                      className="md:rounded-[24px] rounded-3xl p-4 md:p-6 h-[58%] md:h-auto w-full"
                       style={{
                         background: "#D1B3FF",
                         position: "relative",
