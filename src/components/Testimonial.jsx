@@ -75,6 +75,7 @@ const Testimonial = () => {
   const [activeVideo, setActiveVideo] = useState("");
   const [isSticky, setIsSticky] = useState(false);
   const [isWheelSticky, setIsWheelSticky] = useState(false);
+  const [showReviews, setShowReviews] = useState(true);
   const [bridgeOffset, setBridgeOffset] = useState(0);
   const [wheelOffset, setWheelOffset] = useState(0);
   const IconStyle = isSmallScreen
@@ -87,28 +88,27 @@ const Testimonial = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const offset = window.scrollY;
-      const wheelElement = document.getElementById('wheel-text');
-      const bridgeElement = document.getElementById('bridge-text');
-      const testimonialSection = document.getElementById('testimonial-section');
+      const bridgeText = document.getElementById('bridge-text');
+      const wheelText = document.getElementById('wheel-text');
+      const reviewsSection = document.getElementById('reviews-section');
       
-      if (wheelElement && bridgeElement && testimonialSection) {
-        const wheelPosition = wheelElement.getBoundingClientRect().top;
-        const sectionBottom = testimonialSection.getBoundingClientRect().bottom;
+      if (bridgeText && wheelText && reviewsSection) {
+        const bridgeRect = bridgeText.getBoundingClientRect();
+        const wheelRect = wheelText.getBoundingClientRect();
+        const reviewsRect = reviewsSection.getBoundingClientRect();
         
-        // Calculate scroll progress for each text
-        if (sectionBottom < window.innerHeight) {
-          const scrollProgress = (window.innerHeight - sectionBottom) / 2;
-          setBridgeOffset(-scrollProgress);
-          setWheelOffset(-scrollProgress);
+        // Only make elements sticky if we haven't scrolled to reviews section
+        if (reviewsRect.top > 160) {
+          // Bridge text sticks first
+          setIsSticky(bridgeRect.top <= 0);
+          
+          // Wheel text sticks after bridge text
+          setIsWheelSticky(wheelRect.top <= 80);
         } else {
-          setBridgeOffset(0);
-          setWheelOffset(0);
+          // Remove sticky positioning when reaching reviews
+          setIsSticky(false);
+          setIsWheelSticky(false);
         }
-
-        // Update sticky states
-        setIsSticky(offset > 100 && sectionBottom > 0);
-        setIsWheelSticky(offset > 200 && wheelPosition > 0);
       }
     };
 
@@ -154,12 +154,10 @@ const Testimonial = () => {
         sx={{
           position: isSticky ? 'sticky' : 'relative',
           top: 0,
-          transform: `translateY(${bridgeOffset}px)`,
-          transition: 'transform 0.1s linear',
           zIndex: 10,
-          background: 'linear-gradient(180deg, rgba(0, 206, 132, 0.9) 0%, rgba(0, 206, 132, 0) 100%)',
-          backdropFilter: 'blur(8px)',
-          WebkitBackdropFilter: 'blur(8px)',
+          background: isSticky ? 'linear-gradient(180deg, rgba(0, 206, 132, 0.9) 0%, rgba(0, 206, 132, 0) 100%)' : 'transparent',
+          backdropFilter: isSticky ? 'blur(8px)' : 'none',
+          WebkitBackdropFilter: isSticky ? 'blur(8px)' : 'none',
           paddingY: 2,
           fontSize: { xs: "18px", sm: "40px", md: "40px" },
           color: "#000000",
@@ -175,12 +173,7 @@ const Testimonial = () => {
         sx={{
           position: isWheelSticky ? 'sticky' : 'relative',
           top: isSticky ? '80px' : 0,
-          transform: `translateY(${wheelOffset}px)`,
-          transition: 'transform 0.1s linear',
           zIndex: 9,
-          // background: isWheelSticky ? 'linear-gradient(180deg, rgba(0, 206, 132, 0.9) 0%, rgba(0, 206, 132, 0) 100%)' : 'transparent',
-          // backdropFilter: isWheelSticky ? 'blur(8px)' : 'none',
-          // WebkitBackdropFilter: isWheelSticky ? 'blur(8px)' : 'none',
           display: "inline-block",
           backgroundImage: "url('src/assets/images/Tag5.svg')",
           backgroundRepeat: "no-repeat",
@@ -191,7 +184,7 @@ const Testimonial = () => {
           mb: 6,
           mt: 4,
           padding: { xs: "3px", sm: "15px", md: "20px" },
-          marginBottom: { xs: "64px", sm: "96px", md: "128px" },
+          marginBottom: { xs: "100px", sm: "96px", md: "128px" },
         }}
       >
         <Typography
@@ -206,11 +199,15 @@ const Testimonial = () => {
         </Typography>
       </Box>
       <Box 
+        id="reviews-section"
         sx={{ 
-          // maxWidth: "1200px", 
+          visibility: 'visible',
+          opacity: 1,
           margin: "0 auto", 
           marginBottom: { xs: "64px", sm: "96px", md: "128px" },
-          px: 2 
+          px: 2,
+          position: 'relative',
+          zIndex: 8
         }}
       >
         <ScrollContainer>
