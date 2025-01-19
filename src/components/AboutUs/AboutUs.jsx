@@ -45,7 +45,7 @@ const AboutUs = () => {
       />
       <div className="min-h-screen bg-[#D1B3FF] font-grotesque font-normal bg-logoPurple ">
         {/* Hero Section - Updated with clouds */}
-        <div className="relative h-[70vh] flex items-center justify-center px-4">
+        <div className="relative h-[35vh] md:h-[70vh] flex items-center justify-center px-4">
           {/* Clouds background */}
           <img
             src="/svg/Clouds.svg"
@@ -68,7 +68,7 @@ const AboutUs = () => {
           <div className="relative z-10 max-w-3xl px-8 md:px-12">
             <div className="space-y-6 flex flex-col items-center">
               <div
-                className="bg-[#00ce84] text-white text-2xl md:text-6xl font-bold py-2 md:py-3 px-4 md:px-8 inline-block shadow-lg w-fit"
+                className="bg-[#00ce84] text-white text-4xl md:text-6xl font-bold py-2 md:py-3 px-4 md:px-8 inline-block shadow-lg w-fit"
                 style={{
                   transform: "rotate(-2deg)",
                   clipPath:
@@ -89,7 +89,7 @@ const AboutUs = () => {
                 the Next Generation
               </div>
               <div
-                className="bg-[#00ce84] text-white text-2xl md:text-6xl font-bold py-2 md:py-3 px-4 md:px-8 inline-block shadow-lg w-fit"
+                className="bg-[#00ce84] text-white text-4xl md:text-6xl font-bold py-2 md:py-3 px-4 md:px-8 inline-block shadow-lg w-fit"
                 style={{
                   transform: "rotate(-1deg)",
                   filter: "drop-shadow(0 4px 6px rgba(0, 0, 0, 0.25))",
@@ -110,7 +110,7 @@ const AboutUs = () => {
         <div className="w-full font-grotesque ">
           <div className="bg-white rounded-t-3xl pt-8 shadow-lg w-full">
             {/* LANE Introduction */}
-            <div className="mb-12 w-full md:w-1/2 px-6 md:px-0 m-auto flex flex-col items-center justify-around my-12">
+            <div className="mt-4 w-full md:w-1/2 px-6 md:px-0 m-auto flex flex-col items-center justify-around mb-12">
               <div className="flex justify-start items-center gap-3 mb-4 w-full">
                 <div>
                   <img
