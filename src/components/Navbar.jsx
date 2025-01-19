@@ -73,7 +73,7 @@ const Navbar2 = ({ backgroundColor  = "#FAF9E6", logo = "./LANE_LOGO.svg", burge
           <img
             src='./LANE_LOGO.svg'
             alt="Website Logo"
-            style={{ maxWidth: "18%", height: "auto" }}
+            style={{ maxWidth: "18%", height: "auto", zIndex: 2 }}
           />
         </Box>
         <List>
@@ -240,7 +240,7 @@ const Navbar2 = ({ backgroundColor  = "#FAF9E6", logo = "./LANE_LOGO.svg", burge
                 src={logo}
                 alt="Lane logo"
                 width={isMobile ? 50 : 60}
-                style={{ marginRight: theme.spacing(1) }}
+                style={{ marginRight: theme.spacing(1), zIndex: 2 }}
               />
             </Typography>
 
