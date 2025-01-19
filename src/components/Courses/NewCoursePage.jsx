@@ -6,7 +6,7 @@ import { Button } from "@mui/material";
 import { Rocket } from "lucide-react";
 import MiniCourseNew from "./MiniCourseNew";
 import { Helmet } from "react-helmet-async";
-
+import beginnerCourseHours from "../../data/beginnerCourse";
 const NewCoursePage = () => {
   const [expandedHour, setExpandedHour] = useState(null);
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -27,107 +27,7 @@ const NewCoursePage = () => {
     return movement;
   };
 
-  const beginnerCourseHours = [
-    {
-      hour: 1,
-      title: "Get to know your car",
-      sections: [
-        "Get to know: Your car controls, the dashboard and the gearbox.",
-        "Learn how to prepare before starting the car",
-        "Start, Drive forward, and Stop the car",
-      ],
-    },
-    {
-      hour: 2,
-      title: "Master the art of balancing the three pedals",
-      sections: [
-        "Understanding clutch, brake, and accelerator",
-        "Practice pedal coordination",
-        "Smooth transitions between pedals",
-        "Basic control exercises",
-      ],
-    },
-    {
-      hour: 3,
-      title: "The gearbox and steering control",
-      sections: [
-        "Understanding gear patterns",
-        "When and how to change gears",
-        "Basic steering techniques",
-        "Coordination of gears with steering",
-      ],
-    },
-    {
-      hour: 4,
-      title: "Conquer parking with confidence!",
-      sections: [
-        "Forward and reverse parking basics",
-        "Parallel parking techniques",
-        "Parking in tight spaces",
-        "Spatial awareness practice",
-      ],
-    },
-    {
-      hour: 5,
-      title: "Drive at consistent speed and hit the slopes",
-      sections: [
-        "Speed control techniques",
-        "Uphill and downhill driving",
-        "Managing gear changes on slopes",
-        "Maintaining steady pace",
-      ],
-    },
-    {
-      hour: 6,
-      title: "Navigating the main road with ease!",
-      sections: [
-        "Main road driving basics",
-        "Traffic signal navigation",
-        "Lane discipline",
-        "Basic road rules and etiquette",
-      ],
-    },
-    {
-      hour: 7,
-      title: "Conquer city driving with confidence!",
-      sections: [
-        "Navigating busy streets",
-        "Handling intersections",
-        "City traffic management",
-        "Defensive driving basics",
-      ],
-    },
-    {
-      hour: 8,
-      title: "You will start believing in your driving skills",
-      sections: [
-        "Building confidence in traffic",
-        "Advanced maneuvers",
-        "Independent driving practice",
-        "Handling various road situations",
-      ],
-    },
-    {
-      hour: 9,
-      title: "Getting comfortable with the flyovers!",
-      sections: [
-        "Flyover entry and exit techniques",
-        "Merging with flyover traffic",
-        "Managing speed on flyovers",
-        "Safe lane changing on flyovers",
-      ],
-    },
-    {
-      hour: 10,
-      title: "Final lap",
-      sections: [
-        "Comprehensive driving review",
-        "Final assessment",
-        "Test preparation tips",
-        "Confidence building exercises",
-      ],
-    },
-  ];
+
 
   return (
     <>
@@ -241,19 +141,20 @@ const NewCoursePage = () => {
       </div> */}
 
         {/* Beginner Course Section */}
-        <div className="max-w-5xl mx-auto mb-12 md:mb-24 md:mt-60 bg-[#D9FF7A] rounded-[2rem] p-4 md:p-8 shadow-sm relative">
-          <div className="flex items-center gap-3 mb-6">
+        <div className="max-w-5xl mb-12 md:mx-auto mx-4 md:mb-24 mt-14 md:mt-60
+         bg-[#D9FF7A] rounded-[2rem] p-4 md:p-8 shadow-sm relative">
+          <div className="flex items-center gap-3 mb-2 md:mb-6 mx-3">
             <img
               src="/course/arrow.svg"
               alt="target"
-              className="w-6 md:w-auto"
+              className="w-9 md:w-auto"
             />
-            <h2 className="text-2xl md:text-3xl font-medium font-['glancyr']">
+            <h2 className="text-[25px] md:text-3xl  font-medium font-['glancyr']">
               Beginner Course
             </h2>
           </div>
 
-          <div className="flex flex-col md:flex-row">
+          <div className="flex flex-col md:flex-row mx-3">
             {/* Left side - Course hours - full width on mobile, 70% on desktop */}
             <div className="w-full md:w-[70%] space-y-2 md:pr-8 mb-8 md:mb-0">
               {beginnerCourseHours.map((hour, index) => (
@@ -262,12 +163,13 @@ const NewCoursePage = () => {
                     onClick={() => setExpandedHour(expandedHour === index ? null : index)}
                     className={`w-full flex items-center justify-between transition-colors rounded-[1rem] px-2 md:px-6 py-1 border border-black 
                       ${expandedHour === index 
-                        ? 'bg-[#F7FFE4] rounded-b-none border-b-0 ' 
+                        ? 'bg-[#F1FFCF] rounded-b-none border-b-0 ' 
                         : 'bg-[#D9FF7A]'
                       }`}
                   >
                     <div className="flex items-center gap-1 md:gap-4 flex-1 min-w-0">
-                      <span className="font-semibold text-sm md:text-xl whitespace-nowrap text-start">Hour {hour.hour}</span>
+                      <span className="font-semibold text-sm md:text-xl whitespace-nowrap text-start"> 
+                        <span className="md:hidden">Hr</span><span className="hidden md:inline">Hour</span> {hour.hour}</span>
                       <span className="text-black/50 hidden md:inline">|</span>
                       <span className={`font-semibold text-sm md:text-xl  text-start ${expandedHour === index ? 'whitespace-normal' : 'truncate'}`}>
                         {hour.title}
@@ -291,11 +193,11 @@ const NewCoursePage = () => {
                   </button>
 
                   {expandedHour === index && (
-                    <div className="bg-[#F7FFE4] rounded-b-[1rem] overflow-hidden border  border-black border-t-black/5 ">
+                    <div className="bg-[#F1FFCF] rounded-b-[1rem] overflow-hidden border  border-black border-t-black/5 ">
                       {hour.sections.map((section, sectionIndex) => (
                         <div
                           key={sectionIndex}
-                          className="px-2 md:px-6 py-2 text-sm md:text-lg font-medium border-b border-black/5 last:border-b-0"
+                          className="px-2 md:px-6 py-2 text-sm md:text-lg md:font-medium border-b border-black/5 last:border-b-0"
                         >
                           {section}
                         </div>

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Button } from "@mui/material";
-
+import miniCourses from "../../data/miniCourse";
 const MiniCourseNew = () => {
   // Initialize all courses as collapsed
   const [expandedStates, setExpandedStates] = useState({
@@ -17,64 +17,15 @@ const MiniCourseNew = () => {
     }));
   };
 
-  const miniCourses = [
-    {
-      title: "City Driving",
-      points: [
-        "Bumper to bumper traffic",
-        "Navigating flyovers, intersections and roundabouts",
-        "Maintaining and changing lanes",
-        "Evening driving",
-      ],
-      duration: "4 hours",
-      price: "₹4000",
-      bgColor: "bg-[#D1B3FF]",
-    },
-    {
-      title: "Highway Driving",
-      points: [
-        "Highway entry/exit with maintaining speed limit",
-        "Pitstops for tire pressure and gas check",
-        "Maneuver - Changing lanes and U-turns",
-        "Pass other cars safely",
-      ],
-      duration: "2 hours",
-      price: "₹2000",
-      bgColor: "bg-[#FFC229]",
-    },
-    {
-      title: "Parking",
-      points: [
-        "Entry/exit parking spots",
-        "Parallel parking",
-        "Perpendicular parking",
-        "On-road parking",
-      ],
-      duration: "2 hours",
-      price: "₹2000",
-      bgColor:"bg-[#6BECFF]",
-    },
-    {
-      title: "Night Driving",
-      points: [
-        "Handling low visibility conditions",
-        "Using high/low beam appropriately",
-        "Night safety protocols",
-        "Emergency night procedures",
-      ],
-      duration: "3 hours",
-      price: "₹3000",
-      bgColor: "bg-[#FF99F5]",
-    },
-  ];
+ 
 
   return (
-    <div className="max-w-6xl mx-auto mb-12 p-4 md:p-12 pt-8 md:pt-16">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-3xl mx-auto">
+    <div className="max-w-6xl mx-auto mb-12 p-4 md:p-12 pt-8 md:pt-16 ">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-3xl mx-auto ">
         {miniCourses.map((course, index) => (
           <div
             key={index}
-            className={`${course.bgColor} rounded-[2rem] p-6 md:p-8 relative w-full `}
+            className={`${course.bgColor} rounded-[2rem] p-6 md:p-8 relative w-full  shadow-lg drop-shadow-lg`}
           >
             <div className="flex items-center gap-3 mb-6">
               <img src="/course/arrow.svg" alt="arrow" className="w-8 md:w-12" />
@@ -86,7 +37,7 @@ const MiniCourseNew = () => {
             <div className="mb-6">
               <button
                 onClick={() => toggleExpand(index)}
-                className="flex items-center gap-2 font-bold mb-4 rounded-full border-[1px] border-black/20 px-4 py- text-lg"
+                className="flex items-center gap-2 font:semibold md:font-bold mb-4 rounded-full border-[1px] border-black/20 px-4 py- text:md md:text-lg"
               >
                 <span>What will we ace together?</span>
                 <svg
@@ -147,7 +98,7 @@ const MiniCourseNew = () => {
         ))}
       </div>
 
-      <div className="flex justify-center mt-12">
+      <div className="flex justify-center mt-12 mb-12 md:mb-0">
       <Button
                   variant="contained"
                   component="a"
@@ -172,7 +123,7 @@ const MiniCourseNew = () => {
                     border: "2px solid white",
                     borderRadius: "50px",
                     padding: {
-                      xs: "8px 24px",
+                      xs: "4px 24px",
                       sm: "10px 20px",
                       md: "1px 25px",
                     },

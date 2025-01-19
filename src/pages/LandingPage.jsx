@@ -25,7 +25,7 @@ const LandingPage = () => {
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
   const isMediumScreen = useMediaQuery(theme.breakpoints.between("sm", "md"));
-  const smallIconStyle = { color: "#FFFFFF", width: 24, height: 24 };
+  const smallIconStyle = { color: "#FFFFFF", width: 16, height: 16 };
   const mediumIconStyle = { color: "#FFFFFF", width: 34, height: 34 };
   const largeIconStyle = { color: "#FFFFFF", width: 40, height: 40 };
   const IconStyle = isSmallScreen
@@ -383,7 +383,7 @@ const LandingPage = () => {
                   borderRadius: "50px",
                   boxShadow: "2px 4px 4px rgba(0, 0, 0, 0.35)",
                   padding: { xs: "12px 24px", sm: "14px 32px", md: "16px 44px" },
-                  width: { xs: "75%", sm: "70%", md: "60%", lg: 324.38 },
+                  width: { xs: "60%", sm: "70%", md: "60%", lg: 324.38 },
                   maxWidth: 324.38,
                   height: { xs: 38, sm: 60, md: 69.47 },
                   fontFamily: "Bricolage Grotesque",
