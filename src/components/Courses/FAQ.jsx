@@ -11,8 +11,10 @@ const FAQ = () => {
   };
 
   return (
-    <div id="faq" className='w-full md:py-32 bg-logoGreen shadow-lg drop-shadow-lg'>
-      <div className="max-w-5xl mx-auto bg-white rounded-[1rem] md:rounded-[2rem] p-4 md:p-8 shadow-lg">
+    <div id="faq" className='w-full h-full md:py-32 bg-logoGreen shadow-lg drop-shadow-lg '>
+      <div className="max-w-5xl 
+      mx-4 
+      md:mx-auto bg-white rounded-[1rem] md:rounded-[2rem] p-4 md:p-8 shadow-lg">
         <div className="flex items-center gap-2 md:gap-3 mb-4 md:mb-6 mt-12 md:mt-0">
           {/* <img src="/course/arrow.svg" alt="arrow" className="w-6 md:w-auto" /> */}
           <h2 className="text-2xl md:text-3xl font-medium font-['glancyr'] m-auto md:m-0">FAQs</h2>
