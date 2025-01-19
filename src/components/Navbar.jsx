@@ -256,6 +256,7 @@ const Navbar2 = ({ backgroundColor  = "#FAF9E6", logo = "./LANE_LOGO.svg", burge
                 width: 80,
                 height: 73,
                 fontWeight: "bold",
+                zIndex:2
               }}
             >
               <img
