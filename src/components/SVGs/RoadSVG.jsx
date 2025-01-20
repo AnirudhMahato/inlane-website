@@ -48,7 +48,6 @@ import UnlockFirstCar from "./Sections/UnlockFirstCar";
 import Line2 from "./Design/Line2";
 import TheSlope from "./Design/TheSlope";
 import DefsPatterns from "./Design/DefsPatterns";
-import Test from "./Test";
 gsap.registerPlugin(ScrollTrigger, MotionPathPlugin);
 
 const RoadSVG = () => {
@@ -151,7 +150,6 @@ const RoadSVG = () => {
           <UnlockFirstCar />
           <DriveConfidently />
           <CourseWheel />
-          <Test/>
         </g>
       </svg>
     </div>

@@ -1,5 +1,0 @@
-  <img
-                        src={pitCrewTag}
-                        alt="pit crew background"
-                        className="absolute inset-0 w-full h-full -z-10"
-                      />

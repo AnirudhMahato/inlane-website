@@ -24,7 +24,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import CloseIcon from "@mui/icons-material/Close";
 
-const Navbar2 = ({ backgroundColor  = "#FAF9E6", logo = "./LANE_LOGO.svg", burgerMenu = "/PurpleHamburger.png" }) => {
+const Navbar2 = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -68,12 +68,11 @@ const Navbar2 = ({ backgroundColor  = "#FAF9E6", logo = "./LANE_LOGO.svg", burge
           alignItems="center"
           margin="20px"
           mt={6}
-          
         >
           <img
-            src='./LANE_LOGO.svg'
+            src="./LANE_LOGO.svg"
             alt="Website Logo"
-            style={{ maxWidth: "18%", height: "auto", zIndex: 2 }}
+            style={{ maxWidth: "18%", height: "auto" }}
           />
         </Box>
         <List>
@@ -92,25 +91,6 @@ const Navbar2 = ({ backgroundColor  = "#FAF9E6", logo = "./LANE_LOGO.svg", burge
               }
             />
           </ListItem>
-
-          <ListItem button component={Link} to="/about-us" onClick={handleClose}>
-            <ListItemText
-              primary={
-                <Typography
-                  variant="h5"
-                  sx={{
-                    fontFamily: "Bricolage Grotesque",
-                    textAlign: "center",
-                  }}
-                >
-                  About Us
-                </Typography>
-              }
-            />
-          </ListItem>
-
-
-
           <ListItem button component={Link} to="/courses" onClick={handleClose}>
             <ListItemText
               primary={
@@ -141,7 +121,7 @@ const Navbar2 = ({ backgroundColor  = "#FAF9E6", logo = "./LANE_LOGO.svg", burge
               }
             />
           </ListItem>
-          
+
           {/* Social Icons */}
           <Box
             sx={{
@@ -208,7 +188,7 @@ const Navbar2 = ({ backgroundColor  = "#FAF9E6", logo = "./LANE_LOGO.svg", burge
       <AppBar position="static" elevation={0}>
         <Toolbar
           sx={{
-            backgroundColor: backgroundColor,
+            backgroundColor: "#FAF9E6",
             boxShadow: "none",
             padding: theme.spacing(2),
             justifyContent: "space-between",
@@ -237,10 +217,10 @@ const Navbar2 = ({ backgroundColor  = "#FAF9E6", logo = "./LANE_LOGO.svg", burge
               }}
             >
               <img
-                src={logo}
+                src="/LANE_LOGO.svg"
                 alt="Lane logo"
                 width={isMobile ? 50 : 60}
-                style={{ marginRight: theme.spacing(1), zIndex: 2 }}
+                style={{ marginRight: theme.spacing(1) }}
               />
             </Typography>
 
@@ -256,11 +236,10 @@ const Navbar2 = ({ backgroundColor  = "#FAF9E6", logo = "./LANE_LOGO.svg", burge
                 width: 80,
                 height: 73,
                 fontWeight: "bold",
-                zIndex:2
               }}
             >
               <img
-                src={burgerMenu}
+                src="/PurpleHamburger.png"
                 alt="menu icon"
                 width={isMobile ? 35 : 40}
                 height={isMobile ? 25 : 25}
