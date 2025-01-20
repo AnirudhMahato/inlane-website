@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import {
   Box,
   Typography,
@@ -13,54 +13,121 @@ import {
 } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import StarIcon from "@mui/icons-material/Star";
+import { Link } from "react-router-dom";
 import Rocket from "./SVGs/Rocket";
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
+import Slider from "react-slick";
+import PlayArrowIcon from "@mui/icons-material/PlayArrow";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import styled from "styled-components";
-import testimonialsData from "../data/testimonials";
-import PlayCircleIcon from '@mui/icons-material/PlayCircle';
 
 const TestimonialCard = styled(Box)`
   position: relative;
   overflow: hidden;
-  width: 100%;
-  height: 100%;
-  transition: transform 0.3s ease-in-out;
+  border-radius: 16px;
+  width: "100%";
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+
+  &:hover {
+    // transform: translateY(-10px);
+
+    .overlay {
+      opacity: 1;
+    }
+
+    .play-button {
+      transform: scale(1.2);
+    }
+  }
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+
+    transition: opacity 0.3s ease-in-out;
+  }
+
+  .play-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+    transition: transform 0.3s ease-in-out;
+  }
 `;
 
-const BorderedStarIcon = styled('svg')`
-  width: 16px;
-  height: 16px;
-`;
+const Overlay = styled(Box)`
+  position: absolute;
+  top: 0;
+  left: 0;
 
-const ScrollContainer = styled.div`
-  overflow: hidden;
-  position: relative;
-  width: 100%;
-  padding: 0;
-`;
-
-const ScrollingRow = styled.div`
   display: flex;
-  animation: ${props => props.direction === 'left' ? 
-    'scrollLeft 40s linear infinite' : 
-    'scrollRight 40s linear infinite'};
-  gap: 1rem;
-  
+  margin: 0 auto;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.1);
+  color: white;
+  opacity: 0;
+
+  transition: opacity 0.3s ease-in-out;
   @media (max-width: 600px) {
-    gap: 0.5rem;
-    animation: ${props => props.direction === 'left' ? 
-      'scrollLeft 8s linear infinite' : 
-      'scrollRight 8s linear infinite'};
+    opacity: 1;
+    max-width: 75%;
+    margin: 0 auto;
+    border-radius: 10%;
   }
 
-  @keyframes scrollLeft {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-100%); }
+  @media (min-width: 600px) and (max-width: 1024px) {
+    max-width: 90%;
+    margin: 0 auto;
+    border-radius: 10%;
+    opacity: 0;
   }
 
-  @keyframes scrollRight {
-    0% { transform: translateX(-100%); }
-    100% { transform: translateX(0); }
+  @media (min-width: 1024px) {
+    max-width: 100%;
+    margin: 0 auto;
+    border-radius: 10%;
+  }
+`;
+
+const PlayButton = styled(PlayArrowIcon)`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+    transform: scale(1.1);
+  }
+
+  svg {
+    font-size: 48px;
+    color: white;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  &:hover svg {
+    transform: scale(1.2);
   }
 `;
 
@@ -69,53 +136,67 @@ const Testimonial = () => {
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
   const isMediumScreen = useMediaQuery(theme.breakpoints.between("sm", "md"));
   const smallIconStyle = { color: "#000000", width: 24, height: 24 };
-  const mediumIconStyle = { color: "#000000", width: 34, height: 24 };
-  const largeIconStyle = { color: "#000000", width: 44, height: 24 };
+  const mediumIconStyle = { color: "#000000", width: 34, height: 34 };
+  const largeIconStyle = { color: "#000000", width: 44, height: 44 };
   const [openModal, setOpenModal] = useState(false);
   const [activeVideo, setActiveVideo] = useState("");
-  const [isSticky, setIsSticky] = useState(false);
-  const [isWheelSticky, setIsWheelSticky] = useState(false);
-  const [showReviews, setShowReviews] = useState(true);
-  const [bridgeOffset, setBridgeOffset] = useState(0);
-  const [wheelOffset, setWheelOffset] = useState(0);
   const IconStyle = isSmallScreen
     ? smallIconStyle
     : isMediumScreen
     ? mediumIconStyle
     : largeIconStyle;
 
- const testimonials = testimonialsData;
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const bridgeText = document.getElementById('bridge-text');
-      const wheelText = document.getElementById('wheel-text');
-      const reviewsSection = document.getElementById('reviews-section');
-      
-      if (bridgeText && wheelText && reviewsSection) {
-        const bridgeRect = bridgeText.getBoundingClientRect();
-        const wheelRect = wheelText.getBoundingClientRect();
-        const reviewsRect = reviewsSection.getBoundingClientRect();
-        
-        // Only make elements sticky if we haven't scrolled to reviews section
-        if (reviewsRect.top > 160) {
-          // Bridge text sticks first
-          setIsSticky(bridgeRect.top <= 0);
-          
-          // Wheel text sticks after bridge text
-          setIsWheelSticky(wheelRect.top <= 80);
-        } else {
-          // Remove sticky positioning when reaching reviews
-          setIsSticky(false);
-          setIsWheelSticky(false);
-        }
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
+  const testimonials = [
+    {
+      src: "/User1.png",
+      alt: "Happy Learner 1",
+      title: "Amazing Experience!",
+      comment:
+        "The course was incredibly helpful. I feel much more confident on the road now.",
+      videoUrl:
+        "https://drive.google.com/file/d/1f3tGfIFU9W62eBwjph-4Q5K-iK82Aixn/preview",
+    },
+    {
+      src: "/User2.png",
+      alt: "Happy Learner 2",
+      title: "Great Instructors",
+      comment: "The instructors were patient and knowledgeable. ",
+      videoUrl: "",
+    },
+    {
+      src: "/User3.png",
+      alt: "Happy Learner 3",
+      title: "Highly Recommended",
+      comment:
+        "If you want to learn driving properly, this is the place to go. Top-notch training!",
+      videoUrl:
+        "https://drive.google.com/file/d/1Srkjn9SRvEKCZz6sCb-CX5jN6600yntR/preview",
+    },
+  ];
+  const settings = {
+    infinite: true,
+    speed: 500,
+    slidesToShow: isSmallScreen ? 1 : 3,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
   const handleOpenModal = (videoUrl) => {
     setActiveVideo(videoUrl);
     setOpenModal(true);
@@ -126,264 +207,147 @@ const Testimonial = () => {
     setActiveVideo("");
   };
 
-  // Split testimonials into two rows
-  const firstRow = testimonials.slice(0, Math.ceil(testimonials.length / 2));
-  const secondRow = testimonials.slice(Math.ceil(testimonials.length / 2));
-
-  // Helper function to get embedded Drive URL
-  const getEmbeddedDriveUrl = (driveUrl) => {
-    const fileId = driveUrl.split('/d/')[1].split('/')[0];
-    return `https://drive.google.com/file/d/${fileId}/preview`;
-  };
-
   return (
     <Box
-      id="testimonial-section"
       sx={{
         backgroundColor: "#00CE84",
-        // padding: { xs: 2, sm: 3, md: 4 },
+        padding: { xs: 2, sm: 3, md: 4 },
         textAlign: "center",
         backgroundImage: "url('/TestimonialBG.svg')",
         marginTop: { xs: "64px", sm: "96px", md: "128px" },
-        // padding: { xs: 2, sm: 3, md: 4 },
       }}
     >
       <Typography
-        id="bridge-text"
         variant="h3"
-        sx={{
-          position: isSticky ? 'sticky' : 'relative',
-          top: 0,
-          zIndex: 10,
-          background: isSticky ? 'linear-gradient(180deg, rgba(0, 206, 132, 0.9) 0%, rgba(0, 206, 132, 0) 100%)' : 'transparent',
-          backdropFilter: isSticky ? 'blur(8px)' : 'none',
-          WebkitBackdropFilter: isSticky ? 'blur(8px)' : 'none',
-          paddingY: 2,
-          fontSize: { xs: "18px", sm: "40px", md: "40px" },
-          color: "#000000",
-          mt: { xs: 4, sm: 6, md: 8 },
-          mb: 40,
-          fontWeight: 700,
-          fontFamily: "Bricolage Grotesque",
-        }}
+        fontSize={{ xs: "18px", sm: "40px", md: "48px" }}
+        color={"#000000"}
+        mb={2}
+        mt={{ xs: 4, sm: 6, md: 8 }}
+        fontWeight={700}
+        fontFamily={"Bricolage Grotesque"}
       >
-        Let's Bridge the Gap Between you and
+        Not Convinced Yet?
+      </Typography>
+      <Typography
+        fontSize={{ xs: "16px", sm: "32px", md: "48px" }}
+        color={"#000000"}
+        fontFamily={"Bricolage Grotesque"}
+      >
+        Check out these awesome reviews from our
       </Typography>
       <Box
         sx={{
-          position: isWheelSticky ? 'sticky' : 'relative',
-          top: isSticky ? '80px' : 0,
-          zIndex: 9,
           display: "inline-block",
-          backgroundImage: "url('src/assets/images/Tag5.svg')",
+          backgroundImage: "url('/Tag5.svg')",
           backgroundRepeat: "no-repeat",
           backgroundSize: "contain",
           backgroundPosition: "center",
-          width: { xs: "90%", sm: "80%", md: 300.75 },
-          maxWidth: 461.75,
-          mb: 6,
-          mt: 4,
+          width: { xs: "90%", sm: "80%", md: 561.75 },
+          maxWidth: 561.75,
+          mb: 4,
           padding: { xs: "3px", sm: "15px", md: "20px" },
-          marginBottom: { xs: "100px", sm: "96px", md: "128px" },
         }}
       >
         <Typography
-          id="wheel-text"
           variant="h5"
           fontWeight="bold"
-          fontSize={{ xs: "20px", sm: "38px", md: "40px" }}
+          fontSize={{ xs: "20px", sm: "48px", md: "60px" }}
           color={"#000000"}
           fontFamily={"Bricolage Grotesque"}
+          // boxShadow={"6px 8px 4px rgba(0, 0, 0, 0.35)"}
         >
-          The Wheel
+          Happy Learners!
         </Typography>
       </Box>
-      <Box 
-        id="reviews-section"
-        sx={{ 
-          visibility: 'visible',
-          opacity: 1,
-          margin: "0 auto", 
-          marginBottom: { xs: "64px", sm: "96px", md: "128px" },
-          padding: 0,
-          position: 'relative',
-          zIndex: 8
+      <Box
+        sx={{
+          maxWidth: "100%",
+
+          overflow: "hidden",
+          mb: { xs: 2, sm: 3, md: 4 },
         }}
       >
-        <ScrollContainer>
-          <ScrollingRow direction="left">
-            {[...firstRow, ...firstRow].map((testimonial, index) => (
-              <div key={index} className="min-w-[300px] sm:min-w-[350px] md:min-w-[400px]">
-                {testimonial.videoLink ? (
-                  <div 
-                    className="rounded-[32px] border-[12px] xs:border-[8px] border-white overflow-hidden cursor-pointer relative h-[250px] xs:h-[200px] md:h-[300px]"
-                    onClick={() => handleOpenModal(getEmbeddedDriveUrl(testimonial.videoLink))}
-                  >
-                    <iframe 
-                      src={getEmbeddedDriveUrl(testimonial.videoLink)}
-                      className="w-full h-full"
-                      frameBorder="0"
+        <Slider {...settings}>
+          {testimonials.map((testimonial, index) => (
+            <Box key={index}>
+              <TestimonialCard>
+                <Box
+                  component="img"
+                  src={testimonial.src}
+                  alt={testimonial.alt}
+                  sx={{
+                    width: "100%",
+                    height: "auto",
+                    display: "block",
+                    maxWidth: { xs: "70%", sm: "90%", md: "100%" },
+                    margin: "0 auto",
+                  }}
+                />
+                <Overlay className="overlay">
+                  {testimonial.videoUrl ? (
+                    <PlayButton
+                      className="play-button"
+                      onClick={() => handleOpenModal(testimonial.videoUrl)}
                     />
-                    <div className="absolute top-0 left-0 right-0 p-6 xs:p-4">
-                      <div className="flex justify-between items-start">
-                        <h3 className="text-xl xs:text-lg font-bold font-['Bricolage_Grotesque'] text-black">
-                          {testimonial.name}
-                        </h3>
-                        <div className="flex gap-0.5">
-                          {[...Array(testimonial.rating)].map((_, i) => (
-                            <BorderedStarIcon
-                              key={i}
-                              viewBox="0 0 24 24"
-                            >
-                              <path
-                                d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
-                                stroke="black"
-                                strokeWidth="1"
-                                fill={index % 2 === 0 ? '#D1B3FF' : '#D9FF7A'}
-                              />
-                            </BorderedStarIcon>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                ) : (
-                  <div className={`
-                    rounded-[32px] 
-                    p-6 
-                    xs:p-4
-                    h-[250px] 
-                    xs:h-[200px] 
-                    md:h-[300px]
-                    border-[12px] 
-                    xs:border-[8px]
-                    border-white 
-                    bg-[${index % 2 === 0 ? '#D9FF7A' : '#D1B3FF'}]
-                    flex 
-                    flex-col
-                  `}>
-                    <div className="space-y-3 xs:space-y-2 overflow-hidden">
-                      <div className="flex justify-between items-center">
-                        <h3 className="text-xl xs:text-lg font-bold font-['Bricolage_Grotesque']">
-                          {testimonial.name}
-                        </h3>
-                        <div className="flex gap-0.5">
-                          {[...Array(testimonial.rating)].map((_, i) => (
-                            <BorderedStarIcon
-                              key={i}
-                              viewBox="0 0 24 24"
-                            >
-                              <path
-                                d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
-                                stroke="black"
-                                strokeWidth="1"
-                                fill={index % 2 === 0 ? '#D1B3FF' : '#D9FF7A'}
-                              />
-                            </BorderedStarIcon>
-                          ))}
-                        </div>
-                      </div>
-                        
-                      <p className="text-black md:text-lg   leading-relaxed font-['Bricolage_Grotesque'] line-clamp-auto overflow-auto">
-                        {testimonial.comment}
-                      </p>
-                    </div>
-                  </div>
-                )}
-              </div>
-            ))}
-          </ScrollingRow>
-        </ScrollContainer>
-
-        <Box sx={{ my: { xs: 3, sm: 4, md: 5 } }} />
-
-        <ScrollContainer>
-          <ScrollingRow direction="right">
-            {[...secondRow, ...secondRow].map((testimonial, index) => (
-              <div key={index} className="min-w-[300px] sm:min-w-[350px] md:min-w-[400px]">
-                {testimonial.videoLink ? (
-                  <div 
-                    className="rounded-[32px] border-[12px] 
-                    xs:border-[8px] border-white overflow-hidden
-                     cursor-pointer relative h-[250px] xs:h-[200px] md:h-[300px]"
-                    onClick={() => handleOpenModal(getEmbeddedDriveUrl(testimonial.videoLink))}
+                  ) : (
+                    <Box
+                      sx={{
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        textDecoration: "none",
+                      }}
+                      component="a"
+                      href="https://www.google.com" //todo: Replace with actual Google Review link
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <OpenInNewIcon
+                        style={{
+                          color: "white",
+                          fontSize: { md: "48px", xs: "18px" },
+                        }}
+                      />
+                    </Box>
+                  )}
+                  <Typography
+                    variant="h6"
+                    fontSize={{ xs: "18px", sm: "32px", md: "48px" }}
+                    fontFamily={"Bricolage Grotesque"}
                   >
-                    <iframe 
-                      src={getEmbeddedDriveUrl(testimonial.videoLink)}
-                      className="w-full h-full"
-                      frameBorder="0"
-                    />
-                    <div className="absolute top-0 left-0 right-0 p-6 xs:p-4 bg-white/80">
-                      <div className="flex justify-between items-start">
-                        <h3 className="text-xl xs:text-lg font-bold font-['Bricolage_Grotesque'] text-black">
-                          {testimonial.name}
-                        </h3>
-                        <div className="flex gap-0.5">
-                          {[...Array(testimonial.rating)].map((_, i) => (
-                            <BorderedStarIcon
-                              key={i}
-                              viewBox="0 0 24 24"
-                            >
-                              <path
-                                d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
-                                stroke="black"
-                                strokeWidth="1"
-                                fill={index % 2 === 0 ? '#D1B3FF' : '#D9FF7A'}
-                              />
-                            </BorderedStarIcon>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                ) : (
-                  <div className={`
-                    rounded-[32px] 
-                    p-6 
-                    xs:p-4
-                    h-[250px] 
-                    xs:h-[200px] 
-                    md:h-[300px]
-                    border-[12px] 
-                    xs:border-[8px]
-                    border-white 
-                    bg-[${index % 2 === 0 ? '#D9FF7A' : '#D1B3FF'}]
-                    flex 
-                    flex-col
-                  `}>
-                    <div className="space-y-3 xs:space-y-2">
-                      <div className="flex justify-between items-center">
-                        <h3 className="text-xl xs:text-lg font-bold font-['Bricolage_Grotesque']">
-                          {testimonial.name}
-                        </h3>
-                        <div className="flex gap-0.5">
-                          {[...Array(testimonial.rating)].map((_, i) => (
-                            <BorderedStarIcon
-                              key={i}
-                              viewBox="0 0 24 24"
-                            >
-                              <path
-                                d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
-                                stroke="black"
-                                strokeWidth="1"
-                                fill={index % 2 === 0 ? '#D1B3FF' : '#D9FF7A'}
-                              />
-                            </BorderedStarIcon>
-                          ))}
-                        </div>
-                      </div>
-
-                      <p className="text-black md:text-xl  leading-relaxed font-['Bricolage_Grotesque'] line-clamp-4">
-                        {testimonial.comment}
-                      </p>
-                    </div>
-                  </div>
-                )}
-              </div>
-            ))}
-          </ScrollingRow>
-        </ScrollContainer>
+                    {testimonial.title}
+                  </Typography>
+                  <Typography
+                    variant="body2"
+                    fontSize={{ xs: "8px", sm: "12px", md: "18px" }}
+                    fontFamily={"Bricolage Grotesque"}
+                  >
+                    {testimonial.comment}
+                  </Typography>
+                </Overlay>
+              </TestimonialCard>
+            </Box>
+          ))}
+        </Slider>
       </Box>
+      <Box
+        mb={4}
+        sx={{
+          fontSize: { xs: "16px", sm: "16px", md: "24px" },
+          color: "#0000EE",
+          fontFamily: "Bricolage Grotesque",
+        }}
+      >
+        <LinkMui
+          href="https://tinyurl.com/lane-google-reviews"
+          target="_blank"
+          rel="noopener noreferrer"
+          color={"#000000"}
+        >
+          View Google Reviews
+        </LinkMui>
+      </Box>
+      {/* //NOTE: MODAL IS STARED FROM here*/}
       <Modal
         open={openModal}
         onClose={handleCloseModal}
@@ -392,23 +356,23 @@ const Testimonial = () => {
       >
         <Box
           sx={{
-            position: 'absolute',
-            top: '50%',
-            left: '50%',
-            transform: 'translate(-50%, -50%)',
-            width: '90%',
-            maxWidth: '1000px',
-            bgcolor: 'background.paper',
+            // position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            width: "80%",
+            bgcolor: "background.paper",
             boxShadow: 24,
             p: 4,
-            borderRadius: '16px',
+            borderRadius: "16px",
+            position: "relative",
           }}
         >
           <IconButton
             aria-label="close"
             onClick={handleCloseModal}
             sx={{
-              position: 'absolute',
+              position: "absolute",
               right: 8,
               top: 8,
               color: (theme) => theme.palette.grey[500],
@@ -418,41 +382,51 @@ const Testimonial = () => {
           </IconButton>
           <iframe
             src={activeVideo}
+            title="Video Player"
             width="100%"
-            height="600"
-            allow="autoplay"
-            allowFullScreen
+            height="500px"
             frameBorder="0"
-          />
+            allowFullScreen
+            allow="autoplay"
+          ></iframe>
         </Box>
       </Modal>
-
+      <Box mb={2}>
+        {[1, 2, 3, 4, 5].map((star) => (
+          <StarIcon
+            key={star}
+            sx={{ color: "#ffeb3b", fontSize: { xs: 24, sm: 42, md: 48 } }}
+          />
+        ))}
+      </Box>
       <Button
         variant="contained"
-        component="a"
+        component={Link}
+        // to={"https://forms.gle/pjjmUjoQvN7XsgC87"}
+        // component="a"
         href="https://forms.gle/pjjmUjoQvN7XsgC87"
-        target="_blank"
-        rel="noopener noreferrer"
-        size="small"
-        startIcon={<Rocket color={IconStyle} className='m-0 p-0'/>}
+        size="large"
+        startIcon={<Rocket color={IconStyle} />}
         sx={{
-          background: "linear-gradient(90deg, #D9FF7A 0%, #C1EC55 100%)",
+          backgroundColor: "#D9FF7A",
           color: "#000000",
           fontFamily: "Bricolage Grotesque",
-          fontSize: { xs: "16px", sm: "30px", md: "28px" },
+          fontSize: { xs: "16px", sm: "30px", md: "36px" },
           textDecoration: "none",
+          width: { xs: "80%", sm: "80%", md: 610.72 },
           textTransform: "none",
           fontWeight: "bold",
           "&:hover": {
-            background: "linear-gradient(90deg, #D9FF7A 0%, #C1EC55 100%)",
+            backgroundColor: "#D9FF7A",
           },
           border: "4px solid white",
           borderRadius: "50px",
+          padding: { xs: "4px 4px", sm: "10px 20px", md: "12px 24px" },
           marginBottom: { xs: "64px", sm: "96px", md: "128px" },
           boxShadow: "6px 8px 4px rgba(0, 0, 0, 0.35)",
         }}
       >
-        Start Now!
+        Start Your Journey Now!
       </Button>
     </Box>
   );
