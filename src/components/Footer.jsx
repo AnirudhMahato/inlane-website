@@ -108,7 +108,7 @@ const Footer = () => {
     },
     {
       text: "Lane Journal",
-      href: "#",
+      href: "/blog",
     },
   ];
   // CUSTOM STYLES

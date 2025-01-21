@@ -1,10 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { IoIosArrowDown } from 'react-icons/io';
 import faqData from '../../data/faq';
 const FAQ = () => {
   const [activeIndex, setActiveIndex] = useState(null);
 
-
+  // Add useEffect to handle scroll behavior when hash is present
+  useEffect(() => {
+    if (window.location.hash === '#faq') {
+      const faqElement = document.getElementById('faq');
+      if (faqElement) {
+        // Add a small delay to ensure smooth scrolling after page load
+        setTimeout(() => {
+          faqElement.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+      }
+    }
+  }, []);
 
   const toggleAccordion = (index) => {
     setActiveIndex(activeIndex === index ? null : index);
