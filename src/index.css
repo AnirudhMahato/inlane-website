@@ -33,12 +33,27 @@
 }
 
 .bg-logoYellow {
-  background-image: url('/Background.svg');
+  background-image: url('/Grey BG Pattern.svg');
   background-color: #FFFEEB;
-  background-size: cover;
+  /* background-size: cover; */
   background-position: center;
-  background-repeat: no-repeat;
-  font-family: 'Bricolage Grotesque'
+  background-repeat: repeat;
+  font-family: 'Bricolage Grotesque';
+}
+.bg-logoYellow::before {
+  background-image: url('/Grey BG Pattern.svg');
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* background-size: 1100px; */
+  background-position: center;
+  background-repeat: repeat;
+  opacity: 1;
+  z-index: -1;
+  pointer-events: none;
 }
 
 .bg-logoWhite {
