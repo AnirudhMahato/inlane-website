@@ -351,4 +351,4 @@ Two major things happen here:
 Find this car vector and the course cards from the Course Wheel section in this drive link. The vectors are in SVG format.
 https://drive.google.com/drive/folders/1MF6er7EP1vGA0o-ta1-0ytav-YBOZxAv?usp=drive_link
 
-fixed heading of the a mini-course(highway->flyover)
+fixed heading of the a mini-course(highway->flyover).
