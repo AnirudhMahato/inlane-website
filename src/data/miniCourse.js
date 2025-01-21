@@ -12,12 +12,12 @@ const miniCourses = [
       bgColor: "bg-[#D1B3FF]",
     },
     {
-      title: "Highway Driving",
+      title: "Flyover Driving",
       points: [
-        "Highway entry/exit with maintaining speed limit",
-        "Pitstops for tire pressure and gas check",
-        "Maneuver - Changing lanes and U-turns",
-        "Pass other cars safely",
+        "Flyover entry/exit with maintaining speed limit",
+        "Changing lanes",
+        "Safe overtaking",
+        "Steering on curves"
       ],
       duration: "2 hours",
       price: "₹2000",
