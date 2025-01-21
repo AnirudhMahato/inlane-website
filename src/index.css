@@ -91,10 +91,10 @@
   right: 0;
   bottom: 0;
   background-image: url('./assets/images/white_logo.png?w=400');
-  background-size: contain;
+  background-size: 1100px;
   background-position: center;
   background-repeat: repeat;
-  opacity: 0.2;  /* Adjust this value between 0 and 1 to control opacity */
+  opacity: 0.3;  /* Adjust this value between 0 and 1 to control opacity */
   z-index: 0;
 }
 
