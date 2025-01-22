@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -31,12 +33,27 @@
 }
 
 .bg-logoYellow {
-  background-image: url('/Background.svg');
+  background-image: url('/Grey BG Pattern.svg');
   background-color: #FFFEEB;
-  background-size: cover;
+  /* background-size: cover; */
   background-position: center;
-  background-repeat: no-repeat;
-  font-family: 'Bricolage Grotesque'
+  background-repeat: repeat;
+  font-family: 'Bricolage Grotesque';
+}
+.bg-logoYellow::before {
+  background-image: url('/Grey BG Pattern.svg');
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* background-size: 1100px; */
+  background-position: center;
+  background-repeat: repeat;
+  opacity: 1;
+  z-index: -1;
+  pointer-events: none;
 }
 
 .bg-logoWhite {
@@ -46,6 +63,54 @@
   background-position: center;
   background-repeat: no-repeat;
   font-family: 'Bricolage Grotesque'
+}
+
+
+.bg-logoPurple {
+  position: relative;
+  background-color: #D1B3FF;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  font-family: 'Bricolage Grotesque';
+  isolation: isolate;
+}
+
+.bg-logoPurple::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('./assets/images/white_logo.png?w=400');
+  background-size: 1100px;
+  background-position: center;
+  background-repeat: repeat;
+  opacity: 0.3;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.bg-logoGreen {
+  position: relative;
+  background-color: #00CE84;
+  font-family: 'Bricolage Grotesque';
+}
+
+.bg-logoGreen::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('./assets/images/white_logo.png?w=400');
+  background-size: 1100px;
+  background-position: center;
+  background-repeat: repeat;
+  opacity: 0.3;  /* Adjust this value between 0 and 1 to control opacity */
+  z-index: 0;
 }
 
 .font-blog {
