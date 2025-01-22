@@ -50,10 +50,10 @@ const LandingPage = () => {
   return (
     <>
       <Helmet>
-        <title>InLane - Modern Driving School in Bangalore | Learn Safe Driving</title>
+        <title>Learn Driving in Just 10 Days | Lane Driving School</title>
         <meta 
           name="description" 
-          content="InLane is Bangalore's innovative driving school focused on creating confident drivers. Professional instructors, structured courses, and comprehensive road safety education. Start your driving journey today!"
+          content="Drive confidently with Lane's proven curriculum and expert instructors. Flexible schedules, personalized attention, and excellent results await"
         />
         <meta 
           name="keywords" 
