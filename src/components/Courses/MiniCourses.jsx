@@ -71,7 +71,7 @@ const CourseCard = ({ title, duration, image, elements, question }) => {
             // fontWeight: "bold"
           }}
         >
-          Price: Rs. {duration * 1000}/-
+          {/*Price: Rs. {duration * 1000}/-*/}
         </Typography>
         {showInfo && (
           <>

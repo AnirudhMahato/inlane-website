@@ -19,12 +19,13 @@ import { Link } from "react-router-dom";
 import Testimonial from "../components/Testimonial";
 import Rocket from "../components/SVGs/Rocket";
 import HomeHeroSection_Sm from "../components/SVGs/Home_Hero_Section";
+import { Helmet } from 'react-helmet-async';
 
 const LandingPage = () => {
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
   const isMediumScreen = useMediaQuery(theme.breakpoints.between("sm", "md"));
-  const smallIconStyle = { color: "#FFFFFF", width: 24, height: 24 };
+  const smallIconStyle = { color: "#FFFFFF", width: 16, height: 16 };
   const mediumIconStyle = { color: "#FFFFFF", width: 34, height: 34 };
   const largeIconStyle = { color: "#FFFFFF", width: 40, height: 40 };
   const IconStyle = isSmallScreen
@@ -52,8 +53,92 @@ const LandingPage = () => {
   }, [scrollYProgress, controls]);
 
   return (
-    <Box>
-      <Box
+    <>
+      <Helmet>
+        <title>InLane - Modern Driving School in Bangalore | Learn Safe Driving</title>
+        <meta 
+          name="description" 
+          content="InLane is Bangalore's innovative driving school focused on creating confident drivers. Professional instructors, structured courses, and comprehensive road safety education. Start your driving journey today!"
+        />
+        <meta 
+          name="keywords" 
+          content="driving school bangalore, car driving classes, learn driving bangalore, best driving school, driving lessons near me, driving instructor bangalore, automatic car training, driving school registration"
+        />
+        {/* Essential meta tags */}
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://inlane.in" />
+        
+        {/* Open Graph Tags */}
+        <meta property="og:title" content="InLane - Modern Driving School in Bangalore" />
+        <meta property="og:description" content="Start your journey to becoming a confident driver with InLane. Professional driving lessons, structured courses, and comprehensive road safety education in Bangalore." />
+        <meta property="og:url" content="https://inlane.in" />
+        <meta property="og:type" content="website" />
+      </Helmet>
+
+      <Box>
+        <Box className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 ">
+          <div className="text-center relative ">
+            <h1 className="relative text-4xl sm:text-5xl md:text-6xl font-bold text-[#3C4856] font-['Bricolage_Grotesque'] mb-8">
+              {/* Turn arrow in top left */}
+              <div className="absolute top-4 left-4 md:top-[-1rem] md:left-[19rem]">
+                <img
+                  src="/svg/turn_arrow.svg"
+                  alt="Turn arrow"
+                  className="w-8 h-8 md:w-2/3 md:h-2/3"
+                />
+              </div>
+              {/* P icon in top right */}
+              <div className="absolute top-4 right-4 md:top-[1rem] md:right-[17rem]">
+                <img
+                  src="/svg/P.svg"
+                  alt="P icon"
+                  className="w-8 h-8 md:w-2/3 md:h-2/3"
+                />
+              </div>
+              Let's Start Your
+              <br />
+              Driving Journey!
+            </h1>
+
+            <div className="flex flex-row items-center justify-center gap-6 mt-18">
+              <Button
+                variant="contained"
+                component="a"
+                href="https://forms.gle/Up128jny4nRz5DH59"
+                startIcon={<Rocket color={IconStyle} />}
+                sx={{
+                  background: "linear-gradient(90deg, #00CE84 0%, #00BC78 100%)",
+                  color: "white",
+                  fontWeight: "bold",
+                  fontFamily: "Bricolage Grotesque",
+                  textDecoration: "none",
+                  textTransform: "none",
+                  "&:hover": {
+                    background: "linear-gradient(90deg, #00CE84 0%, #00BC78 100%)",
+                  },
+                  border: "2px solid #FFFFFF",
+                  borderRadius: "50px",
+                  padding: {
+                    sm: "10px 20px",
+                    md: "6px 68px",
+                  },
+                  fontSize: { xs: "0.8rem", sm: "1rem", md: "24px" },
+                  whiteSpace: "nowrap",
+                  boxShadow: "2px 4px 4px rgba(0, 0, 0, 0.35)",
+                }}
+              >
+                Sign Up
+              </Button>
+              <img
+                src="/svg/down_arrow.svg"
+                alt="down arrow"
+                className="w-8 h-8 md:w-auto md:h-auto"
+              />
+            </div>
+          </div>
+        </Box>
+      </Box>
+      {/* <Box
         sx={{
           display: "flex",
           flexDirection: "column",
@@ -149,22 +234,20 @@ const LandingPage = () => {
               <Box>
                 <Button
                   variant="contained"
-                  // component={Link}
-                  // to="/https://forms.gle/Up128jny4nRz5DH59"
                   component="a"
                   href="https://forms.gle/Up128jny4nRz5DH59"
                   startIcon={<Rocket color={IconStyle} />}
                   sx={{
-                    backgroundColor: "#00CE84",
+                    background: "linear-gradient(90deg, #00CE84 0%, #00BC78 100%)",
                     color: "white",
                     fontWeight: "bold",
                     fontFamily: "Bricolage Grotesque",
                     textDecoration: "none",
                     textTransform: "none",
                     "&:hover": {
-                      backgroundColor: "#00CE84",
+                      background: "linear-gradient(90deg, #00CE84 0%, #00BC78 100%)",
                     },
-                    border: "2px solid white",
+                    border: "2px solid #FFFFFF",
                     borderRadius: "50px",
                     padding: {
                       sm: "10px 20px",
@@ -181,7 +264,7 @@ const LandingPage = () => {
             </Box>
           </Box>
         )}
-      </Box>
+      </Box> */}
 
       {/* second section of the hero page  */}
 
@@ -254,7 +337,8 @@ const LandingPage = () => {
             <Typography
               variant="h3"
               fontWeight="bold"
-              fontSize={{ xs: "24px", sm: "30px", md: "48px", lg: "61px" }}
+              // fontSize={{ xs: "24px", sm: "30px", md: "48px", lg: "61px" }}
+              className=""
               fontFamily="Bricolage Grotesque"
               color="#000000"
               marginBottom={{ xs: "18px", sm: "30px", md: "40px" }}
@@ -266,65 +350,56 @@ const LandingPage = () => {
               fontSize={{ xs: "16px", sm: "22px", md: "36px", lg: "48px" }}
               fontFamily="Bricolage Grotesque"
               color="#000000"
-              marginBottom={{ xs: "0px", sm: "20px", md: "30px" }}
+              // marginBottom={{ xs: "0px", sm: "20px", md: "30px" }}
             >
               Help us create a world with
             </Typography>
             <Box
+              component="img"
+              src="/svg/zero.svg"
+              alt="Zero Road Fatalities"
               sx={{
-                backgroundImage: "url('/Tag5.svg')",
-                backgroundRepeat: "no-repeat",
-                backgroundSize: "contain",
-                backgroundPosition: "center",
-                width: { xs: "100%", sm: "90%", md: "80%", lg: 774.83 },
+                width: { xs: "80%", sm: "70%", md: "90%", lg: "90%" },
                 maxWidth: 774.83,
+                height: "auto",
                 marginBottom: { xs: "6px", sm: "30px", md: "40px" },
                 padding: { xs: "10px", sm: "11px", md: "20px" },
               }}
-            >
-              <Typography
-                variant="h5"
-                fontWeight="bold"
-                fontSize={{ xs: "18px", sm: "30px", md: "32px", lg: "66px" }}
-                fontFamily="Bricolage Grotesque"
-                color="#000000"
+            />
+              <Button
+                variant="contained"
+                component={Link}
+                target="_blank"
+                to="https://forms.gle/Up128jny4nRz5DH59"
+                size="large"
+                startIcon={<Rocket color={IconStyle} />}
+                sx={{
+                  background: "linear-gradient(90deg, #00CE84 0%, #00BC78 100%)",
+                  color: "white",
+                  "&:hover": {
+                    background: "linear-gradient(90deg, #00CE84 0%, #00BC78 100%)",
+                  },
+                  border: "3px solid #FFFFFF",
+                  borderRadius: "50px",
+                  boxShadow: "2px 4px 4px rgba(0, 0, 0, 0.35)",
+                  padding: { xs: "12px 24px", sm: "14px 32px", md: "16px 44px" },
+                  width: { xs: "60%", sm: "70%", md: "60%", lg: 324.38 },
+                  maxWidth: 324.38,
+                  height: { xs: 38, sm: 60, md: 69.47 },
+                  fontFamily: "Bricolage Grotesque",
+                  fontSize: { xs: "16px", sm: "24px", md: "30px", lg: "36px" },
+                  fontWeight: "bold",
+                  textTransform: "none",
+                  marginTop: { xs: "12px", sm: "30px", md: "40px" },
+                }}
               >
-                ZERO Road Fatalities
-              </Typography>
-            </Box>
-            <Button
-              variant="contained"
-              component={Link}
-              to="https://forms.gle/Up128jny4nRz5DH59"
-              size="large"
-              startIcon={<Rocket color={IconStyle} />}
-              sx={{
-                backgroundColor: "#00CE84",
-                color: "white",
-                "&:hover": {
-                  backgroundColor: "#00CE85",
-                },
-                border: "3px solid white",
-                borderRadius: "50px",
-                boxShadow: "2px 4px 4px rgba(0, 0, 0, 0.35)",
-                padding: { xs: "12px 24px", sm: "14px 32px", md: "16px 44px" },
-                width: { xs: "75%", sm: "70%", md: "60%", lg: 324.38 },
-                maxWidth: 324.38,
-                height: { xs: 38, sm: 60, md: 69.47 },
-                fontFamily: "Bricolage Grotesque",
-                fontSize: { xs: "16px", sm: "24px", md: "30px", lg: "36px" },
-                fontWeight: "bold",
-                textTransform: "none",
-                marginTop: { xs: "12px", sm: "30px", md: "40px" },
-              }}
-            >
-              Sign Up
-            </Button>
+                Sign Up
+              </Button>
           </Box>
         </Box>
       </Box>
       <Testimonial />
-    </Box>
+    </>
   );
 };
 
