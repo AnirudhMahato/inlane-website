@@ -9,16 +9,11 @@ import {
 } from "@mui/material";
 import React, { useEffect, useRef, useState } from "react";
 import { motion, useAnimation, useScroll } from "framer-motion";
-import backgroundImage from "/Banner Passenger seat.svg";
-import finalbackgroundImage from "/Banner_Right_Lane.svg";
-import smallBackgroundImage from "/smallRightLaneImage.png";
-import smallFinalBackgroundImage from "/smallHeroImage.png";
 import RoadSVG from "../components/SVGs/RoadSVG";
 import RoadSvg_Sm from "../components/SVGs/RoadSvg_Mobile";
 import { Link } from "react-router-dom";
 import Testimonial from "../components/Testimonial";
 import Rocket from "../components/SVGs/Rocket";
-import HomeHeroSection_Sm from "../components/SVGs/Home_Hero_Section";
 import { Helmet } from 'react-helmet-async';
 
 const LandingPage = () => {
