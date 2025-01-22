@@ -2,17 +2,6 @@ import React, { useState, useEffect, useCallback } from "react";
 import { SearchIcon, ChevronLeftIcon, ChevronRightIcon } from "lucide-react";
 import { createClient } from "contentful";
 import { useNavigate } from "react-router-dom";
-import { Helmet } from 'react-helmet-async';
-
-// Utility function to generate a URL-friendly slug
-const generateSlug = (title) => {
-  return title
-    .toLowerCase()
-    .replace(/[^\w\s-]/g, '') // Remove non-word chars (except spaces and hyphens)
-    .replace(/\s+/g, '-')     // Replace spaces with hyphens
-    .replace(/-+/g, '-')      // Replace multiple hyphens with single hyphen
-    .trim();                  // Trim leading/trailing hyphens
-};
 
 // Create client instance outside component to prevent re-creation
 const contentfulClient = createClient({
@@ -31,7 +20,7 @@ const Blog = () => {
   const [contentTypes, setContentTypes] = useState([]);
   const [totalItems, setTotalItems] = useState(0);
 
-  const content = "By Your Side, Every Ride 🚗 Every Ride 🚗 By Your Side,";
+  const content = "By Your Side, Every Ride 🚗";
 
   const categories = [
     "All",
@@ -44,25 +33,23 @@ const Blog = () => {
   const categoryBorderColors = {
     "Everything Cars 🚗": "border-[#00CE84] bg-[#00CE84]/25",
     "RTO Queries❓": "border-[#D1B3FF] bg-[#D1B3FF]/25",
-    "Driver's Circle 😊🛞": "border-[#D9FF7A] bg-[#D9FF7A]/25",
-    "Lane Updates 📧": "border-[#00CE84] bg-[#00CE84]/25",
-    "Road trips🛣️": "border-[#D1B3FF] bg-[#D1B3FF]/25",
-    All: "border-[#D9FF7A] bg-[#D9FF7A]/25",
+    "Driver's Circle 😊🛞": "border-green-300 bg-green-300/25",
+    "Lane Updates 📧": "border-yellow-300 bg-yellow-300/25",
+    "Road trips🛣️": "border-orange-400 bg-orange-400/25",
+    All: "border-lime-400 bg-lime-400/25", // Default color for "All"
   };
 
   const BlogColors = {
     "Everything Cars 🚗": "bg-[#00CE84]",
     "RTO Queries❓": "bg-[#D1B3FF]",
     "Driver's Circle 😊🛞": "bg-[#D9FF7A]",
-    "Lane Updates 📧": "bg-[#00CE84]",
-    "Road trips🛣️": "bg-[#D1B3FF]",
-    All: "bg-[#D9FF7A]",
+    "Lane Updates 📧": "bg-yellow-300",
+    "Road trips🛣️": "bg-orange-400",
+    All: "bg-lime-400", // Default color for "All"
   };
 
   const postsPerPage = 6;
   const totalPages = Math.ceil(totalItems / postsPerPage);
-
-  const brandColors = ["#00CE84", "#D1B3FF", "#D9FF7A"];
 
   // Helper function to get categories for a post
   const getPostCategories = (fields) => {
@@ -81,15 +68,8 @@ const Blog = () => {
 
   // Handler for blog post click
   const handleBlogClick = useCallback(
-    (post) => {
-      // Generate a slug from the post title
-      const slug = generateSlug(post.title);
-      navigate(`/blog/${slug}`, { 
-        state: { 
-          id: post.id,  // Pass the actual Contentful ID in state
-          title: post.title 
-        } 
-      });
+    (postId) => {
+      navigate(`/blog/${postId}`);
     },
     [navigate]
   );
@@ -155,6 +135,7 @@ const Blog = () => {
         if (!isActive) return;
 
         const transformedPosts = response.items.map((item) => {
+          console.log("Item", item);
           return {
             id: item.sys.id,
             title: item.fields.title || "Untitled",
@@ -189,20 +170,10 @@ const Blog = () => {
     };
   }, [currentPage, selectedCategory, searchQuery]);
 
-  const getCardBackground = (categories, index) => {
-    // Get the row number and position
-    const rowIndex = Math.floor(index / 3);
-    const positionInRow = index % 3;
-    
-    // If it's the first item in a row, generate new random order for this row
-    if (positionInRow === 0) {
-      // Create a new shuffled array for this row
-      window[`row${rowIndex}Colors`] = [...brandColors]
-        .sort(() => Math.random() - 0.5);
-    }
-    
-    // Use the stored shuffled colors for this row
-    return `bg-[${window[`row${rowIndex}Colors`][positionInRow]}]`;
+  const getCardBackground = (categories) => {
+    if (!categories || categories.length === 0)
+      return BlogColors["All"];
+    return BlogColors[categories[0]] || BlogColors["All"];
   };
 
   const handleCategoryChange = useCallback((category) => {
@@ -240,62 +211,54 @@ const Blog = () => {
 
   return (
     <>
-      <Helmet>
-        <title>InLane Blog - Driving Tips, Road Safety & Car Knowledge | InLane.in</title>
-        <meta 
-          name="description" 
-          content="Explore InLane's blog for expert driving tips, road safety guides, RTO information, and driving updates. Learn from India's modern driving experts about safe and confident driving."
-        />
-        <meta 
-          name="keywords" 
-          content="driving tips, road safety blog, RTO guidelines, driving lessons blog, car knowledge, driving school blog, traffic rules india, driving tips bangalore"
-        />
-        {/* Essential meta tags */}
-        <meta name="robots" content="index, follow" />
-        <link rel="canonical" href="https://inlane.in/blog" />
-        
-        {/* Open Graph Tags */}
-        <meta property="og:title" content="InLane Blog - Driving Tips & Road Safety Guides" />
-        <meta property="og:description" content="Expert driving tips, road safety guides, and car knowledge from India's modern driving school. Stay updated with the latest in driving education." />
-        <meta property="og:url" content="https://inlane.in/blog" />
-        <meta property="og:type" content="blog" />
-      </Helmet>
-
-      <div className="w-full overflow-hidden flex justify-center items-center w-full mt-28 mb-24">
-        <div className="inline-flex whitespace-nowrap">
+      <div className="w-full overflow-hidden mt-28 mb-24">
+        <div className="inline-flex whitespace-nowrap font-semibold">
           {/* Primary scrolling container */}
           <div className="animate-scroll flex sm:gap-16 gap-10">
-            {[...Array(7)].map((_, index) => (
-              <span 
-                key={index} 
-                className="text-7xl md:text-7xl lg:text-8xl xl:text-9xl font-semibold text-[#00CE84]"
-              >
-                By Your Side, Every Ride 🚗
-              </span>
-            ))}
+            <span className="text-7xl md:text-7xl lg:text-8xl xl:text-9xl font-semibold text-[#00CE84]">
+              {content}
+            </span>
+            <span className="text-7xl md:text-7xl lg:text-8xl xl:text-9xl font-semibold text-[#00CE84]">
+              {content}
+            </span>
+            <span className="text-7xl md:text-7xl lg:text-8xl xl:text-9xl font-semibold text-[#00CE84]">
+              {content}
+            </span>
+            <span className="text-7xl md:text-7xl lg:text-8xl xl:text-9xl font-semibold text-[#00CE84]">
+              {content}
+            </span>
+            <span className="text-7xl md:text-7xl lg:text-8xl xl:text-9xl font-semibold text-[#00CE84]">
+              {content}
+            </span>
+            <span className="text-7xl md:text-7xl lg:text-8xl xl:text-9xl font-semibold text-[#00CE84]">
+              {content}
+            </span>
+            <span className="text-7xl md:text-7xl lg:text-8xl xl:text-9xl font-semibold text-[#00CE84]">
+              {content}
+            </span>
           </div>
         </div>
         <style>{`
+        .animate-scroll {
+          animation: scroll 125s linear infinite;
+        }
+
+        @keyframes scroll {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-100%);
+          }
+        }
+
+        /* Ensure smooth animation */
+        @media (prefers-reduced-motion: no-preference) {
           .animate-scroll {
-            animation: scroll 60s linear infinite;
+            animation-play-state: running;
           }
-
-          @keyframes scroll {
-            0% {
-              transform: translateX(0);
-            }
-            100% {
-              transform: translateX(-50%);
-            }
-          }
-
-          /* Ensure smooth animation */
-          @media (prefers-reduced-motion: no-preference) {
-            .animate-scroll {
-              animation-play-state: running;
-            }
-          }
-        `}</style>
+        }
+      `}</style>
       </div>
 
       <div className="container mx-auto px-4 py-8 min-w-[320px] flex flex-col justify-center items-center">
@@ -358,22 +321,21 @@ const Blog = () => {
             </div>
           ) : (
             <div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 lg:gap-12 gap-12 mb-8 font-blog max-w-7xl mx-auto px-8">
-                {posts.map((post, index) => (
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 lg:gap-12 gap-12 mb-8 font-blog">
+                {posts.map((post) => (
                   <div
                     key={post.id}
-                    className={`rounded-3xl shadow-md overflow-hidden hover:shadow-lg transition-shadow cursor-pointer ${getCardBackground(
-                      post.categories,
-                      index
+                    className={`rounded-3xl shadow-md overflow-hidden hover:shadow-lg transition-shadow max-w-[556px] cursor-pointer ${getCardBackground(
+                      post.categories
                     )}`}
-                    onClick={() => handleBlogClick(post)}
+                    onClick={() => handleBlogClick(post.id)}
                   >
-                    <div className="aspect-square">
+                    <div className="h-48">
                       {post.image ? (
                         <img
                           src={post.image}
                           alt={post.title}
-                          className="w-full h-full object-cover p-4 rounded-3xl"
+                          className="w-full h-56 object-cover p-4 rounded-3xl"
                         />
                       ) : (
                         <div className="w-full h-full flex items-center justify-center bg-gray-200">
@@ -383,8 +345,8 @@ const Blog = () => {
                         </div>
                       )}
                     </div>
-                    <div className="p-4 pt-0">
-                      <h2 className="text-xl font-semibold mb-2 hover:text-white transition-colors mt-">
+                    <div className="p-4">
+                      <h2 className="text-xl font-semibold mb-2 hover:text-white transition-colors mt-4">
                         {post.title}
                       </h2>
                       <p className="text-gray-800 mb-4 line-clamp-2">
