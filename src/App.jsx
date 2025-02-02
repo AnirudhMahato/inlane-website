@@ -24,6 +24,10 @@ import BlogPage from "./blog/BlogPage";
 import NewCoursePage from "./components/Courses/NewCoursePage";
 import { HelmetProvider } from 'react-helmet-async';
 
+import ThankYou from "./pages/ThankYouPage";
+// import LocationPage from "./pages/LocationPage";
+
+
 const Layout = () => {
   return (
     <div className="bg-logoYellow">
@@ -63,6 +67,14 @@ const router = createBrowserRouter([
     path: "/courses",
     element: <NewCoursePage />,
   },
+  {
+    path: "/thank-you",
+    element: <ThankYou />,
+  },
+  // {
+  //   path: "/driving-school-in/:location",
+  //   element: <LocationPage />,
+  // },
   {
     path: "/blog",
     element: <Layout2 />,
@@ -122,6 +134,7 @@ const router = createBrowserRouter([
     element: <Signup />,
   },
 ]);
+
 function App() {
   return (
     <HelmetProvider>

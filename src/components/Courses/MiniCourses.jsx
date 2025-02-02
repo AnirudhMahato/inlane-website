@@ -216,7 +216,7 @@ const MiniCourses = () => {
         <Button
           variant="contained"
           component={Link}
-          to={"https://forms.gle/Up128jny4nRz5DH59"}
+          to={"/signup"}
           size="large"
           startIcon={<Rocket color={IconStyle} />}
           sx={{

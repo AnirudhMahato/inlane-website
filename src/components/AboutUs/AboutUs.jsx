@@ -4,6 +4,7 @@ import Footer from "../Footer";
 import aboutUsData from "../../data/aboutUs";
 import { Helmet } from "react-helmet-async";
 import pitCrewTag from "../../assets/images/PitCrew_Tag.svg";
+import { Link } from "react-router-dom";
 
 const AboutUs = () => {
   const teamMembers = aboutUsData
@@ -230,11 +231,9 @@ const AboutUs = () => {
                     </div>
                   </div>
                   <div className="text-center mt-8 ">
-                    <a
-                     href="https://forms.gle/Up128jny4nRz5DH59"
-                     target="_blank"
-                     rel="noopener noreferrer"
-                     className="inline-flex items-center justify-center ms-3 w-fit
+                    <Link
+                      to="/signup"
+                      className="inline-flex items-center justify-center ms-3 w-fit
                       md:w-auto  px-6 
                        md:py-2  text-lg md:text-xl shadow-xl font-extrabold text-white font-['Bricolage Grotesque'] 
                      rounded-full border-2 border-white bg-gradient-to-r from-[#00CE84] to-[#00BC78] hover:from-[#00CE84] hover:to-[#00CE84] transition-colors duration-200"
@@ -247,7 +246,7 @@ const AboutUs = () => {
                       <p className="text-base md:text-2xl font-bolder ">
                         Join Us
                       </p>
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>

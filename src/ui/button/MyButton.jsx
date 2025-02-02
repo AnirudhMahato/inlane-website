@@ -19,10 +19,9 @@ const MyButton = () => {
     <Button
     variant="contained"
     component={Link}
-    target="_blank"
-    to="https://forms.gle/Up128jny4nRz5DH59"
+    to="/signup"
     size="large"
-    startIcon={<Rocket color={IconStyle} />}
+    startIcon={<Rocket style={IconStyle} />}
     sx={{
       background: "linear-gradient(90deg, #00CE84 0%, #00BC78 100%)",
       color: "white",
