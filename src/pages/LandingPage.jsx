@@ -98,8 +98,8 @@ const LandingPage = () => {
             <div className="flex flex-row items-center justify-center gap-6 mt-18">
               <Button
                 variant="contained"
-                component="a"
-                href="https://forms.gle/Up128jny4nRz5DH59"
+                component={Link}
+                to="/signup"
                 startIcon={<Rocket color={IconStyle} />}
                 sx={{
                   background: "linear-gradient(90deg, #00CE84 0%, #00BC78 100%)",
@@ -365,7 +365,7 @@ const LandingPage = () => {
                 variant="contained"
                 component={Link}
                 target="_blank"
-                to="https://forms.gle/Up128jny4nRz5DH59"
+                to="/signup"
                 size="large"
                 startIcon={<Rocket color={IconStyle} />}
                 sx={{

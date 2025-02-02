@@ -11,8 +11,7 @@ const UnlockFirstCar = () => {
   const navigate = useNavigate();
 
   const handleSubmit = () => {
-    // navigate("/signup");
-    window.open("https://forms.gle/Up128jny4nRz5DH59");
+    navigate("/signup");
   };
 
   return (

@@ -18,6 +18,7 @@ import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 import styled from "styled-components";
 import testimonialsData from "../data/testimonials";
 import PlayCircleIcon from '@mui/icons-material/PlayCircle';
+import { Link } from "react-router-dom";
 
 const TestimonialCard = styled(Box)`
   position: relative;
@@ -427,33 +428,31 @@ const Testimonial = () => {
         </Box>
       </Modal>
 
-      <Button
-        variant="contained"
-        component="a"
-        href="https://forms.gle/pjjmUjoQvN7XsgC87"
-        target="_blank"
-        rel="noopener noreferrer"
-        size="small"
-        startIcon={<Rocket color={IconStyle} className='m-0 p-0'/>}
-        sx={{
-          background: "linear-gradient(90deg, #D9FF7A 0%, #C1EC55 100%)",
-          color: "#000000",
-          fontFamily: "Bricolage Grotesque",
-          fontSize: { xs: "16px", sm: "30px", md: "28px" },
-          textDecoration: "none",
-          textTransform: "none",
-          fontWeight: "bold",
-          "&:hover": {
+      <Link to="/signup">
+        <Button
+          variant="contained"
+          size="small"
+          startIcon={<Rocket color={IconStyle} className='m-0 p-0'/>}
+          sx={{
             background: "linear-gradient(90deg, #D9FF7A 0%, #C1EC55 100%)",
-          },
-          border: "4px solid white",
-          borderRadius: "50px",
-          marginBottom: { xs: "64px", sm: "96px", md: "128px" },
-          boxShadow: "6px 8px 4px rgba(0, 0, 0, 0.35)",
-        }}
-      >
-        Start Now!
-      </Button>
+            color: "#000000",
+            fontFamily: "Bricolage Grotesque",
+            fontSize: { xs: "16px", sm: "30px", md: "28px" },
+            textDecoration: "none",
+            textTransform: "none",
+            fontWeight: "bold",
+            "&:hover": {
+              background: "linear-gradient(90deg, #D9FF7A 0%, #C1EC55 100%)",
+            },
+            border: "4px solid white",
+            borderRadius: "50px",
+            marginBottom: { xs: "64px", sm: "96px", md: "128px" },
+            boxShadow: "6px 8px 4px rgba(0, 0, 0, 0.35)",
+          }}
+        >
+          Start Now!
+        </Button>
+      </Link>
     </Box>
   );
 };

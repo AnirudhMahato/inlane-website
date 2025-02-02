@@ -237,11 +237,8 @@ const CourseDetails = () => {
             <div className={styles.beginnerCourseSecondDiv}>
                 <Button
                     variant="contained"
-                    // component={Link}
-                    // to={"https://forms.gle/Up128jny4nRz5DH59"}
-                    component="a"
-                    href="https://forms.gle/Up128jny4nRz5DH59"
-                    // size="large"
+                    component={Link}
+                    to="/signup"
                     startIcon={<Rocket color={IconStyle} />}
                     sx={{
                         scale: { xs: "1", sm: "1", md: "0.65", lg: "0.65" },
@@ -249,7 +246,6 @@ const CourseDetails = () => {
                         borderRadius: "50px",
                         boxShadow: "2px 4px 4px rgba(0, 0, 0, 0.35)",
                         padding: { xs: "12px 24px", sm: "14px 32px", md: "16px 44px" },
-                        // width: { xs: "75%", sm: "70%", md: "60%", lg: 324.38 },
                         maxWidth: 324.38,
                         height: { xs: 38, sm: 60, md: 69.47 },
                         fontFamily: "Bricolage Grotesque",

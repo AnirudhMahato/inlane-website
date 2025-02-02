@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Button } from "@mui/material";
 import miniCourses from "../../data/miniCourse";
+import { Link } from "react-router-dom";
+
 const MiniCourseNew = () => {
   // Initialize all courses as collapsed
   const [expandedStates, setExpandedStates] = useState({
@@ -99,12 +101,9 @@ const MiniCourseNew = () => {
       </div>
 
       <div className="flex justify-center mt-12 mb-12 md:mb-0">
+      <Link to="/signup">
       <Button
                   variant="contained"
-                  component="a"
-                  href="https://forms.gle/Up128jny4nRz5DH59"
-                  target="_blank"
-                  rel="noopener noreferrer"
                   startIcon={<img src="/course/rocket.svg" alt="rocket" className="w-6 h-6" />}
                   sx={{
                     background: "linear-gradient(90deg, #00CE84 0%, #00BC78 100%)",
@@ -137,6 +136,7 @@ const MiniCourseNew = () => {
                 >
                   Sign Up
                 </Button>
+      </Link>
       </div>
     </div>
   );

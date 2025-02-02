@@ -42,8 +42,8 @@ const miniCourses = [
         "Speed control on slopes",
         "Driving through bends"
       ],
-      duration: "3 hours",
-      price: "₹3000",
+      duration: "2 hours",
+      price: "₹2000",
       bgColor: "bg-[#FF99F5]",
     },
   ];
