@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import Footer from "../Footer";
-import FAQ from "../courses/FAQ";
+import FAQ from "./FAQ";
 import Navbar from "../Navbar";
 import { Button } from "@mui/material";
 import { Rocket } from "lucide-react";
-import MiniCourseNew from "../courses/MiniCourseNew";
+import MiniCourseNew from "./MiniCourseNew";
 import { Helmet } from "react-helmet-async";
 import beginnerCourseHours from "../../data/beginnerCourse";
 import { Link } from "react-router-dom";
