@@ -215,12 +215,19 @@ const Signup = () => {
     }
   };
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (isSubmitting) return; // Prevent multiple submissions
+    
     if (!formData.email || !formData.name || !formData.phone) {
       alert('Please fill in all required fields');
       return;
     }
+
+    setIsSubmitting(true);
+
     try {
       await submitToGoogleSheets(formData);
       navigate('/thank-you', { 
@@ -232,6 +239,8 @@ const Signup = () => {
     } catch (error) {
       alert('Submission might have failed. Please try again.');
       console.error('Submission error:', error);
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -517,34 +526,49 @@ const Signup = () => {
             <div className="h-6"></div>
             {/* Submit Button */}
             <div className="flex justify-center">
-              <Button
-                type="submit"
-                variant="contained"
-                startIcon={<Rocket color={IconStyle} />}
-                sx={{
-                  background: "linear-gradient(90deg, #00CE84 0%, #00BC78 100%)",
-                  color: "white",
-                  fontWeight: "bold",
-                  fontFamily: "Bricolage Grotesque",
-                  textDecoration: "none",
-                  textTransform: "none",
-                  "&:hover": {
-                    background: "linear-gradient(90deg, #00CE84 0%, #00BC78 100%)",
-                  },
-                  border: "2px solid #FFFFFF",
-                  borderRadius: "50px",
-                  padding: {
-                    xs: "10px 20px",
-                    md: "6px 68px",
-                  },
-                  fontSize: { xs: "0.8rem", sm: "1rem", md: "24px" },
-                  whiteSpace: "nowrap",
-                  boxShadow: "2px 4px 4px rgba(0, 0, 0, 0.35)",
-                }}
-              >
-                Submit
-              </Button>
-            </div>
+    <Button
+      type="submit"
+      variant="contained"
+      disabled={isSubmitting}
+      startIcon={
+        isSubmitting ? (
+          <CircularProgress size={20} color="inherit" />
+        ) : (
+          <Rocket color={IconStyle} />
+        )
+      }
+      sx={{
+        background: isSubmitting 
+          ? "rgba(0, 206, 132, 0.7)" 
+          : "linear-gradient(90deg, #00CE84 0%, #00BC78 100%)",
+        color: "white",
+        fontWeight: "bold",
+        fontFamily: "Bricolage Grotesque",
+        textDecoration: "none",
+        textTransform: "none",
+        "&:hover": {
+          background: isSubmitting 
+            ? "rgba(0, 206, 132, 0.7)" 
+            : "linear-gradient(90deg, #00CE84 0%, #00BC78 100%)",
+        },
+        "&:disabled": {
+          color: "white",
+          cursor: "not-allowed",
+        },
+        border: "2px solid #FFFFFF",
+        borderRadius: "50px",
+        padding: {
+          xs: "10px 20px",
+          md: "6px 68px",
+        },
+        fontSize: { xs: "0.8rem", sm: "1rem", md: "24px" },
+        whiteSpace: "nowrap",
+        boxShadow: "2px 4px 4px rgba(0, 0, 0, 0.35)",
+      }}
+    >
+      {isSubmitting ? 'Submitting...' : 'Submit'}
+    </Button>
+  </div>
           </div>
         </form>
       </Box>
