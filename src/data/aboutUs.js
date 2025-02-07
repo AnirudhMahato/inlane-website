@@ -24,9 +24,9 @@ const aboutUsData = [
             image: "/team/Adi_Koushik_Reddy.jpg",
         },
         {
-            name: "Abhinav",
-            role: "The spark behind our newly formed community! ⚡️💫",
-            image: "/team/Abhinav.jpg",
+            name: "Shaji Vasudevan",
+            role: "Turning leads into loyal customers and crushing sales targets like a pro! ⚡️💫",
+            image: "/team/Shaji_Vasudevan.jpg",
         },
         {
             name: "Obuli Dharsanth",

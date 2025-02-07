@@ -7,6 +7,7 @@ import pitCrewTag from "../assets/images/PitCrew_Tag.svg";
 import Rocket from "../components/SVGs/Rocket";
 import { Link, useNavigate } from "react-router-dom";
 import { debounce } from 'lodash';
+import ScrollToTop from '../components/ScrollToTop';
 
 // Fetch country codes and flags
 const fetchCountryCodes = async () => {
@@ -260,6 +261,7 @@ const Signup = () => {
 
   return (
     <div className="bg-logoWhite">
+      <ScrollToTop />
       <Helmet>
         <title>Sign Up - InLane Driving School</title>
         <meta

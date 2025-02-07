@@ -144,7 +144,7 @@ const NewCoursePage = () => {
         {/* Beginner Course Section */}
         <div className="max-w-5xl mb-12 md:mx-auto mx-4 md:mb-24 mt-14 md:mt-60
          bg-[#D9FF7A] rounded-[2rem] p-4 md:p-8 shadow-sm relative">
-          <div className="flex items-center gap-3 mb-2 md:mb-6 mx-3">
+          <div className="flex items-center gap-3 mb-6 md:mb-6 mx-3 mt-4 md:mt-0">
             <img
               src="/course/arrow.svg"
               alt="target"
@@ -168,7 +168,7 @@ const NewCoursePage = () => {
                         : 'bg-[#D9FF7A]'
                       }`}
                   >
-                    <div className="flex items-center gap-1 md:gap-4 flex-1 min-w-0">
+                    <div className="flex items-start gap-1 md:gap-4 flex-1 min-w-0">
                       <span className="font-semibold text-sm md:text-xl whitespace-nowrap text-start"> 
                         <span className="md:hidden">Hr</span><span className="hidden md:inline">Hour</span> {hour.hour}</span>
                       <span className="text-black/50 hidden md:inline">|</span>
@@ -238,14 +238,16 @@ const NewCoursePage = () => {
               </div>
 
               {/* <div className="flex flex-row items-center justify-center w-full mt-6 md:mt-8"> */}
-                <Link
-                  to="/signup"
-                  className="inline-flex items-center justify-center ms-3 w-full md:w-auto px-6 md:px-8 py-2  text-lg md:text-xl shadow-xl font-extrabold text-white font-['Bricolage Grotesque'] 
-                  rounded-full border-2 border-white bg-gradient-to-r from-[#00CE84] to-[#00BC78] hover:from-[#00CE84] hover:to-[#00CE84] transition-colors duration-200"
-                >
-                  <img src="/course/rocket.svg" alt="rocket" className="w-5 md:w-5 h-5 md:h-5 mr-2" />
-                  Sign Up
-                </Link>
+                <div className="flex items-center justify-center md:w-auto">
+                  <Link
+                    to="/signup"
+                    className="inline-flex items-center ms-3 md:w-auto px-6 md:px-8 py-2 mt-8 md:mt-0 mb-6 text-lg md:text-xl shadow-xl font-extrabold text-white font-['Bricolage Grotesque'] 
+                    rounded-full border-2 border-white bg-gradient-to-r from-[#00CE84] to-[#00BC78] hover:from-[#00CE84] hover:to-[#00CE84] transition-colors duration-200"
+                  >
+                    <img src="/course/rocket.svg" alt="rocket" className="w-5 md:w-5 h-5 md:h-5 mr-2" />
+                    Sign Up
+                  </Link>
+                </div>
               {/* </div> */}
             </div>
           </div>

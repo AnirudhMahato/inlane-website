@@ -39,7 +39,7 @@ const MiniCourseNew = () => {
             <div className="mb-6">
               <button
                 onClick={() => toggleExpand(index)}
-                className="flex items-center gap-2 font:semibold md:font-bold mb-4 rounded-full border-[1px] border-black/20 px-4 py- text:md md:text-lg"
+                className="flex items-center gap-2 font-bold mb-4 rounded-full border-[1px] border-black/20 px-4 py- text:md md:text-lg"
               >
                 <span>What will we ace together?</span>
                 <svg
@@ -58,7 +58,7 @@ const MiniCourseNew = () => {
                   />
                 </svg>
               </button>
-
+                  
               <div className={`transition-all duration-300 ${
                 expandedStates[index] ? 'opacity-100 max-h-[500px]' : 'opacity-0 max-h-0'
               } overflow-hidden`}>

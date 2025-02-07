@@ -3,6 +3,8 @@ import { SearchIcon, ChevronLeftIcon, ChevronRightIcon } from "lucide-react";
 import { createClient } from "contentful";
 import { useNavigate } from "react-router-dom";
 import { Helmet } from 'react-helmet-async';
+import { Link } from "react-router-dom";
+import { Button } from "@mui/material";
 
 // Utility function to generate a URL-friendly slug
 const generateSlug = (title) => {
@@ -414,7 +416,7 @@ const Blog = () => {
         </div>
 
         {posts.length > 0 && (
-          <div className="flex justify-center items-center space-x-4 mb-32">
+          <div className="flex justify-center items-center space-x-4 mb-16 md:mb-24">
             <button
               className="p-2 rounded-full bg-gray-200 hover:bg-gray-300 transition-colors disabled:opacity-50"
               onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
@@ -432,8 +434,17 @@ const Blog = () => {
             >
               <ChevronRightIcon size={24} />
             </button>
-          </div>
+        </div>
+          
         )}
+        <Link
+          to="/signup"
+          className="inline-flex items-center justify-center ms-3  md:w-auto px-6 md:px-8 py-2 text-lg md:text-xl mb-16 shadow-xl font-extrabold text-white font-['Bricolage Grotesque'] 
+                  rounded-full border-2 border-white bg-gradient-to-r from-[#00CE84] to-[#00BC78] hover:from-[#00CE84] hover:to-[#00CE84] transition-colors duration-200 "
+        >
+          <img src="/course/rocket.svg" alt="rocket" className="w-5 md:w-5 h-5 md:h-5 mr-2" />
+          Sign Up
+        </Link>
       </div>
     </>
   );

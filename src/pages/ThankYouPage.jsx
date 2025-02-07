@@ -26,6 +26,7 @@ const ThankYou = () => {
 
   return (
     <>
+    <ScrollToTop />
       <Navbar backgroundColor='#FFFFFF' logo='./LANE_LOGO.svg' burgerMenu='/PurpleHamburger.png' />
       
       <div className="h-24"></div>
