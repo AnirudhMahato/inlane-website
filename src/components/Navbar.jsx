@@ -71,7 +71,7 @@ const Navbar2 = ({ backgroundColor  = "#FAF9E6", logo = "./LANE_LOGO.svg", burge
           
         >
           <img
-            src='./LANE_LOGO.svg'
+            src='/LANE_LOGO.svg'
             alt="Website Logo"
             style={{ maxWidth: "18%", height: "auto", zIndex: 2 }}
           />

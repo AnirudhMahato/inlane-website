@@ -41,7 +41,7 @@ const Layout = () => {
 const Layout2 = () => {
   return (
     <div className="bg-logoWhite">
-      <Navbar2 />
+      <Navbar backgroundColor='#FFFFFF' logo='./LANE_LOGO.svg' burgerMenu='/PurpleHamburger.png' />
       <Outlet />
       <Footer />
     </div>
@@ -51,7 +51,7 @@ const Layout2 = () => {
 const Layout3 = () => {
   return (
     <div className="">
-      <Navbar2 />
+      <Navbar backgroundColor='#FFFFFF' logo='/LANE_LOGO.svg' burgerMenu='/PurpleHamburger.png' />
       <BlogPage />
       <Footer />
     </div>
