@@ -4,6 +4,7 @@ import { useMediaQuery, useTheme, Box, Button, Typography } from "@mui/material"
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { Search, SearchIcon } from "lucide-react";
+import ScrollToTop from '../components/ScrollToTop';
 
 const ThankYou = () => {
   const location = useLocation();
