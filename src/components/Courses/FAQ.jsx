@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { IoIosArrowDown } from 'react-icons/io';
 import faqData from '../../data/faq';
+import { Button } from '@mui/material';
 
 const FAQ = () => {
   const [activeIndex, setActiveIndex] = useState(null);
@@ -85,12 +86,29 @@ const FAQ = () => {
 
         {/* View More/Less Button */}
         <div className="text-center mt-6 mb-2">
-          <button
+          <Button
             onClick={toggleShowAll}
-            className="px-6 py-2 text-white bg-logoGreen rounded-full shadow-md hover:bg-logoGreen-dark transition-colors duration-200"
-          >
+            sx={{
+              scale: { xs: "1", sm: "1", md: "0.65", lg: "0.65" },
+              border: "3px solid white",
+              borderRadius: "50px",
+              boxShadow: "2px 4px 4px rgba(0, 0, 0, 0.35)",
+              padding: { xs: "12px 24px", sm: "14px 32px", md: "16px 44px" },
+              maxWidth: 324.38,
+              height: { xs: 38, sm: 60, md: 69.47 },
+              fontFamily: "Bricolage Grotesque",
+              fontSize: { xs: "18px", sm: "24px", md: "24px", lg: "24px" },
+              fontWeight: "bold",
+              textTransform: "none",
+              backgroundColor: "#00CE84",
+                            color: "white",
+                            "&:hover": {
+                                backgroundColor: "#00CE85",
+                            },
+          }}
+      >
             {viewMoreText}
-          </button>
+          </Button>
         </div>
       </div>
     </div>

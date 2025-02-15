@@ -5,19 +5,13 @@ import {
   Button,
   useTheme,
   useMediaQuery,
-  Card,
-  Link as LinkMui,
-  CardContent,
   Modal,
   IconButton,
 } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
-import StarIcon from "@mui/icons-material/Star";
 import Rocket from "./SVGs/Rocket";
-import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 import styled from "styled-components";
 import testimonialsData from "../data/testimonials";
-import PlayCircleIcon from '@mui/icons-material/PlayCircle';
 import { Link } from "react-router-dom";
 
 const TestimonialCard = styled(Box)`
@@ -29,8 +23,8 @@ const TestimonialCard = styled(Box)`
 `;
 
 const BorderedStarIcon = styled('svg')`
-  width: 16px;
-  height: 16px;
+  width: 24px;
+  height: 24px;
 `;
 
 const ScrollContainer = styled.div`
@@ -42,11 +36,24 @@ const ScrollContainer = styled.div`
 
 const ScrollingRow = styled.div`
   display: flex;
-  animation: ${props => props.direction === 'left' ? 
-    'scrollLeft 40s linear infinite' : 
-    'scrollRight 40s linear infinite'};
   gap: 1rem;
+  animation: ${props => props.direction === 'left' ? 
+    'scrollLeft 30s linear infinite' : // Increased duration to see all card
+    'scrollRight 30s linear infinite'};
   
+  & > * {
+    flex: 0 0 auto;
+    width: 350px; // Fixed width for each card
+    
+    @media (min-width: 600px) {
+      width: 350px;
+    }
+    
+    @media (min-width: 768px) {
+      width: 400px;
+    }
+  }
+
   @media (max-width: 600px) {
     gap: 0.5rem;
     animation: ${props => props.direction === 'left' ? 
@@ -56,11 +63,11 @@ const ScrollingRow = styled.div`
 
   @keyframes scrollLeft {
     0% { transform: translateX(0); }
-    100% { transform: translateX(-100%); }
+    100% { transform: translateX(calc(-100% - 1rem)); } // Account for gap
   }
 
   @keyframes scrollRight {
-    0% { transform: translateX(-100%); }
+    0% { transform: translateX(calc(-100% - 1rem)); } // Account for gap
     100% { transform: translateX(0); }
   }
 `;
@@ -73,19 +80,16 @@ const Testimonial = () => {
   const mediumIconStyle = { color: "#000000", width: 34, height: 24 };
   const largeIconStyle = { color: "#000000", width: 44, height: 24 };
   const [openModal, setOpenModal] = useState(false);
-  const [activeVideo, setActiveVideo] = useState("");
+  const [activeReview, setActiveReview] = useState(null);
   const [isSticky, setIsSticky] = useState(false);
   const [isWheelSticky, setIsWheelSticky] = useState(false);
-  const [showReviews, setShowReviews] = useState(true);
-  const [bridgeOffset, setBridgeOffset] = useState(0);
-  const [wheelOffset, setWheelOffset] = useState(0);
   const IconStyle = isSmallScreen
     ? smallIconStyle
     : isMediumScreen
     ? mediumIconStyle
     : largeIconStyle;
 
- const testimonials = testimonialsData;
+  const testimonials = testimonialsData;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -98,15 +102,10 @@ const Testimonial = () => {
         const wheelRect = wheelText.getBoundingClientRect();
         const reviewsRect = reviewsSection.getBoundingClientRect();
         
-        // Only make elements sticky if we haven't scrolled to reviews section
         if (reviewsRect.top > 160) {
-          // Bridge text sticks first
           setIsSticky(bridgeRect.top <= 0);
-          
-          // Wheel text sticks after bridge text
           setIsWheelSticky(wheelRect.top <= 80);
         } else {
-          // Remove sticky positioning when reaching reviews
           setIsSticky(false);
           setIsWheelSticky(false);
         }
@@ -117,17 +116,16 @@ const Testimonial = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const handleOpenModal = (videoUrl) => {
-    setActiveVideo(videoUrl);
+  const handleOpenModal = (review) => {
+    setActiveReview(review);
     setOpenModal(true);
   };
 
   const handleCloseModal = () => {
     setOpenModal(false);
-    setActiveVideo("");
+    setActiveReview(null);
   };
 
-  // Split testimonials into two rows
   const firstRow = testimonials.slice(0, Math.ceil(testimonials.length / 2));
   const secondRow = testimonials.slice(Math.ceil(testimonials.length / 2));
 
@@ -142,11 +140,9 @@ const Testimonial = () => {
       id="testimonial-section"
       sx={{
         backgroundColor: "#00CE84",
-        // padding: { xs: 2, sm: 3, md: 4 },
         textAlign: "center",
         backgroundImage: "url('/TestimonialBG.svg')",
         marginTop: { xs: "64px", sm: "96px", md: "128px" },
-        // padding: { xs: 2, sm: 3, md: 4 },
       }}
     >
       <Typography
@@ -213,21 +209,23 @@ const Testimonial = () => {
       >
         <ScrollContainer>
           <ScrollingRow direction="left">
-            {[...firstRow, ...firstRow].map((testimonial, index) => (
-              <div key={index} className="min-w-[300px] sm:min-w-[350px] md:min-w-[400px]">
+          {firstRow.map((testimonial, index) => (
+              <div key={`${testimonial.name}-${index}`} className="min-w-[300px] sm:min-w-[350px] md:min-w-[400px]">
                 {testimonial.videoLink ? (
                   <div 
                     className="rounded-[32px] border-[12px] xs:border-[8px] border-white overflow-hidden cursor-pointer relative h-[250px] xs:h-[200px] md:h-[300px]"
-                    onClick={() => handleOpenModal(getEmbeddedDriveUrl(testimonial.videoLink))}
+                    onClick={() => handleOpenModal(testimonial)}
                   >
                     <iframe 
                       src={getEmbeddedDriveUrl(testimonial.videoLink)}
                       className="w-full h-full"
                       frameBorder="0"
+                      allow="autoplay; encrypted-media"
+                      allowFullScreen
                     />
                     <div className="absolute top-0 left-0 right-0 p-6 xs:p-4">
                       <div className="flex justify-between items-start">
-                        <h3 className="text-xl xs:text-lg font-bold font-['Bricolage_Grotesque'] text-black">
+                        <h3 className="text-sm md:text-xl font-bold font-['Bricolage_Grotesque'] text-black">
                           {testimonial.name}
                         </h3>
                         <div className="flex gap-0.5">
@@ -249,23 +247,14 @@ const Testimonial = () => {
                     </div>
                   </div>
                 ) : (
-                  <div className={`
-                    rounded-[32px] 
-                    p-6 
-                    xs:p-4
-                    h-[250px] 
-                    xs:h-[200px] 
-                    md:h-[300px]
-                    border-[12px] 
-                    xs:border-[8px]
-                    border-white 
-                    bg-[${index % 2 === 0 ? '#D9FF7A' : '#D1B3FF'}]
-                    flex 
-                    flex-col
-                  `}>
+                  <div 
+                    className="rounded-[32px] p-6 xs:p-4 h-[250px] xs:h-[200px] md:h-[300px] border-[12px] xs:border-[8px] border-white"
+                    style={{ backgroundColor: index % 2 === 0 ? '#D9FF7A' : '#D1B3FF' }}
+                    onClick={() => handleOpenModal(testimonial)}
+                  >
                     <div className="space-y-3 xs:space-y-2 overflow-hidden">
                       <div className="flex justify-between items-center">
-                        <h3 className="text-xl xs:text-lg font-bold font-['Bricolage_Grotesque']">
+                        <h3 className="text-sm md:text-xl font-bold font-['Bricolage_Grotesque']">
                           {testimonial.name}
                         </h3>
                         <div className="flex gap-0.5">
@@ -284,8 +273,7 @@ const Testimonial = () => {
                           ))}
                         </div>
                       </div>
-                        
-                      <p className="text-black md:text-lg   leading-relaxed font-['Bricolage_Grotesque'] line-clamp-auto overflow-auto">
+                      <p className="text-black md:text-xl leading-relaxed font-['Bricolage_Grotesque'] line-clamp-4 md:line-clamp-6 ">
                         {testimonial.comment}
                       </p>
                     </div>
@@ -293,6 +281,7 @@ const Testimonial = () => {
                 )}
               </div>
             ))}
+            
           </ScrollingRow>
         </ScrollContainer>
 
@@ -304,19 +293,19 @@ const Testimonial = () => {
               <div key={index} className="min-w-[300px] sm:min-w-[350px] md:min-w-[400px]">
                 {testimonial.videoLink ? (
                   <div 
-                    className="rounded-[32px] border-[12px] 
-                    xs:border-[8px] border-white overflow-hidden
-                     cursor-pointer relative h-[250px] xs:h-[200px] md:h-[300px]"
-                    onClick={() => handleOpenModal(getEmbeddedDriveUrl(testimonial.videoLink))}
+                    className="rounded-[32px] border-[12px] xs:border-[8px] border-white overflow-hidden cursor-pointer relative h-[250px] xs:h-[200px] md:h-[300px]"
+                    onClick={() => handleOpenModal(testimonial)}
                   >
                     <iframe 
                       src={getEmbeddedDriveUrl(testimonial.videoLink)}
                       className="w-full h-full"
                       frameBorder="0"
+                      allow="autoplay; encrypted-media"
+                      allowFullScreen
                     />
                     <div className="absolute top-0 left-0 right-0 p-6 xs:p-4 bg-white/80">
                       <div className="flex justify-between items-start">
-                        <h3 className="text-xl xs:text-lg font-bold font-['Bricolage_Grotesque'] text-black">
+                        <h3 className="text-sm md:text-xl font-bold font-['Bricolage_Grotesque'] text-black">
                           {testimonial.name}
                         </h3>
                         <div className="flex gap-0.5">
@@ -338,23 +327,14 @@ const Testimonial = () => {
                     </div>
                   </div>
                 ) : (
-                  <div className={`
-                    rounded-[32px] 
-                    p-6 
-                    xs:p-4
-                    h-[250px] 
-                    xs:h-[200px] 
-                    md:h-[300px]
-                    border-[12px] 
-                    xs:border-[8px]
-                    border-white 
-                    bg-[${index % 2 === 0 ? '#D9FF7A' : '#D1B3FF'}]
-                    flex 
-                    flex-col
-                  `}>
+                  <div 
+                    className="rounded-[32px] p-6 xs:p-4 h-[250px] xs:h-[200px] md:h-[300px] border-[12px] xs:border-[8px] border-white"
+                    style={{ backgroundColor: index % 2 === 0 ? '#D9FF7A' : '#D1B3FF' }}
+                    onClick={() => handleOpenModal(testimonial)}
+                  >
                     <div className="space-y-3 xs:space-y-2">
                       <div className="flex justify-between items-center">
-                        <h3 className="text-xl xs:text-lg font-bold font-['Bricolage_Grotesque']">
+                        <h3 className="text-sm md:text-xl font-bold font-['Bricolage_Grotesque']">
                           {testimonial.name}
                         </h3>
                         <div className="flex gap-0.5">
@@ -373,8 +353,7 @@ const Testimonial = () => {
                           ))}
                         </div>
                       </div>
-
-                      <p className="text-black md:text-xl  leading-relaxed font-['Bricolage_Grotesque'] line-clamp-4">
+                      <p className="text-black md:text-xl leading-relaxed font-['Bricolage_Grotesque'] line-clamp-4 md:line-clamp-6 ">
                         {testimonial.comment}
                       </p>
                     </div>
@@ -417,14 +396,52 @@ const Testimonial = () => {
           >
             <CloseIcon />
           </IconButton>
-          <iframe
-            src={activeVideo}
-            width="100%"
-            height="600"
-            allow="autoplay"
-            allowFullScreen
-            frameBorder="0"
-          />
+          {activeReview && (
+            <Box>
+              {activeReview.videoLink ? (
+                <iframe 
+                  src={getEmbeddedDriveUrl(activeReview.videoLink)}
+                  className="w-full h-[400px]"
+                  frameBorder="0"
+                  allow="autoplay; encrypted-media"
+                  allowFullScreen
+                />
+              ) : (
+                <>
+                  <Typography
+                    variant="h5"
+                    fontWeight="bold"
+                    fontFamily="Bricolage Grotesque"
+                    color="#000000"
+                    sx={{ mb: 2 }}
+                  >
+                    {activeReview.name}
+                  </Typography>
+                  <div className="flex gap-0.5 mb-2">
+                    {[...Array(activeReview.rating)].map((_, i) => (
+                      <BorderedStarIcon
+                        key={i}
+                        viewBox="0 0 24 24"
+                        style={{ fill: '#F7DC6F' }}
+                      >
+                        <path
+                          d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
+                          strokeWidth="1"
+                        />
+                      </BorderedStarIcon>
+                    ))}
+                  </div>
+                  <Typography
+                    variant="body1"
+                    fontFamily="Bricolage Grotesque"
+                    color="#000000"
+                  >
+                    {activeReview.comment}
+                  </Typography>
+                </>
+              )}
+            </Box>
+          )}
         </Box>
       </Modal>
 
@@ -432,7 +449,7 @@ const Testimonial = () => {
         <Button
           variant="contained"
           size="small"
-          startIcon={<Rocket color={IconStyle} className='m-0 p-0'/>}
+          startIcon={<Rocket style={IconStyle} />}
           sx={{
             background: "linear-gradient(90deg, #D9FF7A 0%, #C1EC55 100%)",
             color: "#000000",
@@ -458,3 +475,6 @@ const Testimonial = () => {
 };
 
 export default Testimonial;
+
+
+
