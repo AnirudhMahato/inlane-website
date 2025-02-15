@@ -4923,6 +4923,13 @@ const UnlockFirstCar = () => {
           onMouseEnter={() => setHovered(true)}
           onMouseLeave={() => setHovered(false)}
         >
+          <rect 
+            x="1000"
+            y="1000"
+            width="100%"
+            height="100%"
+            fill="transparent"
+          />
           <AnimatePresence initial={false} mode="wait">
             {!hovered ? (
               <motion.g

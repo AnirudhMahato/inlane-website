@@ -75,7 +75,7 @@ const Assurances = () => {
                 key="card2"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                //  exit={{   opacity: 0 }}
+                // // exit={{   opacity: 0 }}
                 transition={{ duration: 0.6 }}
                 style={{
                   transformStyle: "preserve-3d",
@@ -128,9 +128,12 @@ const Assurances = () => {
                 id="Card 1"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                // exit={{  opacity: 0 }}
+                // // exit={{   opacity: 0 }}
                 transition={{ duration: 0.6 }}
-                style={{ transformStyle: "preserve-3d" }}
+                style={{
+                  transformStyle: "preserve-3d",
+                  backfaceVisibility: "hidden",
+                }}
               >
                 <path
                   id="Vector_9"
@@ -263,10 +266,11 @@ const Assurances = () => {
                 id="Card 1"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
+                // // exit={{   opacity: 0 }}
                 transition={{ duration: 0.6 }}
                 style={{
                   transformStyle: "preserve-3d",
+                  backfaceVisibility: "hidden",
                 }}
               >
                 <path
@@ -406,10 +410,11 @@ const Assurances = () => {
                 key="Card 1_3"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                //  exit={{   opacity: 0 }}
+                // // exit={{   opacity: 0 }}
                 transition={{ duration: 0.6 }}
                 style={{
                   transformStyle: "preserve-3d",
+                  backfaceVisibility: "hidden",
                 }}
               >
                 <path
@@ -559,9 +564,12 @@ const Assurances = () => {
                 id="Card 1"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                // exit={{  opacity: 0 }}
+                // // exit={{   opacity: 0 }}
                 transition={{ duration: 0.6 }}
-                style={{ transformStyle: "preserve-3d" }}
+                style={{
+                  transformStyle: "preserve-3d",
+                  backfaceVisibility: "hidden",
+                }}
               >
                 <path
                   id="Vector_51"

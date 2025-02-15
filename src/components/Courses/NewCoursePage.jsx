@@ -150,14 +150,14 @@ const NewCoursePage = () => {
               alt="target"
               className="w-9 md:w-auto"
             />
-            <h2 className="text-[25px] md:text-3xl  font-medium font-['glancyr']">
-              Beginner Course
+            <h2 className="text-xl md:text-4xl font-medium font-['glancyr'] text-left md:text-left">
+              Comprehensive/Beginner Course
             </h2>
           </div>
 
           <div className="flex flex-col md:flex-row mx-3">
             {/* Left side - Course hours - full width on mobile, 70% on desktop */}
-            <div className="w-full md:w-[70%] space-y-2 md:pr-8 mb-8 md:mb-0">
+            <div className="w-full md:w-[70%] space-y-2 md:pr-8 mb-8 md:mb-0 px-20">
               {beginnerCourseHours.map((hour, index) => (
                 <div key={index} className="relative">
                   <button
@@ -219,13 +219,19 @@ const NewCoursePage = () => {
                 </div>
               </div>
 
-              <div className="flex items-center gap-3 hidden">
-                <img src="/course/coin.svg" alt="price" className="w-8 md:w-auto" />
-                <div>
-                  <span className="text-xl md:text-2xl font-semibold">Price:</span>
-                  <p className="text-xl md:text-2xl font-semibold">₹10000</p>
-                </div>
-              </div>
+              <div className="flex flex-col gap-4">
+      <div className="flex items-center gap-3">
+        <img src="/course/coin.svg" alt="price" className="w-8 md:w-auto" />
+        <div className="flex flex-col">
+          <span className="text-xl md:text-2xl font-semibold">Price:</span>
+          <div className="flex items-baseline gap-1">
+            <p className="text-xl md:text-2xl font-semibold">₹10,000</p>
+            {/* <span className="text-xs align-top">*</span> */}
+          </div>
+      <p className="text-xs">* with license assistance</p>
+        </div>
+      </div>
+    </div>
 
               <div className="flex items-start gap-3">
                 <img src="/course/calculator.svg" alt="value" className="w-8 md:w-auto" />
@@ -274,3 +280,4 @@ const NewCoursePage = () => {
 };
 
 export default NewCoursePage;
+

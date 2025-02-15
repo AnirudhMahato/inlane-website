@@ -70,11 +70,27 @@ const Navbar2 = ({ backgroundColor  = "#FAF9E6", logo = "./LANE_LOGO.svg", burge
           mt={6}
           
         >
-          <img
-            src='/LANE_LOGO.svg'
-            alt="Website Logo"
-            style={{ maxWidth: "18%", height: "auto", zIndex: 2 }}
-          />
+         <Typography
+  variant="h4"
+  component={Link}
+  to="/"
+  onClick={handleClose} // Add this line to close the drawer when clicking the logo
+  sx={{
+    color: "green",
+    fontWeight: "bold",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    textDecoration: "none",
+  }}
+>
+  <img
+    src="/LANE_LOGO.svg"
+    alt="Lane logo"
+    width={isMobile ? 70 : 80}
+    style={{ marginRight: theme.spacing(1), zIndex: 2 }}
+  />
+</Typography>
         </Box>
         <List>
           <ListItem button component={Link} to="/" onClick={handleClose}>

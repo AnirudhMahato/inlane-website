@@ -72,29 +72,29 @@ const MiniCourseNew = () => {
               </div>
             </div>
 
-            <div className="flex items-center gap-8">
-              <div className="flex items-center ">
+            <div className="flex items-center justify-center gap-8 ">
+              <div className="flex items-center">
                 <img
                   src="/course/timer.svg"
                   alt="duration"
                   className="w-10 h-10 md:w-12 md:h-12"
                 />
-                <div className="">
+                <div className="flex flex-col justify-center">
                   <span className="text-lg font-semibold">Duration:</span>
-                  <p className= " text-lg font-bold">{course.duration}</p>
+                  <p className="text-lg font-bold">{course.duration}</p>
                 </div>
               </div>
-              <div className="flex items-center gap-1">
+              {/* <div className="flex items-center gap-1">
                 <img
                   src="/course/coin.svg"
                   alt="price"
                   className="w-10 h-10 md:w-12 md:h-12"
                 />
-                <div>
+                <div >
                   <span className="text-lg font-semibold">Price:</span>
                   <p className="text-lg font-bold">{course.price}</p>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         ))}
