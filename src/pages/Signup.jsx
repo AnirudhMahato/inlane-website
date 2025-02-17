@@ -8,6 +8,7 @@ import Rocket from "../components/SVGs/Rocket";
 import { Link, useNavigate } from "react-router-dom";
 import { debounce } from 'lodash';
 import ScrollToTop from '../components/ScrollToTop';
+import { useLocation } from 'react-router-dom';
 
 // Fetch country codes and flags
 const fetchCountryCodes = async () => {
@@ -120,6 +121,8 @@ const FormField = ({ label, children, bgColor }) => (
 
 const Signup = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const [utmSource, setUtmSource] = useState('');
   const [formData, setFormData] = useState({
     email: '',
     name: '',
@@ -137,6 +140,30 @@ const Signup = () => {
     city: false,
     area: false
   });
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    let source = params.get('utm_source');
+  
+    if (!source) {
+      const referrer = document.referrer;
+      console.log("Referrer:", referrer);
+  
+      if (referrer.includes('facebook.com')) source = 'facebook';
+      else if (referrer.includes('instagram.com')) source = 'instagram';
+      else if (referrer.includes('google.com')) source = 'google';
+      else if (referrer.includes('linkedin.com')) source = 'linkedin';
+      else if (referrer.includes('twitter.com')) source = 'twitter';
+      else if (referrer) source = 'other';
+      else source = 'direct';
+  
+      setUtmSource(source);
+    } else {
+      setUtmSource(source);
+    }
+  
+    console.log("Detected UTM Source:", source);
+  }, [location.search]);
+  
 
   useEffect(() => {
     const loadCountryCodes = async () => {
@@ -190,7 +217,7 @@ const Signup = () => {
   // Submit form data
   const submitToGoogleSheets = async (formData) => {
     try {
-      const googleSheetsUrl = 'https://script.google.com/macros/s/AKfycbz45poihO1GSt_f-UxHHWltKWHh8mDNyaXPcFzbIURMvTVKj1qPn9STBILUaMiGme7r/exec';
+      const googleSheetsUrl = 'https://script.google.com/macros/s/AKfycbz0HaD6iiKmQmiGFP1Cp36hJ7f2bUuxaMfXzYlTDjz9sjnm-p4pANaeWMNS-54A-gr8/exec';
       const payload = {
         email: formData.email,
         name: formData.name,
@@ -198,7 +225,7 @@ const Signup = () => {
         license: formData.license === 'yes' ? 'yes' : 'no',
         locality: `${formData?.city || '' }, ${formData?.area || ''}`,
         adName: 'Signup Form',
-        leadSource: 'Website Signup'
+        leadSource: 'Website-'+utmSource,
       };
       const response = await fetch(googleSheetsUrl, {
         method: 'POST',
