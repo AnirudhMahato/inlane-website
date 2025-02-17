@@ -217,7 +217,7 @@ const Signup = () => {
   // Submit form data
   const submitToGoogleSheets = async (formData) => {
     try {
-      const googleSheetsUrl = 'https://script.google.com/macros/s/AKfycbz0HaD6iiKmQmiGFP1Cp36hJ7f2bUuxaMfXzYlTDjz9sjnm-p4pANaeWMNS-54A-gr8/exec';
+      const googleSheetsUrl = 'https://script.google.com/macros/s/AKfycbz45poihO1GSt_f-UxHHWltKWHh8mDNyaXPcFzbIURMvTVKj1qPn9STBILUaMiGme7r/exec';
       const payload = {
         email: formData.email,
         name: formData.name,
