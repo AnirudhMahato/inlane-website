@@ -9,6 +9,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { debounce } from 'lodash';
 import ScrollToTop from '../components/ScrollToTop';
 import { useLocation } from 'react-router-dom';
+import LocationSelector from '../components/locationSelector';
+import { APIProvider } from '@vis.gl/react-google-maps';
 
 // Fetch country codes and flags
 const fetchCountryCodes = async () => {
@@ -129,7 +131,7 @@ const Signup = () => {
     phone: '',
     city: null,
     area: null,
-    license: 'no',
+    license: 'yes',
     countryCode: '+91'
   });
 
@@ -192,46 +194,35 @@ const Signup = () => {
   // Handle form input changes
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
-  };
-
-  // Submit form data
-  const submitToGoogleSheets = async (formData) => {
-    try {
-      const googleSheetsUrl = 'https://script.google.com/macros/s/AKfycbz45poihO1GSt_f-UxHHWltKWHh8mDNyaXPcFzbIURMvTVKj1qPn9STBILUaMiGme7r/exec';
-      const payload = {
-        email: formData.email,
-        name: formData.name,
-        phone: `${formData.countryCode}${formData.phone}`,
-        license: formData.license === 'yes' ? 'yes' : 'no',
-        locality: `${formData?.city || '' }, ${formData?.area || ''}`,
-        adName: 'Signup Form',
-        leadSource: 'Website-'+utmSource,
-      };
-      const response = await fetch(googleSheetsUrl, {
-        method: 'POST',
-        mode: 'no-cors',
-        cache: 'no-cache',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(payload)
-      });
-      return { status: 'success' };
-    } catch (error) {
-      console.error('Google Sheets submission error:', error);
-      throw error;
+    
+    if (name === 'phone') {
+      // Only allow numbers and limit to 10 digits
+      const numericValue = value.replace(/[^0-9]/g, '');
+      if (numericValue.length <= 10) {
+        setFormData(prev => ({ ...prev, [name]: numericValue }));
+      }
+    } else {
+      setFormData(prev => ({ ...prev, [name]: value }));
     }
   };
 
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  // Function to check phone number validity
+  const isPhoneValid = (phone) => {
+    return phone.length === 10;
+  };
 
+  // Updated handleSubmit to include phone validation
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (isSubmitting) return; // Prevent multiple submissions
+    if (isSubmitting) return;
     
     if (!formData.email || !formData.name || !formData.phone) {
       alert('Please fill in all required fields');
+      return;
+    }
+
+    if (!isPhoneValid(formData.phone)) {
+      alert('Please enter a valid 10-digit phone number');
       return;
     }
 
@@ -252,6 +243,67 @@ const Signup = () => {
       setIsSubmitting(false);
     }
   };
+
+  // Submit form data
+  const submitToGoogleSheets = async (formData) => {
+    try {
+      const googleSheetsUrl = 'https://script.google.com/macros/s/AKfycbz45poihO1GSt_f-UxHHWltKWHh8mDNyaXPcFzbIURMvTVKj1qPn9STBILUaMiGme7r/exec';
+      const payload = {
+        email: formData.email,
+        name: formData.name,
+        phone: `${formData.countryCode}${formData.phone}`,
+        license: formData.license === 'yes' ? 'yes' : 'no',
+        locality: `${formData?.city || '' }, ${formData?.area || ''}`,
+        adName: 'Signup Form',
+        leadSource: 'Website-'+utmSource,
+      };
+      
+      // Submit to Google Sheets
+      await fetch(googleSheetsUrl, {
+        method: 'POST',
+        mode: 'no-cors',
+        cache: 'no-cache',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload)
+      });
+
+      // Submit to Cratio webhook
+      const cratioPayload = {
+        ...payload,
+        // Add any additional fields required by Cratio
+        source: utmSource,
+        timestamp: new Date().toISOString()
+      };
+
+      // Using no-cors mode for Cratio webhook
+      const cratioResponse = await fetch(import.meta.env.VITE_CRATIO_WEBHOOK_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        cache: 'no-cache',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        body: JSON.stringify(cratioPayload)
+      });
+
+      
+      if (cratioResponse.type === 'opaque') {
+        console.log('Cratio webhook request sent successfully');
+      }
+
+      return { status: 'success' };
+    } catch (error) {
+      console.error('Form submission error:', error);
+      throw error;
+    }
+  };
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  
 
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
@@ -366,49 +418,52 @@ const Signup = () => {
             <div className="h-6"></div>
             {/* Phone Number Field with Country Code */}
             <FormField label="Your Phone Number" bgColor="bg-[#00CE84]">
-              <div className="flex gap-2">
-                <FormControl className="w-28">
-                  <Select
-                    value={formData.countryCode}
-                    name="countryCode"
-                    onChange={handleChange}
-                    className="w-28" // Adjust width as needed
-                    renderValue={(selected) => {
-                      const country = countryCodes.find(c => c.code === selected);
-                      return (
-                        <div className="flex items-center">
-                          {country && country.flag && <img src={country.flag} alt={country.name} className="w-6 h-4 mr-2" />}
-                          {country ? country.code : selected}
-                        </div>
-                      );
-                    }}
-                  >
-                    {countryCodes.map(country => (
-                      <MenuItem key={country.code} value={country.code}>
-                        <div className="flex items-center">
-                          {country.flag && <img src={country.flag} alt={country.name} className="w-6 h-4 mr-2" />}
-                          {country.code} - {country.name}
-                        </div>
-                      </MenuItem>
-                    ))}
-                  </Select>
-                </FormControl>
-                <TextField
-                  name="phone"
-                  type="tel"
-                  className='flex-1'
-                  value={formData.phone}
-                  onChange={handleChange}
-                  required
-                  placeholder="Enter phone number"
-                  InputLabelProps={{ style: { fontFamily: "Bricolage Grotesque" } }}
-                  inputProps={{
-                    'aria-label': 'Phone Number',
-                    style: { fontFamily: "Bricolage Grotesque" }
-                  }}
-                />
-              </div>
-            </FormField>
+          <div className="flex gap-2">
+            <FormControl className="w-28">
+              <Select
+                value={formData.countryCode}
+                name="countryCode"
+                onChange={handleChange}
+                className="w-28"
+                renderValue={(selected) => {
+                  const country = countryCodes.find(c => c.code === selected);
+                  return (
+                    <div className="flex items-center">
+                      {country && country.flag && <img src={country.flag} alt={country.name} className="w-6 h-4 mr-2" />}
+                      {country ? country.code : selected}
+                    </div>
+                  );
+                }}
+              >
+                {countryCodes.map(country => (
+                  <MenuItem key={country.code} value={country.code}>
+                    <div className="flex items-center">
+                      {country.flag && <img src={country.flag} alt={country.name} className="w-6 h-4 mr-2" />}
+                      {country.code} - {country.name}
+                    </div>
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
+            <TextField
+              name="phone"
+              type="tel"
+              className='flex-1'
+              value={formData.phone}
+              onChange={handleChange}
+              required
+              error={formData.phone.length > 0 && !isPhoneValid(formData.phone)}
+              helperText={formData.phone.length > 0 && !isPhoneValid(formData.phone) ? "Please enter a valid 10-digit number" : ""}
+              placeholder="Enter phone number"
+              InputLabelProps={{ style: { fontFamily: "Bricolage Grotesque" } }}
+              inputProps={{
+                'aria-label': 'Phone Number',
+                maxLength: 10,
+                style: { fontFamily: "Bricolage Grotesque" }
+              }}
+            />
+          </div>
+        </FormField>
             <div className="h-6"></div>
             {/* License Radio Group */}
             <FormField label="Do You Have A Four Wheeler (4W) Driver's License?" bgColor="bg-[#D1B3FF]">
@@ -422,117 +477,22 @@ const Signup = () => {
                 <FormControlLabel 
                   value="yes" 
                   control={<Radio className="text-[#00CE84]" />} 
-                  label="Yes" 
+                  label={<Typography className="font-['Bricolage_Grotesque']">Yes</Typography>} 
                 />
                 <FormControlLabel 
                   value="no" 
                   control={<Radio className="text-[#00CE84]" />} 
-                  label="No" 
+                  label={<Typography className="font-['Bricolage_Grotesque']">No</Typography>}  
                 />
               </RadioGroup>
             </FormField>
             <div className="h-6"></div>
             {/* City and Area Selection */}
-            <FormField label="Which City Are You Based out of?" bgColor="bg-[#D9FF7A]">
-  <div className="flex gap-2">
-    <div className='flex-1'>
-      <Autocomplete
-        freeSolo
-        value={formData.city}
-        onChange={(_, newValue) => {
-          setFormData(prev => ({
-            ...prev,
-            city: newValue ? newValue.label || newValue : '',
-            area: null
-          }));
-          setAreaOptions([]);
-        }}
-        onInputChange={(_, newInputValue) => {
-          setFormData(prev => ({
-            ...prev,
-            city: newInputValue
-          }));
-          if (newInputValue.length >= 2) {
-            debouncedCitySearch(newInputValue);
-          }
-        }}
-        options={cityOptions}
-        loading={loading.city}
-        getOptionLabel={(option) => option.label || option}
-        renderOption={(props, option) => (
-          <li {...props}>
-            <div>
-              <div>{option.label}</div>
-              {option.state && (
-                <div className="text-sm text-gray-500">{option.state}</div>
-              )}
-            </div>
-          </li>
-        )}
-        renderInput={(params) => (
-          <TextField
-            {...params}
-            required
-            placeholder="Enter City"
-            InputProps={{
-              ...params.InputProps,
-              endAdornment: (
-                <>
-                  {loading.city && <CircularProgress size={20} />}
-                  {params.InputProps.endAdornment}
-                </>
-              ),
-              style: { fontFamily: "Bricolage Grotesque" }
-            }}
-            InputLabelProps={{ style: { fontFamily: "Bricolage Grotesque" } }}
-          />
-        )}
-      />
-    </div>
-    <div className='flex-1'>
-      <Autocomplete
-        freeSolo
-        value={formData.area}
-        onChange={(_, newValue) => {
-          setFormData(prev => ({
-            ...prev,
-            area: newValue ? newValue.label || newValue : ''
-          }));
-        }}
-        onInputChange={(_, newInputValue) => {
-          setFormData(prev => ({
-            ...prev,
-            area: newInputValue
-          }));
-          if (newInputValue.length >= 2 && formData.city) {
-            debouncedAreaSearch(newInputValue);
-          }
-        }}
-        options={areaOptions}
-        loading={loading.area}
-        getOptionLabel={(option) => option.label || option}
-        renderInput={(params) => (
-          <TextField
-            {...params}
-            required
-            placeholder="Enter Area"
-            InputProps={{
-              ...params.InputProps,
-              endAdornment: (
-                <>
-                  {loading.area && <CircularProgress size={20} />}
-                  {params.InputProps.endAdornment}
-                </>
-              ),
-              style: { fontFamily: "Bricolage Grotesque" }
-            }}
-            InputLabelProps={{ style: { fontFamily: "Bricolage Grotesque" } }}
-          />
-        )}
-      />
-    </div>
-  </div>
-</FormField>
+            <FormField label="Which Locality Are You Based out of?" bgColor="bg-[#D9FF7A]">
+            <APIProvider apiKey={import.meta.env.VITE_GOOGLE_MAPS_API_KEY} libraries={["places"]}>
+          <LocationSelector formData={formData} setFormData={setFormData} />
+          </APIProvider>
+        </FormField>
             <div className="h-6"></div>
             {/* Submit Button */}
             <div className="flex justify-center">

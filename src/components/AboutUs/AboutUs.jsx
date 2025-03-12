@@ -131,6 +131,7 @@ const AboutUs = () => {
                   href="/signup"
                   className="inline-flex items-center justify-center ms-3 md:w-auto px-6 md:px-8 py-2 text-lg md:text-xl mt-12 shadow-xl font-extrabold text-white font-['Bricolage Grotesque'] 
                   rounded-full border-2 border-white bg-gradient-to-r from-[#00CE84] to-[#00BC78] hover:from-[#00CE84] hover:to-[#00CE84] transition-colors duration-200"
+                  
                 >
                   <img src="/course/rocket.svg" alt="rocket" className="w-5 md:w-5 h-5 md:h-5 mr-2" />
                   Sign Up
@@ -156,7 +157,7 @@ const AboutUs = () => {
                   </div>
 
                   <div className="w-full px-4 md:px-0 md:w-[70%] lg:w-[60%]">
-                    <h2 className="text-4xl sm:text-5xl md:text-7xl lg:text-[6.5rem] font-medium mb- md:mt-6 w-full leading-tight tracking-tight">
+                    <h2 className="text-4xl sm:text-5xl md:text-7xl lg:text-[6.5rem] font-medium  md:mt-6 w-full leading-tight tracking-tight">
                       Meet Samiksha!
                     </h2>
                     <h3 className="text-xl mb-4 font-semibold">The FOUNDER</h3>
@@ -239,15 +240,15 @@ const AboutUs = () => {
                       />
                     </div>
                   </div>
-                  <div className="text-center mb-16">
+                  <div className="text-center mb-16 -mt-20 md:mt-0">
                     <Link
                       to="https://docs.google.com/forms/d/e/1FAIpQLScN0q7Kt8f2-xdgUKUNtSrd4I4L30iVxDeiQB9vhMG0N4qSpw/viewform"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center justify-center ms-3 w-fit
                       md:w-auto  px-8 
-                       md:py-2  text-lg md:text-xl shadow-xl font-extrabold text-white font-['Bricolage Grotesque'] 
-                     rounded-full border-2 border-white bg-gradient-to-r from-[#00CE84] to-[#00BC78] hover:from-[#00CE84] hover:to-[#00CE84] transition-colors duration-200"
+                       md:py-2  text-lg md:text-xl shadow-xl font-extrabold text-white font-['Bricolage Grotesque']
+                     rounded-full md:border-4 border-2 border-white bg-gradient-to-r from-[#00CE84] to-[#00BC78] hover:from-[#00CE84] hover:to-[#00CE84] transition-colors duration-200"
                     >
                       <img
                         src="/svg/puzzle_white.svg"

@@ -273,7 +273,7 @@ const Testimonial = () => {
                           ))}
                         </div>
                       </div>
-                      <p className="text-black md:text-xl leading-relaxed font-['Bricolage_Grotesque'] line-clamp-4 md:line-clamp-6 ">
+                      <p className="text-black md:text-xl leading-relaxed font-['Bricolage_Grotesque'] line-clamp-4 md:line-clamp-6 text-left ">
                         {testimonial.comment}
                       </p>
                     </div>
@@ -353,7 +353,7 @@ const Testimonial = () => {
                           ))}
                         </div>
                       </div>
-                      <p className="text-black md:text-xl leading-relaxed font-['Bricolage_Grotesque'] line-clamp-4 md:line-clamp-6 ">
+                      <p className="text-black md:text-xl leading-relaxed font-['Bricolage_Grotesque'] line-clamp-4 md:line-clamp-6 text-left">
                         {testimonial.comment}
                       </p>
                     </div>
@@ -446,27 +446,33 @@ const Testimonial = () => {
       </Modal>
 
       <Link to="/signup">
-        <Button
-          variant="contained"
-          size="small"
-          startIcon={<Rocket style={IconStyle} />}
-          sx={{
-            background: "linear-gradient(90deg, #D9FF7A 0%, #C1EC55 100%)",
+      <Button
+                variant="contained"
+                startIcon={
+                  <Rocket
+                    color={{ ...IconStyle, width: isSmallScreen || isMediumScreen ? 22 : 30, height: isSmallScreen || isMediumScreen ? 22 : 30 }}
+                  />
+                }
+                sx={{
+                  background: "linear-gradient(90deg, #D9FF7A 0%, #C1EC55 100%)",
             color: "#000000",
-            fontFamily: "Bricolage Grotesque",
-            fontSize: { xs: "16px", sm: "30px", md: "28px" },
-            textDecoration: "none",
-            textTransform: "none",
-            fontWeight: "bold",
-            "&:hover": {
+                  "&:hover": {
               background: "linear-gradient(90deg, #D9FF7A 0%, #C1EC55 100%)",
             },
-            border: "4px solid white",
-            borderRadius: "50px",
-            marginBottom: { xs: "64px", sm: "96px", md: "128px" },
-            boxShadow: "6px 8px 4px rgba(0, 0, 0, 0.35)",
-          }}
-        >
+                  border: "3px solid #FFFFFF",
+                  borderRadius: "50px",
+                  boxShadow: "2px 4px 4px rgba(0, 0, 0, 0.35)",
+                  padding: { xs: "12px 24px", sm: "14px 32px", md: "16px 44px" },
+                  width: { xs: "50%", sm: "30%", md: "40%", lg: 324.38 },
+                  height: { xs: 38, sm: 60, md: 69.47 },
+                  fontFamily: "Bricolage Grotesque",
+                  fontSize: { xs: "16px", sm: "24px", md: "30px", lg: "32px" },
+                  fontWeight: "bold",
+                  textTransform: "none",
+                  marginBottom: { xs: "64px", sm: "96px", md: "128px" },
+                  boxShadow: "6px 8px 4px rgba(0, 0, 0, 0.35)",
+                }}
+              >
           Start Now!
         </Button>
       </Link>

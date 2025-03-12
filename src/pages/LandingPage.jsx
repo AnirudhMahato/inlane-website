@@ -111,7 +111,7 @@ const LandingPage = () => {
                   "&:hover": {
                     background: "linear-gradient(90deg, #00CE84 0%, #00BC78 100%)",
                   },
-                  border: "2px solid #FFFFFF",
+                  border: "2.5px solid #FFFFFF",
                   borderRadius: "50px",
                   padding: {
                     sm: "10px 20px",

@@ -245,14 +245,42 @@ const NewCoursePage = () => {
 
               {/* <div className="flex flex-row items-center justify-center w-full mt-6 md:mt-8"> */}
                 <div className="flex items-center justify-center md:w-auto">
-                  <Link
-                    to="/signup"
-                    className="inline-flex items-center ms-3 md:w-auto px-6 md:px-8 py-2 mt-8 md:mt-0 mb-6 text-lg md:text-xl shadow-xl font-extrabold text-white font-['Bricolage Grotesque'] 
-                    rounded-full border-2 border-white bg-gradient-to-r from-[#00CE84] to-[#00BC78] hover:from-[#00CE84] hover:to-[#00CE84] transition-colors duration-200"
-                  >
-                    <img src="/course/rocket.svg" alt="rocket" className="w-5 md:w-5 h-5 md:h-5 mr-2" />
-                    Sign Up
-                  </Link>
+                  <Link to="/signup">
+                        <Button
+                                    variant="contained"
+                                    startIcon={<img src="/course/rocket.svg" alt="rocket" className="w-6 h-6" />}
+                                    sx={{
+                                      background: "linear-gradient(90deg, #00CE84 0%, #00BC78 100%)",
+                                      color: "white",
+                                      "&:hover": {
+                                        background: "linear-gradient(90deg, #00CE84 0%, #00BC78 100%)",
+                                      },
+                                      color: "white",
+                                      fontWeight: "bold",
+                                      fontFamily: "Bricolage Grotesque",
+                                      textDecoration: "none",
+                                      textTransform: "none",
+                                      "&:hover": {
+                                        backgroundColor: "#00CE84",
+                                      },
+                                      border: "2px solid white",
+                                      borderRadius: "50px",
+                                      padding: {
+                                        xs: "4px 24px",
+                                        sm: "10px 20px",
+                                        md: "1px 25px",
+                                      },
+                                      fontFamily: "Bricolage Grotesque",
+                                      fontSize: {
+                                        xs: "1rem",
+                                        sm: "1.125rem",
+                                        md: "1.5rem",
+                                      },
+                                    }}
+                                  >
+                                    Sign Up
+                                  </Button>
+                        </Link>
                 </div>
               {/* </div> */}
             </div>

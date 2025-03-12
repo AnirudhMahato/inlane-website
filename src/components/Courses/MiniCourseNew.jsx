@@ -119,7 +119,8 @@ const MiniCourseNew = () => {
                     "&:hover": {
                       backgroundColor: "#00CE84",
                     },
-                    border: "2px solid white",
+                    width: "110%",
+                    border: "3px solid white",
                     borderRadius: "50px",
                     padding: {
                       xs: "4px 24px",

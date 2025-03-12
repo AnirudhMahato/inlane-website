@@ -262,12 +262,11 @@ const Navbar2 = ({ backgroundColor  = "#FAF9E6", logo = "./LANE_LOGO.svg", burge
 
             <IconButton
               size="large"
-              edge="end"
               aria-label="menu"
               aria-controls="menu-appbar"
               onClick={toggleDrawer}
               sx={{
-                position: "absolute",
+                position: "fixed",
                 right: 0,
                 width: 80,
                 height: 73,

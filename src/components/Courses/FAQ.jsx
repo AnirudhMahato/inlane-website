@@ -86,29 +86,46 @@ const FAQ = () => {
 
         {/* View More/Less Button */}
         <div className="text-center mt-6 mb-2">
-          <Button
-            onClick={toggleShowAll}
-            sx={{
-              scale: { xs: "1", sm: "1", md: "0.65", lg: "0.65" },
-              border: "3px solid white",
-              borderRadius: "50px",
-              boxShadow: "2px 4px 4px rgba(0, 0, 0, 0.35)",
-              padding: { xs: "12px 24px", sm: "14px 32px", md: "16px 44px" },
-              maxWidth: 324.38,
-              height: { xs: 38, sm: 60, md: 69.47 },
-              fontFamily: "Bricolage Grotesque",
-              fontSize: { xs: "18px", sm: "24px", md: "24px", lg: "24px" },
-              fontWeight: "bold",
-              textTransform: "none",
-              backgroundColor: "#00CE84",
-                            color: "white",
-                            "&:hover": {
-                                backgroundColor: "#00CE85",
-                            },
-          }}
-      >
-            {viewMoreText}
-          </Button>
+          
+            <Button
+              onClick={toggleShowAll}
+              variant="contained"
+              // startIcon={<img src="/course/rocket.svg" alt="rocket" className="w-6 h-6" />}
+              sx={{
+                background: "linear-gradient(90deg, #00CE84 0%, #00BC78 100%)",
+                color: "white",
+                "&:hover": {
+                  background: "linear-gradient(90deg, #00CE84 0%, #00BC78 100%)",
+                },
+                color: "white",
+                fontWeight: "bold",
+                fontFamily: "Bricolage Grotesque",
+                textDecoration: "none",
+                textTransform: "none",
+                "&:hover": {
+                  backgroundColor: "#00CE84",
+                },
+                width: {
+                  md: "20%",
+                },
+                border: "3px solid white",
+                borderRadius: "50px",
+                padding: {
+                  xs: "4px 24px",
+                  sm: "10px 20px",
+                  md: "1px 25px",
+                },
+                fontFamily: "Bricolage Grotesque",
+                fontSize: {
+                  xs: "1rem",
+                  sm: "1.125rem",
+                  md: "1.5rem",
+                },
+              }}
+            >
+              {viewMoreText}
+            </Button>
+          
         </div>
       </div>
     </div>
