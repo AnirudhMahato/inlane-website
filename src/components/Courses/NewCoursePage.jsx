@@ -157,7 +157,7 @@ const NewCoursePage = () => {
 
           <div className="flex flex-col md:flex-row mx-3">
             {/* Left side - Course hours - full width on mobile, 70% on desktop */}
-            <div className="w-full md:w-[70%] space-y-2 md:pr-8 mb-8 md:mb-0 px-20">
+            <div className="w-full md:w-[70%] space-y-2 md:pr-8 mb-8 md:mb-0 px-2 md:px-20">
               {beginnerCourseHours.map((hour, index) => (
                 <div key={index} className="relative">
                   <button
