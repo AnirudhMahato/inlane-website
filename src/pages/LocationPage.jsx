@@ -1,17 +1,18 @@
 import React, { useState, useEffect } from "react";
 import Footer from "../components/Footer";
-import FAQ from "../components/courses/FAQ";
+// import FAQ from "../components/Courses/FAQ";
 import Navbar from "../components/Navbar";
 import { useParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import BenefitsSplitLayout from "../components/SwipableBenefits";
 import { Button } from "@mui/material";
 import { Rocket } from "lucide-react";
-import MiniCourseNew from "../components/courses/MiniCourseNew";
+import MiniCourseNew from "../components/Courses/MiniCourseNew";
 import beginnerCourseHours from "../data/beginnerCourse";
 import { motion, useDragControls } from "framer-motion";
 import NewCoursePage from "../components/Courses/NewCoursePage";
 import { Link } from "react-router-dom";
+import FAQ from "../components/Courses/FAQ";
 
 const Locations = () => {
   const { location } = useParams();
