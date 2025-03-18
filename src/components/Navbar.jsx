@@ -11,6 +11,8 @@ import {
   ListItem,
   ListItemText,
   Button,
+  Menu,
+  MenuItem,
 } from "@mui/material";
 import {
   Instagram as InstagramIcon,
@@ -23,11 +25,39 @@ import {
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import CloseIcon from "@mui/icons-material/Close";
+import { ExpandLess, ExpandMore } from "@mui/icons-material";
+
+const locations = [
+  "HSR Layout",
+  "KR Puram",
+  "Mahadevapura",
+  "Whitefield",
+  "Marathahalli",
+  "Kudlu Gate",
+  "Kudlu",
+  "Begur",
+  "Indiranagar",
+  "Benniganhalli",
+  "Baiyappanahalli",
+  "Swami Vivekananda Road",
+  "TC Palya",
+  "Horamavu",
+  "Ramamurthy Nagar",
+  "Kasturi Nagar",
+  "Hoodi",
+  "ITPL",
+  "Avalahalli"
+];
+
 
 const Navbar2 = ({ backgroundColor  = "#FAF9E6", logo = "./LANE_LOGO.svg", burgerMenu = "/PurpleHamburger.png" }) => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const [anchorEl, setAnchorEl] = useState(null);
+
+  const handleMenuOpen = (event) => setAnchorEl(event.currentTarget);
+  const handleMenuClose = () => setAnchorEl(null);
 
   const toggleDrawer = () => {
     setDrawerOpen(!drawerOpen);
@@ -157,6 +187,47 @@ const Navbar2 = ({ backgroundColor  = "#FAF9E6", logo = "./LANE_LOGO.svg", burge
               }
             />
           </ListItem>
+          <ListItem button onClick={handleMenuOpen} >
+  <ListItemText
+    primary={
+      <Typography
+        variant="h5"
+        sx={{
+          fontFamily: "Bricolage Grotesque",
+          textAlign: "center",
+        }}
+      >
+        Locations {anchorEl ? <ExpandLess /> : <ExpandMore />}
+      </Typography>
+    }
+  />
+</ListItem>
+<Menu
+  anchorEl={anchorEl}
+  open={Boolean(anchorEl)}
+  onClose={handleMenuClose}
+  
+  transformOrigin={{ horizontal: 'center', vertical: 'top' }}
+  anchorOrigin={{ horizontal: 'center', vertical: 'bottom' }}
+>
+  {locations.map((location, index) => (
+    <MenuItem
+      key={index}
+      component={Link}
+      to={`/driving-school-in/${location.toLowerCase().replace(/\s+/g, "-")}`}
+      onClick={handleMenuClose}
+      sx={{
+        fontFamily: "Bricolage Grotesque",
+        fontSize: '1rem',
+        '&:hover': {
+          backgroundColor: '#f0f0f0',
+        },
+      }}
+    >
+      {location}
+    </MenuItem>
+  ))}
+</Menu>
           
           {/* Social Icons */}
           <Box

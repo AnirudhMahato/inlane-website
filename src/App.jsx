@@ -25,7 +25,8 @@ import NewCoursePage from "./components/Courses/NewCoursePage";
 import { HelmetProvider } from 'react-helmet-async';
 
 import ThankYou from "./pages/ThankYouPage";
-// import LocationPage from "./pages/LocationPage";
+import LocationPage from "./pages/LocationPage";
+// import Page from "./pages/SignupForm";
 
 
 const Layout = () => {
@@ -71,10 +72,10 @@ const router = createBrowserRouter([
     path: "/thank-you",
     element: <ThankYou />,
   },
-  // {
-  //   path: "/driving-school-in/:location",
-  //   element: <LocationPage />,
-  // },
+  {
+    path: "/driving-school-in/:location",
+    element: <LocationPage />,
+  },
   {
     path: "/blog",
     element: <Layout2 />,
