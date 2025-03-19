@@ -26,7 +26,7 @@ import { HelmetProvider } from 'react-helmet-async';
 
 import ThankYou from "./pages/ThankYouPage";
 import LocationPage from "./pages/LocationPage";
-// import Page from "./pages/SignupForm";
+import Page from "./pages/SignupForm";
 
 
 const Layout = () => {
@@ -134,6 +134,10 @@ const router = createBrowserRouter([
     path: "/signup",
     element: <Signup />,
   },
+  {
+    path: "/signup-form",
+    element: <Page />,
+  }
 ]);
 
 function App() {
