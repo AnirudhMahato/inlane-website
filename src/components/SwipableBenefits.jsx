@@ -44,21 +44,21 @@ const BenefitsSplitLayout = ({ location = "HSR Layout" }) => {
       title: "Tailored driving lessons",
       description: "Tailored driving lessons for beginners & advanced learners",
       color: "bg-[#FFC229]",
-      image: "/benefits1.jpg"
+      image: "/benefits3.png"
     },
     {
       id: 2,
       title: "Local expertise",
       description: `Local experts who understand ${location}'s traffic patterns & shortcuts`,
       color: "bg-[#FF99F5]",
-      image: "/benefits2.jpg"
+      image: "/benefits2.png"
     },
     {
       id: 3,
       title: "Practice routes",
       description: `Practice routes around ${practiceRoutes} and others`,
       color: "bg-[#6BECFF]",
-      image: "/benefits3.jpg"
+      image: "/benefits1.png"
     }
   ];
 
@@ -194,7 +194,9 @@ const BenefitsSplitLayout = ({ location = "HSR Layout" }) => {
                       <img
                         src={benefit.image}
                         alt={benefit.title}
-                        className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 object-contain h-24 w-24 sm:h-28 sm:w-28 md:w-48 md:h-48 lg:w-64 lg:h-64'
+                        className={`absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 object-contain ${
+                          index === 0 ? 'h-40 w-40 sm:h-48 sm:w-48 md:h-64 md:w-64 lg:h-80 lg:w-80' : index === 1 ? 'h-32 w-32 sm:h-40 sm:w-40 md:h-56 md:w-56 lg:h-72 lg:w-72' :  'h-24 w-24 sm:h-28 sm:w-28 md:w-48 md:h-48 lg:w-64 lg:h-64'
+                        }`}
                       />
                     </div>
                     <h3 className="text-sm sm:text-base md:text-xl lg:text-2xl font-bold mb-2 md:mb-3 text-center justify-center mt-4 sm:mt-6 md:mt-8 lg:mt-10">{benefit.description}</h3>
