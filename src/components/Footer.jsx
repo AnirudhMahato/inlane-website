@@ -65,8 +65,8 @@ const Footer = () => {
   const contactInfo = [
     {
       Icon: PhoneIcon,
-      text: "+91 9748439881",
-      href: "tel:+919748439881",
+      text: "+91 9611687011",
+      href: "tel:+919611687011",
     },
     {
       Icon: EmailIcon,
@@ -76,7 +76,7 @@ const Footer = () => {
     {
       Icon: WhatsAppIcon,
       text: "WhatsApp ",
-      href: "https://wa.me/919748439881",
+      href: "https://wa.me/919611687011",
     },
   ];
   const quickLinks = [
