@@ -121,12 +121,14 @@ const PaymentPolicy= () => {
         <br></br>
         By using our services, you agree to these payment terms and conditions.
         For any questions or concerns regarding payments, please contact us at
-        +91 97484 39881
+        +91 96116 87011
+
         <br></br>
         <br></br>
         InLane Technologies Private Limited 8/1 Hardut Rai Chamaria Road, Howrah
         Kolkata - 711101, West Bengal India<br></br> Email:
-        discover.laneschool@inlane.in<br></br> Phone: +91 97484 39881
+        discover.laneschool@inlane.in<br></br> Phone: +91 96116 87011
+
       </Typography>
     </PageTemplate>
   );
