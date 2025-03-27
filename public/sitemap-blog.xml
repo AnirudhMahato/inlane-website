@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
- <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
- xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
- <url>
- <loc>https://inlane.in/blog</loc>
- <lastmod>2025-03-13</lastmod>
- <changefreq>daily</changefreq>
- <priority>0.9</priority>
- <image:image>
- <image:loc>https://inlane.in/blog/images/blog-banner.jpg</image:loc>
- <image:caption>Blog Banner Image</image:caption>
- </image:image>
- </url>
- </urlset>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+<url>
+<loc>https://inlane.in/blog</loc>
+<lastmod>2025-03-13</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.9</priority>
+<image:image>
+<image:loc>https://inlane.in/blog/images/blog-banner.jpg</image:loc>
+<image:caption>Blog Banner Image</image:caption>
+</image:image>
+</url>
+</urlset>
