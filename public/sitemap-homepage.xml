@@ -1,18 +1,18 @@
- <?xml version="1.0" encoding="UTF-8"?>
- <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
- xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
- <url>
- <loc>https://inlane.in/</loc>
- <lastmod>2025-03-13</lastmod>
- <changefreq>daily</changefreq>
- <priority>1.0</priority>
- <image:image>
- <image:loc>https://inlane.in/images/hero-image.jpg</image:loc>
- <image:caption>Hero image on homepage</image:caption>
- </image:image>
- <image:image>
- <image:loc>https://inlane.in/Lane_Footer_Logo.svg</image:loc>
- <image:caption>Lane Footer Logo</image:caption>
- </image:image>
- </url>
- </urlset>
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+<url>
+<loc>https://inlane.in/</loc>
+<lastmod>2025-03-13</lastmod>
+<changefreq>daily</changefreq>
+<priority>1.0</priority>
+<image:image>
+<image:loc>https://inlane.in/images/hero-image.jpg</image:loc>
+<image:caption>Hero image on homepage</image:caption>
+</image:image>
+<image:image>
+<image:loc>https://inlane.in/Lane_Footer_Logo.svg</image:loc>
+<image:caption>Lane Footer Logo</image:caption>
+</image:image>
+</url>
+</urlset>

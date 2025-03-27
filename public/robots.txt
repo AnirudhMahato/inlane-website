@@ -1,31 +1,31 @@
 User-agent: AhrefsBot
- Disallow: /
- User-agent: SemrushBot
- Disallow: /
- User-agent: DotBot
- Disallow: /
- User-agent: MJ12bot
- Disallow: /
- User-agent: Barkrowler
- Disallow: /
- User-agent: PetalBot
- Disallow: /
- User-agent: YandexBot
- Disallow: /
- User-agent: Bingbot
- Crawl-delay: 10
- User-agent: BaiduSpider
- Crawl-delay: 10
- User-agent: Sogou web spider
- Crawl-delay: 10
- User-agent: DuckDuckBot
- Crawl-delay: 5
- User-agent: Applebot
- Crawl-delay: 5
- User-agent: facebookexternalhit
- Crawl-delay: 5
- User-agent: Twitterbot
- Crawl-delay: 5
- User-agent: *
- Disallow: /signup
- Sitemap: https://inlane.in/sitemap.xml
+Disallow: /
+User-agent: SemrushBot
+Disallow: /
+User-agent: DotBot
+Disallow: /
+User-agent: MJ12bot
+Disallow: /
+User-agent: Barkrowler
+Disallow: /
+User-agent: PetalBot
+Disallow: /
+User-agent: YandexBot
+Disallow: /
+User-agent: Bingbot
+Crawl-delay: 10
+User-agent: BaiduSpider
+Crawl-delay: 10
+User-agent: Sogou web spider
+Crawl-delay: 10
+User-agent: DuckDuckBot
+Crawl-delay: 5
+User-agent: Applebot
+Crawl-delay: 5
+User-agent: facebookexternalhit
+Crawl-delay: 5
+User-agent: Twitterbot
+Crawl-delay: 5
+User-agent: *
+Disallow: /signup
+Sitemap: https://inlane.in/sitemap.xml
