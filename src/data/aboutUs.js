@@ -29,11 +29,6 @@ const aboutUsData = [
             image: "/team/Shaji_Vasudevan.jpg",
         },
         {
-            name: "Obuli Dharsanth",
-            role: "Our YouTube wizard 🎩✨—turning views into vibes and leads into loyal fans!",
-            image: "/team/Obuli_Dharsanth.jpg",
-        },
-        {
             name: "Sankar Mundhra",
             role: "Our tech wizard, keeping the engine running with his code! 🧑‍💻✨",
             image: "/team/Sanskar_Mundhra.jpg",
