@@ -514,13 +514,13 @@ const TermsAndConditions = () => {
         <br></br>
         <br></br>
         14. RESCHEDULE AND NO-SHOW POLICY <br></br> 14.1. Rescheduling Fees: If
-        a learner requests to reschedule a driving lesson within 72 hours of the
-        scheduled lesson time, a rescheduling fee will be charged as per the
+        a learner requests to reschedule a driving lesson within 24 hours of the
+        scheduled lesson time, a rescheduling fee of INR 300 will apply as per the
         <a href="/rescheduling-policy">Reschedule Policy</a>. This fee covers
         administrative costs and compensates for the short notice. Please refer
         to the Reschedule Policy for more information.<br></br> 14.2. No-Show
         Fees: If a learner fails to attend a scheduled lesson and requests to
-        reschedule, a nominal fee will be applied as per the{" "}
+        reschedule, a nominal fee of INR 300 will be applied as per the{" "}
         <a href="/rescheduling-policy">Reschedule Policy</a>. This fee is in
         addition to any rescheduling fees and compensates for the missed
         appointment and associated inconvenience. Please refer to the Reschedule
