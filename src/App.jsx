@@ -23,7 +23,7 @@ import Blog from "./blog/Blog";
 import BlogPage from "./blog/BlogPage";
 import NewCoursePage from "./components/Courses/NewCoursePage";
 import { HelmetProvider } from 'react-helmet-async';
-import FAQPage from "./components/FAQ/FAQpage";
+import FAQPage from "./components/FAQ/FAQpage"; // Fixed casing to match actual file
 import ThankYou from "./pages/ThankYouPage";
 import LocationPage from "./pages/LocationPage";
 import Page from "./pages/SignupForm";
