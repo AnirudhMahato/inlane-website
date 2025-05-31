@@ -18,6 +18,7 @@
     "@mui/icons-material": "^5.15.20",
     "@mui/material": "^5.16.14",
     "@mui/styled-engine-sc": "^6.0.0-alpha.18",
+    "@supabase/supabase-js": "^2.49.8",
     "@tailwindcss/aspect-ratio": "^0.4.2",
     "@vis.gl/react-google-maps": "^1.5.1",
     "contentful": "^11.1.4",

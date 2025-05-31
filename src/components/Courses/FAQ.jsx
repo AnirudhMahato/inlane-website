@@ -2,10 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { IoIosArrowDown } from 'react-icons/io';
 import faqData from '../../data/faq';
 import { Button } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 
 const FAQ = () => {
   const [activeIndex, setActiveIndex] = useState(null);
-  const [showAll, setShowAll] = useState(false);
+  const navigate = useNavigate();
 
   // Add useEffect to handle scroll behavior when hash is present
   useEffect(() => {
@@ -24,15 +25,13 @@ const FAQ = () => {
     setActiveIndex(activeIndex === index ? null : index);
   };
 
-  const toggleShowAll = () => {
-    setShowAll(!showAll);
+  const handleViewMore = () => {
+    navigate('/faqs');
   };
 
-  const viewMoreText = showAll ? 'View Less' : 'View More';
-
-  // Determine the number of FAQs to show initially
+  // Always show only the first 4 FAQs
   const initialFaqsToShow = 4;
-  const faqsToShow = showAll ? faqData : faqData.slice(0, initialFaqsToShow);
+  const faqsToShow = faqData.slice(0, initialFaqsToShow);
 
   return (
     <div id="faq" className='w-full h-full pt-0 pb-24 md:pt-0 md:pb-24 bg-logoGreen shadow-lg drop-shadow-lg'>
@@ -84,48 +83,43 @@ const FAQ = () => {
           ))}
         </div>
 
-        {/* View More/Less Button */}
+        {/* View More Button */}
         <div className="text-center mt-6 mb-2">
-          
-            <Button
-              onClick={toggleShowAll}
-              variant="contained"
-              // startIcon={<img src="/course/rocket.svg" alt="rocket" className="w-6 h-6" />}
-              sx={{
+          <Button
+            onClick={handleViewMore}
+            variant="contained"
+            sx={{
+              background: "linear-gradient(90deg, #00CE84 0%, #00BC78 100%)",
+              color: "white",
+              "&:hover": {
                 background: "linear-gradient(90deg, #00CE84 0%, #00BC78 100%)",
-                color: "white",
-                "&:hover": {
-                  background: "linear-gradient(90deg, #00CE84 0%, #00BC78 100%)",
-                },
-                color: "white",
-                fontWeight: "bold",
-                fontFamily: "Bricolage Grotesque",
-                textDecoration: "none",
-                textTransform: "none",
-                "&:hover": {
-                  backgroundColor: "#00CE84",
-                },
-                width: {
-                  md: "20%",
-                },
-                border: "3px solid white",
-                borderRadius: "50px",
-                padding: {
-                  xs: "4px 24px",
-                  sm: "10px 20px",
-                  md: "1px 25px",
-                },
-                fontFamily: "Bricolage Grotesque",
-                fontSize: {
-                  xs: "1rem",
-                  sm: "1.125rem",
-                  md: "1.5rem",
-                },
-              }}
-            >
-              {viewMoreText}
-            </Button>
-          
+              },
+              fontWeight: "bold",
+              fontFamily: "Bricolage Grotesque",
+              textDecoration: "none",
+              textTransform: "none",
+              "&:hover": {
+                backgroundColor: "#00CE84",
+              },
+              width: {
+                md: "20%",
+              },
+              border: "3px solid white",
+              borderRadius: "50px",
+              padding: {
+                xs: "4px 24px",
+                sm: "10px 20px",
+                md: "1px 25px",
+              },
+              fontSize: {
+                xs: "1rem",
+                sm: "1.125rem",
+                md: "1.5rem",
+              },
+            }}
+          >
+            View More
+          </Button>
         </div>
       </div>
     </div>
