@@ -42,22 +42,25 @@ const Footer = () => {
     };
   }, []);
 
-  // USED USETHEME AND USEMEDIAQUERY HOOK FROM MUI TO CREATE A BREAKPOINTS FOR RESPONSIVENESS.
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const isTablet = useMediaQuery(theme.breakpoints.down("md"));
-  // DATA OF ICONS TO BE RENDER ARE USED AS AN ARRAY
+  const isLarge = useMediaQuery(theme.breakpoints.up("lg"));
+
   const socialIcons = [
     {
       Icon: InstagramIcon,
+      text: "Instagram",
       href: "https://www.instagram.com/inlane.in/",
     },
     {
       Icon: XIcon,
+      text: "X",
       href: "https://x.com/inlane_in/",
     },
     {
       Icon: LinkedInIcon,
+      text: "LinkedIn",
       href: "https://www.linkedin.com/company/in-lane/",
     },
   ];
@@ -79,6 +82,7 @@ const Footer = () => {
       href: "https://wa.me/919611687011",
     },
   ];
+
   const quickLinks = [
     {
       text: "Privacy Policy",
@@ -93,6 +97,7 @@ const Footer = () => {
       href: "/disclaimer",
     },
   ];
+
   const infoLinks = [
     {
       text: "About us",
@@ -111,106 +116,165 @@ const Footer = () => {
       href: "/blog",
     },
   ];
-  // CUSTOM STYLES
-  const styles = {
-    footerSecondContainer: {
-      display: "flex",
-      flexDirection: { xs: "column", md: "row" },
-      justifyContent: "space-between",
-      px: { xs: 2, sm: 4, md: 12 },
-    },
-    footerSmallScreenContainer: {
-      display: "flex",
-      flexDirection: "row",
-      justifyContent: "center",
-      gap: "12px",
 
-      px: { xs: 2, sm: 4, md: 12 },
-      paddingTop: { xs: 2, sm: 3, md: 4 },
-      scale: isMobile ? "0.85" : "1",
-    },
-    footerSmallScreenContainerTwo: {
-      display: "flex",
-      flexDirection: "row",
-      justifyContent: "center",
-      gap: "12px",
-      px: { xs: 2, sm: 4, md: 12 },
-      scale: isMobile ? "0.85" : "1",
-    },
+  const styles = {
     footerContainer: {
       bgcolor: "background.paper",
       paddingTop: { xs: 3, sm: 4, md: 6 },
       backgroundImage: `url(${isMobile ? "/img.png" : "/Road1.png"})`,
       backgroundRepeat: "no-repeat",
-      minHeight: isMobile ? "100%" : "470px",
-      backgroundSize: "100% 100%",
+      minHeight: { xs: "auto", sm: "400px", md: "470px" },
+      backgroundSize: { xs: "100% auto", sm: "100% 100%" },
       backgroundPosition: "center",
       paddingBottom: { xs: 3, sm: 4, md: 6 },
+      position: 'relative',
+      overflow: 'hidden',
+    },
+    footerMainContainer: {
+      display: "flex",
+      flexDirection: { xs: "column", md: "row" },
+      justifyContent: "space-between",
+      alignItems: { xs: "stretch", md: "flex-start" },
+      px: { xs: 2, sm: 3, md: 6, lg: 12 },
+      gap: { xs: 3, sm: 4, md: 2 },
+      maxWidth: "1400px",
+      mx: "auto",
+    },
+    logoSection: {
+      flex: { xs: "none", md: 2 },
+      mb: { xs: 3, md: 4 },
+      mt: { xs: 0, md: 6 },
+      display: "flex",
+      flexDirection: "column",
+      alignItems: { xs: "center", md: "flex-start" },
+      textAlign: { xs: "center", md: "left" },
+    },
+    logoImage: {
+      width: "100%",
+      maxWidth: { xs: "160px", sm: "180px", md: "173px" },
+      height: "auto",
+      mb: 2,
+    },
+    socialIconsContainer: {
+      display: "flex",
+      flexDirection: "row",
+      justifyContent: { xs: "center", md: "flex-start" },
+      gap: 1,
+      mt: 2,
+      mb: 2,
+    },
+    tagline: {
+      fontWeight: 600,
+      fontSize: { xs: "16px", sm: "20px", md: "24px", lg: "26px" },
+      color: "#000000",
+      fontFamily: "Bricolage Grotesque",
+      textAlign: { xs: "center", md: "left" },
+    },
+    sectionContainer: {
+      flex: { xs: "none", md: 1 },
+      mb: { xs: 3, md: 4 },
+      mt: { xs: 0, md: 6 },
+      display: "flex",
+      flexDirection: "column",
+      alignItems: { xs: "center", md: "flex-start" },
     },
     footerHeadingImage: {
       display: "inline-block",
       backgroundImage: "url('/Tag.svg')",
       backgroundSize: "cover",
       backgroundPosition: "center",
-      width: { xs: "180px", sm: "200px", md: "212.25px" },
+      width: { xs: "160px", sm: "180px", md: "200px", lg: "212.25px" },
       mb: 2,
       textAlign: "center",
     },
     footerHeading: {
       fontWeight: "bold",
-      fontSize: { xs: "24px", sm: "28px", md: "32px" },
+      fontSize: { xs: "20px", sm: "24px", md: "28px", lg: "32px" },
       color: "#000000",
-      marginRight: { xs: "0px", sm: "0px", md: "30px" },
       fontFamily: "Bricolage Grotesque",
+      textAlign: "center",
+    },
+    linksContainer: {
+      display: "flex",
+      flexDirection: "column",
+      alignItems: { xs: "center", md: "flex-start" },
+      gap: { xs: 1, sm: 1.5 },
+      width: "100%",
     },
     footerLinks: {
       textDecoration: "none",
       color: "#000000",
       fontWeight: "500",
-      fontSize: { xs: "18px", sm: "22px", md: "20px" },
+      fontSize: { xs: "16px", sm: "18px", md: "20px", lg: "22px" },
       fontFamily: "Bricolage Grotesque",
-      mb: 1,
-      flexBasis: isMobile ? "45%" : "auto",
-      lineHeight: { xs: "32px", sm: "28px", md: "32px" },
+      lineHeight: { xs: "24px", sm: "28px", md: "32px" },
+      textAlign: { xs: "center", md: "left" },
+      transition: "color 0.3s ease",
+      "&:hover": {
+        color: "#00CE84",
+      },
     },
     footerIcons: {
       backgroundColor: "black",
       color: "white",
       borderRadius: "50%",
-      mt: "20px",
-      mb: "10px",
-      padding: "5px",
-      fontSize: { xs: "36px", sm: "42px", md: "38px" },
+      padding: { xs: "4px", sm: "5px" },
+      fontSize: { xs: "28px", sm: "32px", md: "36px", lg: "38px" },
       transition: "transform 0.3s ease-in-out",
-      "&:hover": { transform: "scale(1.1)" },
+      "&:hover": { 
+        transform: "scale(1.1)",
+        backgroundColor: "#00CE84",
+      },
     },
-    footerContact: {
+    contactItem: {
       display: "flex",
       alignItems: "center",
-      mb: 1,
-      // fontWeight: "bold",
-      fontSize: { xs: "18px", sm: "20px", md: "22px" },
+      justifyContent: { xs: "center", md: "flex-start" },
+      mb: { xs: 1.5, sm: 2 },
+      fontSize: { xs: "16px", sm: "18px", md: "20px", lg: "22px" },
       fontFamily: "Bricolage Grotesque",
-      lineHeight: { xs: "32px", sm: "28px", md: "32px" },
+      lineHeight: { xs: "24px", sm: "28px", md: "32px" },
+      textAlign: { xs: "center", md: "left" },
+      width: "100%",
+    },
+    contactIcon: {
+      mr: { xs: 1, sm: 1.5 },
+      color: "#00CE84",
+      fontSize: { xs: "18px", sm: "20px", md: "22px" },
+    },
+    contactLink: {
+      textDecoration: "none",
+      color: "#000000",
+      transition: "color 0.3s ease",
+      "&:hover": {
+        color: "#00CE84",
+      },
     },
     carAnimation: {
       position: 'absolute',
-      // top: '-50px',
-      // right: '-100px',
-      // width: { xs: '30px', sm: '30px', md: '60px' },
-      // height: { xs: '30px', sm: '30px', md: '60px' },
+      top: { xs: '-15px', sm: '-25px', md: '-50px' },
+      right: { xs: '-50px', sm: '-75px', md: '-100px' },
+      width: { xs: '20px', sm: '25px', md: '40px', lg: '60px' },
+      height: { xs: '20px', sm: '25px', md: '40px', lg: '60px' },
       animation: isVisible ? 'carMove 4s linear infinite' : 'none',
       transform: 'scaleX(-1)',
+      zIndex: 1,
+    },
+    mobileGrid: {
+      display: "grid",
+      gridTemplateColumns: { xs: "1fr", sm: "1fr 1fr" },
+      gap: { xs: 3, sm: 4 },
+      width: "100%",
     },
   };
 
   const keyframes = `
     @keyframes carMove {
       0% {
-        transform: translateX(0);
+        transform: scaleX(-1) translateX(0);
       }
       100% {
-        transform: translateX(${isMobile ? 'calc(-100vw - 100px)' : 'calc(-110vw - 100px)'});
+        transform: scaleX(-1) translateX(${isMobile ? 'calc(-100vw - 50px)' : isTablet ? 'calc(-100vw - 75px)' : 'calc(-110vw - 100px)'});
       }
     }
   `;
@@ -218,85 +282,90 @@ const Footer = () => {
   return (
     <>
       <style>{keyframes}</style>
-      <Box id="animated-footer" sx={{ ...styles.footerContainer, position: 'relative' }}>
+      <Box id="animated-footer" sx={styles.footerContainer}>
         {isVisible && (
-          <>
-            <img 
-              src="/svg/car.png" 
-              alt="Moving car"
-              className="w-[30px] h-[30px] md:w-[60px] md:h-[60px] top-[-25px] right-[-100px] md:top-[-50px] md:right-[-100px]"
-              style={{ ...styles.carAnimation, animationDelay: '0s' }}
-            />
-            
-          </>
+          <Box
+            component="img"
+            src="/svg/car.png"
+            alt="Moving car"
+            sx={styles.carAnimation}
+          />
         )}
-        {isMobile ? (
-          <Box>
-            <Box sx={styles.footerSmallScreenContainer}>
-              {/* LANE LOGO  */}
-              <Box mb={4}>
-                <Box
-                sx={{
-                  width: "100%",
-                  maxWidth: isMobile ? "187px" : "173px",
-                  height: "auto",
-                }}
+        
+        <Box sx={styles.footerMainContainer}>
+          {/* Logo Section - Always first */}
+          <Box sx={styles.logoSection}>
+            <Box component="img" src="/Lane_Footer_Logo.svg" alt="Logo" sx={styles.logoImage} />
+            <Box sx={styles.socialIconsContainer}>
+              {socialIcons.map(({ Icon, href }, index) => (
+                <Link
+                  key={index}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
-                  <img
-                    src="/Lane_Footer_Logo.svg"
-                   
-                    alt="Logo"
-                  />
-                </Box>
-                <Box>
-                  <Box mt={2} display="flex" flexDirection="row">
-                    {socialIcons.map(({ Icon, href }, index) => (
-                      <Link
-                        key={index}
-                        href={href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        sx={{ mr: 1 }}
-                      >
-                        <Icon sx={styles.footerIcons} />
-                      </Link>
-                    ))}
-                  </Box>
-                  <Typography
-                    variant="h5"
-                    fontWeight={600}
-                    fontSize={{ xs: "18px", sm: "24px", md: "26px" }}
-                    color="#000000"
-                    fontFamily="Bricolage Grotesque"
-                    sx={{ mt: 2 }}
-                  >
-                    We do cool things here!
+                  <IconButton sx={styles.footerIcons}>
+                    <Icon />
+                  </IconButton>
+                </Link>
+              ))}
+            </Box>
+            <Typography sx={styles.tagline}>
+              We do cool things here!
+            </Typography>
+          </Box>
+
+          {/* Mobile/Tablet Grid Layout */}
+          {(isMobile || isTablet) && (
+            <Box sx={styles.mobileGrid}>
+              {/* Information Section */}
+              <Box sx={styles.sectionContainer}>
+                <Box sx={styles.footerHeadingImage}>
+                  <Typography variant="h4" sx={styles.footerHeading}>
+                    Information
                   </Typography>
                 </Box>
+                <Box sx={styles.linksContainer}>
+                  {infoLinks.map(({ text, href }, i) => (
+                    <Link key={i} href={href} sx={styles.footerLinks}>
+                      {text}
+                    </Link>
+                  ))}
+                </Box>
               </Box>
-              {/* Contact Information */}
-              <Box>
+
+              {/* Quick Links Section */}
+              <Box sx={styles.sectionContainer}>
+                <Box sx={styles.footerHeadingImage}>
+                  <Typography variant="h4" sx={styles.footerHeading}>
+                    Quick Links
+                  </Typography>
+                </Box>
+                <Box sx={styles.linksContainer}>
+                  {quickLinks.map(({ text, href }, i) => (
+                    <Link key={i} href={href} sx={styles.footerLinks}>
+                      {text}
+                    </Link>
+                  ))}
+                </Box>
+              </Box>
+
+              {/* Contact Section - Full width on mobile */}
+              <Box sx={{ 
+                ...styles.sectionContainer, 
+                gridColumn: { xs: "1", sm: "1 / -1" }
+              }}>
                 <Box sx={styles.footerHeadingImage}>
                   <Typography variant="h4" sx={styles.footerHeading}>
                     Contact Us
                   </Typography>
                 </Box>
-                <Box
-                  sx={{
-                    display: "flex",
-                    flexDirection: isMobile ? "column" : "column",
-                    justifyContent: isMobile ? "space-around" : "flex-start",
-                  }}
-                >
+                <Box sx={styles.linksContainer}>
                   {contactInfo.map(({ Icon, text, href }, index) => (
-                    <Typography
-                      key={index}
-                      variant="body2"
-                      sx={styles.footerContact}
-                    >
-                      <Icon sx={{ mr: 1, color: "#00CE84" }} />
+                    <Typography key={index} sx={styles.contactItem}>
+                      <Icon sx={styles.contactIcon} />
                       <Link
-                        sx={{ textDecoration: "none", color: "#000000" }}
+                        sx={styles.contactLink}
                         href={href}
                         target={text === "WhatsApp " ? "_blank" : "_self"}
                         rel={text === "WhatsApp " ? "noopener noreferrer" : ""}
@@ -308,22 +377,19 @@ const Footer = () => {
                 </Box>
               </Box>
             </Box>
-            <Box sx={styles.footerSmallScreenContainerTwo}>
-              {/* Information section */}
-              <Box flex={{ xs: "1 1 100%" }} mb={4}>
+          )}
+
+          {/* Desktop Layout */}
+          {!isMobile && !isTablet && (
+            <>
+              {/* Information Section */}
+              <Box sx={styles.sectionContainer}>
                 <Box sx={styles.footerHeadingImage}>
                   <Typography variant="h4" sx={styles.footerHeading}>
                     Information
                   </Typography>
                 </Box>
-                <Box
-                  sx={{
-                    display: "flex",
-                    flexDirection: "column",
-                    flexWrap: "wrap",
-                    justifyContent: isMobile ? "space-around" : "flex-start",
-                  }}
-                >
+                <Box sx={styles.linksContainer}>
                   {infoLinks.map(({ text, href }, i) => (
                     <Link key={i} href={href} sx={styles.footerLinks}>
                       {text}
@@ -331,159 +397,49 @@ const Footer = () => {
                   ))}
                 </Box>
               </Box>
-              {/* Quick links section */}
-              <Box flex={{ xs: "1 1 100%" }} mb={4}>
+
+              {/* Quick Links Section */}
+              <Box sx={styles.sectionContainer}>
                 <Box sx={styles.footerHeadingImage}>
                   <Typography variant="h4" sx={styles.footerHeading}>
                     Quick Links
                   </Typography>
                 </Box>
-                <Box
-                  sx={{
-                    display: "flex",
-                    flexDirection: "column",
-                    flexWrap: "wrap",
-                    justifyContent: isMobile ? "space-around" : "flex-start",
-                  }}
-                >
+                <Box sx={styles.linksContainer}>
                   {quickLinks.map(({ text, href }, i) => (
-                    <Link
-                      key={i}
-                      href={href}
-                      sx={styles.footerLinks}
-                      paddingLeft={{ xs: 1.2 }}
-                    >
+                    <Link key={i} href={href} sx={styles.footerLinks}>
                       {text}
                     </Link>
                   ))}
                 </Box>
               </Box>
-            </Box>
-          </Box>
-        ) : (
-          <Box sx={styles.footerSecondContainer}>
-            <Box flex={2} mb={4} mt={6}>
-              <Box>
-                <img
-                  src="/Lane_Footer_Logo.svg"
-                  style={{
-                    // width: "100%",
-                    maxWidth: isMobile ? "187px" : "173px",
-                    height: "auto",
-                  }}
-                  alt="Logo"
-                />
-              </Box>
-              <Box>
-                <Box mt={2} display="flex" flexDirection="row">
-                  {socialIcons.map(({ Icon, href }, i) => (
-                    <Link
-                      key={i}
-                      href={href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      sx={{ mr: 1 }}
-                    >
-                      <Icon sx={styles.footerIcons} />
-                    </Link>
-                  ))}
-                </Box>
-                <Typography
-                  variant="h5"
-                  fontWeight={600}
-                  fontSize={{ xs: "20px", sm: "24px", md: "26px" }}
-                  color="#000000"
-                  fontFamily="Bricolage Grotesque"
-                  sx={{ mt: 2 }}
-                >
-                  We do cool things here!
-                </Typography>
-              </Box>
-            </Box>
-            {/* Information section */}
-            <Box flex={1} mb={4} mt={6}>
-              <Box sx={styles.footerHeadingImage}>
-                <Typography variant="h4" sx={styles.footerHeading}>
-                  Information
-                </Typography>
-              </Box>
-              <Box
-                sx={{
-                  display: "flex",
-                  flexDirection: isMobile ? "row" : "column",
-                  flexWrap: "wrap",
-                  justifyContent: isMobile ? "space-around" : "flex-start",
-                }}
-              >
-                {infoLinks.map(({ text, href }, i) => (
-                  <Link key={i} href={href} sx={styles.footerLinks}>
-                    {text}
-                  </Link>
-                ))}
-              </Box>
-            </Box>
-            {/* Quick links section */}
-            <Box flex={1} mb={4} mt={6}>
-              <Box sx={styles.footerHeadingImage}>
-                <Typography variant="h4" sx={styles.footerHeading}>
-                  Quick Links
-                </Typography>
-              </Box>
-              <Box
-                sx={{
-                  display: "flex",
-                  flexDirection: isMobile ? "column" : "column",
-                  flexWrap: "wrap",
-                  justifyContent: isMobile ? "space-around" : "flex-start",
-                }}
-              >
-                {quickLinks.map(({ text, href }, i) => (
-                  <Link
-                    key={i}
-                    href={href}
-                    sx={styles.footerLinks}
-                    paddingLeft={{ xs: 1.2 }}
-                  >
-                    {text}
-                  </Link>
-                ))}
-              </Box>
-            </Box>
-            {/* Contact us section */}
-            <Box flex={1} mt={6}>
-              <Box sx={styles.footerHeadingImage}>
-                <Typography variant="h4" sx={styles.footerHeading}>
-                  Contact Us
-                </Typography>
-              </Box>
-              <Box
-                sx={{
-                  display: "flex",
-                  flexDirection: isMobile ? "column" : "column",
-                  justifyContent: isMobile ? "space-around" : "flex-start",
-                }}
-              >
-                {contactInfo.map(({ Icon, text, href }, index) => (
-                  <Typography
-                    key={index}
-                    variant="body2"
-                    sx={styles.footerContact}
-                  >
-                    <Icon sx={{ mr: 1, color: "#00CE84" }} />
-                    <Link
-                      sx={{ textDecoration: "none", color: "#000000" }}
-                      href={href}
-                      target={text === "WhatsApp " ? "_blank" : "_self"}
-                      rel={text === "WhatsApp " ? "noopener noreferrer" : ""}
-                    >
-                      {text}
-                    </Link>
+
+              {/* Contact Section */}
+              <Box sx={styles.sectionContainer}>
+                <Box sx={styles.footerHeadingImage}>
+                  <Typography variant="h4" sx={styles.footerHeading}>
+                    Contact Us
                   </Typography>
-                ))}
+                </Box>
+                <Box sx={styles.linksContainer}>
+                  {contactInfo.map(({ Icon, text, href }, index) => (
+                    <Typography key={index} sx={styles.contactItem}>
+                      <Icon sx={styles.contactIcon} />
+                      <Link
+                        sx={styles.contactLink}
+                        href={href}
+                        target={text === "WhatsApp " ? "_blank" : "_self"}
+                        rel={text === "WhatsApp " ? "noopener noreferrer" : ""}
+                      >
+                        {text}
+                      </Link>
+                    </Typography>
+                  ))}
+                </Box>
               </Box>
-            </Box>
-          </Box>
-        )}
+            </>
+          )}
+        </Box>
       </Box>
     </>
   );

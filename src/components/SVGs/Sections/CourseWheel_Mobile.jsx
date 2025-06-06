@@ -2,81 +2,82 @@ import React, { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 
-import beginners from "./Courses_Home_Mobile/Beginners";
 import BeginnerCourse from "./Courses_Home_Mobile/Beginners";
 import CityDrivingCourse from "./Courses_Home_Mobile/City_Driving";
 import ParkingCourse from "./Courses_Home_Mobile/Parking";
 import HighwayDrivingCourse from "./Courses_Home_Mobile/Highway_Driving";
 
 const CourseWheel_Sm = () => {
-    const [currentStep, setCurrentStep] = useState("");
-    const [wheelRotation, setWheelRotation] = useState(3);
-    const [showSVG, setShowSVG] = useState(true);
+  const [currentStep, setCurrentStep] = useState("");
+  const [wheelRotation, setWheelRotation] = useState(3);
+  const [showSVG, setShowSVG] = useState(true);
 
-    const handleClick = (value) => {
-        if (value === 0) {
-            setWheelRotation(0);
-            setTimeout(() => {
-                setCurrentStep("Beginners");
-                setShowSVG(false);
-            }, 1500);
-        } else if (value === 1) {
-            setCurrentStep("Card2");
-        } else if (value === 2) {
-            setWheelRotation(90);
-            setTimeout(() => {
-                setCurrentStep("City_driving");
-                setShowSVG(false);
-            }, 1500);
-        } else if (value === 3) {
-            setWheelRotation(180);
-            setTimeout(() => {
-                setCurrentStep("Parking");
-                setShowSVG(false);
-            }, 1500);
-        } else if (value === 4) {
-            setWheelRotation(360);
-            setTimeout(() => {
-                setCurrentStep("Highway_Driving");
-                setShowSVG(false);
-            }, 1500);
-        }
-    };
+  const navigate = useNavigate();
 
-    const handleLeftArrowClick = () => {
-        if (currentStep === "Beginners") {
-            setCurrentStep("Highway_Driving");
-        } else if (currentStep === "Highway_Driving") {
-            setCurrentStep("Parking");
-        } else if (currentStep === "Parking") {
-            setCurrentStep("City_driving");
-        } else if (currentStep === "City_driving") {
-            setCurrentStep("Beginners");
-        }
-    };
+  const handleClick = (value) => {
+    if (value === 0) {
+      setWheelRotation(0);
+      setTimeout(() => {
+        setCurrentStep("Beginners");
+        setShowSVG(false);
+      }, 1500);
+    } else if (value === 1) {
+      setCurrentStep("Card2");
+    } else if (value === 2) {
+      setWheelRotation(90);
+      setTimeout(() => {
+        setCurrentStep("City_driving");
+        setShowSVG(false);
+      }, 1500);
+    } else if (value === 3) {
+      setWheelRotation(180);
+      setTimeout(() => {
+        setCurrentStep("Parking");
+        setShowSVG(false);
+      }, 1500);
+    } else if (value === 4) {
+      setWheelRotation(360);
+      setTimeout(() => {
+        setCurrentStep("Highway_Driving");
+        setShowSVG(false);
+      }, 1500);
+    }
+  };
 
-    const handleRightArrowClick = () => {
-        if (currentStep === "Beginners") {
-            setCurrentStep("City_driving");
-        } else if (currentStep === "City_driving") {
-            setCurrentStep("Parking");
-        } else if (currentStep === "Parking") {
-            setCurrentStep("Highway_Driving");
-        } else if (currentStep === "Highway_Driving") {
-            setCurrentStep("Beginners");
-        }
-    };
+  const handleLeftArrowClick = () => {
+    if (currentStep === "Beginners") {
+      setCurrentStep("Highway_Driving");
+    } else if (currentStep === "Highway_Driving") {
+      setCurrentStep("Parking");
+    } else if (currentStep === "Parking") {
+      setCurrentStep("City_driving");
+    } else if (currentStep === "City_driving") {
+      setCurrentStep("Beginners");
+    }
+  };
 
-    const navigate = useNavigate();
-    const handleSubmit = () => {
-        navigate("/signup");
-    };
+  const handleRightArrowClick = () => {
+    if (currentStep === "Beginners") {
+      setCurrentStep("City_driving");
+    } else if (currentStep === "City_driving") {
+      setCurrentStep("Parking");
+    } else if (currentStep === "Parking") {
+      setCurrentStep("Highway_Driving");
+    } else if (currentStep === "Highway_Driving") {
+      setCurrentStep("Beginners");
+    }
+  };
 
-    return (
-        <>
-            {showSVG ? (
-                <svg width="100%" height="100%" viewBox="360 12 971 5914" fill="none">
-                    <g id="Course_Wheel">
+  const handleSubmit = () => {
+    navigate("/signup");
+  };
+
+  return (
+    <>
+      {showSVG ? (
+        <svg width="100%" height="100%" viewBox="360 12 971 5914" fill="none">
+          <AnimatePresence>
+          <g id="Course_Wheel">
                         <g id="Question cards">
                             <AnimatePresence>
                                 <g id="Title">
@@ -5031,29 +5032,42 @@ const CourseWheel_Sm = () => {
                             </g>
                         </g>
                     </g>
-                </svg>
-            ) : (
-                <>
-                    {currentStep === "Beginners" && <BeginnerCourse
-                        handleLeftArrowClick={handleLeftArrowClick}
-                        handleRightArrowClick={handleRightArrowClick}
-                    />}
-                    {currentStep === "City_driving" && <CityDrivingCourse
-                        handleLeftArrowClick={handleLeftArrowClick}
-                        handleRightArrowClick={handleRightArrowClick}
-                    />}
-                    {currentStep === "Parking" && <ParkingCourse
-                        handleLeftArrowClick={handleLeftArrowClick}
-                        handleRightArrowClick={handleRightArrowClick}
-                    />}
-                    {currentStep === "Highway_Driving" && <HighwayDrivingCourse
-                        handleLeftArrowClick={handleLeftArrowClick}
-                        handleRightArrowClick={handleRightArrowClick}
-                    />}
-                </>
-            )}
-        </>
-    );
+
+
+          </AnimatePresence>
+        </svg>
+      ) : null}
+
+      {currentStep === "Beginners" && (
+        <BeginnerCourse
+          onLeft={handleLeftArrowClick}
+          onRight={handleRightArrowClick}
+          onSubmit={handleSubmit}
+        />
+      )}
+      {currentStep === "City_driving" && (
+        <CityDrivingCourse
+          onLeft={handleLeftArrowClick}
+          onRight={handleRightArrowClick}
+          onSubmit={handleSubmit}
+        />
+      )}
+      {currentStep === "Parking" && (
+        <ParkingCourse
+          onLeft={handleLeftArrowClick}
+          onRight={handleRightArrowClick}
+          onSubmit={handleSubmit}
+        />
+      )}
+      {currentStep === "Highway_Driving" && (
+        <HighwayDrivingCourse
+          onLeft={handleLeftArrowClick}
+          onRight={handleRightArrowClick}
+          onSubmit={handleSubmit}
+        />
+      )}
+    </>
+  );
 };
 
 export default CourseWheel_Sm;

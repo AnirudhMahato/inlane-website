@@ -8,6 +8,7 @@ const FAQPage = () => {
   const [activeIndex, setActiveIndex] = useState(null);
   const [searchTerm, setSearchTerm] = useState('');
   const [filteredFAQs, setFilteredFAQs] = useState(faqData);
+  const [selectedCategory, setSelectedCategory] = useState('All');
   const [isTyping, setIsTyping] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -20,24 +21,41 @@ const FAQPage = () => {
   });
   const [messageCharCount, setMessageCharCount] = useState(0);
 
+  // Define FAQ categories with emojis
+  const categories = [
+    { id: 'All', name: 'All', emoji: '' },
+    { id: 'Everything Cars', name: 'Everything Cars', emoji: '🚗' },
+    { id: 'RTO Queries', name: 'RTO Queries', emoji: '❓' },
+    { id: 'Driver\'s Circle', name: 'Driver\'s Circle', emoji: '😊', extraEmoji: '🍩' },
+    { id: 'Lane Updates', name: 'Lane Updates', emoji: '🔵' },
+    { id: 'Road trips', name: 'Road trips', emoji: '🗺️' }
+  ];
+
   // Scroll to top when component mounts
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  // Filter FAQs based on search term
+  // Filter FAQs based on search term and category
   useEffect(() => {
-    if (searchTerm.trim() === '') {
-      setFilteredFAQs(faqData);
-    } else {
-      const filtered = faqData.filter(faq =>
+    let filtered = faqData;
+
+    // Filter by category first
+    if (selectedCategory !== 'All') {
+      filtered = filtered.filter(faq => faq.category === selectedCategory);
+    }
+
+    // Then filter by search term
+    if (searchTerm.trim() !== '') {
+      filtered = filtered.filter(faq =>
         faq.question.toLowerCase().includes(searchTerm.toLowerCase()) ||
         faq.answer.toLowerCase().includes(searchTerm.toLowerCase())
       );
-      setFilteredFAQs(filtered);
-      setActiveIndex(null);
     }
-  }, [searchTerm]);
+
+    setFilteredFAQs(filtered);
+    setActiveIndex(null);
+  }, [searchTerm, selectedCategory]);
 
   // Handle typing animation
   const handleInputChange = (e) => {
@@ -57,6 +75,11 @@ const FAQPage = () => {
   const clearSearch = () => {
     setSearchTerm('');
     setIsTyping(false);
+  };
+
+  const handleCategoryChange = (categoryId) => {
+    setSelectedCategory(categoryId);
+    setActiveIndex(null);
   };
 
   // Modal handlers
@@ -336,6 +359,20 @@ const FAQPage = () => {
           color: #dc2626;
           border: 1px solid #fecaca;
         }
+
+        .category-button {
+          transition: all 0.3s ease;
+          transform: scale(1);
+        }
+
+        .category-button:hover {
+          transform: scale(1.05);
+        }
+
+        .category-button.active {
+          transform: scale(1.02);
+          box-shadow: 0 4px 12px rgba(0, 206, 132, 0.3);
+        }
       `}</style>
 
       <div className="bg-logoYellow">
@@ -412,8 +449,60 @@ const FAQPage = () => {
               </div>
             </div>
 
+            {/* Category Filter Buttons */}
+            <div className="mb-8">
+              <div className="flex flex-wrap gap-3 justify-center">
+                {categories.map((category) => (
+                  <button
+                    key={category.id}
+                    onClick={() => handleCategoryChange(category.id)}
+                    className={`category-button px-4 py-2 rounded-full font-grotesque font-medium text-sm md:text-base transition-all duration-300 ${
+                      selectedCategory === category.id
+                        ? category.id === 'All'
+                          ? 'bg-yellow-200 text-black border-2 border-black active'
+                          : category.id === 'Everything Cars'
+                          ? 'bg-green-200 text-black border-2 border-black active'
+                          : category.id === 'RTO Queries'
+                          ? 'bg-purple-200 text-black border-2 border-black active'
+                          : category.id === 'Driver\'s Circle'
+                          ? 'bg-yellow-100 text-black border-2 border-black active'
+                          : category.id === 'Lane Updates'
+                          ? 'bg-teal-200 text-black border-2 border-black active'
+                          : 'bg-purple-100 text-black border-2 border-black active'
+                        : category.id === 'All'
+                        ? 'bg-yellow-100 text-black border border-gray-300 hover:bg-yellow-200'
+                        : category.id === 'Everything Cars'
+                        ? 'bg-green-100 text-black border border-gray-300 hover:bg-green-200'
+                        : category.id === 'RTO Queries'
+                        ? 'bg-purple-100 text-black border border-gray-300 hover:bg-purple-200'
+                        : category.id === 'Driver\'s Circle'
+                        ? 'bg-yellow-50 text-black border border-gray-300 hover:bg-yellow-100'
+                        : category.id === 'Lane Updates'
+                        ? 'bg-teal-100 text-black border border-gray-300 hover:bg-teal-200'
+                        : 'bg-purple-50 text-black border border-gray-300 hover:bg-purple-100'
+                    }`}
+                  >
+                    <span className="flex items-center gap-2">
+                      {category.emoji && <span>{category.emoji}</span>}
+                      {category.extraEmoji && <span>{category.extraEmoji}</span>}
+                      <span>{category.name}</span>
+                    </span>
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Selected Category Display */}
+            {selectedCategory !== 'All' && (
+              <div className="mb-6 text-center">
+                <h2 className="text-xl md:text-2xl font-medium font-['glancyr'] text-gray-700">
+                  {categories.find(cat => cat.id === selectedCategory)?.emoji} {selectedCategory} FAQs
+                </h2>
+              </div>
+            )}
+
             {/* No Results Message */}
-            {filteredFAQs.length === 0 && searchTerm && (
+            {filteredFAQs.length === 0 && (searchTerm || selectedCategory !== 'All') && (
               <div className="text-center py-12 animate-fadeIn">
                 <div className="mb-4">
                   <svg className="w-16 h-16 text-gray-300 mx-auto animate-pulse" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -424,10 +513,16 @@ const FAQPage = () => {
                   No FAQs found
                 </h3>
                 <p className="font-grotesque text-gray-500 mb-4">
-                  Try adjusting your search terms or browse all FAQs below.
+                  {searchTerm 
+                    ? "Try adjusting your search terms or browse different categories." 
+                    : `No FAQs available in the ${selectedCategory} category yet.`
+                  }
                 </p>
                 <button
-                  onClick={clearSearch}
+                  onClick={() => {
+                    clearSearch();
+                    setSelectedCategory('All');
+                  }}
                   className="bg-gradient-to-r from-[#00CE84] to-[#00BC78] text-white px-6 py-2 rounded-full font-grotesque font-medium hover:shadow-lg transition-all duration-300 transform hover:scale-105"
                 >
                   Show All FAQs
@@ -669,7 +764,7 @@ const FAQPage = () => {
                           <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
                           </svg>
-                          Raise Quer
+                          Raise Query
                         </>
                       )}
                     </button>
