@@ -70,7 +70,7 @@ const FAQPage = () => {
   const handleInputChange = (e) => {
     setSearchTerm(e.target.value);
     setIsTyping(true);
-    
+
     clearTimeout(window.typingTimeout);
     window.typingTimeout = setTimeout(() => {
       setIsTyping(false);
@@ -114,7 +114,7 @@ const FAQPage = () => {
   // Form handlers
   const handleFormChange = (e) => {
     const { name, value } = e.target;
-    
+
     if (name === 'message' && value.length <= 500) {
       setFormData(prev => ({ ...prev, [name]: value }));
       setMessageCharCount(value.length);
@@ -148,7 +148,7 @@ const FAQPage = () => {
 
       // Success - show success message
       setSubmitMessage('Your query has been submitted successfully! We will get back to you soon.');
-      
+
       // Reset form after successful submission
       setTimeout(() => {
         closeModal();
@@ -387,7 +387,7 @@ const FAQPage = () => {
       <div className="bg-logoYellow">
         {/* Header */}
         <Navbar2 backgroundColor='#FAF9E6' logo='./LANE_LOGO.svg' burgerMenu='/PurpleHamburger.png' />
-        
+
         {/* Main Content */}
         <div className='w-full min-h-screen pt-8 pb-24'>
           <div className="max-w-6xl mx-4 md:mx-auto bg-white rounded-[1rem] md:rounded-[2rem] p-4 md:p-8 shadow-lg">
@@ -396,7 +396,7 @@ const FAQPage = () => {
               <h1 className="text-3xl md:text-4xl font-medium font-['glancyr'] text-center md:text-left" aria-description='Frequently Asked Questions'>
                 Frequently Asked Questions
               </h1>
-              
+
               {/* Search Bar - Top Right */}
               <div className="relative w-full md:w-80 lg:w-96">
                 <div className="relative">
@@ -405,11 +405,10 @@ const FAQPage = () => {
                     placeholder="Search FAQs..."
                     value={searchTerm}
                     onChange={handleInputChange}
-                    className={`w-full px-4 py-3 pr-12 border border-gray-300 rounded-[1rem] font-grotesque text-sm focus:outline-none focus:ring-2 focus:ring-[#00CE84] focus:border-transparent transition-all duration-300 ${
-                      isTyping ? 'animate-pulse border-[#00CE84]' : ''
-                    }`}
+                    className={`w-full px-4 py-3 pr-12 border border-gray-300 rounded-[1rem] font-grotesque text-sm focus:outline-none focus:ring-2 focus:ring-[#00CE84] focus:border-transparent transition-all duration-300 ${isTyping ? 'animate-pulse border-[#00CE84]' : ''
+                      }`}
                   />
-                  
+
                   {/* Typing Animation Indicator */}
                   {isTyping && (
                     <div className="absolute left-4 top-1/2 transform -translate-y-1/2 flex space-x-1">
@@ -418,7 +417,7 @@ const FAQPage = () => {
                       <div className="w-1 h-1 bg-[#00CE84] rounded-full animate-bounce-3"></div>
                     </div>
                   )}
-                  
+
                   {/* Search/Clear Icon */}
                   <div className="absolute right-4 top-1/2 transform -translate-y-1/2">
                     {searchTerm ? (
@@ -441,7 +440,7 @@ const FAQPage = () => {
                     )}
                   </div>
                 </div>
-                
+
                 {/* Search Results Counter */}
                 {searchTerm && (
                   <div className="mt-2 text-right">
@@ -465,31 +464,30 @@ const FAQPage = () => {
                   <button
                     key={category.id}
                     onClick={() => handleCategoryChange(category.id)}
-                    className={`category-button px-4 py-2 rounded-full font-grotesque font-medium text-sm md:text-base transition-all duration-300 ${
-                      selectedCategory === category.id
+                    className={`category-button px-4 py-2 rounded-full font-grotesque font-medium text-sm md:text-base transition-all duration-300 ${selectedCategory === category.id
                         ? category.id === 'All'
                           ? 'bg-yellow-200 text-black border-2 border-black active'
                           : category.id === 'General Driving School Information'
-                          ? 'bg-green-200 text-black border-2 border-black active'
-                          : category.id === 'Course & Training Details'
-                          ? 'bg-purple-200 text-black border-2 border-black active'
-                          : category.id === 'Pricing, Payments & Refunds'
-                          ? 'bg-yellow-100 text-black border-2 border-black active'
-                          : category.id === 'Booking & Scheduling'
-                          ? 'bg-teal-200 text-black border-2 border-black active'
-                          : 'bg-purple-100 text-black border-2 border-black active'
+                            ? 'bg-green-200 text-black border-2 border-black active'
+                            : category.id === 'Course & Training Details'
+                              ? 'bg-purple-200 text-black border-2 border-black active'
+                              : category.id === 'Pricing, Payments & Refunds'
+                                ? 'bg-yellow-100 text-black border-2 border-black active'
+                                : category.id === 'Booking & Scheduling'
+                                  ? 'bg-teal-200 text-black border-2 border-black active'
+                                  : 'bg-purple-100 text-black border-2 border-black active'
                         : category.id === 'All'
-                        ? 'bg-yellow-100 text-black border border-gray-300 hover:bg-yellow-200'
-                        : category.id === 'General Driving School Information'
-                        ? 'bg-green-100 text-black border border-gray-300 hover:bg-green-200'
-                        : category.id === 'Course & Training Details'
-                        ? 'bg-purple-100 text-black border border-gray-300 hover:bg-purple-200'
-                        : category.id === 'Pricing, Payments & Refunds'
-                        ? 'bg-yellow-50 text-black border border-gray-300 hover:bg-yellow-100'
-                        : category.id === 'Booking & Scheduling'
-                        ? 'bg-teal-100 text-black border border-gray-300 hover:bg-teal-200'
-                        : 'bg-purple-50 text-black border border-gray-300 hover:bg-purple-100'
-                    }`}
+                          ? 'bg-yellow-100 text-black border border-gray-300 hover:bg-yellow-200'
+                          : category.id === 'General Driving School Information'
+                            ? 'bg-green-100 text-black border border-gray-300 hover:bg-green-200'
+                            : category.id === 'Course & Training Details'
+                              ? 'bg-purple-100 text-black border border-gray-300 hover:bg-purple-200'
+                              : category.id === 'Pricing, Payments & Refunds'
+                                ? 'bg-yellow-50 text-black border border-gray-300 hover:bg-yellow-100'
+                                : category.id === 'Booking & Scheduling'
+                                  ? 'bg-teal-100 text-black border border-gray-300 hover:bg-teal-200'
+                                  : 'bg-purple-50 text-black border border-gray-300 hover:bg-purple-100'
+                      }`}
                   >
                     <span className="flex items-center gap-2">
                       {category.emoji && <span>{category.emoji}</span>}
@@ -522,8 +520,8 @@ const FAQPage = () => {
                   No FAQs found
                 </h3>
                 <p className="font-grotesque text-gray-500 mb-4">
-                  {searchTerm 
-                    ? "Try adjusting your search terms or browse different categories." 
+                  {searchTerm
+                    ? "Try adjusting your search terms or browse different categories."
                     : `No FAQs available in the ${selectedCategory} category yet.`
                   }
                 </p>
@@ -548,8 +546,8 @@ const FAQPage = () => {
                       onClick={() => toggleAccordion(index)}
                       title={faq.question}
                       className={`w-full flex items-center justify-between border border-black px-4 md:px-6 py-3 transition-all duration-300
-                        ${activeIndex === index 
-                          ? 'bg-white rounded-t-[1rem] border-b-0 shadow-lg' 
+                        ${activeIndex === index
+                          ? 'bg-white rounded-t-[1rem] border-b-0 shadow-lg'
                           : 'bg-white rounded-[1rem] hover:shadow-md'
                         }`}
                     >
@@ -566,9 +564,8 @@ const FAQPage = () => {
                         )}
                       </span>
                       <svg
-                        className={`w-5 h-5 transition-transform duration-300 text-gray-500 flex-shrink-0 ${
-                          activeIndex === index ? "rotate-180" : ""
-                        }`}
+                        className={`w-5 h-5 transition-transform duration-300 text-gray-500 flex-shrink-0 ${activeIndex === index ? "rotate-180" : ""
+                          }`}
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
@@ -593,7 +590,10 @@ const FAQPage = () => {
                               )
                             }} />
                           ) : (
-                            faq.answer
+                            <div
+                              className="faq-answer"
+                              dangerouslySetInnerHTML={{ __html: faq.answer }}
+                            />
                           )}
                         </p>
                       </div>
@@ -611,7 +611,7 @@ const FAQPage = () => {
               <p className="font-grotesque text-sm md:text-base text-gray-600 mb-4">
                 Can't find the answer you're looking for? Please contact our support team.
               </p>
-              <button 
+              <button
                 onClick={openModal}
                 className="bg-gradient-to-r from-[#00CE84] to-[#00BC78] text-white px-6 py-2 rounded-full font-grotesque font-medium hover:shadow-lg transition-all duration-300 transform hover:scale-105"
               >
@@ -648,11 +648,10 @@ const FAQPage = () => {
 
                 {/* Success/Error Message */}
                 {submitMessage && (
-                  <div className={`mb-4 p-3 rounded-lg text-sm ${
-                    submitMessage.includes('successfully') 
-                      ? 'success-message' 
+                  <div className={`mb-4 p-3 rounded-lg text-sm ${submitMessage.includes('successfully')
+                      ? 'success-message'
                       : 'error-message'
-                  }`}>
+                    }`}>
                     {submitMessage}
                   </div>
                 )}
@@ -755,11 +754,10 @@ const FAQPage = () => {
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className={`w-full py-3 px-6 rounded-full font-grotesque font-medium transition-all duration-300 flex items-center justify-center gap-2 ${
-                        isSubmitting 
-                          ? 'bg-gray-400 cursor-not-allowed' 
+                      className={`w-full py-3 px-6 rounded-full font-grotesque font-medium transition-all duration-300 flex items-center justify-center gap-2 ${isSubmitting
+                          ? 'bg-gray-400 cursor-not-allowed'
                           : 'bg-gradient-to-r from-[#00CE84] to-[#00BC78] hover:shadow-lg transform hover:scale-105'
-                      } text-white`}
+                        } text-white`}
                     >
                       {isSubmitting ? (
                         <>
@@ -783,7 +781,7 @@ const FAQPage = () => {
             </div>
           </div>
         )}
-        
+
         {/* Footer */}
         <Footer />
       </div>

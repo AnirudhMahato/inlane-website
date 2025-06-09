@@ -65,21 +65,43 @@
       content="https://inlane.in/LANE_LOGO.svg"
       alt="Lane Image"
     />
-    <link rel="icon" href="/LANE_LOGO.svg" alt="Lane Icon" />
-    <link rel="preconnect" href="https://www.google.co.in" crossorigin />
-    <link rel="preconnect" href="https://www.google.com" crossorigin />
-    <link
-      rel="preconnect"
-      href="https://googleads.g.doubleclick.net"
-      crossorigin
-    />
-    <link
-      rel="preload"
-      href="https://fonts.gstatic.com/s/glancyr.woff2"
-      as="font"
-      type="font/woff2"
-      crossorigin="anonymous"
-    />
+ <!-- Favicon -->
+<link rel="icon" href="/LANE_LOGO.svg" type="image/svg+xml" />
+
+<!-- Preconnect to essential origins -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preconnect" href="https://googleads.g.doubleclick.net" crossorigin />
+
+<!-- Preload key fonts (update these URLs using DevTools if needed) -->
+<link
+  rel="preload"
+  href="https://fonts.gstatic.com/s/poppins/v20/pxiEyp8kv8JHgFVrJJfedw.woff2"
+  as="font"
+  type="font/woff2"
+  crossorigin="anonymous"
+/>
+<link
+  rel="preload"
+  href="https://fonts.gstatic.com/s/bricolagegrotesque/v3/examplefont.woff2"
+  as="font"
+  type="font/woff2"
+  crossorigin="anonymous"
+/>
+
+<!-- Async load Google Fonts CSS -->
+<link
+  rel="preload"
+  as="style"
+  href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+  onload="this.onload=null;this.rel='stylesheet';"
+/>
+<noscript>
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+  />
+</noscript>
 
     <!-- <link rel="preconnect" href="https://fonts.googleapis.com" alt="Lane Preconnect"/>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin alt="Lane Preconnect"/>
@@ -111,30 +133,21 @@
 
     <!-- Meta Pixel Code -->
     <script>
-      !(function (f, b, e, v, n, t, s) {
-        if (f.fbq) return;
-        n = f.fbq = function () {
-          n.callMethod
-            ? n.callMethod.apply(n, arguments)
-            : n.queue.push(arguments);
-        };
-        if (!f._fbq) f._fbq = n;
-        n.push = n;
-        n.loaded = !0;
-        n.version = "2.0";
-        n.queue = [];
-        t = b.createElement(e);
-        t.async = !0;
-        t.src = v;
-        s = b.getElementsByTagName(e)[0];
-        s.parentNode.insertBefore(t, s);
-      })(
-        window,
-        document,
-        "script",
-        "https://connect.facebook.net/en_US/fbevents.js"
-      );
-
+      // Delay Facebook Pixel to avoid blocking LCP
+      window.requestIdleCallback
+        ? requestIdleCallback(initFacebookPixel)
+        : setTimeout(initFacebookPixel, 3000);
+    
+      function initFacebookPixel() {
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}
+        (window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
+      }
       fbq("init", "2520149381490891");
       fbq("track", "PageView");
     </script>
