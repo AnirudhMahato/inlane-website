@@ -212,6 +212,8 @@ const Footer = () => {
       transition: "color 0.3s ease",
       "&:hover": {
         color: "#00CE84",
+        transform: "scale(1.1)",
+        backgroundColor: "#00CE84",
       },
     },
     footerIcons: {
@@ -221,10 +223,9 @@ const Footer = () => {
       padding: { xs: "4px", sm: "5px" },
       fontSize: { xs: "28px", sm: "32px", md: "36px", lg: "38px" },
       transition: "transform 0.3s ease-in-out",
-      "&:hover": { 
-        transform: "scale(1.1)",
-        backgroundColor: "#00CE84",
-      },
+      // "&:hover": { 
+        
+      // },
     },
     contactItem: {
       display: "flex",

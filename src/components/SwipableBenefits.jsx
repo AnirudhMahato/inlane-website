@@ -51,14 +51,14 @@ const BenefitsSplitLayout = ({ location = "HSR Layout" }) => {
       title: "Local expertise",
       description: `Local experts who understand ${location}'s traffic patterns & shortcuts`,
       color: "bg-[#FF99F5]",
-      image: "/benefits2.png"
+      image: "/webp/benefits2.webp"
     },
     {
       id: 3,
       title: "Practice routes",
       description: `Practice routes around ${practiceRoutes} and others`,
       color: "bg-[#6BECFF]",
-      image: "/benefits1.png"
+      image: "/webp/benefits1.webp"
     }
   ];
 

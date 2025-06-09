@@ -141,7 +141,7 @@ const Testimonial = () => {
       sx={{
         backgroundColor: "#00CE84",
         textAlign: "center",
-        backgroundImage: "url('/TestimonialBG.svg')",
+        backgroundImage: "url('/TestimonialBG.webp')",
         marginTop: { xs: "64px", sm: "96px", md: "128px" },
       }}
     >

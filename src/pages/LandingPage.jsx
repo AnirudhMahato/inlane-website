@@ -7,15 +7,15 @@ import {
   useMediaQuery,
   useTheme,
 } from "@mui/material";
-import React, { useEffect, useRef, useState, useMemo, useCallback } from "react";
+import React, { useEffect, useRef, useState, useMemo, useCallback, lazy, Suspense } from "react";
 import { motion, useAnimation, useScroll } from "framer-motion";
-import RoadSVG from "../components/SVGs/RoadSVG";
-import RoadSvg_Sm from "../components/SVGs/RoadSvg_Mobile";
+const RoadSVG = lazy(() => import("../components/SVGs/RoadSVG"));
+const RoadSvg_Sm = lazy(() => import("../components/SVGs/RoadSvg_Mobile"));
 import { Link } from "react-router-dom";
 import Testimonial from "../components/Testimonial";
 import Rocket from "../components/SVGs/Rocket";
 import { Helmet } from 'react-helmet-async';
-import { lazy, Suspense } from 'react';
+
 
 // Lazy load heavy components
 const LazyButton = lazy(() => import('@mui/material/Button'));
@@ -25,7 +25,7 @@ const LandingPage = () => {
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
   const isMediumScreen = useMediaQuery(theme.breakpoints.between("sm", "md"));
-  
+
   // Memoize icon styles to prevent recalculation on every render
   const iconStyles = useMemo(() => ({
     small: { color: "#FFFFFF", width: 16, height: 16 },
@@ -34,10 +34,10 @@ const LandingPage = () => {
   }), []);
 
   const IconStyle = useMemo(() => {
-    return isSmallScreen 
-      ? iconStyles.small 
-      : isMediumScreen 
-        ? iconStyles.medium 
+    return isSmallScreen
+      ? iconStyles.small
+      : isMediumScreen
+        ? iconStyles.medium
         : iconStyles.large;
   }, [isSmallScreen, isMediumScreen, iconStyles]);
 
@@ -62,7 +62,7 @@ const LandingPage = () => {
   useEffect(() => {
     // ✅ FIXED: Replace deprecated .onChange() with .on("change", callback)
     const unsubscribe = scrollYProgress.on("change", handleScrollAnimation);
-    
+
     // Cleanup function to prevent memory leaks
     return () => {
       unsubscribe();
@@ -94,18 +94,18 @@ const LandingPage = () => {
   const seoTags = useMemo(() => (
     <Helmet>
       <title>Learn Driving in Just 10 Days | Lane Driving School</title>
-      <meta 
-        name="description" 
+      <meta
+        name="description"
         content="Drive confidently with Lane's proven curriculum and expert instructors. Flexible schedules, personalized attention, and excellent results await"
       />
-      <meta 
-        name="keywords" 
+      <meta
+        name="keywords"
         content="driving school bangalore, car driving classes, learn driving bangalore, best driving school, driving lessons near me, driving instructor bangalore, automatic car training, driving school registration"
       />
       {/* Essential meta tags */}
       <meta name="robots" content="index, follow" />
       <link rel="canonical" href="https://inlane.in" />
-      
+
       {/* Open Graph Tags */}
       <meta property="og:title" content="InLane - Modern Driving School in Bangalore" />
       <meta property="og:description" content="Start your journey to becoming a confident driver with InLane. Professional driving lessons, structured courses, and comprehensive road safety education in Bangalore." />
@@ -139,11 +139,11 @@ const LandingPage = () => {
   return (
     <>
       {seoTags}
-
+      {/* font-['Bricolage_Grotesque'] */}
       <Box>
-        <Box className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 ">
+        <Box className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20  ">
           <div className="text-center relative ">
-            <h1 className="relative text-4xl sm:text-5xl md:text-6xl font-bold text-[#3C4856] font-['Bricolage_Grotesque'] mb-8">
+            <h1 className="relative text-4xl sm:text-5xl md:text-6xl font-bold text-[#3C4856] ${bricolageGrotesque.className} mb-8">
               {decorativeElements}
               Let's Start Your
               <br />
@@ -192,9 +192,11 @@ const LandingPage = () => {
             maxWidth: "1700px",
           }}
         >
-          {!isSmallScreen ? <RoadSVG /> : <RoadSvg_Sm />}
+          <Suspense fallback={<div style={{ textAlign: 'center' }}>Loading Road...</div>}>
+            {!isSmallScreen ? <RoadSVG /> : <RoadSvg_Sm />}
+          </Suspense>
         </Box>
-        
+
         {/* The end up part of the road where a flag is shown with a tag ready to drive Confidently */}
         <Box
           sx={{

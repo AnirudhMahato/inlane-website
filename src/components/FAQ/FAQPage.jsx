@@ -24,11 +24,20 @@ const FAQPage = () => {
   // Define FAQ categories with emojis
   const categories = [
     { id: 'All', name: 'All', emoji: '' },
-    { id: 'Everything Cars', name: 'Everything Cars', emoji: '🚗' },
-    { id: 'RTO Queries', name: 'RTO Queries', emoji: '❓' },
-    { id: 'Driver\'s Circle', name: 'Driver\'s Circle', emoji: '😊', extraEmoji: '🍩' },
-    { id: 'Lane Updates', name: 'Lane Updates', emoji: '🔵' },
-    { id: 'Road trips', name: 'Road trips', emoji: '🗺️' }
+    // { id: 'Everything Cars', name: 'Everything Cars', emoji: '🚗' },
+    // { id: 'RTO Queries', name: 'RTO Queries', emoji: '❓' },
+    // { id: 'Driver\'s Circle', name: 'Driver\'s Circle', emoji: '😊', extraEmoji: '🍩' },
+    // { id: 'Lane Updates', name: 'Lane Updates', emoji: '🔵' },
+    { id: 'General Driving School Information', name: 'General Driving School Information', emoji: '🚗' },
+    { id: 'Course & Training Details', name: 'Course & Training Details', emoji: '📘' },
+    { id: 'Pricing, Payments & Refunds', name: 'Pricing, Payments & Refunds', emoji: '💰' },
+    { id: 'Booking & Scheduling', name: 'Booking & Scheduling', emoji: '🗓️' },
+    { id: 'License & Government Procedures', name: 'License & Government Procedures', emoji: '📝' },
+    { id: 'Eligibility & Requirements', name: 'Eligibility & Requirements', emoji: '🔍' },
+    { id: 'Safety & Vehicle Details', name: 'Safety & Vehicle Details', emoji: '🚘' },
+    { id: 'Instructor-Related Questions', name: 'Instructor-Related Questions', emoji: '👨‍🏫' },
+    { id: 'Corporate & Bulk Training', name: 'Corporate & Bulk Training', emoji: '🏢' },
+    { id: 'Legal, Policies & Support', name: 'Legal, Policies & Support', emoji: '📜' },
   ];
 
   // Scroll to top when component mounts
@@ -384,7 +393,7 @@ const FAQPage = () => {
           <div className="max-w-6xl mx-4 md:mx-auto bg-white rounded-[1rem] md:rounded-[2rem] p-4 md:p-8 shadow-lg">
             {/* Header with Search Bar */}
             <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6 md:mb-8 mt-4 md:mt-0">
-              <h1 className="text-3xl md:text-4xl font-medium font-['glancyr'] text-center md:text-left">
+              <h1 className="text-3xl md:text-4xl font-medium font-['glancyr'] text-center md:text-left" aria-description='Frequently Asked Questions'>
                 Frequently Asked Questions
               </h1>
               
@@ -460,24 +469,24 @@ const FAQPage = () => {
                       selectedCategory === category.id
                         ? category.id === 'All'
                           ? 'bg-yellow-200 text-black border-2 border-black active'
-                          : category.id === 'Everything Cars'
+                          : category.id === 'General Driving School Information'
                           ? 'bg-green-200 text-black border-2 border-black active'
-                          : category.id === 'RTO Queries'
+                          : category.id === 'Course & Training Details'
                           ? 'bg-purple-200 text-black border-2 border-black active'
-                          : category.id === 'Driver\'s Circle'
+                          : category.id === 'Pricing, Payments & Refunds'
                           ? 'bg-yellow-100 text-black border-2 border-black active'
-                          : category.id === 'Lane Updates'
+                          : category.id === 'Booking & Scheduling'
                           ? 'bg-teal-200 text-black border-2 border-black active'
                           : 'bg-purple-100 text-black border-2 border-black active'
                         : category.id === 'All'
                         ? 'bg-yellow-100 text-black border border-gray-300 hover:bg-yellow-200'
-                        : category.id === 'Everything Cars'
+                        : category.id === 'General Driving School Information'
                         ? 'bg-green-100 text-black border border-gray-300 hover:bg-green-200'
-                        : category.id === 'RTO Queries'
+                        : category.id === 'Course & Training Details'
                         ? 'bg-purple-100 text-black border border-gray-300 hover:bg-purple-200'
-                        : category.id === 'Driver\'s Circle'
+                        : category.id === 'Pricing, Payments & Refunds'
                         ? 'bg-yellow-50 text-black border border-gray-300 hover:bg-yellow-100'
-                        : category.id === 'Lane Updates'
+                        : category.id === 'Booking & Scheduling'
                         ? 'bg-teal-100 text-black border border-gray-300 hover:bg-teal-200'
                         : 'bg-purple-50 text-black border border-gray-300 hover:bg-purple-100'
                     }`}
