@@ -16,7 +16,6 @@ import Testimonial from "../components/Testimonial";
 import Rocket from "../components/SVGs/Rocket";
 import { Helmet } from 'react-helmet-async';
 
-
 // Lazy load heavy components
 const LazyButton = lazy(() => import('@mui/material/Button'));
 const LazyRocket = lazy(() => import('@mui/icons-material/Rocket'));
@@ -190,13 +189,34 @@ const LandingPage = () => {
           sx={{
             width: { xs: "100%", sm: "90%", md: "85%" },
             maxWidth: "1700px",
+            minHeight: {
+              xs: "450px",  // Height for RoadSvg_Sm (small screens)
+              sm: "550px",  // Height for RoadSVG (medium screens)
+              md: "650px"   // Height for RoadSVG (large screens)
+            },
+            position: "relative",
           }}
         >
-          <Suspense fallback={<div style={{ textAlign: 'center' }}>Loading Road...</div>}>
+          <Suspense
+            fallback={
+              <Box
+                sx={{
+                  width: "100%",
+                  height: "100%",
+                  backgroundColor: "#f5f5f5",
+                  borderRadius: 1,
+                  animation: "pulse 1.5s ease-in-out infinite alternate",
+                  '@keyframes pulse': {
+                    from: { opacity: 1 },
+                    to: { opacity: 0.7 },
+                  },
+                }}
+              />
+            }
+          >
             {!isSmallScreen ? <RoadSVG /> : <RoadSvg_Sm />}
           </Suspense>
         </Box>
-
         {/* The end up part of the road where a flag is shown with a tag ready to drive Confidently */}
         <Box
           sx={{
@@ -229,7 +249,7 @@ const LandingPage = () => {
               src="/Flag.svg"
               alt="flag"
               sx={{
-                width: { xs: "25%", sm: "30%", md: "40%", lg: "auto" },
+                width: { xs: "97px", sm: "116.4px", md: "155.2px", lg: "194px" },
                 marginBottom: { xs: "20px", sm: "30px", md: "40px" },
               }}
             />

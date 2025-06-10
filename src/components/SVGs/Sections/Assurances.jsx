@@ -71,17 +71,15 @@ const Assurances = () => {
           <AnimatePresence initial={false} mode="wait">
             {hoveredCard === 3 ? (
               <motion.g
-                id="Card 2"
-                key="card2"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                // // exit={{   opacity: 0 }}
-                transition={{ duration: 0.6 }}
-                style={{
-                  transformStyle: "preserve-3d",
-                  backfaceVisibility: "hidden",
-                }}
-              >
+              id="Card 2"
+              key="card2"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.6 }}
+              style={{
+                willChange: 'opacity' // Hint to browser for optimization
+              }}
+            >
                 <path
                   id="Our"
                   d="M691.886 1323.9C691.124 1323.9 690.44 1323.78 689.836 1323.54C689.243 1323.29 688.735 1322.94 688.311 1322.49C687.898 1322.02 687.58 1321.46 687.358 1320.79C687.146 1320.12 687.04 1319.36 687.04 1318.5C687.04 1317.26 687.252 1316.24 687.675 1315.43C688.099 1314.62 688.677 1314.01 689.407 1313.61C690.149 1313.2 690.991 1313 691.934 1313C692.665 1313 693.327 1313.12 693.92 1313.37C694.513 1313.6 695.022 1313.95 695.446 1314.42C695.869 1314.87 696.192 1315.44 696.415 1316.13C696.648 1316.81 696.765 1317.59 696.765 1318.47C696.765 1319.35 696.648 1320.13 696.415 1320.8C696.192 1321.47 695.869 1322.04 695.446 1322.5C695.022 1322.96 694.508 1323.31 693.904 1323.55C693.311 1323.79 692.638 1323.9 691.886 1323.9ZM691.918 1322.28C692.522 1322.28 693.03 1322.14 693.444 1321.85C693.857 1321.56 694.169 1321.13 694.381 1320.58C694.593 1320.03 694.699 1319.36 694.699 1318.56C694.699 1317.74 694.588 1317.04 694.365 1316.47C694.153 1315.88 693.835 1315.44 693.412 1315.15C692.988 1314.84 692.48 1314.69 691.886 1314.69C691.304 1314.69 690.8 1314.84 690.377 1315.13C689.964 1315.42 689.646 1315.85 689.423 1316.42C689.201 1316.98 689.09 1317.67 689.09 1318.48C689.09 1319.1 689.153 1319.64 689.28 1320.12C689.407 1320.59 689.588 1320.98 689.821 1321.3C690.064 1321.61 690.361 1321.86 690.71 1322.03C691.071 1322.2 691.473 1322.28 691.918 1322.28ZM701.48 1323.9C700.526 1323.9 699.806 1323.58 699.319 1322.93C698.842 1322.28 698.604 1321.29 698.604 1319.96V1315.39H700.622V1319.74C700.622 1320.58 700.749 1321.2 701.003 1321.61C701.257 1322.02 701.649 1322.22 702.179 1322.22C702.486 1322.22 702.756 1322.14 702.989 1322C703.222 1321.85 703.424 1321.64 703.593 1321.36C703.773 1321.07 703.911 1320.75 704.006 1320.38C704.102 1319.99 704.16 1319.58 704.181 1319.14V1315.39H706.183V1320.26V1323.7H704.515L704.563 1321.06H704.277C704.139 1321.73 703.948 1322.27 703.704 1322.7C703.461 1323.11 703.154 1323.42 702.783 1323.62C702.423 1323.81 701.988 1323.9 701.48 1323.9ZM708.414 1323.7V1319.52V1315.39H710.114L710.066 1318.26H710.352C710.448 1317.57 710.596 1317.01 710.797 1316.56C710.999 1316.11 711.279 1315.77 711.64 1315.54C712 1315.31 712.445 1315.2 712.974 1315.2C713.07 1315.2 713.176 1315.2 713.292 1315.21C713.419 1315.22 713.562 1315.25 713.721 1315.29L713.642 1317.42C713.472 1317.35 713.297 1317.3 713.117 1317.28C712.937 1317.25 712.778 1317.23 712.641 1317.23C712.227 1317.23 711.867 1317.34 711.56 1317.55C711.263 1317.76 711.02 1318.06 710.829 1318.45C710.649 1318.84 710.517 1319.31 710.432 1319.84V1323.7H708.414Z"
@@ -131,8 +129,7 @@ const Assurances = () => {
                 // // exit={{   opacity: 0 }}
                 transition={{ duration: 0.6 }}
                 style={{
-                  transformStyle: "preserve-3d",
-                  backfaceVisibility: "hidden",
+                  willChange: 'opacity' // Hint to browser for optimization
                 }}
               >
                 <path
@@ -233,8 +230,7 @@ const Assurances = () => {
                 // exit={{   opacity: 0 }}
                 transition={{ duration: 0.6 }}
                 style={{
-                  transformStyle: "preserve-3d",
-                  backfaceVisibility: "hidden",
+                  willChange: 'opacity' // Hint to browser for optimization
                 }}
               >
                 <path
@@ -269,8 +265,7 @@ const Assurances = () => {
                 // // exit={{   opacity: 0 }}
                 transition={{ duration: 0.6 }}
                 style={{
-                  transformStyle: "preserve-3d",
-                  backfaceVisibility: "hidden",
+                  willChange: 'opacity' // Hint to browser for optimization
                 }}
               >
                 <path
@@ -370,8 +365,7 @@ const Assurances = () => {
                 //  exit={{   opacity: 0 }}
                 transition={{ duration: 0.6 }}
                 style={{
-                  transformStyle: "preserve-3d",
-                  backfaceVisibility: "hidden",
+                  willChange: 'opacity' // Hint to browser for optimization
                 }}
               >
                 <path
@@ -413,8 +407,7 @@ const Assurances = () => {
                 // // exit={{   opacity: 0 }}
                 transition={{ duration: 0.6 }}
                 style={{
-                  transformStyle: "preserve-3d",
-                  backfaceVisibility: "hidden",
+                  willChange: 'opacity' // Hint to browser for optimization
                 }}
               >
                 <path
@@ -514,8 +507,7 @@ const Assurances = () => {
                 // // exit={{   opacity: 0 }}
                 transition={{ duration: 0.6 }}
                 style={{
-                  transformStyle: "preserve-3d",
-                  backfaceVisibility: "hidden",
+                  willChange: 'opacity' // Hint to browser for optimization
                 }}
               >
                 <path
@@ -567,8 +559,7 @@ const Assurances = () => {
                 // // exit={{   opacity: 0 }}
                 transition={{ duration: 0.6 }}
                 style={{
-                  transformStyle: "preserve-3d",
-                  backfaceVisibility: "hidden",
+                  willChange: 'opacity' // Hint to browser for optimization
                 }}
               >
                 <path

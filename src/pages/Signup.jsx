@@ -6,7 +6,7 @@ import Footer from "../components/Footer";
 import pitCrewTag from "../assets/images/PitCrew_Tag.svg";
 import Rocket from "../components/SVGs/Rocket";
 import { Link, useNavigate } from "react-router-dom";
-import { debounce } from 'lodash';
+import debounce from 'lodash/debounce';
 import ScrollToTop from '../components/ScrollToTop';
 import { useLocation } from 'react-router-dom';
 import LocationSelector from '../components/locationSelector';
