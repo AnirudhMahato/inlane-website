@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { useState ,Suspense} from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 
-import BeginnerCourse from "./Courses_Home_Mobile/Beginners";
-import CityDrivingCourse from "./Courses_Home_Mobile/City_Driving";
-import ParkingCourse from "./Courses_Home_Mobile/Parking";
-import HighwayDrivingCourse from "./Courses_Home_Mobile/Highway_Driving";
+const BeginnerCourse = React.lazy(() => import("./Courses_Home_Mobile/Beginners"));
+const CityDrivingCourse = React.lazy(() => import("./Courses_Home_Mobile/City_Driving"));
+const ParkingCourse = React.lazy(() => import("./Courses_Home_Mobile/Parking"));
+const HighwayDrivingCourse = React.lazy(() => import("./Courses_Home_Mobile/Highway_Driving"));
 
 const CourseWheel_Sm = () => {
     const [currentStep, setCurrentStep] = useState("");
@@ -5056,34 +5056,37 @@ const CourseWheel_Sm = () => {
                 </svg>
             ) : null}
 
-            {currentStep === "Beginners" && (
-                <BeginnerCourse
-                    onLeft={handleLeftArrowClick}
-                    onRight={handleRightArrowClick}
-                    onSubmit={handleSubmit}
-                />
-            )}
-            {currentStep === "City_driving" && (
-                <CityDrivingCourse
-                    onLeft={handleLeftArrowClick}
-                    onRight={handleRightArrowClick}
-                    onSubmit={handleSubmit}
-                />
-            )}
-            {currentStep === "Parking" && (
-                <ParkingCourse
-                    onLeft={handleLeftArrowClick}
-                    onRight={handleRightArrowClick}
-                    onSubmit={handleSubmit}
-                />
-            )}
-            {currentStep === "Highway_Driving" && (
-                <HighwayDrivingCourse
-                    onLeft={handleLeftArrowClick}
-                    onRight={handleRightArrowClick}
-                    onSubmit={handleSubmit}
-                />
-            )}
+<Suspense fallback={<div>Loading...</div>}>
+    {currentStep === "Beginners" && (
+        <BeginnerCourse
+            onLeft={handleLeftArrowClick}
+            onRight={handleRightArrowClick}
+            onSubmit={handleSubmit}
+        />
+    )}
+    {currentStep === "City_driving" && (
+        <CityDrivingCourse
+            onLeft={handleLeftArrowClick}
+            onRight={handleRightArrowClick}
+            onSubmit={handleSubmit}
+        />
+    )}
+    {currentStep === "Parking" && (
+        <ParkingCourse
+            onLeft={handleLeftArrowClick}
+            onRight={handleRightArrowClick}
+            onSubmit={handleSubmit}
+        />
+    )}
+    {currentStep === "Highway_Driving" && (
+        <HighwayDrivingCourse
+            onLeft={handleLeftArrowClick}
+            onRight={handleRightArrowClick}
+            onSubmit={handleSubmit}
+        />
+    )}
+</Suspense>
+
         </>
     );
 };
